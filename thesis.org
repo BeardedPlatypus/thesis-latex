@@ -1,0 +1,26 @@
+Beschrijving TODO van thesis
+
+* TODO Thesis
+** TODO Abstract
+** TODO Inleiding
+*** TODO Probleem schets
+*** TODO Moderne graphics pipeline
+*** TODO Literatuur
+** TODO Theorie
+*** TODO Theorie Eigen implementatie
+** TODO Methode
+*** TODO Evaluatie Methodes
+*** TODO Beschrijving test suite
+** TODO Implementatie
+*** TODO Ntiled beschrijving
+*** TODO Extra programma (?)
+** TODO Resultaten
+*** TODO tiled shading
+*** TODO clustered shading
+*** TODO eigen implementatie
+** TODO Discussie / Interpretatie
+*** TODO vergelijking tiled shading / clustered shading
+*** TODO vergelijking met literatuur
+*** TODO vergelijking eigen methode tiled shading / clustered shading
+** TODO Conclusie
+** TODO Appendix
