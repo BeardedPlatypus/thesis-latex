@@ -1,0 +1,61 @@
+\documentclass[master=cws, masteroption=mmc]{kulemt}
+
+% Setup KULemt
+% ----------------------------------------------------------
+% front matter
+\setup{
+  title = {realtime renderen van vele lichtbronnen},
+  author = { Martinus Wilhelmus Tegelaers },
+  promotor = { Prof.\,dr\.\,ir.\ P. Dutre },
+  assessor = { T. Do},
+  assistant = { T.O. Do },
+}
+
+\setup{filingcard,
+  translatedtitle={Realtime rendering of many light sources},
+  udc=621.3,
+  shortabstract={}
+}
+
+  
+% ----------------------------------------------------------
+% fonts
+% TODO: Change fonts into Minion and Myriad
+% \setup{font}
+
+% Custom Libraries
+% ----------------------------------------------------------
+
+% Document
+% ----------------------------------------------------------
+\begin{document}
+
+  % Front Matter
+  % ------------
+  \input{./content/preface.tex}
+  \tableofcontents*
+  \input{./content/abstract.tex}
+
+  \listoffiguresandtables
+
+  % Acronyms
+
+  % Main Matter
+  % -----------
+  \mainmatter
+
+  \include{./content/inleiding}
+  \include{./content/theorie}
+  \include{./content/methode}
+  \include{./content/implementatie}
+  \include{./content/resultaten}
+  \include{./content/discussie}
+  \include{./content/conclusie}
+
+  % Back Matter
+  % -----------
+  \backmatter
+
+  % bibliography
+
+\end{document}
