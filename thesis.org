@@ -3,9 +3,19 @@ Beschrijving TODO van thesis
 * TODO Thesis
 ** TODO Abstract
 ** TODO Inleiding
-*** TODO Probleem schets
+*** TODO Algemene inleiding (korte probleem schets)
 *** TODO Moderne graphics pipeline
-*** TODO Literatuur
+**** TODO tekst
+**** DRAFT Figuur moderne graphics pipeline
+*** DRAFT Definitie point light
+**** DRAFT tekst puntlicht
+**** TODO Figuur punt licht voorstelling
+**** TODO Figuur distance attenuation
+*** TODO Probleem schets
+**** TODO wat is het probleem -> berekening licht
+**** TODO hoe valt het onder te verdelen, verschillende lichten
+*** TODO Literatuur / Theorie
+**** TODO 
 ** TODO Theorie
 *** TODO Theorie Eigen implementatie
 ** TODO Methode
