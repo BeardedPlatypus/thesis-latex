@@ -1,29 +1,110 @@
-Beschrijving TODO van thesis
-
+Thesis worksheet
 * TODO Thesis
 ** TODO Abstract
+[[file:src/thesis/content/abstract.md][abstract.md]]
 ** TODO Inleiding
-*** TODO Algemene inleiding (korte probleem schets)
-*** TODO Moderne graphics pipeline
-**** TODO tekst
-**** DRAFT Figuur moderne graphics pipeline
-*** DRAFT Definitie point light
-**** DRAFT tekst puntlicht
-**** TODO Figuur punt licht voorstelling
-**** TODO Figuur distance attenuation
-*** TODO Probleem schets
+*** TODO Algemene inleiding 
+[[file:src/thesis/content/inleiding/algemene_inleiding.md][algemene_inleiding.md]]
+Korte inleiding die thesis introduceert.
+**** TODO Korte inleiding plaatsing van probleem
+**** TODO referentie naar industrie
+*** TODO Probleem stelling 
+[[file:src/thesis/content/inleiding/probleemstelling.md][probleemstelling.md]]
 **** TODO wat is het probleem -> berekening licht
 **** TODO hoe valt het onder te verdelen, verschillende lichten
-*** TODO Literatuur / Theorie
-**** TODO 
+*** TODO organisatie van de thesis
+[[file:src/thesis/content/inleiding/organisatie.md][organisatie.md]]
+
+
 ** TODO Theorie
+*** Conceptueel 
+**** DRAFT Intro
+[[file:src/thesis/content/theorie/intro_theorie.md][intro_theorie.md]]
+Rendering valt onder in grofweg twee problemen, wat zie je en
+hoe zie je het. Het eerste probleem wordt het visibiliteitsprobleem
+genoemd. Het tweede draait om het shaden van objecten.
+
+***** Schrijf een uitgebreidere introductie over renderen.
+****** Wat is renderen, waar komt probleem vandaan etc, process
+***** Verzamel wat referenties naar visibileits probleem papers.
+**** DRAFT fysische werkelijkheid
+[[file:src/thesis/content/theorie/werkelijkheid.md][werkelijkheid.md]]
+Werkelijkheid beschrijft een korte introductie van de werkelijkheid
+en hoe deze invloed hebben op de implementatie van computergraphics problemen
+
+***** TODO add description different quantities of light
+
+**** TODO Definities - Notaties
+***** DRAFT intro
+[[file:src/thesis/content/theorie/definities_intro.md][definities_intro.md]]
+***** TODO wiskundig
+[[file:src/thesis/content/theorie/wiskundige_notatie.md][wiskundige_notatie.md]]
+****** Objects
+****** Operators
+****** homogene coordinaten
+***** TODO afbeelding
+***** DRAFT geometrisch
+[[file:src/thesis/content/theorie/geometrisch.md][geometrisch.md]]
+****** Primitieven
+****** Meshes
+****** Objecten
+
+***** DRAFT Camera Model
+[[file:src/thesis/content/theorie/camera_model.md][camera_model.md]]
+***** TODO coordinaten
+[[file:src/thesis/content/theorie/coordinaten.md][coordinaten.md]]
+**** DRAFT visibiliteits probleem
+[[file:src/thesis/content/theorie/visibiliteits_probleem.md][visibileits_probleem.md]]
+
+Definitie perspective projectie
+Definitie visibileits probleem
+***** Illustraties
+****** Perspectief projectie + resultaat
+****** projectie enkel punt
+**** DRAFT Rasterisation | Raytracing
+[[file:src/thesis/content/theorie/raytracing.md][raytracing.md]]
+[[file:src/thesis/content/theorie/rasterisation.md][rasterisation.md]]
+***** Visibility / hidden surface probleem
+***** Korte beschrijving raytracing vs Rasterisatie als oplossing 
+verschil in focus, pixel first, or object first. Groffe voordelen
+nadelen, en waarom het gebruik wordt op die manier
+***** In depth beschrijving rasterisation
+Illustraties hoe dit werkt.
+**** TODO Shading
+[[file:src/thesis/content/theorie/shading.md][shading.md]]
+Shading formula, toegepast benadering in verband met real time.
+Waar het voordeel van lichten uitkomt
+**** DRAFT Definitie punt licht
+[[file:src/thesis/content/theorie/punt_licht.md][punt_licht.md]]
+korte beschrijving hoe lichten opgebouwd zijn binnen deze thesis.
+***** TODO Figuur punt licht voorstelling
+***** TODO Figuur distance attenuation
+*** Hardware niveau
+**** TODO Real Time pipeline
+[[file:src/thesis/content/theorie/modern-graphics-pipeline.md][modern-graphics-pipeline.md]]
+***** functionele onderverdeling
+***** fysieke onderverdeling 
+***** Beschrijving aan de hand van openGL
+** TODO Literatuur Studie
+*** TODO Forward en Deferred Shading
+**** GBuffer
+**** Uses in industry
+*** TODO Tiled Shading
+*** TODO Clustered Shading
+**** Extra extensies?
+*** TODO Datastructuren voor graphics card
+**** Octrees
+**** KD trees
+** TODO Algoritmes 
+*** TODO Algoritme beschrijving Tiled Shading
+*** TODO Algoritme beschrijving Clustered Shading
 *** TODO Theorie Eigen implementatie
+** TODO Implementatie
+*** TODO Ntiled beschrijving
+Benadruk werk van eigen implementatie.
 ** TODO Methode
 *** TODO Evaluatie Methodes
 *** TODO Beschrijving test suite
-** TODO Implementatie
-*** TODO Ntiled beschrijving
-*** TODO Extra programma (?)
 ** TODO Resultaten
 *** TODO tiled shading
 *** TODO clustered shading
@@ -34,3 +115,22 @@ Beschrijving TODO van thesis
 *** TODO vergelijking eigen methode tiled shading / clustered shading
 ** TODO Conclusie
 ** TODO Appendix
+
+* Rode Draad
+Rode draad van de thesis:
+** Algemene inleiding
+Beschrijft probleem schets, positie binnen het veld van onderzoek
+Wat gepoogd is te bereiken binnen deze thesis.
+Vergelijkingen van verschillende technieken. 
+Korte beschrijving van eigen techniek, waar het op verder bouwt. 
+** Literatuur Studie
+Begint bij een beschrijving van de rasterisation pipeline, 
+Basis hiervoor zou real time shading boek, en openGL wiki / directX 
+wiki moeten zijn. 
+Vervolgens deferred en forward shading
+Dan hier op verder bouwen Tiled Shading
+Clustered Shading
+Als 
+
+* TODO Misc.
+** TODO referentie database opbouwen en bijhouden
