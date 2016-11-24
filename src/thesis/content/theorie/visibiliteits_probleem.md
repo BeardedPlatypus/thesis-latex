@@ -1,49 +1,38 @@
 # Perspectief projectie en het visibileitsprobleem
 
-Het doel van computer graphics is, veelal, het creeeren van geloofwaardige 
-beelden, op basis van drie dimensionale scenes. Geloofwaardigheid is afhankelijk
-van de perceptie van mensen. De verwachting die mensen hebben hoe een wereld 
-afgebeeld moet zijn, wordt bepaald door de manier hoe het menselijk oog 
-de drie dimensionale omgeving waarneemt. Het process van het genereren van twee
-dimensionale beelden uit drie dimensionale scenes dient dan dus ook de 
-optische effecten te simuleren die het effect zijn van de fysische wetten binnen
-het oog. In het geval van de vraag, wat is zichtbaar, dient zowel perspectief
-als diepte geadresseerd te worden. Deze zullen behandeld worden in de volgende
-twee subsecties.  
+In de sectie ... zijn de twee problemen vastgesteld die opgelost dienen te 
+worden om geloofwaardige afbeeldingen te generen. In deze sectie zal de eerste 
+geadresseerd worden, wat is zichtbaar binnen een scene vanuit het huidige 
+gezichtspunt. Om te bepalen wat zichtbaar is dient zowel het perspectief 
+gesimuleerd te worden, als bepaald te worden welk van de objecten in 
+perspectief als eerste zichtbaar is.  
 
 ## Perspectief projectie
 
-Het menselijk oog interpreteert de drie dimensionale wereld door stralen van licht 
-te focussen op een enkel punt, doormiddel van een lens. Dit heeft als gevolg dat 
-mensen de wereld in perspectief waarnemen. Dit heeft twee belangrijke kenmerken
-tot gevolg.  
+\input{./img/tex/vp-perspectief.tex}
+
+Zoals eerder besproken zijn de twee eigenschappen van perspectief:
 
 * Objecten worden als kleiner waargenomen naarmate ze verder van de waarnemer af
   staan.  
 * Objecten worden waargenomen met Foreshortening, i.e. de dimensies van een 
   object parallel aan het gezichtsveld, worden als kleiner waargenomen dan 
   dimensies van hetzelfde object loodrecht aan het gezichtsveld.  
-  
-Dit effect kan gesimuleerd worden door de 3d scene af te beelden in een enkel 
-oogpunt. Zoals weergegeven in figuur ...  
 
----
-# Voeg plaatje perspectief projectie toe
----
+Deze effecten kunnen gesimuleerd worden door de 3d scene te projecteren naar het
+oogpunt en af te beelden op het canvas. Zoals weergegeven in figuur 
+\ref{fig:vp-perspectief}.  
 
 Zoals eerder beschreven bestaan de objecten binnen de scenes uit meshes van 
-primitieven. Binnen de scenes beschreven in deze thesis, zullen deze primitieven
-voornamelijk driehoeken zijn. Omdat elk van deze driehoeken gedefinieeerd kan 
-worden door zijn 3 vertices, is het niet nodig om elke driehoek af te beelden
-op de canvas, en is het genoeg om slechts deze drie vertices te projecteren.  
+primitieven. Omdat elk van deze driehoeken gedefinieeerd kan worden door zijn 
+drie vertices, is het niet nodig om elke mogelijk punt binnen de driehoek af te 
+beelden op de canvas, maar is het genoeg om slechts deze drie vertices te
+projecteren.  
 
+\input{./img/tex/vp-projectie-punt.tex}
 
----
-# Voeg plaatje toe, projectie enkel punt
----
-
-In figuur ... is de projectie $\mathbf{p'}$ van een enkel punt $\mathbf{p}$ op
-een enkele dimensie van de canvas weergegeven. 
+In figuur \ref{fig:vp-projectie-punt} is de projectie $\mathbf{p'}$ van een 
+enkel punt $\mathbf{p}$ op een enkele dimensie van de canvas weergegeven. 
 De hoek $\angle \mathbf{a}\mathbf{b}\mathbf{c}$
 Hier is te zien dat de hoek tussen C en AB'C' gelijk is. Dit betekent 
 dat we het punt C' kunnen bereken doordat de verhouding geldt  
@@ -73,13 +62,15 @@ uit te voeren. Raytracing neemt de perspectief projectie impliciet mee.
 
 ## Visibiliteitsprobleem
 
+\input{./img/tex/vp-visibiliteit.tex}
+
 Er is nu vastgesteld hoe objecten in perspectief afgebeeld op de canvas kunnen 
 worden. Echter, hiermee is nog niet volledig vastgesteld wat daadwerkelijk 
-zichtbaar gaat zijn op het canvas, zodanig dat een geloofwaardige afbeelding
-wordt gecreeerd. Hiervoor is het tevens nodig om te bepalen welke delen van
-objecten zichtbaar zijn, en welke verborgen zijn achter andere objecten. 
-Dit probleem wordt onder andere het visibiliteitsprobleem genoemd, en was een 
-van de eerstegrote problemen binnen computer graphics.  
+zichtbaar gaat zijn op het canvas, zoals weergegeven in figuur 
+\ref{fig:vp-visibiliteit}. Hiervoor is het tevens nodig om te bepalen
+welke delen van objecten zichtbaar zijn, en welke verborgen zijn achter andere 
+objecten. Dit probleem wordt onder andere het visibiliteitsprobleem genoemd, 
+en was een van de eerstegrote problemen binnen computer graphics.  
 
 De oplossing voor dit probleem is de realisatie dat het visibiliteitsprobleem
 intrinsiek een sorteerprobleem is. Stel er bestaat een minimale oppervlakte 
@@ -107,8 +98,4 @@ alle mogelijke $\mathbf{p}$ die geprojecteerd worden op $\mathbf{p}$.
 Vervolgens wordt bepaald welke $\mathbf{p'}$ daadwerkelijk zichtbaar is.  
 
 In de volgende secties zal er kort ingegaan worden op beide technieken.
-
-
-
-
 

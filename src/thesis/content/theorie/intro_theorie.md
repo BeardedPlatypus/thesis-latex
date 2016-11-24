@@ -1,29 +1,14 @@
-Grofweg kan het process van het renderen van 3d scenes ingedeeld worden in twee
- problemen:  
-
-* Wat is zichtbaar binnen een scene vanuit het huidige viewpoint.
-* Hoe ziet datgene wat zichtbaar is er uit binnen onze afbeelding.
-
-Wat afgebeeld wordt op een afbeelding, hangt af van twee aspecten, hoe wordt de 
-3d scene op het 2d beeld geprojecteerd. En wat van elk object dat geprojecteerd 
-kan worden is daadwerkelijk zichtbaar op de uiteindelijk afbeelding. Het eerste
-wordt perspectief projectie genoemd. Het tweede probleem wordt het 
-visibiliteitsprobleem probleem genoemd.  
-
-Hoe hetgene wat afgebeeld wordt, er uiteindelijk uit ziet binnen onze 
-afbeelding, wordt in de tweede stap bepaald. Deze stap wordt shading genoemd, 
-en alle berekeningen gerelateerd aan kleur, absorptie, weerspiegeling etc, 
-vallen hier onder.  
-
-In de volgende secties zal kort ingegaan worden op zowel het 
-visibiliteitsprobleem als shading, en hoe deze opgelost kunnen worden. Dit zal 
-de basis vormen voor de plaatsing van het onderzoek in deze thesis binnen het 
-complete veld van computer graphics.  
-
-Eerst zal perspectief projectie en het visibileitsprobleem worden behandeld. 
-Hierbij zal kort ingegaan worden op zowel raytracing als rasterisatie als 
-algoritmes die het visibileitsprobleem oplossen. Vervolgens zal shading 
-conceptueel behandeld worden. Als laatste zal gekeken naar de moderne graphische
-pijplijn. Hier wordt beschreven worden hoe in huidige hardware zowel het 
-visibileitesprobleem als shading wordt opgelost.
+Zoals besproken in de inleiding draait de thesis om het renderen van drie
+dimensionale scenes in real-time. Het doel is hierbij veelal om geloofwaardige
+afbeeldingen te creeeren uit een bepaalde drie dimensionale scene beschrijving.
+In veel gevallen betekent dit dat de scene fotorealistisch dient afgebeeld te
+worden, echter andere stylistische keuzes zijn tevens gebruikelijk. In alle
+gevallen echter is het concept van geloofwaardigheid in grote mate afhankelijk
+van de manier hoe mensen de wereld om zich heen waarnemen. Voordat dan ook
+verder ingegaan wordt op de algoritmes om dergelijke afbeelding te produceren,
+zal eerst ingegaan worden op deze perceptie. Nadat vastgesteld is wat bereikt
+dient te worden met renderen, zal ingegaan worden op hoe dit mathematisch voor
+te stellen, en welke algoritmes gebruikt worden om deze problemen op te lossen.
+Als laatste zal besproken worden hoe dit binnen huidige generatie videokaarten
+op hardware niveau geimplementeerd is.  
 

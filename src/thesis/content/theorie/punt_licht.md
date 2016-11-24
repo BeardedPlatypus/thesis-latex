@@ -1,11 +1,4 @@
-# Definitie van licht
-
----
-# Leiddraad
-# - Definitie Licht
-# - Beperking tot lichten met een eindige invloed (plaatje)
-# - Conclusie / eigenschappen
----
+## Definitie van licht
 
 Zoals eerder benoemd, draait de kern van deze thesis om het optimaliseren van
 het aantal lichtberekeningen in real-time toepassingen. Om deze reden is het 
@@ -26,25 +19,31 @@ $$ T = e^{-\mu\mathit{l}} $$
 waar $\mathit{l}$ de padlengte van de straal licht door het medium is en $\mu$ 
 de dempingscoefficient is.
 
+\input{./img/tex/pl-distance-attenuation.tex}
+
 Hierbij wordt de demping van het licht gerelateerd aan het medium waardor het 
 zich beweegt. Dit leidt tot afstandsdempings (distance attenuation) curves zoals 
-weergegeven in figuur ...  
+weergegeven in figuur \ref{fig:pl-distance-attenuation}.  
 
 Binnen veel real-time rendering toepassingen wordt afgestapt van dit fysische 
 model. Er wordt gebruikt gemaakt van een eindige benaderingen van deze 
 lichtbronnen. Waarbij wordt gesteld dat het licht geen invloed meer heeft na
 afstand r. 
 
-Dit leidt tot een voorstelling als weergegeven in figuur ...  
+\input{./img/tex/pl-licht.tex}
+
+Dit leidt tot een voorstelling als weergegeven in figuur \ref{fig:pl-licht}.  
 Hierbij is de invloed in de oorsprong gelijk aan $1$, en op afstand r en groter
 0. 
+
+\input{./img/tex/pl-distance-attenuation-rt.tex}
 
 Echter om de illusie te wekken dat de lichten fysiek accuraat zijn, dient tevens
 een benadering gemaakt te worden van de afstandsdempings functies. 
 Deze functies dienen te voldoen aan de eerder gestelde voorwaarde, waarbij 
 de invloed een is in de oorsprong, en nul op afstand r.
 Enkele veel gebruikte benaderingen als wel de daadwerkelijke afstandsdemping 
-zijn gegeven in figuur ...
+zijn gegeven in figuur \ref{fig:pl-distance-attenuation-rt} 
 
 Binnen de thesis zelf is gekozen voor de benadering:
 

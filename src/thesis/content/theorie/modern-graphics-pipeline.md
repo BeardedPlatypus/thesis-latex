@@ -10,10 +10,6 @@ Huidige pipelines kunnen gebruik maken van verschillende `APIs` om deze
 programmeerbare pipeline aan te spreken. De twee meest gebruikte industrie 
 standaarden zijn `openGL` en `Direct3D`. 
 
----
-# Voeg hier informatie toe overeenkomsten `openGL` en `Direct3D`?
----
-
 In deze sectie zal ingegaan worden op de verschillende aspecten van de 
 moderne grafische pipeline. Eerst zal conceptueel ingegaan worden op de 
 conceptuele stappen van de pipeline. Daarna zal gekeken worden naar hoe deze
