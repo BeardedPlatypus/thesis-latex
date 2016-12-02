@@ -1,7 +1,8 @@
 { "chapters": [ "inleiding",
                 "theorie",
-                "methode",
+                "literatuur-studie",
                 "implementatie",
+                "methode",
                 "resultaten",
                 "discussie",
                 "conclusie"

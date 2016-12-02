@@ -37,8 +37,12 @@ door middel van licht. Dit betekent dat bij afwezigheid van licht, het niet
 mogelijk is om iets waar te nemen. Verder betekent dat ook dat het gedrag van
 licht een grote invloed heeft op de manier hoe de wereld wordt waargenomen.  
 
-Licht is een electromagnetische straling. Hierdoor zal licht  onder normale 
-omstandigheden zich altijd in een rechte lijn voortplanten zolang het binnen 
+\input{./tbl/fw-eenheden.tex}
+
+Licht is electromagnetische straling. Voor Computer Graphics is met name de
+optica van belang. Hierin wordt licht, en de interactie tussen licht en materie
+bestudeerd. Deze wetten vormen veelal de basis om licht te simuleren. Licht zal
+onder normale omstandingheden, zich altijd in een rechte lijn zolang het binnen
 hetzelfde medium blijft. Indien het licht in contact komt met een nieuw medium
 zijn er verschillende fenomen die kunnen gebeuren:
 
@@ -71,13 +75,36 @@ Deze fenomenen zijn verder geillustreerd in figuur \ref{fig:fw-licht}. Ze zijn
 niet exclusief aan elkaar. Een medium kan dus bijvoorbeeld een gedeelte van het
 licht absorberen en een ander gedeelte reflecteren.  
 
-Zoals eerder vermeldt, neemt het oog de wereld waar door licht op te vangen.
+Zoals eerder vermeld, neemt het oog de wereld waar door licht op te vangen.
 Het merendeel van het licht dat opgevangen wordt is gereflecteerd via een of 
 meerdere oppervlaktes. Een belangrijke constatering is dat objecten slechts 
 zichtbaar zijn als er binnen het medium geen (onderzichtige) andere media liggen 
 tussen het object en de lens. Dit is een triviale constatering in de fysische
 werkelijkheid echter dit zal niet triviale consequenties hebben binnen de 
 computer graphics zoals later zal worden beschreven.
+
+Om de interactie van licht te simuleren is het van belang dat licht meetbaar is.
+Er zijn hiervoor twee sets van eenheden, radiometrie en fotometrie. Binnen 
+radiometrie wordt slechts de lichtkracht over alle golflengte gemeten. Bij 
+fotometrie wordt deze kracht gewogen, aan de hand van het gestandardiseerde
+model voor de perceptie van helderheid. Fotometrie is van belang voor computer 
+graphics, omdat het inzicht geeft in de perceptie van de mens. Echter binnen 
+deze thesis zal slechts kort ingegaan worden op radiometrie.  
+
+De belangrijkste termen van Radiometrie zijn opgesteld in tabel 
+\ref{tbl:fw-eenheden}. Binnen computer graphics is de belangrijkste eenheid 
+radiantie. Dit is de  flux per eenheid geprojecteerde opperlakte per eenheid 
+ruimtehoek. Radiantie meet de flux op een willekeurig punt in de ruimte, komende
+van een specifieke hoek en gemeten over een oppervlakte eenheid op een 
+denkbeeldige oppervlakte loodrecht op de hoek. Radiantie heeft de volgende 
+eigenschappen die van belang zullen zijn indien deze berekend dient te worden 
+gedurende de simulatie van licht:
+
+* Radiantie is constant binnen een straal die zich voortplant door vacuum. 
+  Tevens is het gelijk in beide richtingen die een straal zich voort kan planten
+* Indien het punt van meting op een oppervlakte wordt genomen, maakt het niet 
+  uit of de flux binnenkomt, of uitgaand is. Het maakt zelfs niet uit of de 
+  flux geabsorbeerd, gereflecteerd, of doorgelaten wordt door het materiaal.
 
 ## Kleur
 
