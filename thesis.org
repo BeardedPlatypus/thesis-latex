@@ -12,11 +12,11 @@ Korte inleiding die thesis introduceert.
 [[file:src/thesis/content/inleiding/probleemstelling.md][probleemstelling.md]]
 **** TODO wat is het probleem -> berekening licht
 **** TODO hoe valt het onder te verdelen, verschillende lichten
+*** TODO Motivatie
 *** TODO organisatie van de thesis
 [[file:src/thesis/content/inleiding/organisatie.md][organisatie.md]]
 
-
-** TODO Theorie
+** DRAFT-1 Theorie
 *** Conceptueel 
 **** DRAFT Intro
 [[file:src/thesis/content/theorie/intro_theorie.md][intro_theorie.md]]
@@ -33,6 +33,7 @@ Werkelijkheid beschrijft een korte introductie van de werkelijkheid
 en hoe deze invloed hebben op de implementatie van computergraphics problemen
 
 ***** TODO add description different quantities of light
+***** TODO add more description of light and related physica
 
 **** TODO Definities - Notaties
 ***** DRAFT intro
@@ -70,7 +71,7 @@ verschil in focus, pixel first, or object first. Groffe voordelen
 nadelen, en waarom het gebruik wordt op die manier
 ***** In depth beschrijving rasterisation
 Illustraties hoe dit werkt.
-**** TODO Shading
+**** DRAFT Shading
 [[file:src/thesis/content/theorie/shading.md][shading.md]]
 Shading formula, toegepast benadering in verband met real time.
 Waar het voordeel van lichten uitkomt
@@ -80,25 +81,60 @@ korte beschrijving hoe lichten opgebouwd zijn binnen deze thesis.
 ***** TODO Figuur punt licht voorstelling
 ***** TODO Figuur distance attenuation
 *** Hardware niveau
-**** TODO Real Time pipeline
+**** DRAFT Real Time pipeline
 [[file:src/thesis/content/theorie/modern-graphics-pipeline.md][modern-graphics-pipeline.md]]
 ***** functionele onderverdeling
 ***** fysieke onderverdeling 
 ***** Beschrijving aan de hand van openGL
+***** moet hier dieper ingegaan worden op uniforms etc?
+*** Conclusie
+**** DRAFT Further reading
+[[file:src/thesis/content/theorie/verdere-informatie.md][verdere-informatie.md]]
 ** TODO Literatuur Studie
+*** TODO Intro
+[[file:src/thesis/content/literatuur-studie/inleiding.md][inleiding.md]]
 *** TODO Forward en Deferred Shading
-**** GBuffer
-**** Uses in industry
+[[file:src/thesis/content/literatuur-studie/forward-and-deferred-shading.md][forward-and-deferred-shading.md]]
+**** Uitleg forward | Deferred | Forward+ inleiding
+**** GBuffer concept
+**** Deferred in detail
+**** Forward+ in detail
+**** Uses in industry / references
 *** TODO Tiled Shading
+[[file:src/thesis/content/literatuur-studie/tiled-shading.md][tiled-shading.md]]
+**** Motivatie
+**** Algoritme
+**** Resultaten?
+
+**** Notes
+***** Voeg beschrijving geschiedenis toe?
+***** Voeg beschrijving depth optimisation toe
+***** licht projectie
 *** TODO Clustered Shading
+[[file:src/thesis/content/literatuur-studie/clustered-shading.md][clustered-shading.md]]
+**** Motivatie
+**** Algoritme
 **** Extra extensies?
+
+**** Notes
+***** page table beschrijving toevoegen
+***** Referenties toevoegen
+****** sorteren
+****** page tables
 *** TODO Datastructuren voor graphics card
+[[file:src/thesis/content/literatuur-studie/datastructuren-gpu.md][datastructuren-gpu.md]]
+**** Spatial datastructures
+***** Octree
+***** KD trees
 **** Octrees
-**** KD trees
+***** extre informatie + basis uitleg + illustraties
+**** Octrees on the gpu
+***** Toon verschillende algoritmes
 ** TODO Algoritmes 
-*** TODO Algoritme beschrijving Tiled Shading
+*** TODO Algoritme beschrijving Tiled Shading binnen nTiled
 *** TODO Algoritme beschrijving Clustered Shading
 *** TODO Theorie Eigen implementatie
+[[file:src/thesis/content/algoritmes/hierarchical-shading.md][hierarchical-shading.md]]
 ** TODO Implementatie
 *** TODO Ntiled beschrijving
 Benadruk werk van eigen implementatie.
@@ -115,6 +151,8 @@ Benadruk werk van eigen implementatie.
 *** TODO vergelijking eigen methode tiled shading / clustered shading
 ** TODO Conclusie
 ** TODO Appendix
+
+** TODO Referenties
 
 * Rode Draad
 Rode draad van de thesis:
