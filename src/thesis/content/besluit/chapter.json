@@ -1,0 +1,7 @@
+{ "title": "Besluit",
+  "sections": [ "introductie.md",
+                "resultaten-vergelijking.md",
+                "conclusie-hashed.md",
+                "verder-onderzoek.md"
+              ]
+}

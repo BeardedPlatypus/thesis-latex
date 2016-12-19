@@ -1,7 +1,0 @@
-{ "title": "Literatuur Studie",
-  "sections": [ "forward-and-deferred-shading.md",
-                "tiled-shading.md",
-                "clustered-shading.md",
-                "datastructuren-gpu.md"
-              ]
-}

@@ -1,0 +1,8 @@
+{ "title": "Implementatie",
+  "sections": [ "introductie.md",
+                "overzicht.md",
+                "functionaliteit.md",
+                "meet_methodes.md",
+                "test_suite.md"
+              ]
+}

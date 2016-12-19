@@ -2,14 +2,17 @@
   "sections": [ "intro_theorie.md",
                 "werkelijkheid.md",
                 "definities_intro.md",
+                "wiskundige_notatie.md",
                 "geometrisch.md",
                 "camera_model.md",
+                "coordinaten.md",
                 "visibiliteits_probleem.md",
                 "raytracing.md",
                 "rasterisation.md",
                 "shading.md",
                 "punt_licht.md",
                 "modern-graphics-pipeline.md",
+                "herplaatsing_probleemstelling.md",
                 "verdere-informatie.md"
               ]
 }

@@ -1,20 +1,10 @@
 ## Mathematische notaies
 
-| Type           | Notatie                    | Voorbeelden   |
-| -------------- | -------------------------- | ------------- |
-| hoek           | griekse kleine letters     |               |
-| scalar         | cursieve kleine letters    |               |
-| vector of punt | dikgedrukte kleine letters |               |
-| matrix         | dikgedrukte hoofd letters  |               |
-| functie        | cursieve (kleine) letters  |
+\input{./tbl/math-notaties.tex}
+\input{./tbl/math-operators.tex}
 
-
-| Operator      | Notatie                      | Voorbeelden                 |
-| ------------- | ---------------------------- | --------------------------- |
-| clamp         | $\left.\dot\right|_{[0,1]}$  | $\left.x\right|_{{a, b}}$   |
-
-Tabel ... beschrijft de wiskundige notatie van de symbolen gebruikt binnen deze 
-thesis. Verder zijn de meest gebruikte operatoren gegeven in tabel ...  
+Tabel \ref{tbl:math-notaties} beschrijft de wiskundige notatie van de symbolen gebruikt binnen deze 
+thesis. Verder zijn de meest gebruikte operatoren gegeven in tabel \ref{tbl:math-operators}  
 
 Vectoren en punten zijn weergegeven met dikgedrukte kleine letters. Indien niet 
 anders aangegeven in kolom formaat. Hierbij worden de verschillende elementen 

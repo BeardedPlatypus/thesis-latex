@@ -1,6 +1,7 @@
 { "title": "Inleiding",
   "sections": [ "algemene_inleiding.md",
                 "probleemstelling.md",
+                "motivatie.md",
                 "organisatie.md"
               ]
 }

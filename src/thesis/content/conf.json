@@ -1,9 +1,8 @@
 { "chapters": [ "inleiding",
                 "theorie",
-                "literatuur-studie",
-                "implementatie",
-                "methode",
-                "resultaten",
-                "discussie",
-                "conclusie"
+                "implementatie-overzicht",
+                "forward-deferred-shading",
+                "light-assignment",
+                "hashed-shading",
+                "besluit"
 ]}

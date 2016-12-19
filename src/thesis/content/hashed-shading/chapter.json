@@ -1,0 +1,15 @@
+{ "title": "Hashed Shading",
+  "sections": [ "introductie.md",
+                "datastructures.md",
+                "octrees.md",
+                "hashing.md",
+                "clustered-as-hash.md",
+                "algoritme-introductie.md",
+                "SingleLightTree.md",
+                "light-octree.md",
+                "spatial-hashing.md",
+                "implementatie.md",
+                "resultaten.md",
+                "discussie.md"
+              ]
+}

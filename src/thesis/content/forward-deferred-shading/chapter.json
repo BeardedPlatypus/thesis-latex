@@ -1,0 +1,8 @@
+{ "title": "Forward en Deferred Shading",
+  "sections": [ "introductie.md",
+                "theorie.md",
+                "implementatie.md",
+                "resultaten.md",
+                "discussie.md"
+              ]
+}
