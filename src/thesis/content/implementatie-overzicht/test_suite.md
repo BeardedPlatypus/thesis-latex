@@ -36,7 +36,7 @@ bestaat uit ... frames.
 Voor elk component in de scene is een lichtvolume gedefinieerd waarin de lichten zijn
 gegenereed. Dit si weergegeven in figuur \ref{fig:test-suite-spaceship:lights}.
 
-[^1]: Scene url: \url{http://www.3drender.com/challenges/}
+[^1]: Scene url: www.3drender.com/challenges/
 
 ## Straatzicht: Piper's Alley
 \input{./img/tex/test-suite-pipers-alley-images.tex}
@@ -49,7 +49,7 @@ De camera beweegt over deze straat gedurende ... frames.
 De lichtvolumes zijn geplaatst over de straat zoals weergegeven in figuur 
 \ref{fig:test-suite-pipers-alley:lights}.
 
-[^2]: Lighting challenge url: \url{http://forums.cgsociety.org/archive/index.php?t-1309021.html}
+[^2]: Lighting challenge url: forums.cgsociety.org/archive/index.php?t-1309021.html
 
 ## Stadsscene: Ziggoerat
 \input{./img/tex/test-suite-ziggurat-images.tex}
@@ -64,5 +64,5 @@ De lichten zijn onderverdeeld in twee sets, de lichten op de ziggoerat zijn klei
 met een hogere dichtheid geplaatst, ten opzichte van de lichten die geplaatst zijn over de stad.
 De lichtvolumes zijn weergegeven in figuur \ref{fig:test-suite-ziggurat:lights}.
 
-[^3]: Open film url: \url{https://durian.blender.org}
+[^3]: Open film url: durian.blender.org
 

@@ -4,7 +4,7 @@
 % ----------------------------------------------------------
 % front matter
 \setup{
-  title = {realtime renderen van vele lichtbronnen},
+  title = {Forwaards en deferred hashed shading},
   author = { Martinus Wilhelmus Tegelaers },
   promotor = { Prof.\,dr\.\,ir.\ P. Dutre },
   assessor = { T. Do},
@@ -29,6 +29,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{booktabs}
+\usepackage{tikz}
 %\usepackage{siunitx}
 
 % Commands
@@ -45,6 +46,10 @@
 %\DeclareSIUnit\RadiantIntensity{I}
 %\DeclareSIUnit\Radiance{L}
 %\DeclareSIUnit\SolidAngle{sr}
+
+% Set colours
+% ----------------------------------------------------------
+\input{./content/colours.tex}
 
 % Document
 % ----------------------------------------------------------
@@ -66,12 +71,11 @@
 
   \include{./content/inleiding}
   \include{./content/theorie}
-  \include{./content/literatuur-studie}
-  \include{./content/implementatie}
-  \include{./content/methode}
-  \include{./content/resultaten}
-  \include{./content/discussie}
-  \include{./content/conclusie}
+  \include{./content/implementatie-overzicht}
+  \include{./content/forward-deferred-shading}
+  \include{./content/light-assignment}
+  \include{./content/hashed-shading}
+  \include{./content/besluit}
 
   % Back Matter
   % -----------

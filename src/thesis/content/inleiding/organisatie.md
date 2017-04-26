@@ -2,27 +2,41 @@
 
 Wat volgt is een kort overzicht van de hoofdstukken binnen deze thesis:
 
-Chapter 2: Theorie
-  ~ Het theorie hoofdstuk zal een korte inleiding geven tot het renderen van
-    3d computer graphics en de basis technieken gebruikt binnen deze thesis.
+Hoofdstuk 2: Theorie
+  ~ Binnen het theorie hoofdstuk wordt een inleiding tot 3D computer 
+    grafieken gegeven. Hierbij worden visibiliteit, shading en real-time
+    graphics besproken. Tevens wordt de benodigde wiskunde behandeld, en 
+    wordt de terminologie die gebruikt wordt binnen deze thesis uitgelegd.
+  
+Hoofdstuk 3: Implementatie overzicht
+  ~ In het implementatie overzicht wordt het programma waarin de verschillende 
+    algoritmes van deze thesis zijn ge\"implementeerd besproken. Tevens wordt
+    een overzicht gegeven van de gebruikte test-hardware en de gebruikte 
+    test-scenes.
+ 
+Hoofdstuk 4: Forward en Deferred shading
+  ~ Binnen Forward en Deferred shading worden de algoritmes ge\"introduceerd 
+    waarmee geometrische complexiteit ontkoppeld kan worden van shading 
+    complexiteit.
 
-Chapter 3: Literatuur Studie
-  ~ De literatuur studie bouwt verder op de brede inleiding van chapter 2, en
-    behandelt de specifieke papers waarop deze thesis verder bouwt. Hierbij
-    worden zowel de rendering technieken besproken die in de thesis
-    geimplementeerd zijn, als de datastructuren gebruikt in het voorgestelde
-    algoritme.
+Hoofdstuk 5: Tiled en clustered shading
+  ~ Binnen het hoofdstuk Tiled en clustered shading worden het tiled 
+    lichttoekenningsalgoritme en het clustered lichttoekenningsalgoritme 
+    ge\"introduceerd. Deze twee algoritmes vormen de basis voor Hashed shading,
+    het nieuwe licht toekenningsalgoritme dat ge\"introduceerd wordt binnen deze 
+    thesis. Voordat ingegaan wordt op Hashed shading zal de theorie en 
+    effectiviteit van deze twee algoritmes besproken worden.
     
-Chapter 4: Methode: Eigen Algoritme
-  ~ Hier wordt het eigen algoritme besproken
 
-Chapter 5: Methode: Implementatie
-  ~ Hier wordt de implementatie besproken
-
-Chapter 6: Resultaten
-  ~ Hier worden de resultaten besproken
-
-Chapter 7: Discussie en conclusie
-  ~ Hier worden de resultaten bediscussieerd
-
+Hoofdstuk 6: Hashed shading
+  ~ Het Hashed shading hoofdstuk introduceert een nieuw algoritme voor 
+    lichttoekenning. Dit algoritme ontkoppeld de lichttoekenning van het 
+    zichtsveld zonder een significant grotere aanspraak op het grafisch 
+    geheugen te maken. Dit wordt bereikt door gebruik te maken van een 
+    octree datastructuur op basis van hash functies, zodat deze compact
+    en efficient gebruikt kan worden op de grafische kaart.
+    
+Hoofdstuk 7: Besluit 
+  ~ In het besluit worden alle individuele algoritmes vergeleken, en wordt 
+    ingegaan op hun relatieve efficiency en geheugengebruik.
 

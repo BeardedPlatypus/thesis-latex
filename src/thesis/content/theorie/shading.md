@@ -6,8 +6,8 @@ vastgesteld is welke vorm objecten in de scene hebben, en welke delen van
 objecten daadwerkelijk zichtbaar zijn, is het tevens nodig om te bepalen hoe 
 deze objecten er uit zien. Shading is het proces waarbij vergelijkingen worden
 gebruikt om te bepalen welke kleur punten dienen te hebben. Hierbij wordt verder
-gebouwd op de kennis van sectie .... In deze sectie zal een mathematische 
-beschrijving worden gegeven van shading.
+gebouwd op de kennis van sectie \ref{sec:fysische-werkelijkheid} In deze sectie 
+zal een mathematische beschrijving worden gegeven van shading.
 
 ## Mathematische modelering
 
@@ -18,7 +18,7 @@ vergelijking (rendering equation):
 
 $$ \mathit{L_{o}}(\mathbf{p}, \omega_{o}) = \mathit{L_{e}}(\mathbf{p}, \omega_{o}) + \int_{2\pi^{+}} \mathit{f_{r}}(\mathbf{p}, \omega_{i}, \omega_{o})\mathit{L_{i}}(\mathbf{p}, \omega_{i})\cos\theta_{i}d\omega_{i}$$
 
-Hier weergegeven in hemisfeer vorm. Deze vergelijking toont stabiele toestand
+Hier weergegeven in hemisfeer vorm. Deze vergelijking toont de stabiele toestand
 van de stralingsenergie balans binnen een scene. Hierbij is 
 $\mathit{L_{o}(\mathbf(p), \omega_{o}}$ de radiantie uitgezonden vanuit punt
 $\mathbf{p}$ over $\omega_{o}$. Deze radiantie kan gedefinieerd worden aan de 
@@ -36,8 +36,8 @@ functie  (bidirectional reflectance distribution function BRDF), hoe de
 radiantie over een bepaalde ruimtehoek $\omega_{i}$ bijdraagt aan de uitgaande 
 radiantie in punt $\mathbf{p}$ over ruimtehoek $\omega_{o}$. 
 Hiermee kan precies worden vastgelegd wat de uitgaande radiantie is in punt
-$\mathbf{p}$ over ruimtehoek $\omega{o}$. Dit is verder geillustreerd in fig.
-\ref{sh-rendering-equation}.
+$\mathbf{p}$ over ruimtehoek $\omega_{o}$. Dit is verder geillustreerd in fig.
+\ref{fig:sh-rendering-equation}.
 
 De BRDF in essentie is de wiskundige functie die beschrijft hoe een materiaal
 zich gedraagd ten opzichte van licht. Deze functies hebben een aantal 
@@ -86,7 +86,7 @@ Materialen kunnen gedefinieerd worden als set van BRDFs, die het gedrag van het
 licht beschrijven indien het in contact komt met een object. De simpelste BRDF 
 is de lambertiaanse BRDF. Deze BRDF beschrijft een puur diffuus oppervlakte, 
 wat inhoudt dat de richting waarin een binnenkomende straal licht wordt
-gereflecteerd puur willekeurig is. Dit is weergegeven in fig. \ref{sh-lambert}.
+gereflecteerd puur willekeurig is. Dit is weergegeven in fig. \ref{fig:sh-lambert}.
 Deze BRDF heeft als uitkomst een constante waarde. Deze constante waarde wordt 
 veelal gedefinieerd als de de *diffuse kleur* $\mathit{c}_{\mathtt{dif}}$ van 
 dit object. Dit leidt tot de volgende functie:

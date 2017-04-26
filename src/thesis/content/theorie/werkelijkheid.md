@@ -1,4 +1,4 @@
-# Fysische werkelijkheid
+# Fysische werkelijkheid {#sec:fysische-werkelijkheid}
 
 De fysische wereld waarin de mens zich bevindt wordt gedicteerd door alle 
 fysische wetten. De mens neemt deze wereld door middel van zintuigen. Voor 
@@ -23,7 +23,7 @@ Deze manier van projectie heeft twee belangrijke gevolgen:
 
 * Objecten worden als kleiner waargenomen naarmate ze verder van de waarnemer af
   staan.  
-* Objecten worden waargenomen met Foreshortening, i.e. de dimensies van een 
+* Objecten worden waargenomen met \textit{foreshortening}, i.e. de dimensies van een 
   object parallel aan het gezichtsveld, worden als kleiner waargenomen dan 
   dimensies van hetzelfde object loodrecht aan het gezichtsveld.  
   

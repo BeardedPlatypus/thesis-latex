@@ -1,4 +1,4 @@
-# Moderne Grafische Pijplijn
+# Moderne Grafische Pijplijn {#sec:moderne-grafische-pipeline}
 
 De voorgaande secties hebben een grof overzicht gegeven van zowel de problemen
 als oplossingen binnen het renderen van afbeeldingen. Het onderzoek binnen deze
@@ -25,7 +25,7 @@ onderverdeeld worden in 3 conceptuele stappen.
 * Geometrie stap  
 * Rasteriser stap  
 
-Deze zijn tevens weergegeven in figuur \ref{mgp-conceptueel}.  
+Deze zijn tevens weergegeven in figuur \ref{fig:mgp-conceptueel}.  
 
 ### Applicatie stap
 
@@ -37,11 +37,11 @@ verzameling primitieven gestuurd te worden naar de geometrie stap.
 
 ### Geometrie stap
 
-\input{./img/tex/mgp-conceptueel.tex}
+\input{./img/tex/mgp-geometrie.tex}
 
 De geometrie stap is verantwoordelijk voor het merendeel van per-polygon 
 operaties. Deze stap kan verder onderverdeelt worden zoals weergegeven 
-in figuur \ref{mgp-geometrie}.
+in figuur \ref{fig:mgp-geometrie}.
 De volgende sub-stappen kunnen onderscheden worden:
 
 * Model- en zichtstransformaties
@@ -74,7 +74,7 @@ stap.
 In de rasterisatie stap wordt de daadwerkelijke kleuren van de afbeelding
 berekend. Hiervoor wordt een rasterisatie algoritme uitgevoerd als beschreven
 in . Dit leidt tot de onderverdeling zoals weergegeven in figuur 
-\ref{mgp-rasterisatie}. 
+\ref{fig:mgp-rasterisatie}. 
 De volgende sub-stappen kunnen onderscheden worden:
 
 * Driehoek opzet
@@ -110,8 +110,8 @@ gespecificeerd.
 De moderne grafische pijplijn is een grote mate programmeerbaar, echter in 
 is wegens efficientie redenen slechts configureerbaar. 
 Een overzicht van de verschillende stappen van de pijplijn voor respectievelijk
-`openGL` en `Direct3D` zijn gegeven in figuur \ref{mgp-pipeline-opengl} en
-\ref{mgp-pipeline-direct3d}. Door middel van kleuren is de mate van 
+`openGL` en `Direct3D` zijn gegeven in figuur \ref{fig:mgp-pipeline-opengl} en
+\ref{fig:mgp-pipeline-direct3d}. Door middel van kleuren is de mate van 
 programmeerbaarheid, aangegeven. Tevens zijn optionele stappen aangegeven door 
 een stippellijn. In beide `APIs` zijn 9 stappen terug te vinden. 
 

@@ -23,12 +23,12 @@ Het is geschreven in `C++` en gebouwd op de volgende libraries.
 `dear, imgui`
   ~ `dear, imgui` is de GUI libary. [^imgui]
   
-[^glad]: glad project pagina: \url{https://github.com/Dav1dde/glad}
-[^glfw]: glfw website: \url{http://www.glfw.org}
-[^assimp]: assimp project pagina: \url{https://github.com/assimp/assimp}
-[^glm]: glm website: \url{http://glm.g-truc.net/0.9.8/index.html}
-[^rapidjson]: rapidjson project pagina: \url{https://github.com/miloyip/rapidjson}
-[^imgui]: dear, imgui project pagina: \url{https://github.com/ocornut/imgui}
+[^glad]: glad project pagina: github.com/Dav1dde/glad
+[^glfw]: glfw website: www.glfw.org
+[^assimp]: assimp project pagina: github.com/assimp/assimp
+[^glm]: glm website: glm.g-truc.net/0.9.8/index.html
+[^rapidjson]: rapidjson project pagina: github.com/miloyip/rapidjson
+[^imgui]: dear, imgui project pagina: github.com/ocornut/imgui
 
 Het programma zelf kan grofweg worden ingedeeld in de render functionaliteit die
 getest wordt binnen deze thesis, en zeven ondersteundende modules:
@@ -84,6 +84,6 @@ Elke shader bestaat uit een `C++` implementatie en corresponderende `glsl` besta
 Voor een compleet overzicht van de implementatie zie de documentatie [^docu] en repository van
 `nTiled`.[^repo]
 
-[^docu]: de nTiled documentatie kan gevonden worden op \url{http://ntiled.readthedocs.io/en/latest/index.html}
-[^repo]: de nTiled repository kan gevonden worden op \url{https://github.com/BeardedPlatypus/nTiled}.
+[^docu]: de nTiled documentatie kan gevonden worden op ntiled.readthedocs.io/en/latest/index.html
+[^repo]: de nTiled repository kan gevonden worden op github.com/BeardedPlatypus/nTiled
 
