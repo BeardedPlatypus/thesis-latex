@@ -1,23 +1,36 @@
+#+SEQ_TODO: TODO DRAFT | DONE
+
+* TODO Layout thesis
+[[file:src/thesis/layout/thesis_print.tex][thesis_print.tex]]
+
 Thesis worksheet
-* TODO Thesis
+* TODO Text Thesis
+[[file:src/thesis/content/conf.json][conf.json]]
+
 ** TODO Abstract
 [[file:src/thesis/content/abstract.md][abstract.md]]
+
 ** TODO Inleiding
+[[file:src/thesis/content/inleiding/chapter.json][chapter.json]]
 *** TODO Algemene inleiding 
 [[file:src/thesis/content/inleiding/algemene_inleiding.md][algemene_inleiding.md]]
 Korte inleiding die thesis introduceert.
-**** TODO Korte inleiding plaatsing van probleem
-**** TODO referentie naar industrie
 *** TODO Probleem stelling 
 [[file:src/thesis/content/inleiding/probleemstelling.md][probleemstelling.md]]
 **** TODO wat is het probleem -> berekening licht
 **** TODO hoe valt het onder te verdelen, verschillende lichten
 *** TODO Motivatie
+[[file:src/thesis/content/inleiding/motivatie.md][motivatie.md]]
+**** industrie gebruik
+**** plaatsing in het onderzoeksgebied
 *** TODO organisatie van de thesis
 [[file:src/thesis/content/inleiding/organisatie.md][organisatie.md]]
 
-** DRAFT-1 Theorie
-*** Conceptueel 
+
+** DRAFT Theorie
+[[file:src/thesis/content/theorie/chapter.json][chapter.json]]
+*** TODO Conceptueel 
+
 **** DRAFT Intro
 [[file:src/thesis/content/theorie/intro_theorie.md][intro_theorie.md]]
 Rendering valt onder in grofweg twee problemen, wat zie je en
@@ -32,8 +45,26 @@ genoemd. Het tweede draait om het shaden van objecten.
 Werkelijkheid beschrijft een korte introductie van de werkelijkheid
 en hoe deze invloed hebben op de implementatie van computergraphics problemen
 
+***** REFERENTIES | ARTICLES | BOOKS
+****** Wolfe perceptions
+
 ***** TODO add description different quantities of light
 ***** TODO add more description of light and related physica
+***** TODO Images
+****** TODO fw-waarneming
+[[file:src/thesis/img/tex/fw-waarneming.tex][fw-waarneming.tex]]
+Illustratie van oog en camera en de waarneming van een punt
+****** DRAFT fw-licht
+[[file:src/thesis/img/tex/fw-licht.tex][fw-licht.tex]]
+Illustraties absorptie, reflectie en transmissie.
+****** TODO fw-kleur
+[[file:src/thesis/img/tex/fw-kleur.tex][fw-kleur.tex]]
+Kleurmening illustratie
+
+***** TODO Tables
+****** TODO fw-eenheden
+[[file:src/thesis/tbl/fw-eenheden.tex][fw-eenheden.tex]]
+eenheden besproken in theorie
 
 **** TODO Definities - Notaties
 ***** DRAFT intro
@@ -43,25 +74,54 @@ en hoe deze invloed hebben op de implementatie van computergraphics problemen
 ****** Objects
 ****** Operators
 ****** homogene coordinaten
-***** TODO afbeelding
+****** TODO Tables
+******* TODO math-notaties
+[[file:src/thesis/tbl/math-notaties.tex][math-notaties.tex]]
+******* TODO math-operators
+[[file:src/thesis/tbl/math-operators.tex][math-operators.tex]]
 ***** DRAFT geometrisch
 [[file:src/thesis/content/theorie/geometrisch.md][geometrisch.md]]
 ****** Primitieven
 ****** Meshes
 ****** Objecten
+****** DRAFT Images
+******* DRAFT gd-object
+Review 
+[[file:src/thesis/img/tex/gd-object.tex][gd-object.tex]]
 
 ***** DRAFT Camera Model
 [[file:src/thesis/content/theorie/camera_model.md][camera_model.md]]
+
+****** TODO Images
+******* cm-camera
+[[file:src/thesis/img/tex/cm-camera.tex][cm-camera.tex]]
+
 ***** TODO coordinaten
 [[file:src/thesis/content/theorie/coordinaten.md][coordinaten.md]]
+
+****** Images
+******* coord-stelsels
+******* coord-ruimtes
+******** voeg assen toe
+****** Definitie van een coordinaten stelsel
+****** Model coordinaten
+****** Object coordinaten
+****** Camera coordinaten
+****** Device coordinaten
+
 **** DRAFT visibiliteits probleem
 [[file:src/thesis/content/theorie/visibiliteits_probleem.md][visibileits_probleem.md]]
 
 Definitie perspective projectie
 Definitie visibileits probleem
-***** Illustraties
-****** Perspectief projectie + resultaat
-****** projectie enkel punt
+***** Images
+****** TODO Perspectief projectie + resultaat
+[[file:src/thesis/img/tex/vp-perspectief.tex][vp-perspectief.tex]]
+****** TODO projectie enkel punt
+[[file:src/thesis/img/tex/vp-projectie-punt.tex][vp-projectie-punt.tex]]
+****** TODO visibiliteit
+[[file:src/thesis/img/tex/vp-visibiliteit.tex][vp-visibiliteit.tex]]
+
 **** DRAFT Rasterisation | Raytracing
 [[file:src/thesis/content/theorie/raytracing.md][raytracing.md]]
 [[file:src/thesis/content/theorie/rasterisation.md][rasterisation.md]]
@@ -75,84 +135,164 @@ Illustraties hoe dit werkt.
 [[file:src/thesis/content/theorie/shading.md][shading.md]]
 Shading formula, toegepast benadering in verband met real time.
 Waar het voordeel van lichten uitkomt
+***** TODO Images
+****** sh-rendering-equation
+[[file:src/thesis/img/tex/sh-rendering-equation.tex][sh-rendering-equation.tex]]
+****** sh-lambert
+[[file:src/thesis/img/tex/sh-lambert.tex][sh-lambert.tex]]
 **** DRAFT Definitie punt licht
 [[file:src/thesis/content/theorie/punt_licht.md][punt_licht.md]]
 korte beschrijving hoe lichten opgebouwd zijn binnen deze thesis.
 ***** TODO Figuur punt licht voorstelling
 ***** TODO Figuur distance attenuation
-*** Hardware niveau
+*** DRAFT Hardware niveau
 **** DRAFT Real Time pipeline
 [[file:src/thesis/content/theorie/modern-graphics-pipeline.md][modern-graphics-pipeline.md]]
 ***** functionele onderverdeling
 ***** fysieke onderverdeling 
 ***** Beschrijving aan de hand van openGL
 ***** moet hier dieper ingegaan worden op uniforms etc?
-*** Conclusie
+*** TODO Herplaatsing probleemstelling
+[[file:src/thesis/content/theorie/herplaatsing_probleemstelling.md][herplaatsing_probleemstelling.md]]
+*** DRAFT Conclusie
 **** DRAFT Further reading
 [[file:src/thesis/content/theorie/verdere-informatie.md][verdere-informatie.md]]
-** TODO Literatuur Studie
-*** TODO Intro
-[[file:src/thesis/content/literatuur-studie/inleiding.md][inleiding.md]]
-*** TODO Forward en Deferred Shading
-[[file:src/thesis/content/literatuur-studie/forward-and-deferred-shading.md][forward-and-deferred-shading.md]]
+
+
+** TODO Implementatie overzicht
+[[file:src/thesis/content/implementatie-overzicht/chapter.json][chapter.json]]
+*** TODO Introductie
+[[file:src/thesis/content/implementatie-overzicht/introductie.md][introductie.md]]
+
+*** TODO overzicht en organisatie nTiled
+[[file:src/thesis/content/implementatie-overzicht/overzicht.md][overzicht.md]]
+*** TODO geimplementeerde functionaliteit
+[[file:src/thesis/content/implementatie-overzicht/functionaliteit.md][functionaliteit.md]]
+*** TODO meet methodes
+[[file:src/thesis/content/implementatie-overzicht/meet_methodes.md][meet_methodes.md]]
+*** TODO Test set
+[[file:src/thesis/content/implementatie-overzicht/test_suite.md][test_suite.md]]
+
+**** maak de afbeeldingen in een minipage met alle relevante dingen er in
+
+** TODO Forward en Deferred Shading
+[[file:src/thesis/content/forward-deferred-shading/chapter.json][chapter.json]]
+*** TODO Introductie
+[[file:src/thesis/content/forward-deferred-shading/introductie.md][introductie.md]]
+*** TODO Theorie
+[[file:src/thesis/content/forward-deferred-shading/theorie.md][theorie.md]]
 **** Uitleg forward | Deferred | Forward+ inleiding
 **** GBuffer concept
 **** Deferred in detail
 **** Forward+ in detail
 **** Uses in industry / references
-*** TODO Tiled Shading
-[[file:src/thesis/content/literatuur-studie/tiled-shading.md][tiled-shading.md]]
-**** Motivatie
-**** Algoritme
-**** Resultaten?
+*** TODO Implementatie in nTiled
+[[file:src/thesis/content/forward-deferred-shading/implementatie.md][implementatie.md]]
+*** TODO Testen / resultaten
+[[file:src/thesis/content/forward-deferred-shading/resultaten.md][resultaten.md]]
+**** invloed van SIMD
+**** vergelijking forward deferred
+*** TODO Discussie / Conclusie vergelijking
+[[file:src/thesis/content/forward-deferred-shading/discussie.md][discussie.md]]
 
-**** Notes
-***** Voeg beschrijving geschiedenis toe?
-***** Voeg beschrijving depth optimisation toe
-***** licht projectie
-*** TODO Clustered Shading
-[[file:src/thesis/content/literatuur-studie/clustered-shading.md][clustered-shading.md]]
-**** Motivatie
-**** Algoritme
-**** Extra extensies?
 
-**** Notes
-***** page table beschrijving toevoegen
-***** Referenties toevoegen
-****** sorteren
-****** page tables
-*** TODO Datastructuren voor graphics card
-[[file:src/thesis/content/literatuur-studie/datastructuren-gpu.md][datastructuren-gpu.md]]
-**** Spatial datastructures
-***** Octree
-***** KD trees
-**** Octrees
-***** extre informatie + basis uitleg + illustraties
-**** Octrees on the gpu
-***** Toon verschillende algoritmes
-** TODO Algoritmes 
-*** TODO Algoritme beschrijving Tiled Shading binnen nTiled
-*** TODO Algoritme beschrijving Clustered Shading
-*** TODO Theorie Eigen implementatie
-[[file:src/thesis/content/algoritmes/hierarchical-shading.md][hierarchical-shading.md]]
-** TODO Implementatie
-*** TODO Ntiled beschrijving
-Benadruk werk van eigen implementatie.
-** TODO Methode
-*** TODO Evaluatie Methodes
-*** TODO Beschrijving test suite
-** TODO Resultaten
-*** TODO tiled shading
-*** TODO clustered shading
-*** TODO eigen implementatie
-** TODO Discussie / Interpretatie
-*** TODO vergelijking tiled shading / clustered shading
-*** TODO vergelijking met literatuur
-*** TODO vergelijking eigen methode tiled shading / clustered shading
-** TODO Conclusie
-** TODO Appendix
+** TODO Light Assignment
+[[file:src/thesis/content/light-assignment/chapter.json][chapter.json]]
+*** TODO Introductie
+[[file:src/thesis/content/light-assignment/introductie.md][introductie.md]]
+*** TODO Theorie
+**** TODO Tiled
+[[file:src/thesis/content/light-assignment/tiled.md][tiled.md]]
+***** Motivatie
+***** Algoritme
+***** Resultaten?
+
+***** Notes
+****** Voeg beschrijving geschiedenis toe?
+****** Voeg beschrijving depth optimisation toe
+****** licht projectie
+**** TODO Clustered
+[[file:src/thesis/content/light-assignment/clustered.md][clustered.md]]
+***** Motivatie
+***** Algoritme
+***** Extra extensies?
+
+***** Notes
+****** page table beschrijving toevoegen
+****** Referenties toevoegen
+******* sorteren
+******* page tables
+**** TODO Alternatieven
+[[file:src/thesis/content/light-assignment/alternatieven.md][alternatieven.md]]
+*** TODO Implementatie in nTiled
+[[file:src/thesis/content/light-assignment/implementatie.md][implementatie.md]]
+*** TODO Testen / resultaten
+[[file:src/thesis/content/light-assignment/resultaten.md][resultaten.md]]
+*** TODO Discussie / Conclusie vergelijking
+[[file:src/thesis/content/light-assignment/discussie.md][discussie.md]]
+
+
+** TODO Hashed Shading
+[[file:src/thesis/content/hashed-shading/chapter.json][chapter.json]]
+*** TODO Introductie
+[[file:src/thesis/content/hashed-shading/introductie.md][introductie.md]]
+Beschrijf tevens wat een octree samen ligt
+*** TODO Theorie
+**** TODO Introductie
+[[file:src/thesis/content/hashed-shading/theorie-introductie.md][theorie-introductie.md]]
+**** TODO Spatiale datastructuren
+[[file:src/thesis/content/hashed-shading/datastructures.md][datastructures.md]]
+***** Grid
+***** Z-order
+***** kd-tree
+***** Binary space partitioning
+***** Hilbert R-trees
+***** Octree || n-tree
+
+***** TODO Images
+****** hs-octree
+[[file:src/thesis/img/tex/hs-octree.tex][hs-octree.tex]]
+**** TODO Octrees
+[[file:src/thesis/content/hashed-shading/octrees.md][octrees.md]]
+**** TODO Hashing
+[[file:src/thesis/content/hashed-shading/hashing.md][hashing.md]]
+
+*** TODO Algoritme
+[[file:src/thesis/content/hashed-shading/algoritme-introductie.md][algoritme-introductie.md]]
+**** SingleLightTree
+[[file:src/thesis/content/hashed-shading/SingleLightTree.md][SingleLightTree.md]]
+***** TODO imgs 
+****** fig:hs-slt
+[[file:src/thesis/img/tex/hs-slt.tex][ hs-slt.tex]]
+**** LightOctree
+[[file:src/thesis/content/hashed-shading/light-octree.md][light-octree.md]] 
+**** Spatial Hashing / GPU
+[[file:src/thesis/content/hashed-shading/spatial-hashing.md][spatial-hashing.md]]
+**** Licht berekening
+[[file:src/thesis/content/hashed-shading/licht-toekenning.md][licht-toekenning.md]]
+*** TODO Implementatie in nTiled
+[[file:src/thesis/content/hashed-shading/implementatie.md][implementatie.md]]
+*** TODO Testen / resultaten
+[[file:src/thesis/content/hashed-shading/resultaten.md][resultaten.md]]
+*** TODO Discussie / Conclusie
+[[file:src/thesis/content/hashed-shading/discussie.md][discussie.md]]
+
+
+** TODO Besluit
+[[file:src/thesis/content/besluit/chapter.json][chapter.json]]
+*** TODO Introductie
+[[file:src/thesis/content/besluit/introductie.md][introductie.md]]
+*** TODO Vergelijking resultaten
+[[file:src/thesis/content/besluit/resultaten-vergelijking.md][resultaten-vergelijking.md]]
+*** TODO Conclusie hashed shading
+[[file:src/thesis/content/besluit/conclusie-hashed.md][conclusie-hashed.md]]
+*** TODO Verder onderzoek
+[[file:src/thesis/content/besluit/verder-onderzoek.md][verder-onderzoek.md]]
+
 
 ** TODO Referenties
+[[file:src/thesis/ref/reference.bib][reference.bib]]
+
 
 * Rode Draad
 Rode draad van de thesis:
@@ -172,3 +312,4 @@ Als
 
 * TODO Misc.
 ** TODO referentie database opbouwen en bijhouden
+

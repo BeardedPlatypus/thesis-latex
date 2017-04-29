@@ -7,6 +7,8 @@ import filecmp
 import os
 import json
 
+from pi_autolib import *
+
 # Global Variables
 # ----------------------------------------------------------------------
 THESIS_DIR = Path('./src/thesis/')
@@ -39,7 +41,8 @@ pd_from     = '--from=markdown'
 pd_to       = '--to=latex'
 
 
-# functions
+# Pandoc functions
+# ----------------------------------------------------------------------
 def pd_template(template_path : Path) -> str:
     return '--template={}'.format(str(template_path))
 
@@ -52,130 +55,7 @@ def pd_out(out_path : Path) -> str:
     return '--out={}'.format(str(out_path))
 
 
-# Base Functions
-# ----------------------------------------------------------------------
-def get_file_delimeter(file_type = None):
-    is_file_check = lambda f : (not f.name.startswith('.')) and f.is_file()
-
-    if file_type:
-        if isinstance(file_type, list):
-            file_type = (x if x.startswith('.') else '.{}'.format(x) for x in file_type)
-
-            return lambda f : (is_file_check(f) and
-                               bool(sum(f.name.endswith(x) for x in file_type)))
-        elif isinstance(file_type, str):
-            return lambda f : (is_file_check(f) and
-                               f.name.endswith((file_type if file_type.startswith('.') else
-                                                '.{}'.format(file_type))))
-        else:
-            raise Exception()
-    else:
-        return is_file_check
-
-
-def build_file_entry_list(root_path : str, delimeter):
-    if Path(root_path).exists():
-        file_entries = []
-        file_dir = [root_path]
-        while file_dir:
-            for entry in os.scandir(file_dir.pop()):
-                if not entry.name.startswith('.') and entry.is_dir():
-                    file_dir.append(entry.path)
-                elif delimeter(entry):
-                    file_entries.append(entry)
-
-        return file_entries
-    else:
-        return []
-
-
-def update_directory(path_src: Path, path_target: Path, delimiter, verbose: bool):
-    if verbose:
-        print("  src:    " + str(path_src))
-        print("  target: " + str(path_target))
-        print("  Building file list src...", end='')
-
-    src = build_file_entry_list(str(path_src), delimiter)
-    src.sort(key=(lambda x: x.path[(len(str(path_src)) +1):]))
-
-
-    if verbose:
-        print("[DONE]")
-        print("  Building file list target...", end='')
-
-    target = build_file_entry_list(str(path_target), delimiter)
-    target.sort(key=(lambda x: x.path[(len(str(path_target)) +1):]))
-
-    if verbose:
-        print("[DONE]")
-        print("  Updating files:")
-
-    while src and target:
-        if src[0].name == target[0].name:
-            if not filecmp.cmp(src[0].path, target[0].path):
-                if verbose:
-                    print("    Copying:  " + src[0].path)
-                copyfile(src[0].path, target[0].path)
-            else:
-                if verbose:
-                    print("    Skipping: " + src[0].path)
-
-            src = src[1:]
-            target = target[1:]
-        else:
-            if ( src[0].path[(len(str(path_src)) +1):] <
-                 target[0].path[(len(str(path_target)) +1):]):
-                entry_path = Path(src[0].path)
-                goal_path = path_target / entry_path.relative_to(path_src)
-
-                if verbose:
-                    print("    Copying:  " + str(entry_path))
-
-                if not (goal_path.parent.exists() and
-                        goal_path.parent.is_dir()):
-                    goal_path.parent.mkdir(parents=True)
-
-                copyfile(str(entry_path), str(goal_path))
-                src = src[1:]
-            else:
-                if verbose:
-                    print("    Removing: " + target[0].path)
-                rm(target[0].path)
-                target = target[1:]
-
-    for entry in src:
-        entry_path = Path(entry.path)
-        goal_path = path_target / entry_path.relative_to(path_src)
-        print(str(goal_path))
-
-        if not (goal_path.parent.exists() and goal_path.parent.is_dir()):
-            goal_path.parent.mkdir(parents=True)
-        if verbose:
-            print("    Copying: " + str(entry_path))
-        copyfile(str(entry_path), str(goal_path))
-
-    for entry in target:
-        if verbose:
-            print("    Removing: " + entry.path)
-        rm(entry.path)
-
-
-def update_file(path_src: Path, path_target: Path):
-    # Check if path source exists, if not raise error
-    if not (path_src.exists() and
-            path_src.is_file()):
-        raise Exception()
-
-    if not (path_target.parent.exists() and
-            path_target.parent.is_dir()):
-        path_target.parent.mkdir(parents=True)
-
-    if not (path_target.exists() and
-            filecmp.cmp(str(path_src), str(path_target))):
-        copyfile(str(path_src), str(path_target))
-
-
-# Specific functions
+# Invoke functions
 # ----------------------------------------------------------------------
 def build_markdown_files(chapters, verbose=False):
     if verbose:
