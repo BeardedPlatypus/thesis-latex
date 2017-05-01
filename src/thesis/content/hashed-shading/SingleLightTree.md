@@ -2,95 +2,130 @@
 
 \input{./img/tex/hs-slt.tex}
 
-De enkele licht boom (Single Light Tree) beschrijft voor een enkel licht de
-octree representatie. Een voorbeeld hiervan is weergegeven in figuur 
-\ref{fig:hs-slt}. Elke blad knoop geeft aan of een gedeelte van het volume
-van de knoop overlapt met het licht volume. Uit deze licht bomen wordt de licht octree
-afgeleidt. Tevens worden deze gebruikt bij het renderen om de invloed van 
-veranderingen van  dynamische lichten binnen de licht octree te berekenen.
+De enkele licht boom (Single Light Tree) beschrijft de octree representatie van
+een enkel licht binnen de gehele licht octree. Een voorbeeld hiervan is gegeven
+in figuur \ref{fig:hs-slt}. Elke bladknoop beschrijft of het volume geassocieerd
+met de bladknoop een gedeelte van het lichtvolume van de lichtbron bevat. De
+verzameling van alle enkele lichtbomen wordt samengevoegd om de volledige licht
+octree te verkrijgen. 
 
-Om een een enkele licht boom te construeren is de volgende informatie nodig
+Om een enkele lichtboom op te stellen is de volgende informatie nodig:
 
-* Een puntlicht met een geldige positie en radius
-* Een afstand die de grootte van de kleinste cel in een enkele dimensie
-  specificeert.
-* Een geldige oorsprong van de octree waarin deze enkele lichtbron zich 
-  bevindt.
-  
-Voor de oorsprong moet gelden dat deze kleiner is in elke dimensie dan de positie
-van de lichtbron minus de radius:
+* De lichtbron en zijn lichtvolume.
+* Een grootte voor de ribben van de kleinst mogelijke bladknoop
+* De oorsprong van de licht octree
 
-$$ \forall d \in \lbrace x, y, z \rbrace \mathit{p_d} - \mathit{r} > \mathit{o_d}  $$
+Voor de licht octree oorsprong moet gelden dat deze kleiner is in elke dimensie
+dan de oorsprong van het licht minus de radius:
 
-waar $\mathit{p_d}$ de oorsprong van de punt licht bron in dimensie $d$ is, 
-$\mathit{r}$ de radius van de punt lichtbron, en $\mathit{o_d}$ de oorsprong van de 
-octree in dimensie $d$.
+$$ \forall d \in \lbrace x, y, z \rbrace :\quad p_d - r > o_d $$
 
-De enkele lichtboom wordt opgebouwd met behulp van een bottom up algoritme.
-Deze is in te delen in twee stappen. In de eerste stap wordt de onderste laag van
-de enkele lichtboom berekend. Vervolgens worden knopen binnen elk rooster in elke
-laag gecombineerd om te komen tot een octree representatie. 
+Waar $p_d$ de oorsprong van de lichtbron is in dimensie $d$, r de radius van de
+lichtbron en $o_d$ de oorsprong van de licht octree in dimensie $d$. 
 
-\input{./img/tex/hs-knoop.tex}
+De enkele lichtboom wordt opgebouwd in twee stappen. Eerst wordt een rooster 
+opgesteld bestaande uit knopen van minimale lengte. Voor deze knopen wordt
+vastgesteld of zij overlappen met het lichtvolume van de lichtbron. 
+Vervolgens wordt dit rooster gebruikt om van bovenaf de enkele lichtboom op te
+stellen. Beginnend vanaf de wortelknoop wordt bepaald of een knoop een tak- of
+een bladknoop is.
 
-In de eerste stap wordt berekend per knoop in het rooster, of deze knoop 
-overlapt met het lichtvolume.
-Dit kan eenvoudig gegaan worden door de afstand tot het dichtstbijzijnde punt van 
-de cel tot de oorsprong te vergelijken met de radius van het licht. Indien 
-de radius groter is, bevindt de cel zich (gedeeltelijk) binnen het lichtvolume.
-Het dichtstbijzijnde punt in een dimensie kan simpelweg gevonden worden door,
-de lichtpositie in die dimensie te klampen tussen de uiterste waarde van de cel
-in die dimensie, zoals weergegeven in de volgende formule:
+Het rooster in de eerste stap wordt zodanig gekozen dat het bestaat uit het 
+minimale aantal knopen dat het volledige lichtvolume omvat. Vervolgens dient per
+knoop bepaald te worden of deze overlapt met het lichtvolume. Hiervoor wordt 
+gekeken of het punt $\mathbf{v}$ binnen de knoop dat het dichtst bij de 
+oorsprong van de lichtbron ligt binnen de radius van het licht valt. 
+Dit punt kan gevonden worden door een klemoperatie toe te passen op de oorsprong
+van de lichtbron. Voor elke dimensie wordt de positie van de lichtbron geklemd 
+tussen de uiterste waarden van de knoop:
 
-$$ \mathtt{clamp}(\mathit{c_d}, \mathit{p_d}, \mathit{c}_d + \mathit{c_l} ) $$
+$$ \mathbf{v} = \begin{pmatrix} 
+                  p_x |_{[k_x, k_x + l]} \\
+                  p_y |_{[k_y, k_y + l]} \\
+                  p_z |_{[k_z, k_z + l]}
+                \end{pmatrix} $$
 
-waarbij $\mathit{c_d}$ de oorsprong van de cel is in dimensie $d$, $\mathit{p_d}$
-de positie van het licht in dimensie $d$, en $\mathit{c_l}$ de lengte van de cel
-is. Dit is geillustreerd in figuur \ref{fig:hs-knoop}
+Waarbij $p_d$ de oorsprong van de lichtbron in dimensie $d$ is, $k_d$ oorsprong 
+van de knoop in dimensie $d$ is, en $l$ de lengte van de ribben van de knoop.
 
-Om te voorkomen dat deze berekening uitgevoerd dient te worden voor elke knoop
-binnen het rooster, wordt gebruikt gemaakt van een breadth first flood fill 
-algoritme. Er wordt ofwel vanuit gegaan dat elke knoop geen licht bevat, en 
-vervolgens worden de nodes gevuld die wel overlappen. Of er wordt aangenomen
-dat alle knopen overlappen met licht, en vervolgens wordt gekeken welke 
-knopen niet overlappen. 
+Vervolgens wordt de afstand van dit punt tot de lichtbron vergeleken met de
+radius van de lichtbron. Dit algoritme is weergegeven in de volgende pseudocode
 
-Het volume van een bol is gedefinieerd als 
-$$ V = \frac{4}{3} \pi \mathit{r}^3 $$
+```
+def node_in_light(node, light):
+    closest_point = vec3( clamp(node.x, light.orig.x, node.x + node.size)
+                        , clamp(node.y, light.orig.y, node.y + node.size)
+                        , clamp(node.z, light.orig.z, node.z + node.size)
+                        )
+    p = closest_point - light.orig
+    return (p.x * p.x + p.y * p.y + p.z * p.z) > light.radius * light.radius
+```
 
-Gezien een bol iets meer dan de helft van een omsluitende kubus bevat, is 
-gekozen om uit te gaan dat elke knoop overlapt met het licht volume en 
-vervolgens de hoeken van de kubus als seeds te gebruiken.
+Het is niet nodig om deze berekening uit te voeren voor elke knoop in het 
+rooster. In plaats hiervan kan een breedte eerst flood-fill algoritme gebruikt
+worden. Er wordt in dit geval ofwel vanuit gegaan dat elke knoop in geen licht 
+bevat waarna de nodes gevuld worden die wel overlappen. Of er wordt aangenomen
+dat alle lichten overlappen, waarna alle knopen die niet overlappen worden 
+leeggemaakt. 
+
+In het geval van een puntlicht kan het volume worden gedefinieerd als dat van 
+een bol:
+
+$$ V = \frac{4}{3} \pi r^3 $$
+
+gezien het volume van bol iets meer dan de helft van de omsluitende kubus bevat,
+is voor het puntlicht gekozen om ervan uit te gaan dat alle knopen overlappen 
+met het licht en vervolgens de niet overlappende knopen te markeren. Als 
+beginpunten worden de hoeken van de kubus gebruikt. Dit gehele proces is 
+weergegeven in figuur \ref{fig:hs-p1}
 
 \input{./img/tex/hs-p1.tex}
 
-Dit is weergegeven in figuur \ref{fig:hs-p1}
+In de tweede stap wordt van bovenaf de enkele lichtboom opgebouwd. Voor elke 
+knoop wordt bepaald of dit een tak- of een bladknoop is. In het geval van een
+takknoop, wordt tevens voor de kinderen van deze knoop bepaald, welke type
+knoop zij zijn. Het type knoop wordt bepaald aan de hand van het rooster.
+Er zijn initieel drie mogelijke situaties:
 
-In de tweede stap wordt het rooster opgesteld in de eerste stap samengevoegd
-totdat deze slechts uit een enkele knoop bestaat. Hierbij wordt iteratief
-een nieuw rooster opgesteld van grote $\frac{n}{2}$. 
-De waarde voor knoop $\mathbf{v}_{xyz}$ kan worden vastgesteld door te kijken
-naar set $S$ van acht knopen die $\mathbf{v}_{xyz}$ omvat. Deze set is 
-gedefinieerd als:
+* De knoop overlapt niet met het rooster
+* De knoop overlapt gedeeltelijk met het rooster
+* De knoop valt binnen het rooster
 
-$$ S = \lbrace \mathbf{v^{\prime}}_{2x2y2z}, \mathbf{v^{\prime}}_{(2x+1)2y2z} \dots \mathbf{v^{\prime}}_{(2x+1)(2y+1)(2z+1)} \brace $$
+In het eerste geval is de knoop altijd een lege bladknoop, gezien het onmogelijk
+is dat er volle knopen van minimale lengte buiten het rooster liggen. 
 
-Er zijn 3 mogelijke situaties
+In het tweede geval zijn er twee mogelijkheden ofwel er liggen volle 
+roosterknopen binnen de enkele lichtboom knop, ofwel er liggen slechts lege 
+roosterknopen in de enkele lichtboomknoop. Wanneer er slechts lege knopen binnen
+de lichtboomknoop liggen, is deze knoop zelf ook leeg, anders is het een 
+takknoop. 
 
-1. $\begin{aligned} &\forall \mathbf{v^{\prime}} \in S : \mathtt{is_empty} \end{aligned}$
-   Knoop $\mathbf{v}$ wordt een lege node.
-2. $\begin{aligned} &\forall \mathbf{v^{\prime}} \in S : \mathtt{is_full} \end{aligned}$
-   Knoop $\mathbf{v}$ wordt een volle node.
-3. $\begin{aligned} (\exists \mathbf{v^\prime} \in S : \mathtt{is_full} \land \exists \mathbf{v^\prime} \in S : \mathtt{is_empty(\mathbf{v^\prime})}) \lor \mathbf{v^\prime} \in S : \mathtt{is_partial}(\mathbf{v^\prime}) \end{aligned}$
-   Knoop $\mathbf{v}$ bestaat uit een mix van verschillende nodes en wordt een 
-   gedeeltelijke knoop.
-   
-Op basis van deze regels is het mogelijk om voor elk licht een enkele licht boom
-op te stellen. De substitutie is tevens weergegeven in figuur 
-\ref{fig:hs-substitutie}
+Het punt binnen de lichtboomknoop dat het dichtstbij de lichtbronoorsprong ligt,
+bevindt zich in de roosterknoop die overlapt met de lichtboomknoop en het 
+dichtst bij de oorsprong van de lichtbron ligt. Indien deze roosterknoop leeg 
+is, zijn alle andere roosterknopen tevens leeg. Dus om te bepalen of in het
+tweede geval een enkele lichtboomknoop een takknoop of een lege bladknoop is,
+dient slechtst gekeken te worden naar \'e\'en specifieke roosterknoop.
 
-\input{./img/tex/hs-substitutie.tex}
+In het laatste geval zijn er drie mogelijkheden
 
-Deze zullen in de volgende sectie gebruikt worden om een volledige octree te 
-construeren.
+* De enkele lichtboomknoop omvat alleen lege roosterknopen.
+* De enkele lichtboomknoop omvat alleen volle roosterknopen.
+* De enkele lichtboomknoop omvat zowel lege als volle roosterknopen.
+
+De enkele lichtboomknoop is dan respectievelijk een volle bladknoop, lege 
+bladknoop of takknoop. Indien de roosterknoop dichtstbij de lichtbronoorsprong
+binnen de lichtboomknoop leeg is, dan is de enkele lichtboom knoop tevens leeg.
+Dit volgt dezelfde redenering als in het geval van gedeeltelijke overlapping met
+het rooster. Indien deze roosterknoop vol is, dan is het mogelijk dat er ofwel
+slechts volle roosterknopen binnen de enkele lichtboomknoop vallen, ofwel dat
+er zowel lege als volle knopen zijn. Hiervoor wordt gekeken naar de roosterknoop
+binnen de lichtboomknoop die het verst weg van de lichtbron ligt. Indien deze
+ook vol is, dan is de enkele lichtboomknoop tevens vol. Anders bevat de 
+enkele lichtboomknoop zowel lege als volle knopen, en wordt deze gesteld op een
+takknoop.
+
+Op basis van dit algoritme is het mogelijk om een enkele lichtboom op te 
+stellen. Deze zal gebruikt worden om de volledige lichtoctree te construeren in 
+de volgende sectie.
 

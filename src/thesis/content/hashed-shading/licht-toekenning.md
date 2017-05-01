@@ -43,12 +43,12 @@ $$
 
 Als laatste kan de relevante bit met behulp van bit schuiven verkregen worden:
 
-````
+```
 # bit masking of k-th bit in n
 int mask = 1 << k
 int masked_n = n & mask
 int bit = masked_n >> k
-````
+```
 
 Wanneer de waardes $\mathtt{is\_leaf}$ en $\mathtt{is\_empty}$ berekend zijn,
 zijn er 3 mogelijkheden:

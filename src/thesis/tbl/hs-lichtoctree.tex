@@ -1,0 +1,29 @@
+\begin{table}
+  \begin{tabularx}{\textwidth}{cXXX}\toprule
+    Lichtoctreeknoop $\mathbf{o}$ & \multicolumn{3}{c}{Enkele Lichtboomknoop $\mathbf{l}$}                            \\
+                                  & \multicolumn{2}{c}{Bladknoop}                      & \multicolumn{1}{c}{Takknoop} \\
+                                  & \multicolumn{1}{c}{Leeg} & \multicolumn{1}{c}{Vol} &                              \\ \midrule
+    Bladknoop &
+      Stop &
+    
+      De index van lichtboomknoop $\mathbf{l}$ wordt toegevoegd aan de lijst van
+      indices van octreeknoop $\mathbf{o}$ &
+
+      De octreeknoop $\mathbf{o}$ wordt vervangen door een takknoop
+      $\mathbf{o}^\prime$ waarvan de kindere dezelfde indices bevatten als de
+      octreeknoop $\mathbf{o}$. De lichtboomknoop $\mathbf{l}$ wordt toegevoegd
+      aan de nieuwe octreeknoop $\mathbf{o}^\prime$. \\
+
+    Takknoop &
+      Stop &
+
+      Lichtboomknoop $\mathbf{l}$ wordt toegevoegd aan elk van de kinderen van
+      octreeknoop $\mathbf{o}$. &
+
+      Elk van de kinderen van lichtboomknoop $\mathbf{l}$ wordt toegevoegd aan
+      het overeenkomstige kind van octreeknoop $\mathbf{o}$. \\ \bottomrule
+  \end{tabularx}
+  \caption{De mogelijke situaties wanneer een enkele lichtboomknoop wordt
+           toegevoegd aan een octreeknoop.}
+  \label{tbl:hs-lichtoctree}
+\end{table}

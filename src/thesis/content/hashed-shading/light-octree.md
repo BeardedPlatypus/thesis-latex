@@ -2,59 +2,58 @@
 
 \input{./img/tex/hs-licht-octree.tex}
 
-De licht octree beschrijft de volledige set van lichten binnen een scene.
-Hierbij wordt binnen een blad knoop bijgehouden met welke licht volumes 
-de knoop gedeeltelijk overlapt. Dit is weergeven in figuur \ref{fig:hs-licht-octree}.
-Vanuit de licht octree kan de verbindingloze octree worden opgesteld. 
-Tevens kan met behulp van de licht octree en de set van enkele licht bomen, 
-de invloed van veranderingen van dynamische lichten op het de verbindingloze
-octree berekend worden.
+De lichtoctree beschrijft de octree-representatie van de set van alle lichten
+binnen de scene. Een illusttratie van een lichtoctree is te vinden in figuur
+\ref{fig:hs-licht-octree}. Elke bladknoop bevat een lijst van lichten waarvan 
+het lichtvolume (gedeeltelijk) overlapt met de bladknoop. Hierdoor is het 
+mogelijk om de set van relevante lichten voor een punt $\mathbf{p}$ te beperken 
+van de set van alle lichten binnen de scene, tot de set van lichten die 
+opgeslagen is in de bladknoop waartoe punt $\mathbf{p}$ behoort. 
 
-Voor de constructie van een licht octree is de set $S$ van lichten nodig, 
-en dient grootte $l_{\mathtt{node}}$ van de blad knopen gespecificeerd te worden.
-Op basis van de set van lichten wordt de oorsprong van de octree berekend. 
-Deze is gespecificeerd als de grootste waarde waarvoor geldt dat er geen licht volumes
-bevinden op punten die kleiner zijn dan de oorsprong.
+De lichtoctree volgt de standaard pointer implementatie zoals beschreven is in 
+sectie \ref{sec:octree}. Voordat deze bruikbaar is binnen de grafische kaart, 
+dient de lichtoctree eerst omgezet te worden naar een verbindinglozeoctree 
+voorstelling.
+
+Om de lichtoctree voor een scene te construeren is de volgende informatie nodig:
+
+* De set van lichten die zich bevindt in de scene
+* Een grootte voor de ribben van de kleinst mogelijke bladknoop
+
+De oorsprong van de octree is gedefinieerd als het punt met de grootst mogelijke 
+dimensies waarvoor geldt dat er geen lichtvolumes kleiner zijn dan dit punt.
 
 $$ 
 \begin{split} 
-\mathbf{p_o} := \mathbf{p} - b : ( \forall \mathbf{l} \in S & \mathbf{p}.x < \mathbf{l}.p.x - \mathbf{l}.r \land \\
-                                                            & \mathbf{p}.y < \mathbf{l}.p.y - \mathbf{l}.r \land \\
-                                                            & \mathbf{p}.z < \mathbf{l}.p.z - \mathbf{l}.r )\land \\
-                            (\not \exists \mathbf{p^\prime} & ( \mathbf{p^\prime}.x > \mathbf{p}.x \lor \\ 
-                                                            &   \mathbf{p^\prime}.y > \mathbf{p}.y \lor \\
-                                                            &   \mathbf{p^\prime}.z > \mathbf{p}.z ) \land \\
-                                 ( \forall \mathbf{l} \in S & \mathbf{p^\prime}.x < \mathbf{l}.p.x - \mathbf{l}.r \land \\
-                                                            & \mathbf{p^\prime}.y < \mathbf{l}.p.y - \mathbf{l}.r \land \\
-                                                            & \mathbf{p^\prime}.z < \mathbf{l}.p.z - \mathbf{l}.r )) 
+\mathbf{p_o} := \mathbf{p} - b : \quad ( \forall \mathbf{l} \in S & p.x < l.p.x - l.r \land \\
+                                                            & p.y < l.p.y - l.r \land \\
+                                                            & p.z < l.p.z - l.r )\land \\
+                            (\not \exists \mathbf{p^\prime} & ( p^\prime.x > p.x \lor \\ 
+                                                            &   p^\prime.y > p.y \lor \\
+                                                            &   p^\prime.z > p.z ) \land \\
+                                 ( \forall \mathbf{l} \in S & p^\prime.x < l.p.x - l.r \land \\
+                                                            & p^\prime.y < l.p.y - \l.r \land \\
+                                                            & p^\prime.z < l.p.z -  l.r )) 
 \end{split}
 $$
 
-Het is nu mogelijk om voor elk licht een enkele lichtboom op te stellen. Deze
-worden vervolgens iteratief toegevoegd aan een octree geinitialiseerd met eenkele
-lege blad knoop.
+Waarbij $\mathbf{p_0}$ de oorsprong van de lichtoctree is $b$ een offset-waarde
+is om afrondingsfouten te voorkomen.
 
-Het toevoegen van de enkele lichtbomen vindt plaats in twee stappen. Eerst 
-wordt afgedaald in de licht octree tot de begin knoop van de enkele lichtboom. 
-Indien een blad knoop wordt tegen gekomen, wordt deze vervangen met een lege 
-tak knoop. Wanneer vervolgens de begin knoop van de enkele lichtboom bereikt is wordt
-de wortel knoop $\mathbf{l}$ recursief toegevoegd aan de huidige licht octree knoop 
-$\mathbf{o}$. Hierbij zijn de volgende vijf situaties mogelijk.
+Nadat de oorsprong is vastgesteld kan voor elk licht de corresponderende enkele
+lichtboom worden opgesteld. Deze lichtbomen zullen vervolgens iteratief worden
+toegevoegd aan aan een lichtoctree ge\"initialiseerd met een lege bladknoop.
 
-* De enkele licht boom $\mathbf{l}$ is een lege blad knoop: het algoritme stopt.
-* De enkele licht boom $\mathbf{l}$ is een niet lege blad knoop:
-      * De knoop in de licht octree $\mathbf{o}$ is een blad knoop: het licht 
-        van $\mathbf{o}$ wordt toegevoegd aan $\mathbf{o}$.
-      * De knoop in de licht octree $\mathbf{o}$ is een tak knoop: $\mathbf{o}$
-        wordt toegevoegd aan elk van de kinderen van $\mathbf{o}$. 
-* De enkele licht boom $\mathbf{l}$ is een tak knoop:
-      * De knoop in de licht octree $\mathbf{o}$ is een blad knoop: $\mathbf{o}$
-        wordt vervangen met een tak knoop waarbij elk van de kinderen dezelfde 
-        lichten als $\mathbf{o}$ bevat.
-      * De knoop in de licht octree $\mathbf{o}$ is een tak knoop: De kinderen 
-        van $\mathbf{l}$ worden aan de overeenkomstige kinderen van $\mathbf{o}$
-        toegevoegd. 
+Het toevoegen van een enkele lichtboom vindt plaats in twee stappen. Eerst wordt
+afgedaald in de lichtoctree totdat de octreeknoop overeenkomend met de wortel 
+van de enkele lichtboom is bereikt. Indien een bladknoop wordt tegengekomen
+wordt deze vervangen met een takknoop waarvan de kinderen dezelfde lichten 
+bevatten als de bladknoop die vervangen wordt. 
+Vervolgens wordt de wortel van de enkele lichtboom toegevoegd aan de bereikte
+octree knoop. Elke keer dat een lichtboomknoop wordt toegevoegd aan een 
+octreeknoop zijn er vijf mogelijke situaties. Deze zijn weergegeven in tabel
+\ref{tbl:hs-lichtoctree}. 
 
-Dit algoritme is weergegeven in lst \ref{lst:hs-octree-constructie}.
+\input{./tbl/hs-lichtoctree.tex}
 
 
