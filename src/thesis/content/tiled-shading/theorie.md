@@ -1,4 +1,4 @@
-# Tiled Shading
+# Theorie
 
 \input{./img/tex/ts-onderverdeling.tex}
 

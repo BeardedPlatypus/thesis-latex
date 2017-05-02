@@ -1,3 +1,0 @@
-# Implementatie binnen nTiled
-
-

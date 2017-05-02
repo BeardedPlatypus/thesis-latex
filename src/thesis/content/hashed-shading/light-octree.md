@@ -56,4 +56,3 @@ octreeknoop zijn er vijf mogelijke situaties. Deze zijn weergegeven in tabel
 
 \input{./tbl/hs-lichtoctree.tex}
 
-

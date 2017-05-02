@@ -1,40 +1,19 @@
-In het voorgaande hoofdstuk zijn zowel Tiled als Clustered shading 
-geintroduceerd. Deze technieken reduceren het aantal licht berekeningen dat 
-gedaan moet worden. Hier staat tegenover dat deze technieken volledig 
-afhankelijk zijn van de viewport. Hierdoor moet per frame opnieuw de tiles, en
-clusters herberekend worden. In dit hoofdstuk wordt Hashed Shading 
-geintroduceerd. De datastructuur die gebruikt wordt om een 3d coordinaat af te 
-beelden op de set van relevante lichten, wordt volledig verplaatst naar het
-geheugen van de grafische kaart. 
+In de voorgaande hoofdstukken zijn Tiled en Clustered shading ge\"introduceerd
+als lichttoekenningsalgoritmes om voor fragmenten de set van lichten die 
+ge\"evalueerd dient te worden bij de shading berekening, te beperken.
+In dit hoofdstuk wordt Hashed shading als als alternatief lichttoekenningsalgoritme
+ge\"introduceerd. Zowel Tiled als Clustered shading zijn camera-afhankelijk en 
+de geassocieerde datastructuren dienen om deze reden per frame opnieuw opgebouwd
+te worden. Hashed shading daarentegen gebruikt camera-onafhankelijke datastructuren,
+waardoor deze niet opnieuw opgesteld dienen te worden per frame. Tegelijkertijd 
+behaald het nog steeds een vergelijkbare versnelling en wordt niet significant 
+meer geheugen gebruikt. Dit wordt bereikt door de lichten binnen de scene te 
+representeren als een octree. 
 
-Deze datastructuur moet de volgende attributen bevatten:  
-
-* De datastructureer moet het efficient op zoeken van relevante lichten bij een
-  3d coordinaat faciliteren.  
-* De datastructureer moet het mogelijk maken om veranderingen in lichten 
-  efficient door te voeren.  
-* De datastructuur dient efficient geconstruceerd te worden.  
-
-Deze attributen zijn geordend op basis van belangrijkheid. Bij het renderen zal
-op de eerste plaats voor elk fragment de relevante lichten opgezocht worden. 
-Dit is de meest voorkomende operatie binnen het renderen van een scene.
-Op de tweede plaats moet het mogelijk zijn om licht locatie en grootte aan te 
-passen. Dit wordt triviaal ondersteund binnen zowel Clustered als Tiled shading.
-Omdat er binnen Hashed shading niet per frame opnieuw een datastructuur wordt 
-opgebouwd, is het van belang dat aanpassingen aan de datastructuur mogelijk zijn.
-Onder normale omstandig heden zullen bestaande lichten niet in grootte mate 
-verschillen tussen frames. Hierdoor zal het veelal niet nodig zijn om elke
-frame updates uit te voeren. 
-Het opbouwen van de datastructuur zal veelal slechts enkelmalig plaatsvinden
-als pre-process stap, en kan, bij niet dynamische scenes, van te voren berekend
-en vervolgens ingelezen kunnen worden. 
-De laatste eigenschap waar aan voldaan moet worden, is dat de datastructuur,
-efficient op de grafische kaart gebruikt dient te kunnen worden. 
-
-In de volgende secties zal eerst een overzicht gegeven worden van de verschillende
-datastructuren die voldoen aan de gestelde eisen. Vervolgens zal dieper ingegaan
-worden op de theorie achter de gekozen datastructuur. 
-Een overzicht van het opgestelde algoritme en de implementatie binnen `nTiled`, 
-zal vervolgens gegeven worden. De effeciencie van de implementatie zal geevalueerd 
-worden aan de hand van testen met de drie test scenes.  
+In de volgende secties zal eerst de achterliggende theorie besproken worden, 
+waarbij ingegaan wordt op de keuze voor de octree als spatiale datastructuur, en
+hoe deze voorgesteld kan worden op de GPU. Vervolgens zal het het algoritme 
+behandeld worden. Hierna zal de effici\"ency en het geheugengebruik aan de hand
+van de testscenes ge\"evalueerd worden. Als laatste zullen deze resultaten
+vergeleken worden met Tiled en Clustered Shading.
 

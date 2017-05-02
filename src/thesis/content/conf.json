@@ -1,8 +1,23 @@
-{ "chapters": [ "inleiding",
-                "theorie",
-                "implementatie-overzicht",
-                "forward-deferred-shading",
-                "light-assignment",
-                "hashed-shading",
-                "besluit"
-]}
+{ "chapters": [ { "folder" : "inleiding"
+                , "title"  : "Inleiding"
+                }
+              , { "folder" : "theorie"
+                , "title"  :  "Theorie"
+                }
+              , { "folder" : "implementatie-overzicht"
+                , "title"  : "Implementatie overzicht"
+                }
+              , { "folder" : "forward-deferred-shading"
+                , "title"  : "Deferred Shading"
+                }
+              , { "folder" : "tiled-shading"
+                , "title"  : "Tiled Shading"
+                }
+              , { "folder" : "hashed-shading"
+                , "title"  : "Hashed Shading"
+                }
+              , { "folder" : "besluit"
+                , "title"  : "Besluit"
+                }
+              ]
+}

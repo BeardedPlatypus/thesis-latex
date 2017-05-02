@@ -1,6 +1,6 @@
 { "sections": [ "introductie.md"
               , "theorie.md"
-              , "algorithm.md"
+              , "algoritme.md"
               , "resultaten.md"
               , "discussie.md"
               ]
