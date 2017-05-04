@@ -102,3 +102,30 @@ Hierbij hebben de vierkanten twee belangrijke eigenschappen:
 In combinatie met het feit dat de boom gebalanceerd is, zorgt dit voor de 
 mogelijkheid om spatiale data effici\"ent op te halen.
 
+## Keuze voor de octree-datastructuur
+
+Het doel van lichttoekenning is om de ruimte zodanig onder te verdelen dat 
+effici\"ent de relevante lichten voor een punt in de wereld opgehaald kunnen
+worden. De spatiale datastructuur die gebruikt wordt voor het ophalen van de
+lichten dient te voldoen aan de eerder genoemde eisen. 
+
+Een belangrijke observatie is dat dit geen dichtste-buur-probleem is. Onder 
+perfecte omstandigheden zou de datastructuur alle lichten waarvan het punt in 
+het lichtvolume valt, teruggeven, en geen enkel ander licht.
+De punten zijn hierbij zijn de fragmenten die geprojecteerd zijn op de viewport.
+
+Zowel de kd-boom als de R-boom zijn ontwikkeld met het dichtste-buur-probleem in
+gedachte, waarbij de dataset bestaat uit een set van punten. Deze algoritmes 
+zijn daarom minder geschikt voor lichttoekenning, waarbij de data geen punten 
+maar volumes zijn. 
+
+Zowel het rooster als de octree zijn geschikter voor lichttoekenning, omdat de
+manier van opdeling bepaald wordt door het volume, en niet door de data. 
+In het geval van het rooster levert dit uniforme kubussen op waarvoor voor
+elk volume bepaald kan worden met welke lichtvolumen het overlapt. Dit betekent
+dat ook voor grote uniforme ruimtes een groot aantal kubussen zijn gedefinieerd.
+Hierdoor schaald het rooster slecht met de grootte van de ruimte. De octree is
+in staat om dergelijke uniforme ruimtes effici\"ent voor te stellen.
+Om deze redenen is gekozen voor de octree-datastructuur als basis voor het
+camera-onafhankelijke lichttoekenningsalgoritme.
+

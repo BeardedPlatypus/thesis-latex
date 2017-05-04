@@ -1,2 +1,2 @@
-## Octrees 
+## Octrees datastructuur
 

@@ -1,5 +1,8 @@
 #+SEQ_TODO: TODO DRAFT | DONE
 
+* GLOBAL TODOS
+** TODO Replace codelistings with proper listings
+
 * TODO Layout thesis
 [[file:src/thesis/layout/thesis_print.tex][thesis_print.tex]]
 
@@ -175,7 +178,7 @@ korte beschrijving hoe lichten opgebouwd zijn binnen deze thesis.
 
 **** maak de afbeeldingen in een minipage met alle relevante dingen er in
 
-** TODO Forward en Deferred Shading
+** TODO Deferred Shading
 [[file:src/thesis/content/forward-deferred-shading/chapter.json][chapter.json]]
 *** TODO Introductie
 [[file:src/thesis/content/forward-deferred-shading/introductie.md][introductie.md]]
@@ -187,7 +190,7 @@ korte beschrijving hoe lichten opgebouwd zijn binnen deze thesis.
 **** Forward+ in detail
 **** Uses in industry / references
 *** TODO Implementatie in nTiled
-[[file:src/thesis/content/forward-deferred-shading/implementatie.md][implementatie.md]]
+[[file:src/thesis/content/forward-deferred-shading/algorithm.md][algorithm.md]]
 *** TODO Testen / resultaten
 [[file:src/thesis/content/forward-deferred-shading/resultaten.md][resultaten.md]]
 **** invloed van SIMD
@@ -195,14 +198,12 @@ korte beschrijving hoe lichten opgebouwd zijn binnen deze thesis.
 *** TODO Discussie / Conclusie vergelijking
 [[file:src/thesis/content/forward-deferred-shading/discussie.md][discussie.md]]
 
-
-** TODO Light Assignment
-[[file:src/thesis/content/light-assignment/chapter.json][chapter.json]]
+** TODO Tiled Shading 
+[[file:src/thesis/content/tiled-shading/chapter.json][chapter.json]]
 *** TODO Introductie
-[[file:src/thesis/content/light-assignment/introductie.md][introductie.md]]
+[[file:src/thesis/content/tiled-shading/introductie.md][introductie.md]]
 *** TODO Theorie
-**** TODO Tiled
-[[file:src/thesis/content/light-assignment/tiled.md][tiled.md]]
+[[file:src/thesis/content/tiled-shading/theorie.md][theorie.md]]
 ***** Motivatie
 ***** Algoritme
 ***** Resultaten?
@@ -211,6 +212,14 @@ korte beschrijving hoe lichten opgebouwd zijn binnen deze thesis.
 ****** Voeg beschrijving geschiedenis toe?
 ****** Voeg beschrijving depth optimisation toe
 ****** licht projectie
+*** TODO Algoritme
+[[file:src/thesis/content/tiled-shading/algoritme.md][algoritme.md]]
+*** TODO Testen / resultaten
+[[file:src/thesis/content/tiled-shading/resultaten.md][resultaten.md]]
+*** TODO Discussie / Conclusie vergelijking
+[[file:src/thesis/content/tiled-shading/discussie.md][discussie.md]]
+
+** TODO Clustered Shading
 **** TODO Clustered
 [[file:src/thesis/content/light-assignment/clustered.md][clustered.md]]
 ***** Motivatie
@@ -222,15 +231,6 @@ korte beschrijving hoe lichten opgebouwd zijn binnen deze thesis.
 ****** Referenties toevoegen
 ******* sorteren
 ******* page tables
-**** TODO Alternatieven
-[[file:src/thesis/content/light-assignment/alternatieven.md][alternatieven.md]]
-*** TODO Implementatie in nTiled
-[[file:src/thesis/content/light-assignment/implementatie.md][implementatie.md]]
-*** TODO Testen / resultaten
-[[file:src/thesis/content/light-assignment/resultaten.md][resultaten.md]]
-*** TODO Discussie / Conclusie vergelijking
-[[file:src/thesis/content/light-assignment/discussie.md][discussie.md]]
-
 
 ** TODO Hashed Shading
 [[file:src/thesis/content/hashed-shading/chapter.json][chapter.json]]
@@ -238,9 +238,14 @@ korte beschrijving hoe lichten opgebouwd zijn binnen deze thesis.
 [[file:src/thesis/content/hashed-shading/introductie.md][introductie.md]]
 Beschrijf tevens wat een octree samen ligt
 *** TODO Theorie
-**** TODO Introductie
+**** DRAFT Introductie
 [[file:src/thesis/content/hashed-shading/theorie-introductie.md][theorie-introductie.md]]
-**** TODO Spatiale datastructuren
+***** TODO Images
+****** hs-tiled-clustered-subd
+[[file:src/thesis/img/tex/hs-tiled-clustered-subd.tex][hs-tiled-clustered-subd.tex]]
+
+
+**** DRAFT Spatiale datastructuren
 [[file:src/thesis/content/hashed-shading/datastructures.md][datastructures.md]]
 ***** Grid
 ***** Z-order
@@ -252,6 +257,18 @@ Beschrijf tevens wat een octree samen ligt
 ***** TODO Images
 ****** hs-octree
 [[file:src/thesis/img/tex/hs-octree.tex][hs-octree.tex]]
+****** hs-datastructuur-bsp
+[[file:src/thesis/img/tex/hs-datastructuur-bsp.tex][s-datastructuur-bsp.tex]]
+****** hs-datastructuur-grid
+[[file:src/thesis/img/tex/hs-datastructuur-grid.tex][s-datastructuur-grid.tex]]
+****** hs-datastructuur-grid-bsp
+[[file:src/thesis/img/tex/hs-datastructuur-grid-bsp.tex][s-datastructuur-grid-bsp.tex]]
+****** hs-datastructuur-octree-bsp
+[[file:src/thesis/img/tex/hs-datastructuur-octree-bsp.tex][s-datastructuur-octree-bsp.tex]]
+****** hs-datastructuur-kd
+[[file:src/thesis/img/tex/hs-datastructuur-kd.tex][s-datastructuur-kd.tex]]
+****** hs-datastructuur-r
+[[file:src/thesis/img/tex/hs-datastructuur-r.tex][s-datastructuur-r.tex]]
 **** TODO Octrees
 [[file:src/thesis/content/hashed-shading/octrees.md][octrees.md]]
 **** TODO Hashing

@@ -90,7 +90,9 @@ def build_markdown_files(chapters, verbose=False):
         print("[DONE]")
         print("  build chapter files:")
 
-    for chapter in chapters:
+    for chapter_dic in chapters:
+        chapter = chapter_dic["folder"]
+
         print(chapter)
         if verbose:
             print("    building {}.md ...".format(chapter), end='')
@@ -201,14 +203,17 @@ def compile_markdown(chapters, verbose=False):
     # compile chapters
     chapter_template = path_template / Path('chapter_template.tex')
 
-    for chapter in chapters:
+    for chapter_dic in chapters:
+        chapter = chapter_dic["folder"]
+        chapter_title = chapter_dic["title"]
+
         if verbose:
             print("    Compiling {}.md ...".format(chapter), end='')
 
         pandoc( pd_from,
                 pd_to,
                 pd_template(chapter_template),
-                pd_title(chapter.capitalize()),
+                pd_title(chapter_title),
                 pd_out(path_target / Path('{}.tex'.format(chapter))),
                 str((path_src / Path('{}.md'.format(chapter))))
         )
