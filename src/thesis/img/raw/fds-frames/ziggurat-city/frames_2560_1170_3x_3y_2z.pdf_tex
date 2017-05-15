@@ -1,0 +1,73 @@
+%% Creator: Inkscape inkscape 0.92.1, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'frames_2560_1170_3x_3y_2z.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{392.76656964bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.67446308)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{./img/raw/fds-frames/ziggurat-city/frames_2560_1170_3x_3y_2z.pdf}}%
+    \put(0.17176977,0.05918868){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{0}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{./img/raw/fds-frames/ziggurat-city/frames_2560_1170_3x_3y_2z.pdf}}%
+    \put(0.3367983,0.05918868){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{100}}}%
+    \put(0.50182687,0.05918868){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{200}}}%
+    \put(0.66685544,0.05918868){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{300}}}%
+    \put(0.83188397,0.05918868){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{400}}}%
+    \put(0.55546115,0.02389779){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{Frames}}}%
+    \put(0.11143149,0.11848858){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{0}}}%
+    \put(0.11143149,0.18341594){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{500}}}%
+    \put(0.11143149,0.2483433){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{1000}}}%
+    \put(0.11143149,0.31327067){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{1500}}}%
+    \put(0.11143149,0.37819803){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{2000}}}%
+    \put(0.11143149,0.44312539){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{2500}}}%
+    \put(0.11143149,0.50805275){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{3000}}}%
+    \put(0.11143149,0.57298013){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{3500}}}%
+    \put(0.11143149,0.6379075){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{4000}}}%
+    \put(0.03871932,0.37204072){\color[rgb]{0.14901961,0.14901961,0.14901961}\rotatebox{90}{\makebox(0,0)[b]{\smash{Execution time (ms)}}}}%
+    \put(0.85970519,0.6077079){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[lb]{\smash{Forward}}}%
+    \put(0.85970519,0.57169335){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[lb]{\smash{Deferred}}}%
+  \end{picture}%
+\endgroup%

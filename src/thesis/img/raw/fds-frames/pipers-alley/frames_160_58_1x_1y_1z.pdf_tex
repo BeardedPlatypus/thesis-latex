@@ -1,0 +1,72 @@
+%% Creator: Inkscape inkscape 0.92.1, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'frames_160_58_1x_1y_1z.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{381.64468146bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.69137999)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{./img/raw/fds-frames/pipers-alley/frames_160_58_1x_1y_1z.pdf}}%
+    \put(0.14845319,0.06091359){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{0}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{./img/raw/fds-frames/pipers-alley/frames_160_58_1x_1y_1z.pdf}}%
+    \put(0.29096791,0.06091359){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{100}}}%
+    \put(0.43348262,0.06091359){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{200}}}%
+    \put(0.57599738,0.06091359){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{300}}}%
+    \put(0.71851206,0.06091359){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{400}}}%
+    \put(0.86102685,0.06091359){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{500}}}%
+    \put(0.54250642,0.02459421){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{Frames}}}%
+    \put(0.08553686,0.13915322){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{12}}}%
+    \put(0.08553686,0.22492089){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{14}}}%
+    \put(0.08553686,0.31068851){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{16}}}%
+    \put(0.08553686,0.39645615){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{18}}}%
+    \put(0.08553686,0.48222381){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{20}}}%
+    \put(0.08553686,0.56799145){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{22}}}%
+    \put(0.08553686,0.6537591){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{24}}}%
+    \put(0.03984769,0.38288272){\color[rgb]{0.14901961,0.14901961,0.14901961}\rotatebox{90}{\makebox(0,0)[b]{\smash{Execution time (ms)}}}}%
+    \put(0.85561669,0.6254177){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[lb]{\smash{Forward}}}%
+    \put(0.85561669,0.58835362){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[lb]{\smash{Deferred}}}%
+  \end{picture}%
+\endgroup%
