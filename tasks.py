@@ -17,6 +17,7 @@ CONTENT_DIR = Path('content/')
 LAYOUT_DIR = Path('layout/')
 IMG_DIR = Path('img/')
 TBL_DIR = Path('tbl/')
+LST_DIR = Path('lst/')
 REF_DIR = Path('ref/')
 
 BUILD_DIR = Path('./build/')
@@ -249,6 +250,16 @@ def update_tables(verbose=False):
                      verbose=verbose)
 
 
+def update_listings(verbose=False):
+    build_dir = BUILD_DIR / LST_DIR
+    lst_src = THESIS_DIR / LST_DIR
+
+    update_directory(path_src=lst_src,
+                     path_target=build_dir,
+                     delimiter=get_file_delimeter(file_type=None),
+                     verbose=verbose)
+
+
 def compile_tex(verbose=False, mode='print'):
     if verbose:
         print("  Compiling latex: ")
@@ -257,7 +268,7 @@ def compile_tex(verbose=False, mode='print'):
 
     if verbose:
         print("    Compilation 0 ... ", end='')
-    output = pdflatex("thesis_{}.tex".format(mode))
+    output = pdflatex("-shell-escape", "thesis_{}.tex".format(mode))
     print(output)
 
     if verbose:
@@ -270,13 +281,13 @@ def compile_tex(verbose=False, mode='print'):
     if verbose:
         print("  Compiling latex: ")
         print("    Compilation 1 ... ", end='')
-    output = pdflatex("thesis_{}.tex".format(mode))
+    output = pdflatex("-shell-escape", "thesis_{}.tex".format(mode))
 
     if verbose:
         print("[DONE]")
         print("    Compilation 2 ... ", end='')
 
-    output = pdflatex("thesis_{}.tex".format(mode))
+    output = pdflatex("-shell-escape", "thesis_{}.tex".format(mode))
 
     if verbose:
         print("[DONE]")
@@ -311,6 +322,7 @@ def build(ctx, verbose=False):
     compile_markdown(chapters=data["chapters"], verbose=verbose)
     update_images(verbose=verbose)
     update_tables(verbose=verbose)
+    update_listings(verbose=verbose)
     compile_tex(verbose=verbose)
     copy_output(verbose=verbose)
 
