@@ -1,0 +1,44 @@
+\begin{listing}[p]
+  \begin{minted}{glsl}
+for (uint layer_i = 0;
+     layer_i < OCTREE_DEPTH;
+     layer_i++) {
+  octree_coord_cur = octree_coord_next;
+
+  next_node_size_den *= 2;
+  octree_coord_next =
+     ivec3(floor(fragment_octree_position *
+                 next_node_size_den));
+  index_dif = octree_coord_next -
+              octree_coord_cur * 2;
+  index_int = index_dif.x +
+              index_dif.y * 2 +
+              index_dif.z * 4;
+
+  octree_data =
+      obtainNodeFromSpatialHashFunction(
+          octree_coord_cur,
+          octree_offset_tables[layer_i],
+          octree_data_tables[layer_i]);
+      
+  if(extractBit(octree_data.x, index_int)) {
+    if(extractBit(octree_data.y, index_int)) {
+      light_data =
+          obtainNodeFromSpatialHashFunction(
+              octree_coord_next,
+              light_offset_tables[layer_i],
+              light_data_tables[layer_i]);
+    }
+    break;
+  }
+}
+uint offset = light_data.x;
+uint n_lights = light_data.y;
+
+for (uint i = offset; i < offset + n_lights; i++) {
+  light_acc += computeLight(lights[light_indices[i]], param);
+}
+  \end{minted}
+  \caption{Lichttoekenning in de GLSL shader.}
+  \label{lst:hs-lichttoekenning}
+\end{listing}

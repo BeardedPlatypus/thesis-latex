@@ -1,0 +1,12 @@
+\begin{minted}{python}
+def node_in_light(node, light) -> bool:
+  closest_point =
+      vec3( clamp(node.x, light.orig.x, node.x + node.size)
+          , clamp(node.y, light.orig.y, node.y + node.size)
+          , clamp(node.z, light.orig.z, node.z + node.size)
+          )
+  p = closest_point - light.orig
+  return ((p.x * p.x + p.y * p.y + p.z * p.z) >
+          light.radius * light.radius )
+\end{minted}
+
