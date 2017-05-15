@@ -1,69 +1,74 @@
 ## Verbindingloze octree
 
-Nu de licht octree opgesteld is, is het mogelijk om deze voor te stellen als
-een verbindingloze octree. De structuur van de licht octree kan voorgesteld worden
-volgens de standaard beschrijving zoals weergegeven in sectie /ref{sec:theorie-verbindingloze-octree} .
-De constructie zal het constructie algoritme hier volgen.
+Nu de lichtoctree opgesteld is, is het mogelijk om deze voor te stellen als
+een verbindingloze octree. De structuur van de lichtoctree kan voorgesteld worden
+zoals beschreven in sectie \ref{sec:theorie-verbindingloze-octree}.
 
-Naast de structuur van de octree dient tevens de data gemodeleerd worden in deze
-verbindingloze octree. Zoals eerder vermeld bevat elke gevulde blad knoop een
-set van lichten die van invloed zijn op het volume dat de blad knoop beschrijft. 
-Vergelijkbaar met tiled en clustered shading, kunnen de relevante lichten 
-beschreven worden met een reeks licht indices die in een lijst worden bijgehouden.
-De reeks kan gespecificeerd worden met een offset, en een lengte van de reeks
-binnen deze licht index lijst. De data kan vervolgens, vergelijkbaar met de
-tiled en clustered shading worden voorgesteld aan de hand van twee integers, 
-die deze offset en lengte definieren.
+Naast de structuur dient tevens, per gevulde bladknoop, bijgehouden te worden
+welke lichten van invloed zijn op de corresponderende ruimte. Omdat de gevulde
+bladknopen slechts een kleine subset van alle knopen zijn is er gekozen om deze
+data op te slaan in aparte hashtabellen. Hierbij is gekozen voor een
+vergelijkbare aanpak als in Tiled en Clustered shading. Er zijn drie verschillende
+datastructuren gespecificeerd: 
 
-Doordat het aantal knopen met data slechts een kleine subset van het totaal
-aantal knopen is, is er gekozen om deze data los van de octree representatie
-op te slaan. Dit leidt ertoe dat er per laag twee ruimtelijke hash functies
-zijn gedefinieerd. De volledige representatie van de datastructuren is 
-weergegeven in figuur \ref{fig:hs-verbindingloze-octree-algoritme}
+* Een lijst van alle lichten in de scene.
+* Een lijst van lichtindices
+* De data-hashtabellen
+
+De lijst van lichtindices bestaan uit integers die wijzen naar specifieke lichten
+in de lichtlijst. De data-hashtabellen bevat vervolgen per volle bladknoop in een
+laag een vector van twee integers. De eerste integer specificeert een beginpunt
+in de lichtindexlijst. De tweede integer specificeert het aantal lichten behorende
+bij de gevulde bladknoop. Op deze manier wordt een subset van de lichtindexlijst
+gespecificeerd. Deze subset komt overeen met alle indices relevant voor de 
+gevulde bladknoop. Deze datastructuren zijn ge\"illustreerd in figuur 
+\ref{fig:hs-verbindingloze-octree-algoritme.tex}
 
 \input{./img/tex/hs-verbindingloze-octree-algoritme.tex}
 
-Belangrijk hierbij is dat het geheugen gebruik om een laag voor te stellen
-veelal relatief groter is bij kleine lagen. Om deze reden worden de eerste
-lagen veelal niet expliciet voorgesteld, maar worden de knopen pas vanaf
-laag $i$ voorgesteld als eerste ruimtelijke hash functie. Dit leidt tot een
-compactere voorstelling en verlaagd tevens het aantal iteraties dat uitgevoerd
-dient te worden om een gehashed cluster te berekenen, doordat direct vanaf
-laag $i$ gestart kan worden.
+Wanneer een laag bestaat uit slechts een klein aantal knopen, zal de voorstelling
+als spatiale hashfunctie relatief veel geheugen gebruiken, door de overhead van 
+de texturen. Om deze reden worden veelal de eerst $i$ lagen niet expliciet voorgesteld
+maar samengenomen in de eerste voorgestelde laag.
 
-Het algoritme om elke laag weer te geven kan recursief worden opgesteld;
-gegeven een set $S$ van knopen van de huidige laag van de licht octree, 
-en een lijst van licht indices. 
-Voor elke knoop wordt de verbindingloze octree voorstelling berekend,
-deze is gedefinieerd als
+Het algoritme om een lichtoctree om te zetten naar een verbindingloze octree kan
+dan als volgt worden voorgesteld.
 
+* Haal alle knopen uit de lichtoctree op behorende tot laag $j$, waarbij
+  bladknopen in laag $j^\prime < j$ worden opgesplits in kleinere bladknopen.
+  
+* Voor elke knoop in laag $j$, bereken de octreetabelwaarde, gespecificeerd als:
 
-\begin{align*}
-\mathtt{octree\_node}_i \mathop{:=}& \left( \sum_{k=0}^7 \mathtt{is\_leaf}(\mathtt{sub\_node}_k) \times 2^k, \sum_{k=0}^7 \mathtt{is\_empty}(\mathtt{sub\_node}_k) \times 2^k \right) \\
-\mathtt{is\_leaf}(\mathtt{node}) =&
-\begin{cases}
-  1 & : \mathtt{node} \text{ is een blad knoop.}\\
-  0 & : \text{anders}
-\end{cases}\\
-\mathtt{is\_empty}(\mathtt{node}) =&
-\begin{cases}
-  1 & : \mathtt{node} \text{ is geen blad knoop, of bevat minimaal 1 relevant licht.} \\
-  0 & : \text{anders}
-\end{cases}
-\end{align*}
+  \begin{align*}
+  \mathtt{octree\_node}_i \mathop{:=}& \left( \sum_{k=0}^7 \mathtt{is\_leaf}(\mathtt{sub\_node}_k) \times 2^k, \sum_{k=0}^7 \mathtt{is\_empty}(\mathtt{sub\_node}_k) \times 2^k \right) \\
+  \mathtt{is\_leaf}(\mathtt{node}) =&
+  \begin{cases}
+    1 & : \mathtt{node} \text{ is een blad knoop.}\\
+    0 & : \text{anders}
+  \end{cases}\\
+  \mathtt{is\_empty}(\mathtt{node}) =&
+  \begin{cases}
+    1 & : \mathtt{node} \text{ is geen blad knoop, of bevat minimaal 1 relevant licht.} \\
+    0 & : \text{anders}
+  \end{cases}
+  \end{align*}
 
-Verder wordt indien een kind geen blad knoop is deze toegevoegd aan de lijst van
-knopen voor de volgende laag. Indien een kind een niet lege blad knoop is, wordt
-de hashed cluster berekend. Voor de huidige lengte van licht indices
+* Indien een kind van een knoop in laag $j$
+    * een takknoop is: Voeg deze toe aan de lijst van takknopen van laag $j+1$.
+    * een gevulde bladknoop is: Voeg deze toe aan de lijst van bladknopen van laag $j$.
+    
+* Bouw de octreetabel voor alle octree knopen
 
-```
-hashed_cluster = (len(light_indices), len(node.indices))
-```
+* Voor alle bladknopen bepaal de datatabelwaarde gespecificeerd als:
 
-vervolgends worden de indiices van deze knoop toegevoegd aan de lijst van licht
-indices. Voor de set van octree structuur knopen en voor de set van hashed clusters
-wordt elk een ruimtelijke hash functie berekend. 
-Deze stappen worden herhaald voor de knopen van de volgende laag. Dit wordt gedaan
-totdat de set van knopen van de volgende laag leeg is.
-De pseudo code hiervan is gedefinieerd in lst. \ref{lst:licht_octree_constructie}.
+  $$  \mathtt{data\_node} = (\mathtt{len}(\mathtt{light_indices}), \mathtt{len}(\mathtt{node.indices})) $$
+  
+  vervolgens worden de knoopindices toegevoegd aan de lijst van lichtindices.
+  
+* Bouw de datatabel voor alle data knopen
+
+* Herhaal totdat de volgende laag geen takknopen meer bevat.
+
+Na uitvoering zijn $n$ octreetabellen, $m\leq n$ datatabellen en een lichtindexlijst
+opgesteld. Deze kunnen op de GPU geladen worden en gebruikt worden in de shaders.
 

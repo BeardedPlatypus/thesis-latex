@@ -1,9 +1,5 @@
 ## Overzicht van Spatiale Datastructuren
 
-In deze sectie zal ingegaan worden op enkele veel voorkomende spatiale 
-datastructuren. Na dit overzicht zal de keuze voor de octree en de implementatie
-van de octee verder toegelicht worden.
-
 ### Binaire ruimte partionering
 
 \input{./img/tex/hs-datastructuur-bsp.tex}
@@ -36,14 +32,14 @@ een na\"ive implementatie het geheugengebruik zeer snel toe neemt, gezien voor
 elke cel binnen het rooster deze verwijzing dient te worden opgeslagen. 
 
 Clustered Shading maakt gebruik van een vorm van een rooster over de viewport.
-Hierbij wordt de data compacter opgeslagen zodat slechts cellen die zowel licht
-als geometrie bevatten, opgeslagen worden.
+Hierbij wordt de data compacter voorgesteld door slechts cellen die zowel licht
+als geometrie bevatten, op te slaan.
 
 \input{./img/tex/hs-datastructuur-grid-bsp.tex}
 
 Een rooster kan simpelweg gedefinieerd worden als een drie dimensionale lijst. 
 Indien dit als binaire ruimte partionering wordt weergegeven, wordt recursief 
-in elke dimensie steeds \'e'en cel gedefinieerd, zoals weergegeven in figuur 
+in elke dimensie steeds \'e\'en cel gedefinieerd, zoals weergegeven in figuur 
 \ref{fig:hs-datastructuur-grid-bsp}. 
 
 ### Octrees
@@ -105,7 +101,7 @@ mogelijkheid om spatiale data effici\"ent op te halen.
 ## Keuze voor de octree-datastructuur
 
 Het doel van lichttoekenning is om de ruimte zodanig onder te verdelen dat 
-effici\"ent de relevante lichten voor een punt in de wereld opgehaald kunnen
+de relevante lichten voor een punt in de wereld effici\"ent opgehaald kunnen
 worden. De spatiale datastructuur die gebruikt wordt voor het ophalen van de
 lichten dient te voldoen aan de eerder genoemde eisen. 
 
@@ -115,7 +111,7 @@ het lichtvolume valt, teruggeven, en geen enkel ander licht.
 De punten zijn hierbij zijn de fragmenten die geprojecteerd zijn op de viewport.
 
 Zowel de kd-boom als de R-boom zijn ontwikkeld met het dichtste-buur-probleem in
-gedachte, waarbij de dataset bestaat uit een set van punten. Deze algoritmes 
+gedachte, waarbij de dataset bestaat uit een set van punten. Deze datastructuren 
 zijn daarom minder geschikt voor lichttoekenning, waarbij de data geen punten 
 maar volumes zijn. 
 
@@ -124,7 +120,7 @@ manier van opdeling bepaald wordt door het volume, en niet door de data.
 In het geval van het rooster levert dit uniforme kubussen op waarvoor voor
 elk volume bepaald kan worden met welke lichtvolumen het overlapt. Dit betekent
 dat ook voor grote uniforme ruimtes een groot aantal kubussen zijn gedefinieerd.
-Hierdoor schaald het rooster slecht met de grootte van de ruimte. De octree is
+Hierdoor schaalt het rooster slecht met de grootte van de ruimte. De octree is
 in staat om dergelijke uniforme ruimtes effici\"ent voor te stellen.
 Om deze redenen is gekozen voor de octree-datastructuur als basis voor het
 camera-onafhankelijke lichttoekenningsalgoritme.

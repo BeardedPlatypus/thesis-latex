@@ -2,7 +2,7 @@
 
 In het algemeen kan gesteld worden dat lichttoekenning er om draait om de ruimte
 zo effici\"ent mogelijk op te delen, zodat voor elk fragment slechts de lichten
-die daadwerkelijk invloed hebben snel op te halen. 
+die daadwerkelijk invloed hebben, snel opgehaald kunnen worden. 
 De datastructuur die gebruikt wordt om de ruimte onder te verdelen dient dus de
 volgende attributen te bezitten
 
@@ -16,8 +16,8 @@ volgende attributen te bezitten
 Bij het renderen zal bij elke frame voor elk fragment de set van relevante 
 lichten opgehaald dienen te worden. Dit is dus de operatie die het meest 
 uitgevoerd zal worden. Tevens is het belangrijk dat de datastructuur compact is.
-Het beschikbare geheugen op de grafische kaart is beperkt, en tevens is het 
-inladen van data in het grafisch geheugen een snelheidsbeperkende stap. 
+Het beschikbare geheugen op de grafische kaart is beperkt, en een compacte 
+voorstelling verkleint de gebruikte geheugenbandbreedte. 
 
 In veel moderne toepassingen zijn lichten dynamisch van aard. Denk hierbij aan
 lichten die geassocieerd zijn met objecten binnen de scenes, zoals koplampen van
@@ -26,7 +26,7 @@ veranderingen in de scene, zoals uitdovende vuren, of explosies. Een
 datastructuur dient instaat te zijn om dergelijke effecten te modeleren, zonder
 dat de renderingstijd negatief be\"invloed wordt. Het is mogelijk om de 
 datastructuur volledig opnieuw op te bouwen per frame, echter in veel gevallen
-zijn deze veranderingen klein tussen frames en lokaal van aard, waardoor het 
+zijn deze veranderingen tussen frames klein en lokaal van aard, waardoor het 
 veelal effici\"enter is om de al opgestelde datastructuur (gedeeltelijk) her te
 gebruiken.
 
@@ -47,5 +47,5 @@ In de volgende secties zullen eerst enkele veel voorkomende spatiale
 datastructuren behandeld worden. Hierna zal toegelicht worden aan de hand van de 
 bovengestelde eisen, waarom gekozen is voor de octree datastructuur. 
 Vervolgens zal de achterliggende theorie van de octree datastructuur behandeld
-worden.
+worden en hoe deze voorgesteld kan worden op de GPU.
 
