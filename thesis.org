@@ -180,8 +180,10 @@ korte beschrijving hoe lichten opgebouwd zijn binnen deze thesis.
 
 ** TODO Deferred Shading
 [[file:src/thesis/content/forward-deferred-shading/chapter.json][chapter.json]]
-*** TODO Introductie
+*** DRAFT Introductie
 [[file:src/thesis/content/forward-deferred-shading/introductie.md][introductie.md]]
+**** Images
+***** DRAFT [[file:src/thesis/img/tex/fds-scene.tex][fds-scene.tex]]
 *** TODO Theorie
 [[file:src/thesis/content/forward-deferred-shading/theorie.md][theorie.md]]
 **** Uitleg forward | Deferred | Forward+ inleiding
@@ -189,12 +191,28 @@ korte beschrijving hoe lichten opgebouwd zijn binnen deze thesis.
 **** Deferred in detail
 **** Forward+ in detail
 **** Uses in industry / references
-*** TODO Implementatie in nTiled
+
+**** DRAFT images
+***** DRAFT [[file:src/thesis/img/tex/fds-gbuffer.tex][fds-gbuffer.tex]]
+*** TODO Algoritme
 [[file:src/thesis/content/forward-deferred-shading/algorithm.md][algorithm.md]]
+**** TODO images
+***** TODO [[file:src/thesis/img/tex/fds-gbuffer-ntiled.tex][fds-gbuffer-ntiled.tex]] 
+**** listings
+***** TODO 
+
 *** TODO Testen / resultaten
 [[file:src/thesis/content/forward-deferred-shading/resultaten.md][resultaten.md]]
+
 **** invloed van SIMD
 **** vergelijking forward deferred
+
+**** DRAFT Graphs
+***** DRAFT [[file:src/thesis/img/tex/fds-test-frames-high.tex][fds-test-frames-high.tex]] 
+***** DRAFT [[file:src/thesis/img/tex/fds-test-lights.tex][fds-test-lights.tex]] 
+***** DRAFT [[file:src/thesis/img/tex/fds-test-resolution.tex][fds-test-resolution.tex]] 
+***** DRAFT 
+
 *** TODO Discussie / Conclusie vergelijking
 [[file:src/thesis/content/forward-deferred-shading/discussie.md][discussie.md]]
 
