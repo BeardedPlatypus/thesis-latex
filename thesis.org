@@ -1,7 +1,8 @@
 #+SEQ_TODO: TODO DRAFT | DONE
 
 * GLOBAL TODOS
-** TODO Replace codelistings with proper listings
+** DONE Replace codelistings with proper listings
+CLOSED: [2017-05-19 Fri 18:16]
 
 * TODO Layout thesis
 [[file:src/thesis/layout/thesis_print.tex][thesis_print.tex]]
@@ -309,6 +310,23 @@ Beschrijf tevens wat een octree samen ligt
 [[file:src/thesis/content/hashed-shading/implementatie.md][implementatie.md]]
 *** TODO Testen / resultaten
 [[file:src/thesis/content/hashed-shading/resultaten.md][resultaten.md]]
+
+**** TODO Graphs
+***** DRAFT Seed - combined
+[[file:src/thesis/img/tex/hs-seed-combined.tex][hs-seed-combination.tex]]
+
+
+***** DRAFT Seed - memory
+[[file:src/thesis/img/tex/hs-seed-memory.tex][hs-seed-memory.tex]]
+***** DRAFT Seed - construction time
+[[file:src/thesis/img/tex/hs-seed-construction-time.tex][hs-seed-construction-time.tex]]
+***** DRAFT NodeSize - memory
+
+***** DRAFT NodeSize - construction time
+[[file:src/thesis/img/tex/hs-nodesize-construction-time.tex][hs-nodesize-construction-time.tex]]
+
+
+
 *** TODO Discussie / Conclusie
 [[file:src/thesis/content/hashed-shading/discussie.md][discussie.md]]
 
