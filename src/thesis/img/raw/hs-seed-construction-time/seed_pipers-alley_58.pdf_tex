@@ -1,0 +1,74 @@
+%% Creator: Inkscape inkscape 0.92.1, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'seed_pipers-alley_58.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{487.68374731bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.7715987)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{./img/raw/hs-seed-construction-time/seed_pipers-alley_58.pdf}}%
+    \put(0.11134174,0.10291599){\color[rgb]{0.14901961,0.14901961,0.14901961}\rotatebox{45}{\makebox(0,0)[lb]{\smash{22}}}}%
+    \put(0.17465609,0.04647524){\color[rgb]{0.14901961,0.14901961,0.14901961}\rotatebox{45}{\makebox(0,0)[lb]{\smash{170139950}}}}%
+    \put(0.26619082,0.04647524){\color[rgb]{0.14901961,0.14901961,0.14901961}\rotatebox{45}{\makebox(0,0)[lb]{\smash{262626910}}}}%
+    \put(0.35772555,0.04647524){\color[rgb]{0.14901961,0.14901961,0.14901961}\rotatebox{45}{\makebox(0,0)[lb]{\smash{313404752}}}}%
+    \put(0.44926028,0.04647524){\color[rgb]{0.14901961,0.14901961,0.14901961}\rotatebox{45}{\makebox(0,0)[lb]{\smash{332987239}}}}%
+    \put(0.54079501,0.04647524){\color[rgb]{0.14901961,0.14901961,0.14901961}\rotatebox{45}{\makebox(0,0)[lb]{\smash{382504079}}}}%
+    \put(0.63232974,0.04647524){\color[rgb]{0.14901961,0.14901961,0.14901961}\rotatebox{45}{\makebox(0,0)[lb]{\smash{456592902}}}}%
+    \put(0.72386447,0.04647524){\color[rgb]{0.14901961,0.14901961,0.14901961}\rotatebox{45}{\makebox(0,0)[lb]{\smash{731052759}}}}%
+    \put(0.81539919,0.04647524){\color[rgb]{0.14901961,0.14901961,0.14901961}\rotatebox{45}{\makebox(0,0)[lb]{\smash{833956794}}}}%
+    \put(0.90693392,0.04647524){\color[rgb]{0.14901961,0.14901961,0.14901961}\rotatebox{45}{\makebox(0,0)[lb]{\smash{859032165}}}}%
+    \put(0.52756269,0.01924662){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{Seed}}}%
+    \put(0.05553548,0.13643521){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{0}}}%
+    \put(0.05553548,0.21496693){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{1}}}%
+    \put(0.05553548,0.29349869){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{2}}}%
+    \put(0.05553548,0.37203041){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{3}}}%
+    \put(0.05553548,0.45056216){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{4}}}%
+    \put(0.05553548,0.52909389){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{5}}}%
+    \put(0.05553548,0.60762562){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{6}}}%
+    \put(0.05553548,0.68615736){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{7}}}%
+    \put(0.03118344,0.45030442){\color[rgb]{0.14901961,0.14901961,0.14901961}\rotatebox{90}{\makebox(0,0)[b]{\smash{Executie Tijd (ms)}}}}%
+  \end{picture}%
+\endgroup%
