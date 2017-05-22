@@ -5,10 +5,10 @@
                 , "title"  :  "Theorie"
                 }
               , { "folder" : "implementatie-overzicht"
-                , "title"  : "Implementatie overzicht"
+                , "title"  : "Methode overzicht"
                 }
               , { "folder" : "forward-deferred-shading"
-                , "title"  : "Deferred Shading"
+                , "title"  : "Forward en Deferred Shading"
                 }
               , { "folder" : "tiled-shading"
                 , "title"  : "Tiled Shading"

@@ -1,7 +1,7 @@
 { "sections": [ "introductie.md"
-              , "overzicht.md"
-              , "functionaliteit.md"
-              , "meet_methodes.md"
+              , "software.md"
+              , "hardware.md"
               , "test_suite.md"
+              , "analyse.md"
               ]
 }

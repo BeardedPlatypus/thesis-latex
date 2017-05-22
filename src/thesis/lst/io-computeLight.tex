@@ -1,0 +1,35 @@
+\begin{listing}[b]
+  \centering %
+%struct Light {
+%  vec4 position;
+%  vec3 intensity;
+%  float radius;
+%};
+%
+%struct GeometryParam {
+%  vec4 position;
+%  vec3 normal;
+%  vec3 colour;
+%};
+  \caption{Kleurberekening in de fragment-shader.}
+  \begin{minted}[frame=single,framesep=12pt]{glsl}
+vec3 computeLight(Light light,
+                  GeometryParam param) {
+  vec3 light_direction = 
+    vec3(light.position - param.position);
+  float d = length(L);
+  light_direction /= d;
+
+  float attenuation = 
+    clamp(1.0 - ( d / light.radius ), 0.0f, 1.0f);
+  attenuation *= attenuation;
+
+  float cos_angular_incidence = 
+    clamp(dot(param.normal, light_direction), 0.0f, 1.0f);
+  return (param.colour * light.intensity * 
+          cos_angular_incidence * attenuation);
+}
+  \end{minted}
+  \label{lst:io-computeLight}
+\end{listing}
+

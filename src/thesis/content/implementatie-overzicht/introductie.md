@@ -1,8 +1,11 @@
-Voordat ingegaan wordt op de specifieke technieken die geimplementeerd zijn, zal
-eerst een overzicht gegeven worden van de geimplementeerde functionaliteit en de
-gebruikte test scenes. Deze sectie beschrijft de opzet van het programma dat 
-geimplementeerd is om deze testen uit te voeren. Eerst zal een overzicht worden 
-gegeven van de opbouw van het programma en de geimplementeerde functionaliteit,
-Vervolgens zal gekeken worden naar de meet methodes en zullen de test scenes 
-behandeld worden.
+Voordat ingegaan zal worden op de verschillende lichttoekenningsalgoritmes zal
+eerst een overzicht gegeven worden van de gebruikte software en testscenes. Om 
+de tijds- en geheugencomplexiteit van het nieuw ge\"introduceerde Hashed Shading 
+algoritme te evalueren en te vergelijken met andere lichttoekenningsalgoritmes,
+is er voor gekozen om deze algoritmes te implementeren in \mbox{\'e\'en} nieuw 
+programma. Vervolgens is deze tijds- en geheugencomplexiteit met betrekking tot
+resolutie en aantal lichten, ge\"evalueerd aan de hand van drie testscenes.
+In dit hoofdstuk zal eerst de ontwikkelde software beschreven worden. Vervolgens
+zal ingegaan worden op de gebruikte hardware. Als laatste zullen de gebruikte 
+testscenes en de analyse van de resultaten behandeld worden.
 

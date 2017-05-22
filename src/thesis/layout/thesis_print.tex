@@ -25,6 +25,7 @@
 
 % Custom Libraries
 % ----------------------------------------------------------
+
 % math
 \usepackage{amssymb, amsmath}
 
@@ -34,6 +35,8 @@
 \usepackage{tikz}
 \usepackage[export]{adjustbox}
 \usepackage{float}
+%\usepackage{geometry}
+\usepackage{lscape}
 
 % tables
 \usepackage{booktabs}
@@ -66,7 +69,6 @@
 % Document
 % ----------------------------------------------------------
 \begin{document}
-
   % Front Matter
   % ------------
   \input{./content/preface.tex}
@@ -81,6 +83,7 @@
   % -----------
   \mainmatter
 
+  \inputencoding{utf8}
   \include{./content/inleiding}
   \include{./content/theorie}
   \include{./content/implementatie-overzicht}
