@@ -163,21 +163,22 @@ korte beschrijving hoe lichten opgebouwd zijn binnen deze thesis.
 [[file:src/thesis/content/theorie/verdere-informatie.md][verdere-informatie.md]]
 
 
-** TODO Implementatie overzicht
+** DRAFT Implementatie overzicht
 [[file:src/thesis/content/implementatie-overzicht/chapter.json][chapter.json]]
-*** TODO Introductie
-[[file:src/thesis/content/implementatie-overzicht/introductie.md][introductie.md]]
-
-*** TODO overzicht en organisatie nTiled
-[[file:src/thesis/content/implementatie-overzicht/overzicht.md][overzicht.md]]
-*** TODO geimplementeerde functionaliteit
-[[file:src/thesis/content/implementatie-overzicht/functionaliteit.md][functionaliteit.md]]
-*** TODO meet methodes
-[[file:src/thesis/content/implementatie-overzicht/meet_methodes.md][meet_methodes.md]]
-*** TODO Test set
-[[file:src/thesis/content/implementatie-overzicht/test_suite.md][test_suite.md]]
-
-**** maak de afbeeldingen in een minipage met alle relevante dingen er in
+*** DRAFT [[file:src/thesis/content/implementatie-overzicht/introductie.md][introductie.md]]
+*** DRAFT [[file:src/thesis/content/implementatie-overzicht/software.md][software.md]]
+**** DRAFT [[file:src/thesis/lst/io-computeLight.tex][io-computeLight.tex]] 
+**** DRAFT [[file:src/thesis/img/tex/imp-lambert.tex][imp-lambert.tex]] 
+*** DRAFT [[file:src/thesis/content/implementatie-overzicht/hardware.md][hardware.md]]
+**** DRAFT [[file:src/thesis/tbl/imp-hardware.tex][imp-hardware.tex]] 
+*** DRAFT [[file:src/thesis/content/implementatie-overzicht/test_suite.md][test_suite.md]]
+**** DRAFT [[file:src/thesis/img/tex/test-suite-spaceship-frame.tex][test-suite-spaceship-frame.tex]] 
+**** DRAFT [[file:src/thesis/img/tex/test-suite-pipers-alley-frame.tex][test-suite-pipers-alley-frame.tex]] 
+**** DRAFT [[file:src/thesis/img/tex/test-suite-ziggurat-frame.tex][test-suite-ziggurat-frame.tex]] 
+**** DRAFT [[file:src/thesis/img/tex/test-suite-spaceship-map.tex][test-suite-spaceship-map.tex]] 
+**** DRAFT [[file:src/thesis/img/tex/test-suite-pipers-alley-map.tex][test-suite-pipers-alley-map.tex]] 
+**** DRAFT [[file:src/thesis/img/tex/test-suite-ziggurat-map.tex][test-suite-ziggurat-map.tex]] 
+*** DRAFT [[file:src/thesis/content/implementatie-overzicht/analyse.md][analyse.md]]
 
 ** TODO Deferred Shading
 [[file:src/thesis/content/forward-deferred-shading/chapter.json][chapter.json]]
@@ -212,7 +213,6 @@ korte beschrijving hoe lichten opgebouwd zijn binnen deze thesis.
 ***** DRAFT [[file:src/thesis/img/tex/fds-test-frames-high.tex][fds-test-frames-high.tex]] 
 ***** DRAFT [[file:src/thesis/img/tex/fds-test-lights.tex][fds-test-lights.tex]] 
 ***** DRAFT [[file:src/thesis/img/tex/fds-test-resolution.tex][fds-test-resolution.tex]] 
-***** DRAFT 
 
 *** TODO Discussie / Conclusie vergelijking
 [[file:src/thesis/content/forward-deferred-shading/discussie.md][discussie.md]]
@@ -235,6 +235,13 @@ korte beschrijving hoe lichten opgebouwd zijn binnen deze thesis.
 [[file:src/thesis/content/tiled-shading/algoritme.md][algoritme.md]]
 *** TODO Testen / resultaten
 [[file:src/thesis/content/tiled-shading/resultaten.md][resultaten.md]]
+
+**** DRAFT graphs
+***** DRAFT [[file:src/thesis/img/tex/ts-frames-forward.tex][ts-frames-forward.tex]] 
+***** DRAFT [[file:src/thesis/img/tex/ts-frames-deferred.tex][ts-frames-deferred.tex]] 
+***** DRAFT [[file:src/thesis/img/tex/ts-resolution.tex][ts-resolution.tex]] 
+***** DRAFT [[file:src/thesis/img/tex/ts-lights.tex][ts-lights.tex]] 
+
 *** TODO Discussie / Conclusie vergelijking
 [[file:src/thesis/content/tiled-shading/discussie.md][discussie.md]]
 
@@ -306,21 +313,18 @@ Beschrijf tevens wat een octree samen ligt
 [[file:src/thesis/content/hashed-shading/spatial-hashing.md][spatial-hashing.md]]
 **** Licht berekening
 [[file:src/thesis/content/hashed-shading/licht-toekenning.md][licht-toekenning.md]]
-*** TODO Implementatie in nTiled
-[[file:src/thesis/content/hashed-shading/implementatie.md][implementatie.md]]
 *** TODO Testen / resultaten
 [[file:src/thesis/content/hashed-shading/resultaten.md][resultaten.md]]
 
 **** TODO Graphs
 ***** DRAFT Seed - combined
 [[file:src/thesis/img/tex/hs-seed-combined.tex][hs-seed-combination.tex]]
-
-
 ***** DRAFT Seed - memory
 [[file:src/thesis/img/tex/hs-seed-memory.tex][hs-seed-memory.tex]]
 ***** DRAFT Seed - construction time
 [[file:src/thesis/img/tex/hs-seed-construction-time.tex][hs-seed-construction-time.tex]]
 ***** DRAFT NodeSize - memory
+
 
 ***** DRAFT NodeSize - construction time
 [[file:src/thesis/img/tex/hs-nodesize-construction-time.tex][hs-nodesize-construction-time.tex]]
