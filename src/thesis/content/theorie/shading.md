@@ -1,4 +1,4 @@
-# Shading
+# Shading {#sec:shading}
 
 In de voorgaande secties is besproken hoe visibiliteit opgelost kan worden. 
 Echter dit is slechts de eerste stap in het genereren van beelden. Nu 

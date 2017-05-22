@@ -33,7 +33,7 @@ $$
 
 Als laatste kan de relevante bit met behulp van bitverschuivingen verkregen worden:
 
-\begin{minted}{c}
+\begin{minted}{glsl}
 # bit masking of k-th bit in n
 int mask = 1 << k
 int masked_n = n & mask

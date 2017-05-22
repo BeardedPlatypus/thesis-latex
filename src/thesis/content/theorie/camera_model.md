@@ -1,4 +1,4 @@
-## Camera model
+## Camera model {#sec:camera-model}
 
 \input{./img/tex/cm-camera.tex}
 

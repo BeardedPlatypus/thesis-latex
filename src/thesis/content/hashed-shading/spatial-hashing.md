@@ -22,7 +22,7 @@ in de lichtindexlijst. De tweede integer specificeert het aantal lichten behoren
 bij de gevulde bladknoop. Op deze manier wordt een subset van de lichtindexlijst
 gespecificeerd. Deze subset komt overeen met alle indices relevant voor de 
 gevulde bladknoop. Deze datastructuren zijn ge\"illustreerd in figuur 
-\ref{fig:hs-verbindingloze-octree-algoritme.tex}
+\ref{fig:hs-verbindingloze-octree-algoritme}
 
 \input{./img/tex/hs-verbindingloze-octree-algoritme.tex}
 

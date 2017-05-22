@@ -11,6 +11,8 @@
 
 ## Geheugen gebruik
 
+\input{./img/tex/hs-nodesize-memory.tex}
+
 ## Frames
 
 ## Lichten

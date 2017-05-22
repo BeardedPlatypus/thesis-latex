@@ -43,7 +43,7 @@ de geometrie data op te slaan.
 
 ## Deferred shading
 
-Zoals besproken in sectie \ref{shading}, is de rendering vergelijking gegeven
+Zoals besproken in sectie \ref{sec:shading}, is de rendering vergelijking gegeven
 door: 
 
 $$ 

@@ -45,7 +45,7 @@ spaceship scene te zien dat de executietijd van forwardshading de executietijd
 van deferred shading benaderd rond frame 170 en frame 430. Deze frames komen
 overeen met een zicht op een enkele muur, zoals weergegeven in figuur 
 \ref{fig:fds-test-frames-example:si:170} en \ref{fig:fds-test-frames-example:si:430}.
-Hier benaderd het aantal fragmenten per pixel \'e\'en.
+Hier benaderd het aantal fragmenten per pixel \mbox{\'e\'en}.
 
 Verder is er binnen de ziggurat stadsscene, fig. \ref{fig:fds-test-frames:city-high}
 nog een sprong in executie tijd te zien bij frame 100 en frame 167. Deze 

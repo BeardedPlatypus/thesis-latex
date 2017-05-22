@@ -39,7 +39,7 @@ als geometrie bevatten, op te slaan.
 
 Een rooster kan simpelweg gedefinieerd worden als een drie dimensionale lijst. 
 Indien dit als binaire ruimte partionering wordt weergegeven, wordt recursief 
-in elke dimensie steeds \'e\'en cel gedefinieerd, zoals weergegeven in figuur 
+in elke dimensie steeds \mbox{\'e\'en} cel gedefinieerd, zoals weergegeven in figuur 
 \ref{fig:hs-datastructuur-grid-bsp}. 
 
 ### Octrees

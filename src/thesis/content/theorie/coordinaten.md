@@ -37,8 +37,8 @@ onafhankelijk van andere meshes.
 
 Zoals eerder vermeld in sectie \ref{sec:geometrische-def} is voor elk object een
 aparte transformatiematrix opgesteld. Hiermee wordt de geasoccieerde mesh 
-omgezet van *modelco\"ordinaten* naar *wereldco\"ordinaten*. Met \'e\'en scene is
-\'e\'en *wereldruimte* geassocieerd. Dit co\"ordinatenstelsel beschrijft de 
+omgezet van *modelco\"ordinaten* naar *wereldco\"ordinaten*. Met \mbox{\'e\'en} scene is
+\mbox{\'e\'en} *wereldruimte* geassocieerd. Dit co\"ordinatenstelsel beschrijft de 
 onderlinge relatie tussen objecten, lichten, en cameras die zich bevinden in de
 scene.
 
