@@ -43,7 +43,7 @@ veel attributen dient op te slaan.
 De effecten hiervan zijn niet ge\"evalueerd in deze thesis, er kan echter
 aangenomen worden dat dit de executietijd verlaagd zou hebben.
 
-## Ondersteunen van transparantie
+## Ondersteunen van transparantie {#sec:fds-transparantie}
 
 Transparantie kan niet worden ondersteund met een standaard deferred shading
 implementatie. Het is onrealistisch om per transparantie laag, een extra 
