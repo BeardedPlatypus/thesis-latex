@@ -56,7 +56,7 @@ radius van de lichtbron. Dit algoritme is weergegeven in de volgende pseudocode
 Het is niet nodig om deze berekening uit te voeren voor elke knoop in het 
 rooster. In plaats hiervan kan een breedte-eerst flood-fill algoritme gebruikt
 worden. Er wordt in dit geval ofwel vanuit gegaan dat elke knoop in geen licht 
-bevat waarna de nodes gevuld worden die wel overlappen. Of er wordt aangenomen
+bevat waarna de knopen gevuld worden die wel overlappen. Of er wordt aangenomen
 dat alle lichten overlappen, waarna alle knopen die niet overlappen leeg worden 
 gemaakt. 
 
@@ -97,7 +97,7 @@ bevindt zich in de roosterknoop die overlapt met de lichtboomknoop en het
 dichtst bij de oorsprong van de lichtbron ligt. Indien deze roosterknoop leeg 
 is, zijn alle andere roosterknopen tevens leeg. Dus om te bepalen of in het
 tweede geval een enkele lichtboomknoop een takknoop of een lege bladknoop is,
-dient slechtst gekeken te worden naar {\'e}{\'e}n specifieke roosterknoop.
+dient slechtst gekeken te worden naar \mbox{\'{e}\'{e}n} specifieke roosterknoop.
 
 In het laatste geval zijn er drie mogelijkheden
 
