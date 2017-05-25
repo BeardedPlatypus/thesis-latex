@@ -1,0 +1,79 @@
+\begin{figure}
+  \centering
+  \usetikzlibrary{calc,intersections, angles, positioning}
+
+  \definecolor{LightColor}{rgb}{1.0,0.901,0.805}
+
+  \tikzstyle{coord-point}=[fill=white,
+                           draw=black,
+                           thick,
+                           circle,
+                           inner sep=2pt]
+
+  \def\ptsize{2.5pt}
+  \def\light_rad{2.0}
+
+  \begin{tikzpicture}
+    \draw[gray] (-3, -3.5) arc (0:48:1);
+    \draw[white, thick] (-3, -3.5) arc (0:28.6:1);
+
+    \coordinate[] (light-center) at (0,1);
+    \draw[name path=light-volume, black, fill={LightColor}] (light-center) circle [radius=\light_rad];
+    \node at (light-center) (al) [coord-point, label=above right:{$\mathbf{l}$}, minimum size=\ptsize] {};
+
+    % -------------------------------------------------------------------
+    %  viewport line
+    \coordinate (view-left) at (-7, -2);
+    \coordinate (view-right) at (3, -2);
+    \node at (-6.25, -2) () [anchor=north west , label=below:{Venster}] {};
+    \draw[name path=viewport, black] (view-left) -- (view-right);
+
+    % -------------------------------------------------------------------
+    %  origin
+    \coordinate[] (origin) at (-4,-3.5);
+    \node at (origin) (origin_node) [coord-point, label=below left:{$\mathbf{O}$}] {};
+
+    \coordinate[] (z-unit) at (-4, -2.25);
+    \coordinate[] (a-unit) at (-2.75, -3.5);
+
+    \node at (z-unit) () [label=below left:{$-\hat{\mathbf{z}}$}] {};
+    \node at (a-unit) () [label=below left:{$\hat{\mathbf{a}}$}] {};
+
+    \draw[name path = orig_to_l, -latex] (origin_node) -- (al);
+    \node at ($(origin)!0.6!(al)$) [label=above left:{$\vec{\mathbf{c}}$}] {};
+
+    \draw[-latex, thick] (origin_node) -- (z-unit);
+    \draw[-latex, thick] (origin_node) -- (a-unit);
+
+    \coordinate[] (t_long) at ($(origin)!1.2!-19.4:(al)$);
+    \path[name path = orig_to_t_long] (origin) -- (t_long);
+    \path [name intersections={of = orig_to_t_long and light-volume}];
+    \coordinate[] (t-pos) at (intersection-1);
+    \node at (t-pos) (t-pos_node) [coord-point, label=below right:{$\mathbf{t}$}] {};
+    \draw[name path=to_t, gray] (origin_node) -- (t-pos_node);
+    \draw[name path=lv_to_t, gray] (al) -- (t-pos_node);
+
+    \path [name intersections={of = to_t and viewport}];
+    \coordinate[] (t-prime-pos) at (intersection-1);
+    \node at (t-prime-pos) (t-prime-pos_node) [coord-point, label=below right:{$\mathbf{t^\prime}$}] {};
+
+    \draw[name path = orig_to_l, -latex] (origin_node) -- ($(origin)!.3!(t-pos)$);
+    \node at ($(origin)!.3!(t-pos)$) [label=below:{$\hat{\mathbf{\omega}}$}] {};
+
+    \node at ($(origin)!.23!9.7:(t-pos)$) [] {$\theta$};
+
+    \coordinate[] (b_long) at ($(origin)!1.2!19.4:(al)$);
+    \path[name path = orig_to_b_long] (origin) -- (b_long);
+    \path [name intersections={of = orig_to_b_long and light-volume}];
+    \coordinate[] (b-pos) at (intersection-1);
+    \node at (b-pos) (b-pos_node) [coord-point, label=above left:{$\mathbf{b}$}] {};
+    \draw[name path=to_b, gray] (origin_node) -- (b-pos_node);
+    \draw[name path=lv_to_b, gray] (al) -- (b-pos_node);
+
+    \path [name intersections={of = to_b and viewport}];
+    \coordinate[] (b-prime-pos) at (intersection-1);
+    \node at (b-prime-pos) (b-prime-pos_node) [coord-point, label=above left:{$\mathbf{b^\prime}$}] {};
+  \end{tikzpicture}
+  \caption{Projectie van lichtbol op de $\mathbf{a}$-as.}
+  \label{fig:ts-projectie}
+\end{figure}
