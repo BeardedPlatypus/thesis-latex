@@ -155,7 +155,9 @@ korte beschrijving hoe lichten opgebouwd zijn binnen deze thesis.
 ***** functionele onderverdeling
 ***** fysieke onderverdeling 
 ***** Beschrijving aan de hand van openGL
-***** moet hier dieper ingegaan worden op uniforms etc?
+***** moet hier dieper ingegaan worden op uniforms etc
+***** TODO Figures
+****** TODO [[file:src/thesis/img/tex/mgp-pipeline.tex][mgp-pipeline.tex]] 
 *** TODO Herplaatsing probleemstelling
 [[file:src/thesis/content/theorie/herplaatsing_probleemstelling.md][herplaatsing_probleemstelling.md]]
 *** DRAFT Conclusie
@@ -180,13 +182,13 @@ korte beschrijving hoe lichten opgebouwd zijn binnen deze thesis.
 **** DRAFT [[file:src/thesis/img/tex/test-suite-ziggurat-map.tex][test-suite-ziggurat-map.tex]] 
 *** DRAFT [[file:src/thesis/content/implementatie-overzicht/analyse.md][analyse.md]]
 
-** TODO Deferred Shading
+** DRAFT Deferred Shading
 [[file:src/thesis/content/forward-deferred-shading/chapter.json][chapter.json]]
 *** DRAFT Introductie
 [[file:src/thesis/content/forward-deferred-shading/introductie.md][introductie.md]]
 **** Images
 ***** DRAFT [[file:src/thesis/img/tex/fds-scene.tex][fds-scene.tex]]
-*** TODO Theorie
+*** DRAFT Theorie
 [[file:src/thesis/content/forward-deferred-shading/theorie.md][theorie.md]]
 **** Uitleg forward | Deferred | Forward+ inleiding
 **** GBuffer concept
@@ -203,7 +205,7 @@ korte beschrijving hoe lichten opgebouwd zijn binnen deze thesis.
 **** listings
 ***** TODO 
 
-*** TODO Testen / resultaten
+*** DRAFT Testen / resultaten
 [[file:src/thesis/content/forward-deferred-shading/resultaten.md][resultaten.md]]
 
 **** invloed van SIMD
@@ -214,15 +216,17 @@ korte beschrijving hoe lichten opgebouwd zijn binnen deze thesis.
 ***** DRAFT [[file:src/thesis/img/tex/fds-test-lights.tex][fds-test-lights.tex]] 
 ***** DRAFT [[file:src/thesis/img/tex/fds-test-resolution.tex][fds-test-resolution.tex]] 
 
-*** TODO Discussie / Conclusie vergelijking
+*** DRAFT Discussie / Conclusie vergelijking
 [[file:src/thesis/content/forward-deferred-shading/discussie.md][discussie.md]]
 
-** TODO Tiled Shading 
+** DRAFT Tiled Shading 
 [[file:src/thesis/content/tiled-shading/chapter.json][chapter.json]]
-*** TODO Introductie
+*** DRAFT Introductie
 [[file:src/thesis/content/tiled-shading/introductie.md][introductie.md]]
-*** TODO Theorie
+**** DRAFT [[file:src/thesis/img/tex/ts-grid-intro.tex][ts-grid-intro.tex]] 
+*** DRAFT Theorie
 [[file:src/thesis/content/tiled-shading/theorie.md][theorie.md]]
+
 ***** Motivatie
 ***** Algoritme
 ***** Resultaten?
@@ -231,9 +235,13 @@ korte beschrijving hoe lichten opgebouwd zijn binnen deze thesis.
 ****** Voeg beschrijving geschiedenis toe?
 ****** Voeg beschrijving depth optimisation toe
 ****** licht projectie
-*** TODO Algoritme
+*** DRAFT Algoritme
 [[file:src/thesis/content/tiled-shading/algoritme.md][algoritme.md]]
-*** TODO Testen / resultaten
+
+**** DRAFT [[file:src/thesis/img/tex/ts-datastructuur.tex][ts-datastructuur.tex]] 
+**** DRAFT [[file:src/thesis/lst/ts-lichttoekenning.tex][ts-lichttoekenning.tex]] 
+**** DRAFT [[file:src/thesis/img/tex/ts-projectie.tex][ts-projectie.tex]] 
+*** DRAFT Testen / resultaten
 [[file:src/thesis/content/tiled-shading/resultaten.md][resultaten.md]]
 
 **** DRAFT graphs
@@ -246,6 +254,19 @@ korte beschrijving hoe lichten opgebouwd zijn binnen deze thesis.
 [[file:src/thesis/content/tiled-shading/discussie.md][discussie.md]]
 
 ** TODO Clustered Shading
+
+*** TODO Introductie
+[[file:src/thesis/content/clustered-shading/introduction.md][introduction.md]]
+*** TODO Theorie
+[[file:src/thesis/content/clustered-shading/theory.md][theory.md]]
+*** TODO Algoritme
+[[file:src/thesis/content/clustered-shading/algorithm.md][algorithm.md]]
+*** TODO Results
+[[file:src/thesis/content/clustered-shading/results.md][results.md]]
+*** TODO Discussion
+[[file:src/thesis/content/clustered-shading/discussion.md][discussion.md]]
+
+
 **** TODO Clustered
 [[file:src/thesis/content/light-assignment/clustered.md][clustered.md]]
 ***** Motivatie
@@ -311,6 +332,9 @@ Beschrijf tevens wat een octree samen ligt
 [[file:src/thesis/content/hashed-shading/light-octree.md][light-octree.md]] 
 **** Spatial Hashing / GPU
 [[file:src/thesis/content/hashed-shading/spatial-hashing.md][spatial-hashing.md]]
+
+***** TODO Images
+****** TODO [[file:src/thesis/img/tex/hs-verbindingloze-octree-algoritme.tex][hs-verbindingloze-octree-algoritme.tex]] 
 **** Licht berekening
 [[file:src/thesis/content/hashed-shading/licht-toekenning.md][licht-toekenning.md]]
 *** TODO Testen / resultaten
