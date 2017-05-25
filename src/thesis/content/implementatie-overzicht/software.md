@@ -37,7 +37,7 @@ pipeline
 state
   ~ De state-module bevat alle componenten gerelateerd aan de staat van een
     enkele uitvoering van `nTiled`. Het is hierbij verantwoordelijk voor het
-    inlezen van de configuratiebestanden en het beheren van deze attributen.
+    inlezen van de configuratiebestanden en het beheren van deze ingelezen attributen.
   
 world
   ~ De world-module is verantwoordelijk voor het inlezen en beheren van alle 
@@ -46,41 +46,41 @@ world
 Voor een compleet overzicht van de implementatie zie de documentatie[^docu] en 
 repository[^repo] van `nTiled`.
 
-[^docu]: de nTiled documentatie kan gevonden worden op ntiled.readthedocs.io/en/latest/index.html
-[^repo]: de nTiled repository kan gevonden worden op github.com/BeardedPlatypus/nTiled
+[^docu]: de nTiled documentatie kan gevonden worden op \url{ntiled.readthedocs.io/en/latest/index.html}
+[^repo]: de nTiled repository kan gevonden worden op \url{github.com/BeardedPlatypus/nTiled}
 
 
 ## Libraries
 
 `nTiled` is gebouwd op de volgende libraries:
 
-`openGL 4.4` en `GLAD`
+`openGL 4.4` en `GLAD`:
   ~ `openGL` met behulp van `GLAD`[^glad] verzorgt voor de rendering pijplijn.
   
-`glfw`
+`glfw`:
   ~ `glfw` is de window manager, verantwoordelijk voor het aanmaken van de 
     applicatie in het besturingssysteem en het managen van de gebruikersinput.[^glfw]
     
-`assimp`
+`assimp`:
   ~ `assimp` is gebruikt om de geometrie-objecten in `nTiled` te laden. [^assimp]
   
-`glm`
+`glm`:
   ~ `glm` is de wiskundige library die de vector- en matrixberekeningen aan de 
      `C++` kant verzorgt. [^glm]
     
-`rapidjson`
+`rapidjson`:
   ~ `rapidjson` is verantwoordelijk voor het inlezen van de `json` configuratie
     bestanden en het exporteren van de verzamelde data. [^rapidjson]
 
-`dear, imgui`
+`dear, imgui`:
   ~ `dear, imgui` verzorgt de GUI. [^imgui]
   
-[^glad]: glad project pagina: github.com/Dav1dde/glad
-[^glfw]: glfw website: www.glfw.org
-[^assimp]: assimp project pagina: github.com/assimp/assimp
-[^glm]: glm website: glm.g-truc.net/0.9.8/index.html
-[^rapidjson]: rapidjson project pagina: github.com/miloyip/rapidjson
-[^imgui]: dear, imgui project pagina: github.com/ocornut/imgui
+[^glad]: glad project pagina: \url{github.com/Dav1dde/glad}
+[^glfw]: glfw website: \url{www.glfw.org}
+[^assimp]: assimp project pagina: \url{github.com/assimp/assimp}
+[^glm]: glm website: \url{glm.g-truc.net/0.9.8/index.html}
+[^rapidjson]: rapidjson project pagina: \url{github.com/miloyip/rapidjson}
+[^imgui]: dear, imgui project pagina: \url{github.com/ocornut/imgui}
 
 De software is ontwikkeld en en gecompiled met behulp van `visual studio 2015`
 
@@ -140,8 +140,10 @@ twaalf lichten met verschillende tinten.
 
 ## Meetmethode
 
-De executietijdmetingen zijn verzameld metde `QueryPerformanceCounter`. Deze 
-functionaliteit is aangeboden in `Windows.h`. Hierdoor is het mogelijk om 
-waardes te rapporteren. Dit maakt het mogelijk om de executietijd tot op
-$\mu s$ nauwkeurig te meten.
+De executietijdmetingen zijn verzameld met de `QueryPerformanceCounter`. Deze 
+functionaliteit is aangeboden in `Windows.h`. De `QueryPerformanceCounter` maakt
+het mogelijk om de executietijd tot op $\mu s$ nauwkeurig te meten. 
+Voor zowel de shaders als de lichttoekenningsalgoritme-managers zijn klassen
+gedefinieerd die de `QueryPerformanceCounter` gebruiken om de uitvoeringstijd van
+relevante functies bij te houden.
 
