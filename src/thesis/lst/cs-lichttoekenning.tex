@@ -1,23 +1,27 @@
 \begin{listing}[b]
- \begin{minted}[frame=single,framesep=12pt]{glsl}
+  \begin{minted}[frame=single,framesep=12pt]{glsl}
 // determine contributing lights
 vec2 screen_position = gl_FragCoord.xy - vec2(0.5f, 0.5f);
 uint tile_index =
     uint(floor(screen_position.x / tile_size.x) +
          floor(screen_position.y / tile_size.y) * n_tiles_x);
+uint tile_offset = summed_cluster_indices[tile_index];
+uint k_offset = texture(k_index_tex, tex_coords).x;
 
-uint offset = tiles[tile_index].x;
-uint n_lights = tiles[tile_index].y;
+uvec2 cluster_map = clusters[tile_offset + k_offset];
+
+uint offset = cluster_map.x;
+uint n_lights = cluster_map.y;
 
 // compute the contribution of each light
 for (uint i = offset; i < offset + n_lights; i++) {
-  light_acc += computeLight(lights[light_indices[i]],
-                            geometry_param);
+  light_acc += computeLight(lights[light_indices[i]], param);
 }
 
 // output result
-fragment_colour = vec4((vec3(0.1f) + (light_acc * 0.9)), 1.0f);
+fragment_colour = vec3((vec3(0.1f) + (light_acc * 0.9)));
+   
   \end{minted}
   \caption{Lichtberekening in de GLSL shader.}
-  \label{lst:ts-lichttoekenning}
+  \label{lst:cs-lichttoekenning}
 \end{listing}

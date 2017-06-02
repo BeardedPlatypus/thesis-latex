@@ -1,0 +1,86 @@
+% Tikz-libraries
+% --------------
+\usetikzlibrary{calc, intersections, angles, positioning, decorations.pathreplacing, shapes.arrows, fadings}
+
+
+% Tikz-styles
+% -----------
+\tikzstyle{algorithm-base}=[rectangle,
+                            draw=black,
+                            rounded corners,
+                            text centered,
+                            minimum height=1.5cm,
+]
+
+\tikzstyle{pipeline-spec}=[algorithm-base,
+                           fill={col:PastelOrange-1},
+                           minimum width=7cm,
+]
+
+\tikzstyle{algorithm-spec}=[algorithm-base,
+                            fill={col:PastelBlue-1},
+                            minimum width=15cm,
+]
+
+\tikzstyle{anchor}=[minimum width=7cm,
+                    minimum height=1.5cm,
+]
+
+\tikzstyle{coord-point}=[fill=white,
+                         draw=black,
+                         thick,
+                         circle,
+                         inner sep=2pt,
+]
+                         
+\tikzstyle{base}=[rectangle,
+                  draw=black,
+                  minimum width=4cm,
+                  minimum height=1cm,
+                  text centered
+]
+                           
+\tikzstyle{programmable}=[base,
+                          fill={col:PastelBlue-1},
+]
+
+\tikzstyle{fixed}=[base,
+                   fill={col:PastelOrange},
+]
+
+\tikzstyle{optional}=[rounded corners,
+]
+
+\tikzstyle{ts-array-element}=[rectangle,
+                           minimum height=1cm, 
+                           minimum width=1cm, 
+                           minimum size=1cm,
+                           draw=black,
+                           rounded corners=2.5,
+]
+
+\tikzstyle{ts-grid-element}=[rectangle,
+                          minimum height=1.5cm, 
+                          minimum width=1.5cm, 
+                          draw=black,
+                          rounded corners=2.5,
+]
+
+\tikzstyle{ts-grid-element-big}=[rectangle, 
+                              minimum height=2cm, 
+                              minimum width=2cm, 
+                              draw=black,
+                              rounded corners=2.5,
+]
+
+\tikzstyle{cs-array-element}=[rectangle,
+                              minimum size=\textwidth * 0.04,
+                              draw=black,
+                              rounded corners=2.5,
+]
+
+\tikzstyle{cs-grid-element}=[rectangle,
+                             minimum size = \textwidth * 0.08,
+                             draw=black,
+                             rounded corners=2.5,
+]

@@ -254,7 +254,7 @@ korte beschrijving hoe lichten opgebouwd zijn binnen deze thesis.
 [[file:src/thesis/content/tiled-shading/discussie.md][discussie.md]]
 
 ** TODO Clustered Shading
-
+[[file:src/thesis/content/clustered-shading/chapter.json][chapter.json]]
 *** TODO Introductie
 [[file:src/thesis/content/clustered-shading/introduction.md][introduction.md]]
 *** TODO Theorie
@@ -302,20 +302,13 @@ Beschrijf tevens wat een octree samen ligt
 ***** Octree || n-tree
 
 ***** TODO Images
-****** hs-octree
-[[file:src/thesis/img/tex/hs-octree.tex][hs-octree.tex]]
-****** hs-datastructuur-bsp
-[[file:src/thesis/img/tex/hs-datastructuur-bsp.tex][s-datastructuur-bsp.tex]]
-****** hs-datastructuur-grid
-[[file:src/thesis/img/tex/hs-datastructuur-grid.tex][s-datastructuur-grid.tex]]
-****** hs-datastructuur-grid-bsp
-[[file:src/thesis/img/tex/hs-datastructuur-grid-bsp.tex][s-datastructuur-grid-bsp.tex]]
-****** hs-datastructuur-octree-bsp
-[[file:src/thesis/img/tex/hs-datastructuur-octree-bsp.tex][s-datastructuur-octree-bsp.tex]]
-****** hs-datastructuur-kd
-[[file:src/thesis/img/tex/hs-datastructuur-kd.tex][s-datastructuur-kd.tex]]
-****** hs-datastructuur-r
-[[file:src/thesis/img/tex/hs-datastructuur-r.tex][s-datastructuur-r.tex]]
+****** [[file:src/thesis/img/tex/hs-octree.tex][hs-octree.tex]]
+****** [[file:src/thesis/img/tex/hs-datastructuur-bsp.tex][hs-datastructuur-bsp.tex]]
+****** [[file:src/thesis/img/tex/hs-datastructuur-grid.tex][hs-datastructuur-grid.tex]]
+****** [[file:src/thesis/img/tex/hs-datastructuur-grid-bsp.tex][hs-datastructuur-grid-bsp.tex]]
+****** [[file:src/thesis/img/tex/hs-datastructuur-octree-bsp.tex][hs-datastructuur-octree-bsp.tex]]
+****** [[file:src/thesis/img/tex/hs-datastructuur-kd.tex][hs-datastructuur-kd.tex]]
+****** [[file:src/thesis/img/tex/hs-datastructuur-r.tex][hs-datastructuur-r.tex]]
 **** TODO Octrees
 [[file:src/thesis/content/hashed-shading/octrees.md][octrees.md]]
 **** TODO Hashing
@@ -348,10 +341,13 @@ Beschrijf tevens wat een octree samen ligt
 ***** DRAFT Seed - construction time
 [[file:src/thesis/img/tex/hs-seed-construction-time.tex][hs-seed-construction-time.tex]]
 ***** DRAFT NodeSize - memory
-
-
+[[file:src/thesis/img/tex/hs-nodesize-memory.tex][hs-nodesize-memory.tex]]
 ***** DRAFT NodeSize - construction time
 [[file:src/thesis/img/tex/hs-nodesize-construction-time.tex][hs-nodesize-construction-time.tex]]
+***** DRAFT [[file:src/thesis/img/tex/hs-exec-lights.tex][hs-exec-lights.tex]] 
+***** DRAFT [[file:src/thesis/img/tex/hs-exec-resolution.tex][hs-exec-resolution.tex]] 
+***** DRAFT [[file:src/thesis/img/tex/hs-exec-frames-forward.tex][hs-exec-frames-forward.tex]] 
+***** DRAFT [[file:src/thesis/img/tex/hs-exec-frames-deferred.tex][hs-exec-frames-deferred.tex]] 
 
 
 
