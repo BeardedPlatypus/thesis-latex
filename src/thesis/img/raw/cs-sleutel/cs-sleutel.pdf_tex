@@ -1,0 +1,71 @@
+%% Creator: Inkscape inkscape 0.92.1, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'cs-sleutel.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{340.1666375bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.54077633)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{cs-sleutel.pdf}}%
+    \put(0.29221435,0.433394){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{near}}}%
+    \put(0.34761661,0.42900204){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{k}}}%
+    \put(0.38184395,0.47312453){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{far}}}%
+    \put(0.41690912,0.46873256){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{k}}}%
+    \put(0.06509332,0.31173304){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{near}}}%
+    \put(0.48856223,0.51838176){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{far}}}%
+    \put(0.61346866,0.24286092){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{z}}}%
+    \put(0.00033388,0.44242193){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{y}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{cs-sleutel.pdf}}%
+    \put(0.26588902,0.2811304){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{h}}}%
+    \put(0.2827631,0.27673549){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{k}}}%
+    \put(0.31709627,0.1988178){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{d}}}%
+    \put(0.3323388,0.19442583){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{k}}}%
+    \put(0.35488363,0.1988178){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{=}}}%
+    \put(0.38579789,0.1988178){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{h}}}%
+    \put(0.40267198,0.19442583){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{k}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{cs-sleutel.pdf}}%
+  \end{picture}%
+\endgroup%

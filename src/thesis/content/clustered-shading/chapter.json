@@ -1,0 +1,7 @@
+{ "sections": [ "introduction.md"
+              , "theory.md"
+              , "algorithm.md"
+              , "results.md"
+              , "discussion.md"
+              ]
+}
