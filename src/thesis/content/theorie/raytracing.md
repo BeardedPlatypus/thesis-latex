@@ -39,18 +39,18 @@ loopt, worden raytracing algoritmes dan ook wel beeldcentrische algoritmes
 genoemd.
 De pseudo code zal er als volgt uitzien:  
 
-```
+\begin{minted}{python}
 for pixel in canvas:
     ray = construct_ray(eye, pixel)
     
+    closest = None
     for object in scene:
-        closest = None
         if (ray.hits(object) and 
            (closest == None or distance(object, eye) < distance(closest, eye))):
             closest = object
     
     do_shading(closest, ray)
-```
+\end{minted}
 
 \input{./img/tex/rt-raytracing.tex}
 
@@ -60,5 +60,5 @@ pixel. Dit is verder geillustreerd in figuur \ref{fig:rt-raytracing}
 Dit concept is de basis voor alle raytracing algoritmes. Merk hierbij 
 verder op, dat er geen expliciete perspectief projectie plaats vindt. 
 Doordat stralen opgebouwd zijn beginnend in het oogpunt door
-punt $\mathbf{p'}$, wordt het perspectief impliciet gedefineerd.
+punt $\mathbf{p'}$, wordt het perspectief impliciet gedefinieerd.
 

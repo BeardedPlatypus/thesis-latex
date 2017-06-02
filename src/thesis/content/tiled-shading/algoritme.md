@@ -2,7 +2,7 @@
 
 \input{./img/tex/ts-algorithm.tex}
 
-Het Tiled Shading-algoritme~\cite{olsson2011tiled} voor zowel de Forward- als 
+Het Tiled Shading-algoritme\cite{olsson2011tiled} voor zowel de Forward- als 
 Deferred pijplijn is weergegeven in figuur \ref{fig:ts-algorithm}. Hierbij zijn
 de pijplijn-specifieke stappen in het geel weergegeven, en de Tiled Shading 
 stappen in het blauw. Het algoritme bevat grofweg twee extra stappen boven op
@@ -19,7 +19,7 @@ de fragmentpositie de tegel waartoe het fragment behoort, bepaald. Hierna wordt
 de set van lichten geassocieerd met deze tegel opgehaald.
 
 
-## Datastructuren
+## Datastructuren {#sec:ts-datastructuren}
 
 \input{./img/tex/ts-datastructuur.tex}
 
@@ -30,7 +30,7 @@ bepaald is, de set van lichteng geassocieerd met deze tegel effici\"ent op
 te halen zijn. 
 
 Om dit rooster voor te stellen wordt gebruik gemaakt van drie 
-arrays~\cite{olsson2011tiled}:
+arrays\cite{olsson2011tiled}:
 
 Globale lichtlijst:
   ~ bevat alle lichten. Deze array is in dezelfde vorm aanwezig in de na\"ieve 
@@ -46,7 +46,7 @@ Lichtrooster:
     
 
 De relatie tussen de drie arrays is weergegeven in figuur \ref{fig:ts-datastructuur}.
-Deze structuren zijn op de GPU voor te stellen met behul van bufferobjecten of
+Deze structuren zijn op de GPU voor te stellen met behulp van bufferobjecten of
 texturen.
 
 
@@ -57,7 +57,7 @@ lichtberekening op te stellen. Hiervoor dient voor een fragment de set van
 relevante lichten bepaald te worden. Om dit te bereiken, wordt eerst 
 de tegel waartoe het behoort bepaald:
 
-$$ f: (\mathtt{frag.x}, \mathtt{frag.y}) \mapsto (\left\lfloor{\frac{\mathtt{frag.y}}{\mathit{n}}}\right\rfloor , \left\lfloor{\frac{\mathtt{frag.y}}{\mathit{n}}}\right\rfloor ) $$
+$$ f: (\mathtt{frag.x}, \mathtt{frag.y}) \mapsto \left(\left\lfloor{\frac{\mathtt{frag.y}}{\mathit{n}}}\right\rfloor , \left\lfloor{\frac{\mathtt{frag.y}}{\mathit{n}}}\right\rfloor \right) $$
                                                   
 waar $\mathtt{frag}$ de pixelco\"ordinaten van het fragment zijn, en $n$ de 
 grootte van \mbox{\'e'en} tegel in pixels is. Op basis van deze indices kan de

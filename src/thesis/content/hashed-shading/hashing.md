@@ -242,7 +242,7 @@ blad knoop is, en de tweede bit die aangeeft of een cel data bevat of niet.
 Om effeciency redenen worden hierbij acht nodes samengenomen, zodat deze 
 voorgesteld kunnen worden met behulp van twee integers van elk acht bits. Omdat
 elke tak knoop acht kinderen bevat, geeft deze representatie dus een tak 
-knoop weer, waarin elk van de kinderen is geencodeerd.
+knoop weer, waarin elk van de kinderen is ge\"encodeerd.
 
 De data geassocieerd met elke knoop in de octree kan worden opgeslagen binnen
 het data element in de hash tabel van deze knoop, hiervoor wordt dan boven

@@ -13,6 +13,9 @@
               , { "folder" : "tiled-shading"
                 , "title"  : "Tiled Shading"
                 }
+              , { "folder" : "clustered-shading"
+                , "title"  : "Clustered Shading"
+                }
               , { "folder" : "hashed-shading"
                 , "title"  : "Hashed Shading"
                 }

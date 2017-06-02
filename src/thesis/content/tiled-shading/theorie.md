@@ -1,6 +1,6 @@
 # Theorie
 
-Zoals vermeld in hoofdstuk \ref{ch:Forward en Deferred Shading} vereist Deferred
+Zoals vermeld in hoofdstuk \ref{ch:Forward en Deferred Shading}, vereist Deferred
 Shading met een stencil-optimalisatie een hoge geheugenbandbreedte, doordat voor
 elk licht opnieuw de relevante data uit de GBuffer opgehaald dient te worden.
 In het geval van Forward Shading, of als er geen stencil-optimalisatie is 
@@ -34,6 +34,6 @@ dan de lichten. Dit verschil lost het geheugenbandbreedte-probleem op.
 Het principe om het zichtveld op te delen, om zo de complexiteit in een sub-veld
 te verlagen is niet een nieuw idee ge\"introduceerd met Tiled Shading. Zo 
 maakte de Pixel-planes 5 computer een vergelijkbaar concept om de geometrie op 
-te delen, en zo per sub-vlak het aantal te evalueren polygonen verlaagde.\cite{fuchs1989pixel}.
+te delen, en zo per sub-vlak het aantal te evalueren polygonen verlaagde.\cite{fuchs1989pixel}
 Verschillende Tiled Shading implementaties zijn gebruikt in games.\cite{balestra2008technology,andersson2009parallel,swoboda2009deferred}
 

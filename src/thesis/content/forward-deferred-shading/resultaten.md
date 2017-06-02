@@ -9,7 +9,7 @@ van het aantal lichten, en de resolutie.
 Binnen de testen refereert *forward* naar de `forward_attenuated` shader en
 *deferred* naar de `deferred_attenuated` shader van `nTiled`.
 
-## Frames {# sec:fds-frames}
+## Frames {#sec:fds-frames}
 
 \input{./img/tex/fds-test-frames-high.tex}
 

@@ -15,7 +15,13 @@
 
 ## Frames
 
+\input{./img/tex/hs-exec-frames-forward.tex}
+\input{./img/tex/hs-exec-frames-deferred.tex}
+
 ## Lichten
+
+\input{./img/tex/hs-exec-lights.tex}
 
 ## Resolutie
 
+\input{./img/tex/hs-exec-resolution.tex}
