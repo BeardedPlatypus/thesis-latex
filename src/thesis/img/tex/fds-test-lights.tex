@@ -1,35 +1,85 @@
-\begin{figure}[p]
-  \begin{adjustbox}{minipage=\textwidth, scale=0.7}
-    \begin{subfigure}[b]{\textwidth}
+\begin{figure}[t]
+  \hspace{0.05\textwidth}%
+  \begin{subfigure}[b]{\textwidth}
+  \tikzstyle{legend-point}=[circle, inner sep=2.5pt]
+  \definecolor{GraphBlue}{HTML}{6c8abd}
+  \definecolor{GraphGreen}{HTML}{73b584}
+    
+  \begin{tikzpicture}
+    \node (legend:forward) at (0.1\textwidth,0) [legend-point, fill={GraphBlue}, label=right:{\small Forward Shading}] {};
+    \node (legend:deferred) at (0.1\textwidth, -12pt) [legend-point, fill={GraphGreen}, label=right:{\small Deferred Shading}] {};
+  \end{tikzpicture}%
+  \end{subfigure}\hfill\\
+  \begin{minipage}[t]{0.5\textwidth}
+  \begin{adjustbox}{minipage=\textwidth, scale=0.6}
+    \begin{subfigure}[b]{1.6\textwidth}
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/raw/fds-lights/si_lights_2560.pdf_tex}
+      \input{./img/raw/fds-lights/spaceship-indoor/lights_2560.pdf_tex}
       \caption{Spaceship indoor}
+      \vspace{4pt}
       \label{fig:fds-test-lights:indoor}
     \end{subfigure}
   \end{adjustbox} \\
   %
-  \begin{adjustbox}{minipage=\textwidth, scale=0.7}
-    \begin{subfigure}[b]{\textwidth}
+  \begin{adjustbox}{minipage=\textwidth, scale=0.6}
+    \begin{subfigure}[b]{1.6\textwidth}
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/raw/fds-lights/pa_lights_2560.pdf_tex}
+      \input{./img/raw/fds-lights/pipers-alley/lights_2560.pdf_tex}
       \caption{Pipers Alley}
+      \vspace{4pt}
       \label{fig:fds-test-lights:alley}
     \end{subfigure}
   \end{adjustbox} \\
   %
-  \begin{adjustbox}{minipage=\textwidth, scale=0.7}
-    \begin{subfigure}[b]{\textwidth}
+  \begin{adjustbox}{minipage=\textwidth, scale=0.6}
+    \begin{subfigure}[b]{1.6\textwidth}
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/raw/fds-lights/zc_lights_2560.pdf_tex}
+      \input{./img/raw/fds-lights/ziggurat-city/lights_2560.pdf_tex}
       \caption{Ziggurat stad}
       \label{fig:fds-test-lights:city}
     \end{subfigure}
   \end{adjustbox}
-  \caption{Overzicht van de executie tijd als functie van het aantal lichten,
-           per test scene bij een resolutie van $2560$.}
+  \caption{\small Uitvoeringstijd als functie van het aantal lichten.}
   \label{fig:fds-test-lights}
+  \end{minipage} %
+  %
+  \begin{minipage}[t]{0.5\textwidth}
+  \begin{adjustbox}{minipage=\textwidth, scale=0.6}
+    \begin{subfigure}[b]{1.6\textwidth}
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/raw/fds-resolution/spaceship-indoor/resolution_1260.pdf_tex}
+      \caption{Spaceship indoor, $1260$ lichten}
+      \vspace{4pt}
+      \label{fig:fds-test-resolution:indoor}
+    \end{subfigure}
+  \end{adjustbox} \\
+  %
+  \begin{adjustbox}{minipage=\textwidth, scale=0.6}
+    \begin{subfigure}[b]{1.6\textwidth}
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/raw/fds-resolution/pipers-alley/resolution_1044.pdf_tex}
+      \caption{Pipers Alley, $1044$ lichten}
+      \vspace{4pt}
+      \label{fig:fds-test-resolution:alley}
+    \end{subfigure}
+  \end{adjustbox} \\
+  %
+  \begin{adjustbox}{minipage=\textwidth, scale=0.6}
+    \begin{subfigure}[b]{1.6\textwidth}
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/raw/fds-resolution/ziggurat-city/resolution_1170.pdf_tex}
+      \caption{Ziggurat stad, $1170$ lichten}
+      \label{fig:fds-test-resolution:city}
+    \end{subfigure}
+  \end{adjustbox}
+  \caption{\small Uitvoeringstijd als functie van de resolutie. }
+  \label{fig:fds-test-resolution}
+  \end{minipage}
 \end{figure}
 

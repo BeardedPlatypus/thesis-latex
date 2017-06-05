@@ -1,64 +1,81 @@
 \begin{figure}[t]
+  \hspace{0.05\textwidth}%
+  \begin{subfigure}[b]{\textwidth}
+    \tikzstyle{legend-point}=[circle, inner sep=2.5pt]
+    \definecolor{GraphBlue}{HTML}{6c8abd}
+    \definecolor{GraphGreen}{HTML}{73b584}
+    \definecolor{GraphRed}{HTML}{d07175}
+    \definecolor{GraphPurple}{HTML}{8172b2}
+    \definecolor{GraphYellow}{HTML}{ccb974}
+    
+    \begin{tikzpicture}
+      \node (legend:naive) at (0.1\textwidth,0) [legend-point, fill={GraphBlue}, label=right:{\small Na\"ieve belichting}] {};
+      \node (legend:grid) at (0.1\textwidth, -12pt) [legend-point, fill={GraphGreen}, label=right:{\small Tiled Shading - $8 \times 8$ px tegls}] {};
+      \node (legend:tiled) at (0.1\textwidth, -24pt) [legend-point, fill={GraphRed}, label=right:{\small Tiled Shading - $16 \times 16$ px tegels}] {};
+      \node (legend:tiled) at (0.1\textwidth, -36pt) [legend-point, fill={GraphPurple}, label=right:{\small Tiled Shading - $32 \times 32$ px tegels}] {};
+      \node (legend:tiled) at (0.1\textwidth, -48pt) [legend-point, fill={GraphYellow}, label=right:{\small Tiled Shading - $64 \times 64$ px tegels}] {};
+    \end{tikzpicture}
+  \end{subfigure}\hfill\\
   \begin{adjustbox}{minipage=\textwidth, scale=0.6}
-    \begin{subfigure}[b]{0.83\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/raw/ts-lights/forward/lights_spaceship-indoor_1920.pdf_tex}
+      \input{./img/raw/ts-lights/forward/lights_spaceship-indoor_2560.pdf_tex}
       \caption{Spaceship indoor: Forward.}
       \label{fig:ts-lights-forward:indoor}
     \end{subfigure}
-  \end{adjustbox} %
+  \end{adjustbox}\hspace{-0.075\textwidth} %
   %
   \begin{adjustbox}{minipage=\textwidth, scale=0.6}
-    \begin{subfigure}[b]{0.83\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/raw/ts-lights/deferred/lights_spaceship-indoor_1920.pdf_tex}
+      \input{./img/raw/ts-lights/deferred/lights_spaceship-indoor_2560.pdf_tex}
       \caption{Spaceship indoor: Deferred.}
       \label{fig:ts-lights-deferred:indoor}
     \end{subfigure}
   \end{adjustbox} \\
   %
   \begin{adjustbox}{minipage=\textwidth, scale=0.6}
-    \begin{subfigure}[b]{0.83\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/raw/ts-lights/forward/lights_pipers-alley_1920.pdf_tex}
+      \input{./img/raw/ts-lights/forward/lights_pipers-alley_2560.pdf_tex}
       \caption{Pipers Alley: Forward.}
       \label{fig:ts-lights-forward:alley}
     \end{subfigure}
-  \end{adjustbox} %
+  \end{adjustbox}\hspace{-0.075\textwidth} %
   %
   \begin{adjustbox}{minipage=\textwidth, scale=0.6}
-    \begin{subfigure}[b]{0.83\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/raw/ts-lights/deferred/lights_pipers-alley_1920.pdf_tex}
+      \input{./img/raw/ts-lights/deferred/lights_pipers-alley_2560.pdf_tex}
       \caption{Pipers Alley: Deferred.}
       \label{fig:ts-lights-deferred:alley}
     \end{subfigure}
   \end{adjustbox} \\
   %
   \begin{adjustbox}{minipage=\textwidth, scale=0.6}
-    \begin{subfigure}[b]{0.83\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/raw/ts-lights/forward/lights_ziggurat-city_1920.pdf_tex}
+      \input{./img/raw/ts-lights/forward/lights_ziggurat-city_2560.pdf_tex}
       \caption{Ziggurat stad: Forward.}
       \label{fig:ts-lights-forward:city}
     \end{subfigure}
-  \end{adjustbox} %
+  \end{adjustbox}\hspace{-0.075\textwidth} %
   %
   \begin{adjustbox}{minipage=\textwidth, scale=0.6}
-    \begin{subfigure}[b]{0.83\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/raw/ts-lights/deferred/lights_ziggurat-city_1920.pdf_tex}
+      \input{./img/raw/ts-lights/deferred/lights_ziggurat-city_2560.pdf_tex}
       \caption{Ziggurat stad: Deferred.}
       \label{fig:ts-lights-deferred:city}
     \end{subfigure}
   \end{adjustbox}
-  \caption{Overzicht van de executietijd per aantal lichten bij een resolutie
+  \caption{Overzicht van de uitvoeringstijd per aantal lichten bij een resolutie
            van $1920$ voor de drie testscenes.}
   \label{fig:ts-lights}
 \end{figure}

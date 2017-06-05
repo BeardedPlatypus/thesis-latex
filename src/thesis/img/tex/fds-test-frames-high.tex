@@ -1,59 +1,71 @@
-\begin{figure}[p]
+\begin{figure}[t]
+  \hspace{0.05\textwidth}%
+  \begin{subfigure}[b]{\textwidth}
+    \tikzstyle{legend-point}=[circle, inner sep=2.5pt]
+    \definecolor{GraphBlue}{HTML}{6c8abd}
+    \definecolor{GraphGreen}{HTML}{73b584}
+    
+    \begin{tikzpicture}
+      %\node (forward) at (0,0) [fill={GraphBlue}] {};
+      \node (legend:forward) at (0.1\textwidth,0) [legend-point, fill={GraphBlue}, label=right:{\small Forward Shading}] {};
+      \node (legend:deferred) at (0.1\textwidth, -12pt) [legend-point, fill={GraphGreen}, label=right:{\small Deferred Shading}] {};
+    \end{tikzpicture}
+  \end{subfigure}\hfill\\
   \begin{adjustbox}{minipage=\textwidth, scale=0.6}
-    \begin{subfigure}[b]{0.83\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/raw/fds-frames/spaceship-indoor/frames_160_70_1x_1y_1z.pdf_tex}
-      \caption{Spaceship indoor: $70$ lichten, $160^2$ pixels.}
+      \input{./img/raw/fds-frames/spaceship-indoor/frames_320_70.pdf_tex}
+      \caption{Spaceship indoor: $70$ lichten, $320^2$ pixels.}
       \label{fig:fds-test-frames:indoor-low}
     \end{subfigure}
-  \end{adjustbox} %
+  \end{adjustbox}\hspace{-0.075\textwidth} %
   %
   \begin{adjustbox}{minipage=\textwidth, scale=0.6}
-    \begin{subfigure}[b]{0.83\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/raw/fds-frames/spaceship-indoor/frames_2560_1260_3x_3y_2z.pdf_tex}
+      \input{./img/raw/fds-frames/spaceship-indoor/frames_2560_1260.pdf_tex}
       \caption{Spaceship indoor: $1260$ lichten, $2560^2$ pixels.}
       \label{fig:fds-test-frames:indoor-high}
     \end{subfigure}
   \end{adjustbox} \\
   %
   \begin{adjustbox}{minipage=\textwidth, scale=0.6}
-    \begin{subfigure}[b]{0.83\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/raw/fds-frames/pipers-alley/frames_160_58_1x_1y_1z.pdf_tex}
-      \caption{Pipers Alley: $58$ lichten, $160^2$ pixels.}
+      \input{./img/raw/fds-frames/pipers-alley/frames_320_58.pdf_tex}
+      \caption{Pipers Alley: $58$ lichten, $320^2$ pixels.}
       \label{fig:fds-test-frames:alley-low}
     \end{subfigure}
-  \end{adjustbox} %
+  \end{adjustbox}\hspace{-0.075\textwidth} %
   %
   \begin{adjustbox}{minipage=\textwidth, scale=0.6}
-    \begin{subfigure}[b]{0.83\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/raw/fds-frames/pipers-alley/frames_2560_1044_3x_3y_2z.pdf_tex}
+      \input{./img/raw/fds-frames/pipers-alley/frames_2560_1044.pdf_tex}
       \caption{Pipers Alley: $1044$ lichten, $2560^2$ pixels.}
       \label{fig:fds-test-frames:alley-high}
     \end{subfigure}
   \end{adjustbox} \\
   %
   \begin{adjustbox}{minipage=\textwidth, scale=0.6}
-    \begin{subfigure}[b]{0.83\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/raw/fds-frames/ziggurat-city/frames_160_65_1x_1y_1z.pdf_tex}
-      \caption{Ziggurat stad: $65$ lichten, $160^2$ pixels.}
+      \input{./img/raw/fds-frames/ziggurat-city/frames_320_65.pdf_tex}
+      \caption{Ziggurat stad: $65$ lichten, $320^2$ pixels.}
       \label{fig:fds-test-frames:city-low}
     \end{subfigure}
-  \end{adjustbox} %
+  \end{adjustbox}\hspace{-0.075\textwidth} %
   %
   \begin{adjustbox}{minipage=\textwidth, scale=0.6}
-    \begin{subfigure}[b]{0.83\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/raw/fds-frames/ziggurat-city/frames_2560_1170_3x_3y_2z.pdf_tex}
+      \input{./img/raw/fds-frames/ziggurat-city/frames_2560_1170.pdf_tex}
       \caption{Ziggurat stad: $1170$ lichten, $2560$ pixels.}
       \label{fig:fds-test-frames:city-high}
     \end{subfigure}

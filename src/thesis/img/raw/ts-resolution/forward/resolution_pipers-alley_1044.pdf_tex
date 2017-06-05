@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{498.80563055bp}%
+    \setlength{\unitlength}{525.366562bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -48,30 +48,22 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.68934292)%
+  \begin{picture}(1,0.6754296)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{./img/raw/ts-resolution/forward/resolution_pipers-alley_1044.pdf}}%
-    \put(0.11328438,0.04713324){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{600}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{./img/raw/ts-resolution/forward/resolution_pipers-alley_1044.pdf}}%
-    \put(0.23822917,0.04713324){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{800}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=3]{./img/raw/ts-resolution/forward/resolution_pipers-alley_1044.pdf}}%
-    \put(0.36317393,0.04713324){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{1000}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=4]{./img/raw/ts-resolution/forward/resolution_pipers-alley_1044.pdf}}%
-    \put(0.48811872,0.04713324){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{1200}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=5]{./img/raw/ts-resolution/forward/resolution_pipers-alley_1044.pdf}}%
-    \put(0.61306352,0.04713324){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{1400}}}%
-    \put(0.73800828,0.04713324){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{1600}}}%
-    \put(0.86295304,0.04713324){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{1800}}}%
-    \put(0.53809666,0.01907586){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{Resolutie (px)}}}%
-    \put(0.07659421,0.10015033){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{0}}}%
-    \put(0.07659421,0.22998161){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{200}}}%
-    \put(0.07659421,0.35981289){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{400}}}%
-    \put(0.07659421,0.48964415){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{600}}}%
-    \put(0.07659421,0.61947542){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{800}}}%
-    \put(0.03048815,0.37521254){\color[rgb]{0.14901961,0.14901961,0.14901961}\rotatebox{90}{\makebox(0,0)[b]{\smash{Executietijd (ms)}}}}%
-    \put(0.16480493,0.64251543){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[lb]{\smash{Attenuated}}}%
-    \put(0.16480493,0.61415707){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[lb]{\smash{Tiled - 8}}}%
-    \put(0.16480493,0.5857987){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[lb]{\smash{Tiled - 16}}}%
-    \put(0.16480493,0.55744034){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[lb]{\smash{Tiled - 32}}}%
-    \put(0.16480493,0.52908197){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[lb]{\smash{Tiled - 64}}}%
+    \put(0.24284828,0.06568809){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{500}}}%
+    \put(0.41231678,0.06568809){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{1000}}}%
+    \put(0.5817853,0.06568809){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{1500}}}%
+    \put(0.7512538,0.06568809){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{2000}}}%
+    \put(0.92072229,0.06568809){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{2500}}}%
+    \put(0.56144904,0.01811145){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{Resolutie (px)}}}%
+    \put(0.12327881,0.09960559){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{0}}}%
+    \put(0.12327881,0.16991818){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{250}}}%
+    \put(0.12327881,0.24023076){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{500}}}%
+    \put(0.12327881,0.31054334){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{750}}}%
+    \put(0.12327881,0.38085596){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{1000}}}%
+    \put(0.12327881,0.45116854){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{1250}}}%
+    \put(0.12327881,0.52148114){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{1500}}}%
+    \put(0.12327881,0.59179374){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{1750}}}%
+    \put(0.02894676,0.37718069){\color[rgb]{0.14901961,0.14901961,0.14901961}\rotatebox{90}{\makebox(0,0)[b]{\smash{Uitvoeringstijd (ms)}}}}%
   \end{picture}%
 \endgroup%

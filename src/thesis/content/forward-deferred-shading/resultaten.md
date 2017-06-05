@@ -72,8 +72,6 @@ lichten ge\"evalueerd dienen te worden.
 
 ## Resolutie
 
-\input{./img/tex/fds-test-resolution.tex}
-
 In figuur \ref{fig:fds-test-resolution} is de gemiddelde executietijd per frame
 weergegeven als functie van de resolutie weergegeven bij het grootste aantal 
 lichten per scene. Hierbij komt een resolutie van $n$ overeen met een gebruikte

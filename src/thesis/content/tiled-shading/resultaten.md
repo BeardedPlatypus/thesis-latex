@@ -1,4 +1,4 @@
-# Testen en resultaten
+# Resultaten
 
 De performantie van het Tiled Shading algoritme ge\"introduceerd in de vorige
 sectie, is ge\"evalueerd aan de hand van de drie testscenes. Hierbij zijn de 

@@ -1,64 +1,77 @@
 \begin{figure}[t]
+  \hspace{0.05\textwidth}%
+  \begin{subfigure}[b]{\textwidth}
+    \tikzstyle{legend-point}=[circle, inner sep=2.5pt]
+    \definecolor{GraphBlue}{HTML}{6c8abd}
+    \definecolor{GraphGreen}{HTML}{73b584}
+    \definecolor{GraphRed}{HTML}{d07175}
+    
+    \begin{tikzpicture}
+      \node (legend:naive) at (0.1\textwidth,0) [legend-point, fill={GraphBlue}, label=right:{\small Na\"ieve Forward Shading}] {};
+      \node (legend:grid) at (0.1\textwidth, -12pt) [legend-point, fill={GraphGreen}, label=right:{\small Forward Tiled Shading - Roosteropbouw}] {};
+      \node (legend:tiled) at (0.1\textwidth, -24pt) [legend-point, fill={GraphRed}, label=right:{\small Forward Tiled Shading - Totaal}] {};
+    \end{tikzpicture}
+  \end{subfigure}\hfill\\
   \begin{adjustbox}{minipage=\textwidth, scale=0.6}
-    \begin{subfigure}[b]{0.83\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/raw/ts-frames/forward/frames_spaceship-indoor_70_640_32.pdf_tex}
-      \caption{Spaceship indoor: $70$ lichten, $640^2$ pixels.}
+      \input{./img/raw/ts-frames/forward/frames_spaceship-indoor_70_320_32.pdf_tex}
+      \caption{Spaceship indoor: $70$ lichten, $320^2$ pixels.}
       \label{fig:ts-frames-forward:indoor-low}
     \end{subfigure}
-  \end{adjustbox} %
+  \end{adjustbox}\hspace{-0.075\textwidth} %
   %
   \begin{adjustbox}{minipage=\textwidth, scale=0.6}
-    \begin{subfigure}[b]{0.83\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/raw/ts-frames/forward/frames_spaceship-indoor_1260_1920_32.pdf_tex}
-      \caption{Spaceship indoor: $1260$ lichten, $1920^2$ pixels.}
+      \input{./img/raw/ts-frames/forward/frames_spaceship-indoor_1260_2560_32.pdf_tex}
+      \caption{Spaceship indoor: $1260$ lichten, $2560^2$ pixels.}
       \label{fig:ts-frames-forward:indoor-high}
     \end{subfigure}
   \end{adjustbox} \\
   %
   \begin{adjustbox}{minipage=\textwidth, scale=0.6}
-    \begin{subfigure}[b]{0.83\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/raw/ts-frames/forward/frames_pipers-alley_58_640_32.pdf_tex}
-      \caption{Pipers Alley: $58$ lichten, $640^2$ pixels.}
+      \input{./img/raw/ts-frames/forward/frames_pipers-alley_58_320_32.pdf_tex}
+      \caption{Pipers Alley: $58$ lichten, $320^2$ pixels.}
       \label{fig:ts-frames-forward:alley-low}
     \end{subfigure}
-  \end{adjustbox} %
+  \end{adjustbox}\hspace{-0.075\textwidth} %
   %
   \begin{adjustbox}{minipage=\textwidth, scale=0.6}
-    \begin{subfigure}[b]{0.83\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/raw/ts-frames/forward/frames_pipers-alley_1044_1920_32.pdf_tex}
-      \caption{Pipers Alley: $1044$ lichten, $1920^2$ pixels.}
+      \input{./img/raw/ts-frames/forward/frames_pipers-alley_1044_2560_32.pdf_tex}
+      \caption{Pipers Alley: $1044$ lichten, $2560^2$ pixels.}
       \label{fig:ts-frames-forward:alley-high}
     \end{subfigure}
   \end{adjustbox} \\
   %
   \begin{adjustbox}{minipage=\textwidth, scale=0.6}
-    \begin{subfigure}[b]{0.83\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/raw/ts-frames/forward/frames_ziggurat-city_65_640_32.pdf_tex}
-      \caption{Ziggurat stad: $65$ lichten, $640^2$ pixels.}
+      \input{./img/raw/ts-frames/forward/frames_ziggurat-city_65_320_32.pdf_tex}
+      \caption{Ziggurat stad: $65$ lichten, $320^2$ pixels.}
       \label{fig:ts-frames-forward:city-low}
     \end{subfigure}
-  \end{adjustbox} %
+  \end{adjustbox}\hspace{-0.075\textwidth} %
   %
   \begin{adjustbox}{minipage=\textwidth, scale=0.6}
-    \begin{subfigure}[b]{0.83\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/raw/ts-frames/forward/frames_ziggurat-city_1170_1920_32.pdf_tex}
-      \caption{Ziggurat stad: $1170$ lichten, $1920$ pixels.}
+      \input{./img/raw/ts-frames/forward/frames_ziggurat-city_1170_2560_32.pdf_tex}
+      \caption{Ziggurat stad: $1170$ lichten, $2560$ pixels.}
       \label{fig:ts-frames-forward:city-high}
     \end{subfigure}
   \end{adjustbox}
-  \caption{Overzicht van de executietijd voor Forward shading per frame voor de
+  \caption{Overzicht van de uitvoeringstijd voor Forward shading per frame voor de
            drie testscenes bij verschillende resolutie en groottes van aantal
            lichten.}
   \label{fig:ts-frames-forward}

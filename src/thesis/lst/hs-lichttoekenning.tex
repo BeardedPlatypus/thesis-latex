@@ -1,5 +1,5 @@
 \begin{listing}[p]
-  \begin{minted}{glsl}
+  \begin{minted}[frame=single,framesep=12pt]{glsl}
 for (uint layer_i = 0;
      layer_i < OCTREE_DEPTH;
      layer_i++) {
@@ -36,7 +36,8 @@ uint offset = light_data.x;
 uint n_lights = light_data.y;
 
 for (uint i = offset; i < offset + n_lights; i++) {
-  light_acc += computeLight(lights[light_indices[i]], param);
+  light_acc += computeLight(lights[light_indices[i]],
+                            param);
 }
   \end{minted}
   \caption{Lichttoekenning in de GLSL shader.}

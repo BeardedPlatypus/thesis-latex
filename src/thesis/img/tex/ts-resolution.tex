@@ -1,16 +1,33 @@
 \begin{figure}[t]
+  \hspace{0.05\textwidth}%
+  \begin{subfigure}[b]{\textwidth}
+    \tikzstyle{legend-point}=[circle, inner sep=2.5pt]
+    \definecolor{GraphBlue}{HTML}{6c8abd}
+    \definecolor{GraphGreen}{HTML}{73b584}
+    \definecolor{GraphRed}{HTML}{d07175}
+    \definecolor{GraphPurple}{HTML}{8172b2}
+    \definecolor{GraphYellow}{HTML}{ccb974}
+    
+    \begin{tikzpicture}
+      \node (legend:naive) at (0.1\textwidth,0) [legend-point, fill={GraphBlue}, label=right:{\small Na\"ieve belichting}] {};
+      \node (legend:grid) at (0.1\textwidth, -12pt) [legend-point, fill={GraphGreen}, label=right:{\small Tiled Shading - $8 \times 8$ px tegls}] {};
+      \node (legend:tiled) at (0.1\textwidth, -24pt) [legend-point, fill={GraphRed}, label=right:{\small Tiled Shading - $16 \times 16$ px tegels}] {};
+      \node (legend:tiled) at (0.1\textwidth, -36pt) [legend-point, fill={GraphPurple}, label=right:{\small Tiled Shading - $32 \times 32$ px tegels}] {};
+      \node (legend:tiled) at (0.1\textwidth, -48pt) [legend-point, fill={GraphYellow}, label=right:{\small Tiled Shading - $64 \times 64$ px tegels}] {};
+    \end{tikzpicture}
+  \end{subfigure}\hfill\\
   \begin{adjustbox}{minipage=\textwidth, scale=0.6}
-    \begin{subfigure}[b]{0.83\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/raw/ts-resolution/forward/resolution_spaceship-indoor_1260.pdf_tex}
       \caption{Spaceship indoor: $1260$ lichten, Forward.}
       \label{fig:ts-resolution-forward:indoor}
     \end{subfigure}
-  \end{adjustbox} %
+  \end{adjustbox}\hspace{-0.075\textwidth} %
   %
   \begin{adjustbox}{minipage=\textwidth, scale=0.6}
-    \begin{subfigure}[b]{0.83\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/raw/ts-resolution/deferred/resolution_spaceship-indoor_1260.pdf_tex}
@@ -20,17 +37,17 @@
   \end{adjustbox} \\
   %
   \begin{adjustbox}{minipage=\textwidth, scale=0.6}
-    \begin{subfigure}[b]{0.83\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/raw/ts-resolution/forward/resolution_pipers-alley_1044.pdf_tex}
       \caption{Pipers Alley: $1044$ lichten, Forward.}
       \label{fig:ts-resolution-forward:alley}
     \end{subfigure}
-  \end{adjustbox} %
+  \end{adjustbox}\hspace{-0.075\textwidth} %
   %
   \begin{adjustbox}{minipage=\textwidth, scale=0.6}
-    \begin{subfigure}[b]{0.83\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/raw/ts-resolution/deferred/resolution_pipers-alley_1044.pdf_tex}
@@ -40,17 +57,17 @@
   \end{adjustbox} \\
   %
   \begin{adjustbox}{minipage=\textwidth, scale=0.6}
-    \begin{subfigure}[b]{0.83\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/raw/ts-resolution/forward/resolution_ziggurat-city_1170.pdf_tex}
       \caption{Ziggurat stad: $1170$ lichten, Forward.}
       \label{fig:ts-resolution-forward:city}
     \end{subfigure}
-  \end{adjustbox} %
+  \end{adjustbox}\hspace{-0.075\textwidth} %
   %
   \begin{adjustbox}{minipage=\textwidth, scale=0.6}
-    \begin{subfigure}[b]{0.83\textwidth}
+    \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/raw/ts-resolution/deferred/resolution_ziggurat-city_1170.pdf_tex}
@@ -58,7 +75,7 @@
       \label{fig:ts-resolution-deferred:city}
     \end{subfigure}
   \end{adjustbox}
-  \caption{Overzicht van de executietijd per resolutie voor de drie testscenes.}
+  \caption{Overzicht van de uitvoeringstijd per resolutie voor de drie testscenes.}
   \label{fig:ts-resolution}
 \end{figure}
 

@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{498.80563055bp}%
+    \setlength{\unitlength}{519.805625bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -48,33 +48,22 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.68934292)%
+  \begin{picture}(1,0.68265542)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{./img/raw/ts-resolution/deferred/resolution_spaceship-indoor_1260.pdf}}%
-    \put(0.11328438,0.04713324){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{600}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{./img/raw/ts-resolution/deferred/resolution_spaceship-indoor_1260.pdf}}%
-    \put(0.23822917,0.04713324){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{800}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=3]{./img/raw/ts-resolution/deferred/resolution_spaceship-indoor_1260.pdf}}%
-    \put(0.36317393,0.04713324){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{1000}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=4]{./img/raw/ts-resolution/deferred/resolution_spaceship-indoor_1260.pdf}}%
-    \put(0.48811872,0.04713324){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{1200}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=5]{./img/raw/ts-resolution/deferred/resolution_spaceship-indoor_1260.pdf}}%
-    \put(0.61306352,0.04713324){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{1400}}}%
-    \put(0.73800828,0.04713324){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{1600}}}%
-    \put(0.86295304,0.04713324){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{1800}}}%
-    \put(0.53809666,0.01907586){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{Resolutie (px)}}}%
-    \put(0.07659421,0.13537871){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{0}}}%
-    \put(0.07659421,0.20378381){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{50}}}%
-    \put(0.07659421,0.27218891){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{100}}}%
-    \put(0.07659421,0.34059404){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{150}}}%
-    \put(0.07659421,0.40899914){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{200}}}%
-    \put(0.07659421,0.47740426){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{250}}}%
-    \put(0.07659421,0.54580936){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{300}}}%
-    \put(0.07659421,0.61421448){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{350}}}%
-    \put(0.03048815,0.37521254){\color[rgb]{0.14901961,0.14901961,0.14901961}\rotatebox{90}{\makebox(0,0)[b]{\smash{Executietijd (ms)}}}}%
-    \put(0.16480493,0.64251543){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[lb]{\smash{Attenuated}}}%
-    \put(0.16480493,0.61415707){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[lb]{\smash{Tiled - 8}}}%
-    \put(0.16480493,0.5857987){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[lb]{\smash{Tiled - 16}}}%
-    \put(0.16480493,0.55744034){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[lb]{\smash{Tiled - 32}}}%
-    \put(0.16480493,0.52908197){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[lb]{\smash{Tiled - 64}}}%
+    \put(0.23474819,0.06639083){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{500}}}%
+    \put(0.40602969,0.06639083){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{1000}}}%
+    \put(0.57731118,0.06639083){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{1500}}}%
+    \put(0.74859267,0.06639083){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{2000}}}%
+    \put(0.91987416,0.06639083){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{2500}}}%
+    \put(0.55675742,0.0183052){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[b]{\smash{Resolutie (px)}}}%
+    \put(0.11389954,0.12355166){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{0}}}%
+    \put(0.11389954,0.19867244){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{100}}}%
+    \put(0.11389954,0.27379325){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{200}}}%
+    \put(0.11389954,0.34891403){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{300}}}%
+    \put(0.11389954,0.42403483){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{400}}}%
+    \put(0.11389954,0.49915561){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{500}}}%
+    \put(0.11389954,0.57427641){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{600}}}%
+    \put(0.11389954,0.6493972){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[rb]{\smash{700}}}%
+    \put(0.02925643,0.38121581){\color[rgb]{0.14901961,0.14901961,0.14901961}\rotatebox{90}{\makebox(0,0)[b]{\smash{Uitvoeringstijd (ms)}}}}%
   \end{picture}%
 \endgroup%

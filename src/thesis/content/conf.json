@@ -5,7 +5,7 @@
                 , "title"  :  "Theorie"
                 }
               , { "folder" : "implementatie-overzicht"
-                , "title"  : "Methode overzicht"
+                , "title"  : "Methode-overzicht"
                 }
               , { "folder" : "forward-deferred-shading"
                 , "title"  : "Forward en Deferred Shading"
