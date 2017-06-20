@@ -1,4 +1,4 @@
-\begin{listing}[b]
+\begin{listing}[tb]
   \begin{minted}[frame=single,framesep=12pt]{glsl}
 // determine contributing lights
 vec2 screen_position = gl_FragCoord.xy - vec2(0.5f, 0.5f);
@@ -25,3 +25,4 @@ fragment_colour = vec3((vec3(0.1f) + (light_acc * 0.9)));
   \caption{Lichtberekening in de GLSL shader.}
   \label{lst:cs-lichttoekenning}
 \end{listing}
+

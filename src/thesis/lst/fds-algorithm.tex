@@ -1,51 +1,42 @@
-\begin{listing}[b]
-  \begin{minted}{python}
+\begin{listing}[tb]
+  \begin{minted}[frame=single,framesep=12pt]{python}
 for obj in scene_objects:
   fragments = rasterise(obj)
 
   for frag in fragments:
     for l in lights:
-      canvas[frag.pos] +=
-          do_shade(frag,
-                   frag.attributes,
-                   light)
-
+      canvas[frag.pos] += do_shade(frag,
+                                   frag.attributes,
+                                   light)
 per_pixel_operations()
   \end{minted}
   \caption{Forward shading.}
   \label{lst:fds-algorithm:forward}
-\end{listing} %
-%
-\begin{listing}[b]
-  \begin{minted}{python}
+\end{listing}
+
+\begin{listing}[tb]
+  \begin{minted}[frame=single,framesep=12pt]{python}
 # Geometry pass
-# ---------------------------------
+# ---------------------------------------------------
 for obj in scene_objects:
   fragments = rasterise(obj)
     
   for frag in fragments:
-    write_to(gbuffer,
-             frag.attributes)
-        
+    write_to(gbuffer, frag.attributes) 
 per_pixel_operations()
 
 # Shading pass
-# ---------------------------------
+# ---------------------------------------------------
 for light in scene_lights:
   fragments =
       rasterise(light.volume)
     
     for frag in fragments:
-      attributes =
-          look_up(gbuffer,
-                  frag.pos)
-      canvas[frag.pos] +=
-          do_shade(frag,
-                   attributes,
-                   light)
-
+      attributes = look_up(gbuffer, frag.pos)
+      canvas[frag.pos] += do_shade(frag,
+                                   attributes,
+                                   light)
 per_pixel_operations()
-
   \end{minted}
   \caption{Deferred shading.}
   \label{lst:fds-algorithm:deferred}
