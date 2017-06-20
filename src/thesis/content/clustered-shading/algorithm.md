@@ -46,10 +46,10 @@ deze lichten uitgevoerd.
 De eerste stap in het opstellen van de clusters is de bepaling van de relevante
 clusters. Omdat de clusters het zichtfrustum onderverdelen in een discrete set
 van subfrusta, kan elk cluster worden aangeduid met een tupel van drie of meer
-integers $\left(i, j, k, \dots \right)$, zoals weergegeven in figuur \ref{}.
+integers $\left(i, j, k, \dots \right)$, zoals weergegeven in figuur \ref{fig:cs-opdeling:sleutel}.
 Hierbij zijn $i$ en $j$ gelijk aan de co\"ordinaten voor tegels binnen Tiled
 Shading. De integer $k$ specificeert de diepte-index. Een dergelijk tupel wordt
-een clustersleutel genoemd. In sectie \ref{} is de diepte van vlak 
+een clustersleutel genoemd. In sectie \ref{sec:cs-onderverdeling} is de diepte van vlak 
 $\mathtt{near}_k$ gedefinieerd als:
 
 $$ \mathtt{near}_k = \mathtt{near}_0 \left( 1 + \frac{2 \tan\theta}{S_y} \right) $$
@@ -139,6 +139,7 @@ toegevoegd aan het unieke cluster.
 ## Datastructuren
 
 \input{./img/tex/cs-datastructuren.tex}
+\input{./lst/cs-lichttoekenning.tex}
 
 De datastructuren in Clustered Shading gelijken in grote mate op die van 
 Tiled Shading, \ref{sec:ts-datastructuren}. Echter binnen Clustered Shading kan
@@ -185,7 +186,6 @@ Clustermaptextuur:
 
 ## Lichtbepaling
 
-\input{./lst/cs-lichttoekenning.tex}
 
 Op basis van de voorstelling van de clusters op de GPU kan de lichtberekening 
 per fragment worden opgesteld. Hiervoor dient eerst de set van lichten 

@@ -69,7 +69,6 @@ De lichtgeneratievolumes zijn weergegeven met gele blokken.
 
 ## Stadsscene: Ziggoerat
 \input{./img/tex/test-suite-ziggurat-frame.tex}
-\input{./img/tex/test-suite-ziggurat-map.tex}
 
 De ziggoerat scene is gemodelleerd als onderdeel van de open film Sintel[^3]. 
 De scene bestaat uit een gedetailleerde tempelberg waaromheen, in lagere 

@@ -1,6 +1,6 @@
-# Theorie 
-
 \input{./img/tex/cs-opdeling-voorbeeld.tex}
+
+# Theorie 
 
 Het doel van Clustered Shading is om de lichttoekenning zoals in Tiled Shading
 te verbeteren door de twee-dimensionale tegels, verder uit te breiden, zodat
@@ -12,7 +12,7 @@ Door de tegels verder op te delen worden de volumes geassocieerd met deze
 tegels kleiner, en dus homogener, waardoor de effici\"ency van de 
 lichtberekening toeneemt.
 
-## Onderverdeling in de ruimte
+## Onderverdeling in de ruimte {#sec:cs-onderverdeling}
 
 De eerste stap in het uitbreiden van tegels naar hogere dimensies is het 
 vastleggen hoe de diepte onderverdeeld dient te worden. Voor een effici\"ente
@@ -24,6 +24,8 @@ opgehaald kunnen worden. Tevens is het belangrijk dat de sleutel waarmee een
 cluster ge\"identificeerd kan worden, effici\"ent berekend kan worden, en 
 tegelijkertijd weinig bits vereist.
 
+\input{./img/tex/cs-sleutel.tex}
+
 Een belangrijk inzicht is dat fragmenten van een frame altijd in het 
 zichtfrustum geassocieerd met het frame zullen vallen. Wanneer de 
 lichtoekenningsdatastructuren dus per frame opgebouwd worden, zoals het geval is
@@ -32,15 +34,12 @@ delen in volumes. Alleen het zichtfrustum dient opgedeeld te worden.
 Tiled Shading deelt het zichtvenster op in de $\mathbf{x}$- en $\mathbf{y}$-as.
 Dit impliciet een opdeling van het zichtfrustum. Binnen Clustered Shading
 wordt de $\mathbf{z}$-as van de camera verder opgedeeld, om zo subfrustra 
-te verkrijgen, zoals weergegeven in figuur \ref{fig:cs-opdeling}. 
+te verkrijgen, zoals weergegeven in figuur \ref{fig:cs-opdeling:frustum}. 
 Om deze subfrustra zo uniform mogelijk te houden, wordt de diepte van 
 \mbox{\'e\'en} subfrustum, $d_k$, gelijk gesteld aan de hoogte van het 
 subfrustum, $h_k$ bij bij de diepte $\mathtt{near}_k$ waar het subfrustumvolume 
-begint. Dit is weergegeven in figuur \ref{fig:cs-sleutel}.
-
-\input{./img/tex/cs-sleutel.tex}
-
-De volledige hoogte van het zichtfrustum bij diepte $\mathtt{near}_k$ is
+begint. Dit is weergegeven in figuur \ref{fig:cs-opdeling:sleutel}. De volledige hoogte 
+van het zichtfrustum bij diepte $\mathtt{near}_k$ is
 
 $$ h_{\mathtt{frustum}} = 2 \mathtt{near}_k \tan \theta $$
 
@@ -77,7 +76,7 @@ afneemt. Een voorbeeld hiervan is de normaal informatie.
 Wanneer de fragmenten in een cluster verder worden opgedeeld aan de hand van de
 normaalinformatie, is het mogelijk om lichten uit te sluiten die een 
 nulcontributie hebben op de fragmenten van het cluster. In het geval van 
-Lambetiaanse materialen komt dit voor wanneer de hoek tussen het invallend licht
+Lambertiaanse materialen komt dit voor wanneer de hoek tussen het invallend licht
 en de normaal van een fragment groter is dan $90^\circ$. Een veel voorkomende 
 situatie waarin dit zich voordoet, is wanneer een licht de achterkant van een
 primitief verlicht. Het voorkomen van een dergelijke situatie wordt achtervlak 
@@ -89,7 +88,7 @@ geassocieerd met een cluster geldt dat de normaal van deze fragmenten binnen
 de gedefinieerde kegel van de cluster valt. Om de kegels op te stellen wordt
 gebruik gemaakt van een onderverdeelde kubus. Voor elk vlak van deze kubus
 wordt \mbox{\'e\'en} normaalkegel opgesteld die snijdt met de vier vertices van
-het vlak. Dit is weergegeven in figuur \ref{fig:cs-normalcone}.
+het vlak. Dit is weergegeven in figuur \ref{fig:cs-normal-cone}.
 Voor elk fragment wordt bepaald met welk vlak de normaal van het fragment snijdt,
 indien deze onderverdeelde kubus gecentreerd is op het fragment. 
 
@@ -102,7 +101,7 @@ $$ \omega > \frac{\pi}{2} + \alpha + \delta $$
 Waarbij $\omega$ de hoek tussen de lichtdirectie en de as van de normaalkegel is,
 $\alpha$ de halfhoek van de normaalkegel is, en $\delta$ de hoek die het licht 
 maakt om de gehele cluster te verlichten. Dit is ge\"illustreerd in figuur 
-\ref{fig:light-discard-normal}.
+\ref{fig:cs-light-discard-normal}.
 
 \input{./img/tex/cs-normal-cone-discard.tex}
 

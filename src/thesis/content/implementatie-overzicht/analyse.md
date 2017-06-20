@@ -1,5 +1,7 @@
 # Data-analyse
 
+\input{./img/tex/da-cubehelix.tex}
+
 Om de tijdscomplexiteit van de verschillende methodes te vergelijken is primair
 gekeken naar de volgende drie relaties.
 
@@ -21,7 +23,10 @@ van de methode, en hoe deze van invloed zijn op de tijdscomplexiteit en het
 geheugengedrag.
 
 Al de analyses zijn gedaan met behulp van SciPy[^scipy], Pandas[^pandas], en Seaborn[^seaborn]. Zowel de
-verzamelde data, als de analyses zijn beschikbaar in de data-repository.
+verzamelde data, als de analyses zijn beschikbaar in de data-repository. 
+Voor de warmtekaarten is gebruik gemaakt van het Cubehelix kleurpalet\cite{green2011colour},
+met een startwaarde van $0.5$, rotaties van $-1.5$, en een tint en gamma waarde van $1.0$.
+De kleur overgang van dit kleurpalet is weergegeven in figuur \ref{fig:da-cubehelix}.
 
 [^scipy]: website: www.scipy.org
 [^pandas]: website: pandas.pydata.org
