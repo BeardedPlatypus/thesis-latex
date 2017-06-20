@@ -1,15 +1,15 @@
-\begin{figure}[p]
-  \centering\includegraphics[width=0.9\textwidth]{./img/raw/test-suite-spaceship-indoor-frame.png}
-  \caption{Een frame van de indoor Spaceship scene.}
-  \label{fig:test-suite-spaceship-frame}
-  \begin{tikzpicture}
-    \node[inner sep=0pt] (map) at (0, 0)
-         {\includegraphics[width=0.5\textwidth]{./img/raw/test-suite-spaceship-indoor-map.png}};
-    \node[inner sep=0pt] (map) at (0.0\textwidth, 0.0\textwidth)
-         {\includegraphics[width=0.5\textwidth]{./img/raw/test-suite-spaceship-indoor-map-size.png}};
-    \node (l3) at (0.26\textwidth, -0.195\textwidth) {$32$ eenheden};
-  \end{tikzpicture}
-  \caption{Een overzicht van de indoor Spaceship scene.}
-  \label{fig:test-suite-spaceship-map}
+\begin{figure}[tb]
+  \begin{subfigure}[b]{.48\textwidth}
+    \centering\includegraphics[width=\textwidth]{./img/raw/test-suite-spaceship-indoor-frame.png}
+    \caption{Een frame.}
+    \label{fig:test-suite-spaceship-frame}
+  \end{subfigure}%
+  \begin{subfigure}[b]{.51\textwidth}
+    \centering\includegraphics[width=\textwidth]{./img/raw/test-suite-spaceship-indoor-map.png}
+    \caption{Het bovenaanzicht.}
+    \label{fig:test-suite-spaceship-map}%
+  \end{subfigure}
+  \caption{De Spaceship indoor scene.}
+  \label{fig:test-suite-spaceship}
 \end{figure}
 

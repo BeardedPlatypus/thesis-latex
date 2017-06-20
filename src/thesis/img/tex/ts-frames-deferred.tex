@@ -1,18 +1,21 @@
 \begin{figure}[t]
   \hspace{0.05\textwidth}%
   \begin{subfigure}[b]{\textwidth}
-    \tikzstyle{legend-point}=[circle, inner sep=2.5pt]
+    \tikzstyle{legend-point}=[circle, inner sep=2pt]
     \definecolor{GraphBlue}{HTML}{6c8abd}
     \definecolor{GraphGreen}{HTML}{73b584}
     \definecolor{GraphRed}{HTML}{d07175}
     
     \begin{tikzpicture}
-      \node (legend:naive) at (0.1\textwidth,0) [legend-point, fill={GraphBlue}, label=right:{\small Na\"ieve Deferred Shading}] {};
-      \node (legend:grid) at (0.1\textwidth, -12pt) [legend-point, fill={GraphGreen}, label=right:{\small Deferred Tiled Shading - Roosteropbouw}] {};
-      \node (legend:tiled) at (0.1\textwidth, -24pt) [legend-point, fill={GraphRed}, label=right:{\small Deferred Tiled Shading - Totaal}] {};
+      \node (legend:naive) at (0.1\textwidth,  0pt)
+            [legend-point, fill={GraphBlue}, label=right:{\footnotesize Na\"ieve Deferred Shading}] {};
+      \node (legend:grid) at (0.1\textwidth, -10pt)
+            [legend-point, fill={GraphGreen}, label=right:{\footnotesize Deferred Tiled Shading - Roosteropbouw}] {};
+      \node (legend:tiled) at (0.1\textwidth, -20pt)
+            [legend-point, fill={GraphRed}, label=right:{\footnotesize Deferred Tiled Shading - Totaal}] {};
     \end{tikzpicture}
   \end{subfigure}\hfill\\
-  \begin{adjustbox}{minipage=\textwidth, scale=0.6}
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
     \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
@@ -22,7 +25,7 @@
     \end{subfigure}
   \end{adjustbox}\hspace{-0.075\textwidth}  %
   %
-  \begin{adjustbox}{minipage=\textwidth, scale=0.6}
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
     \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
@@ -32,7 +35,7 @@
     \end{subfigure}
   \end{adjustbox} \\
   %
-  \begin{adjustbox}{minipage=\textwidth, scale=0.6}
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
     \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
@@ -42,7 +45,7 @@
     \end{subfigure}
   \end{adjustbox}\hspace{-0.075\textwidth}  %
   %
-  \begin{adjustbox}{minipage=\textwidth, scale=0.6}
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
     \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
@@ -52,7 +55,7 @@
     \end{subfigure}
   \end{adjustbox} \\
   %
-  \begin{adjustbox}{minipage=\textwidth, scale=0.6}
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
     \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}
@@ -62,7 +65,7 @@
     \end{subfigure}
   \end{adjustbox}\hspace{-0.075\textwidth}  %
   %
-  \begin{adjustbox}{minipage=\textwidth, scale=0.6}
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
     \begin{subfigure}[b]{0.8\textwidth}
       \centering
       \def\svgwidth{\textwidth}

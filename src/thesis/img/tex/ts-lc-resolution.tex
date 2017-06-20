@@ -1,0 +1,92 @@
+\begin{figure}[t]
+  \hspace{0.05\textwidth}%
+  \begin{subfigure}[b]{\textwidth}
+    \tikzstyle{legend-point}=[circle, inner sep=2pt]
+    \definecolor{GraphBlue}{HTML}{6c8abd}
+    \definecolor{GraphGreen}{HTML}{73b584}
+    \definecolor{GraphRed}{HTML}{d07175}
+    \definecolor{GraphPurple}{HTML}{8172b2}
+    \definecolor{GraphYellow}{HTML}{ccb974}
+    
+    \begin{tikzpicture}
+      \node (legend:naive) at (0.1\textwidth,0) [legend-point, fill={GraphBlue}, label=right:{\footnotesize Na\"ieve belichting}] {};
+      \node (legend:grid) at (0.1\textwidth, -10pt) [legend-point, fill={GraphGreen}, label=right:{\footnotesize Tiled Shading - $8 \times 8$ px tegels}] {};
+      \node (legend:tiled) at (0.1\textwidth, -20pt) [legend-point, fill={GraphRed}, label=right:{\footnotesize Tiled Shading - $16 \times 16$ px tegels}] {};
+      
+      \node (legend:tiled) at (0.5925\textwidth, -0pt) [legend-point, fill={GraphPurple}, label=right:{\footnotesize Tiled Shading - $32 \times 32$ px tegels}] {};
+      \node (legend:tiled) at (0.5925\textwidth, -10pt) [legend-point, fill={GraphYellow}, label=right:{\footnotesize Tiled Shading - $64 \times 64$ px tegels}] {};
+    \end{tikzpicture}
+  \end{subfigure}\hfill\\
+  \begin{minipage}[t]{0.5\textwidth}
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
+    \begin{subfigure}[b]{1.6\textwidth}
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/raw/ts-lc-resolution/deferred/resolution_spaceship-indoor.pdf_tex}
+      \caption{Spaceship indoor, $1260$ lichten}
+      \vspace{4pt}
+      \label{fig:ts-lc-resolution:indoor}
+    \end{subfigure}
+  \end{adjustbox} \\
+  %
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
+    \begin{subfigure}[b]{1.6\textwidth}
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/raw/ts-lc-resolution/deferred/resolution_pipers-alley.pdf_tex}
+      \caption{Pipers Alley, $1044$ lichten}
+      \vspace{4pt}
+      \label{fig:ts-lc-resolution:alley}
+    \end{subfigure}
+  \end{adjustbox} \\
+  %
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
+    \begin{subfigure}[b]{1.6\textwidth}
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/raw/ts-lc-resolution/deferred/resolution_ziggurat-city.pdf_tex}
+      \caption{Ziggurat stad, $1170$ lichten}
+      \label{fig:ts-lc-resolution:city}
+    \end{subfigure}
+  \end{adjustbox}
+  \caption{\small Lichtberekeningen als functie van de resolutie. }
+  \label{fig:ts-lc-resolution}
+  \end{minipage}
+  %
+  \begin{minipage}[t]{0.5\textwidth}
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
+    \begin{subfigure}[b]{1.6\textwidth}
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/raw/ts-resolution-grid/resolution_spaceship-indoor.pdf_tex}
+      \caption{Spaceship indoor, $1260$ lichten}
+      \vspace{4pt}
+      \label{fig:ts-resolution-grid:indoor}
+    \end{subfigure}
+  \end{adjustbox} \\
+  %
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
+    \begin{subfigure}[b]{1.6\textwidth}
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/raw/ts-resolution-grid/resolution_pipers-alley.pdf_tex}
+      \caption{Pipers Alley, $1044$ lichten}
+      \vspace{4pt}
+      \label{fig:ts-resolution-grid:alley}
+    \end{subfigure}
+  \end{adjustbox} \\
+  %
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
+    \begin{subfigure}[b]{1.6\textwidth}
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/raw/ts-resolution-grid/resolution_ziggurat-city.pdf_tex}
+      \caption{Ziggurat stad, $1170$ lichten}
+      \label{fig:ts-resolution-grid:city}
+    \end{subfigure}
+  \end{adjustbox}
+  \caption{\small Lichtroosteropbouw als functie van de resolutie. }
+  \label{fig:ts-resolution-grid}
+  \end{minipage}
+\end{figure}
+
