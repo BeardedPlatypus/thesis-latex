@@ -1,0 +1,108 @@
+\begin{figure}[t]
+  \hspace{0.05\textwidth}%
+  \begin{subfigure}[b]{\textwidth}
+    \tikzstyle{legend-point}=[circle, inner sep=2pt]
+    \definecolor{legend1}{HTML}{eed0cd}
+    \definecolor{legend2}{HTML}{deb1d4}
+    \definecolor{legend3}{HTML}{aca3d8}
+    \definecolor{legend4}{HTML}{72a2b5}
+    \definecolor{legend5}{HTML}{549874}
+    \definecolor{legend6}{HTML}{5d773b}
+    \definecolor{legend7}{HTML}{6c4c2e}
+    \definecolor{legend8}{HTML}{5c2b3d}
+    \definecolor{legend9}{HTML}{311c3b}
+    
+    \begin{tikzpicture}
+      \node (legend1) at (0.1\textwidth, 0)
+            [legend-point, fill={legend1}, label=right:{\tiny $(70, 58, 65)$  lichten}] {};
+      \node (legend2) at (0.1\textwidth, -8pt)
+            [legend-point, fill={legend2}, label=right:{\tiny $(140, 116, 130)$  lichten}] {};
+      \node (legend3) at (0.1\textwidth, -16pt)
+            [legend-point, fill={legend3}, label=right:{\tiny $(210, 174, 195)$  lichten}] {};
+      \node (legend4) at (0.1\textwidth, -24pt)
+            [legend-point, fill={legend4}, label=right:{\tiny $(280, 232, 260)$  lichten}] {};
+      \node (legend5) at (0.1\textwidth, -32pt)
+            [legend-point, fill={legend5}, label=right:{\tiny $(420, 348, 390)$  lichten}] {};
+      \node (legend6) at (0.5925\textwidth, 0)
+            [legend-point, fill={legend6}, label=right:{\tiny $(560, 464, 520)$  lichten}] {};
+      \node (legend7) at (0.5925\textwidth, -8pt)
+            [legend-point, fill={legend7}, label=right:{\tiny $(630, 522, 585)$  lichten}] {};
+      \node (legend8) at (0.5925\textwidth, -16pt)
+            [legend-point, fill={legend8}, label=right:{\tiny $(840, 696, 780)$  lichten}] {};
+      \node (legend9) at (0.5925\textwidth, -24pt)
+            [legend-point, fill={legend9}, label=right:{\tiny $(1260, 1044, 1170)$  lichten}] {};
+    \end{tikzpicture}
+  \end{subfigure}\hfill\\
+  \begin{minipage}[t]{0.5\textwidth}
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
+    \begin{subfigure}[b]{1.6\textwidth}
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/raw/hs-ns-sum/exec_spaceship-indoor.pdf_tex}
+      \caption{Spaceship indoor}
+      \vspace{4pt}
+      \label{fig:hs-ns-sum:exec:indoor}
+    \end{subfigure}
+  \end{adjustbox} \\
+  %
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
+    \begin{subfigure}[b]{1.6\textwidth}
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/raw/hs-ns-sum/exec_pipers-alley.pdf_tex}
+      \caption{Pipers Alley}
+      \vspace{4pt}
+      \label{fig:hs-ns-sum:exec:alley}
+    \end{subfigure}
+  \end{adjustbox} \\
+  %
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
+    \begin{subfigure}[b]{1.6\textwidth}
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/raw/hs-ns-sum/exec_ziggurat-city.pdf_tex}
+      \caption{Ziggurat stad}
+      \label{fig:hs-ns-sum:exec:city}
+    \end{subfigure}
+  \end{adjustbox}
+  \caption{\small Gesommeerde aantal pixels van de Hashed Shading datastructuren.}
+  \label{fig:hs-ns-sum:exec}
+  \end{minipage}%
+  %
+  \begin{minipage}[t]{0.5\textwidth}
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
+    \begin{subfigure}[b]{1.6\textwidth}
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/raw/hs-ns-sum/lc_spaceship-indoor.pdf_tex}
+      \caption{Spaceship indoor}
+      \vspace{4pt}
+      \label{fig:hs-ns-sum:lc:indoor}
+    \end{subfigure}
+  \end{adjustbox} \\
+  %
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
+    \begin{subfigure}[b]{1.6\textwidth}
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/raw/hs-ns-sum/lc_pipers-alley.pdf_tex}
+      \caption{Pipers Alley}
+      \vspace{4pt}
+      \label{fig:hs-ns-sum:lc:alley}
+    \end{subfigure}
+  \end{adjustbox} \\
+  %
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
+    \begin{subfigure}[b]{1.6\textwidth}
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/raw/hs-ns-sum/lc_ziggurat-city.pdf_tex}
+      \caption{Ziggurat stad}
+      \label{fig:hs-ns-sum:lc:city}
+    \end{subfigure}
+  \end{adjustbox}
+  \caption{\small Aantal lichtindices als functie van de knoopgrootte.}
+  \label{fig:hs-ns-sum:lc}
+  \end{minipage} 
+\end{figure}
+

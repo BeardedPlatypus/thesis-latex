@@ -1,66 +1,121 @@
-\begin{figure}[p]
-  \begin{adjustbox}{minipage=\textwidth, scale=0.5}
-    \begin{subfigure}[b]{0.83\textwidth}
+\begin{figure}[t]
+  \hspace{0.05\textwidth}%
+  \begin{subfigure}[b]{\textwidth}
+    \tikzstyle{legend-point}=[circle, inner sep=1.25pt]
+    \definecolor{GraphBlue}{HTML}{6c8abd}
+    \definecolor{GraphGreen}{HTML}{73b584}
+    \definecolor{GraphRed}{HTML}{d07175}
+    \definecolor{GraphPurple}{HTML}{8172b2}
+    \definecolor{GraphYellow}{HTML}{ccb974}
+    
+    \definecolor{legend1}{HTML}{eed0cd}
+    \definecolor{legend2}{HTML}{deb1d4}
+    \definecolor{legend3}{HTML}{aca3d8}
+    \definecolor{legend4}{HTML}{72a2b5}
+    \definecolor{legend5}{HTML}{549874}
+    \definecolor{legend6}{HTML}{5d773b}
+    \definecolor{legend7}{HTML}{6c4c2e}
+    \definecolor{legend8}{HTML}{5c2b3d}
+    \definecolor{legend9}{HTML}{311c3b}
+    
+    \begin{tikzpicture}
+      \node (legend1) at (0.5925\textwidth, 0)
+            [legend-point, fill={legend1}, label=right:{\tiny $(70, 58, 65)$  lichten}] {};
+      \node (legend2) at (0.5925\textwidth, -8pt)
+            [legend-point, fill={legend2}, label=right:{\tiny $(140, 116, 130)$  lichten}] {};
+      \node (legend3) at (0.5925\textwidth, -16pt)
+            [legend-point, fill={legend3}, label=right:{\tiny $(210, 174, 195)$  lichten}] {};
+      \node (legend4) at (0.5925\textwidth, -24pt)
+            [legend-point, fill={legend4}, label=right:{\tiny $(280, 232, 260)$  lichten}] {};
+      \node (legend5) at (0.5925\textwidth, -32pt)
+            [legend-point, fill={legend5}, label=right:{\tiny $(420, 348, 390)$  lichten}] {};
+      \node (legend6) at (0.5925\textwidth, -40pt)
+            [legend-point, fill={legend6}, label=right:{\tiny $(560, 464, 520)$  lichten}] {};
+      \node (legend7) at (0.5925\textwidth, -48pt)
+            [legend-point, fill={legend7}, label=right:{\tiny $(630, 522, 585)$  lichten}] {};
+      \node (legend8) at (0.5925\textwidth, -56pt)
+            [legend-point, fill={legend8}, label=right:{\tiny $(840, 696, 780)$  lichten}] {};
+      \node (legend9) at (0.5925\textwidth, -64pt)
+            [legend-point, fill={legend9}, label=right:{\tiny $(1260, 1044, 1170)$  lichten}] {};
+
+      \node (legend:naive) at (0.1\textwidth,0)
+            [legend-point, fill={GraphBlue}, label=right:{\tiny $(1260, 1044, 1170)$  lichten}] {};
+      \node (legend:grid) at (0.1\textwidth, -8pt)
+            [legend-point, fill={GraphGreen}, label=right:{\tiny $(70, 58, 65)$ lichten}] {};
+      \node (legend:tiled) at (0.1\textwidth, -16pt)
+            [legend-point, fill={GraphRed}, label=right:{\tiny Ge\"evalueerde knoopgroottes}] {};
+    \end{tikzpicture}
+  \end{subfigure}\hfill\\
+  \begin{minipage}[t]{0.5\textwidth}
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
+    \begin{subfigure}[b]{1.6\textwidth}
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/raw/hs-nodesize-construction-time/NodeSize_spaceship-indoor_70.pdf_tex}
-      \caption{Spaceship indoor: $70$ lichten.}
-      \label{fig:hs-nodesize-construction-time::si-low}
-    \end{subfigure}
-  \end{adjustbox} %
-  %
-  \begin{adjustbox}{minipage=\textwidth, scale=0.5}
-    \begin{subfigure}[b]{0.83\textwidth}
-      \centering
-      \def\svgwidth{\textwidth}
-      \input{./img/raw/hs-nodesize-construction-time/NodeSize_spaceship-indoor_1260.pdf_tex}
-      \caption{Spaceship indoor: $1260$ lichten.}
-      \label{fig:hs-nodesize-construction-time::si-high}
+      \input{./img/raw/hs-n-layers/n_layers_spaceship-indoor.pdf_tex}
+      \caption{Spaceship indoor}
+      \vspace{4pt}
+      \label{fig:hs-n-layers:indoor}
     \end{subfigure}
   \end{adjustbox} \\
   %
-  \begin{adjustbox}{minipage=\textwidth, scale=0.5}
-    \begin{subfigure}[b]{0.83\textwidth}
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
+    \begin{subfigure}[b]{1.6\textwidth}
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/raw/hs-nodesize-construction-time/NodeSize_pipers-alley_58.pdf_tex}
-      \caption{Pipers Alley: $58$ lichten.}
-      \label{fig:hs-nodesize-construction-time::pa-low}
-    \end{subfigure}
-  \end{adjustbox} %
-  %
-  \begin{adjustbox}{minipage=\textwidth, scale=0.5}
-    \begin{subfigure}[b]{0.83\textwidth}
-      \centering
-      \def\svgwidth{\textwidth}
-      \input{./img/raw/hs-nodesize-construction-time/NodeSize_pipers-alley_1044.pdf_tex}
-      \caption{Pipers Alley: $1044$ lichten.}
-      \label{fig:hs-nodesize-construction-time::pa-high}
+      \input{./img/raw/hs-n-layers/n_layers_pipers-alley.pdf_tex}
+      \caption{Pipers Alley}
+      \vspace{4pt}
+      \label{fig:hs-n-layers:alley}
     \end{subfigure}
   \end{adjustbox} \\
   %
-  \begin{adjustbox}{minipage=\textwidth, scale=0.5}
-    \begin{subfigure}[b]{0.83\textwidth}
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
+    \begin{subfigure}[b]{1.6\textwidth}
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/raw/hs-nodesize-construction-time/NodeSize_ziggurat-city_65.pdf_tex}
-      \caption{Ziggurat stad: $65$ lichten.}
-      \label{fig:hs-nodesize-construction-time::zc-low}
-    \end{subfigure}
-  \end{adjustbox} %
-  %
-  \begin{adjustbox}{minipage=\textwidth, scale=0.5}
-    \begin{subfigure}[b]{0.83\textwidth}
-      \centering
-      \def\svgwidth{\textwidth}
-      \input{./img/raw/hs-nodesize-construction-time/NodeSize_ziggurat-city_1170.pdf_tex}
-      \caption{Ziggurat stad: $1170$ lichten.}
-      \label{fig:hs-nodesize-construction-time::zc-high}
+      \input{./img/raw/hs-n-layers/n_layers_ziggurat-city.pdf_tex}
+      \caption{Ziggurat stad}
+      \label{fig:hs-n-layers:city}
     \end{subfigure}
   \end{adjustbox}
-  \caption{Overzicht van de constructietijd van de verbindingloze octree
-           bij verschillende groottes van de knopen (waarbij de knoopgrootte
-           relatief is aan de grootte van lichten in de scene.}
-  \label{fig:hs-nodesize-construction-time}
+  \caption{\small Diepte van de octree als functie van de knoopgrootte.}
+  \label{fig:hs-n-layers}
+  \end{minipage} %
+  %
+  \begin{minipage}[t]{0.5\textwidth}
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
+    \begin{subfigure}[b]{1.6\textwidth}
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/raw/hs-ns-construction-time/construction_time_spaceship-indoor.pdf_tex}
+      \caption{Spaceship indoor}
+      \vspace{4pt}
+      \label{fig:hs-ns-construction-time:indoor}
+    \end{subfigure}
+  \end{adjustbox} \\
+  %
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
+    \begin{subfigure}[b]{1.6\textwidth}
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/raw/hs-ns-construction-time/construction_time_pipers-alley.pdf_tex}
+      \caption{Pipers Alley}
+      \vspace{4pt}
+      \label{fig:hs-ns-construction-time:alley}
+    \end{subfigure}
+  \end{adjustbox} \\
+  %
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
+    \begin{subfigure}[b]{1.6\textwidth}
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/raw/hs-ns-construction-time/construction_time_ziggurat-city.pdf_tex}
+      \caption{Ziggurat stad}
+      \label{fig:hs-ns-construction-time:city}
+    \end{subfigure}
+  \end{adjustbox}
+  \caption{\small Constructietijd van de Hashed Shading datastructuren.}
+  \label{fig:hs-ns-construction-time}
+  \end{minipage} 
 \end{figure}
 

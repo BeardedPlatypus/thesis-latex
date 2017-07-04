@@ -1,0 +1,96 @@
+\begin{figure}[t]
+  \hspace{0.05\textwidth}%
+  \begin{subfigure}[b]{\textwidth}
+    \tikzstyle{legend-point}=[circle, inner sep=2pt]
+    \definecolor{legend1}{HTML}{4c72b0}
+    \definecolor{legend2}{HTML}{55a868}
+    \definecolor{legend3}{HTML}{c44e52}
+    \definecolor{legend4}{HTML}{8172b2}
+    \definecolor{legend5}{HTML}{ccb974}
+    
+    \begin{tikzpicture}
+      \node (legend1) at (0.1\textwidth, 0)
+            [legend-point, fill={legend1}, label=right:{\tiny $0.25$ knoopgrootte}] {};
+      \node (legend2) at (0.1\textwidth, -8pt)
+            [legend-point, fill={legend2}, label=right:{\tiny $0.5$ knoopgrootte}] {};
+      \node (legend3) at (0.1\textwidth, -16pt)
+            [legend-point, fill={legend3}, label=right:{\tiny $1$ knoopgrootte}] {};
+      \node (legend6) at (0.5925\textwidth, 0)
+            [legend-point, fill={legend4}, label=right:{\tiny $2$ knoopgrootte}] {};
+      \node (legend7) at (0.5925\textwidth, -8pt)
+            [legend-point, fill={legend5}, label=right:{\tiny $3$ knoopgrootte }] {};
+    \end{tikzpicture}
+  \end{subfigure}\hfill\\
+  \begin{minipage}[t]{0.5\textwidth}
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
+    \begin{subfigure}[b]{1.6\textwidth}
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/raw/hs-ns-frame-high/exec_spaceship-indoor.pdf_tex}
+      \caption{Spaceship indoor}
+      \vspace{4pt}
+      \label{fig:hs-ns-frame-high:exec:indoor}
+    \end{subfigure}
+  \end{adjustbox} \\
+  %
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
+    \begin{subfigure}[b]{1.6\textwidth}
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/raw/hs-ns-frame-high/exec_pipers-alley.pdf_tex}
+      \caption{Pipers Alley}
+      \vspace{4pt}
+      \label{fig:hs-ns-frame-high:exec:alley}
+    \end{subfigure}
+  \end{adjustbox} \\
+  %
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
+    \begin{subfigure}[b]{1.6\textwidth}
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/raw/hs-ns-frame-high/exec_ziggurat-city.pdf_tex}
+      \caption{Ziggurat stad}
+      \label{fig:hs-ns-frame-high:exec:city}
+    \end{subfigure}
+  \end{adjustbox}
+  \caption{\small Uitvoeringstijd per frame bij $320 \times 320$ pixels.}
+  \label{fig:hs-ns-frame-high:exec}
+  \end{minipage}%
+  %
+  \begin{minipage}[t]{0.5\textwidth}
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
+    \begin{subfigure}[b]{1.6\textwidth}
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/raw/hs-ns-frame-high/lc_spaceship-indoor.pdf_tex}
+      \caption{Spaceship indoor}
+      \vspace{4pt}
+      \label{fig:hs-ns-frame-high:lc:indoor}
+    \end{subfigure}
+  \end{adjustbox} \\
+  %
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
+    \begin{subfigure}[b]{1.6\textwidth}
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/raw/hs-ns-frame-high/lc_pipers-alley.pdf_tex}
+      \caption{Pipers Alley}
+      \vspace{4pt}
+      \label{fig:hs-ns-frame-high:lc:alley}
+    \end{subfigure}
+  \end{adjustbox} \\
+  %
+  \begin{adjustbox}{minipage=\textwidth, scale=0.55}
+    \begin{subfigure}[b]{1.6\textwidth}
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/raw/hs-ns-frame-high/lc_ziggurat-city.pdf_tex}
+      \caption{Ziggurat stad}
+      \label{fig:hs-ns-frame-high:lc:city}
+    \end{subfigure}
+  \end{adjustbox}
+  \caption{\small Aantal lichtberekeningen per frame bij $320 \times 320$ pixels.}
+  \label{fig:hs-ns-frame-high:lc}
+  \end{minipage} 
+\end{figure}
+

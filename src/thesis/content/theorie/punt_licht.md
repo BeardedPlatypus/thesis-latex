@@ -36,8 +36,6 @@ Dit leidt tot een voorstelling als weergegeven in figuur \ref{fig:pl-licht}.
 Hierbij is de invloed in de oorsprong gelijk aan $1$, en op afstand r en groter
 0. 
 
-\input{./img/tex/pl-distance-attenuation-rt.tex}
-
 Echter om de illusie te wekken dat de lichten fysiek accuraat zijn, dient tevens
 een benadering gemaakt te worden van de afstandsdempings functies. 
 Deze functies dienen te voldoen aan de eerder gestelde voorwaarde, waarbij 
