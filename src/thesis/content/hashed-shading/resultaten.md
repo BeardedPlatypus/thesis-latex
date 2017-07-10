@@ -195,17 +195,151 @@ winst die wordt verkregen met de reductie in het aantal lichtberekeningen.
 
 ## Begindiepte van de verbindingloze octree
 
+\input{./img/tex/hs-sd-cons-mem.tex}
+\input{./img/tex/hs-sd-li-exec.tex}
 
-## Frames
+Zoals vermeld in sectie \ref{sec:theorie-verbindingloze-octree} is het mogelijk om naast de knoopgrootte de
+begindiepte in te stellen voor de verbindingloze octree. Hierbij komt een 
+begindiepte van \mbox{\'e\'en} overeen met een beschrijving van elke laag binnen
+de verbindingloze octree, en een diepte van het aantal lagen minus 
+\mbox{\'e\'en} een verbindingloze octree bestaande uit slechts een enkele laag.
 
-\input{./img/tex/hs-exec-frames-forward.tex}
-\input{./img/tex/hs-exec-frames-deferred.tex}
+Het veranderen van deze waarde heeft geen invloed op het aantal 
+lichtberekeningen dat wordt uitgevoerd, doordat ongeacht de begindiepte dezelfde
+set van lichten wordt opgehaald binnen de renderstap. Het kan echter wel van 
+invloed zijn op de uitvoeringstijd, doordat bij een grotere begindiepte minder 
+maal het geheugen dient te worden aangesproken.
 
-## Lichten
+Daarnaast zal het van invloed zijn op het geheugengebruik en de constructietijd.
+Het gebruik van kleine texturen, bijvoorbeeld van 1 pixel voor de eerste laag 
+van de verbindingloze octree, leidt veelal tot onnodig geheugengebruik, door de
+overhead geassocieerd met het bijhouden van texturen. Een grotere begindiepte 
+leidt echter ook tot meer kleinere knopen die expliciet bijgehouden dienen te
+worden. Dit leidt tot een groter geheugengebruik. Daarnaast leidt een groter
+aantal knopen tot een grotere constructietijd, doordat elk van deze knopen
+toegekend dient te worden binnen de corresponderende spatiale hashfunctie.
 
-\input{./img/tex/hs-exec-lights.tex}
+Om deze aspecten te evalueren zijn de volgende figuren opgesteld. In figuur
+\ref{fig:hs-sd-construction} is de constructietijd als functie van de knoopgrootte weergegeven
+bij verschillende begindieptes voor de grootste gedefinieerde set lichten
+per scene. In figuur \ref{fig:hs-sd-memory} en \ref{fig:hs-sd-light-indices} zijn
+respectievelijk het aantal pixels in de datastructuren en het aantal lichtindices 
+als functie van de  knoopgrootte voor verschillende begindieptes gegeven. 
+Als laatste is de rendertijd als functie van de knoopgrootte voor de verschillende begindieptes
+weergegeven in figuur \ref{fig:hs-sd-exec}.
 
-## Resolutie
+Uit alle figuren valt op te maken dat de ge\"evalueerde begindieptes geen 
+significante invloed hebben op de constructietijd, geheugenverbruik, en 
+uitvoeringstijd. De constructietijd en het geheugenverbruik kan verklaard worden
+doordat een verandering van de begindiepte slechts invloed heeft op de eerste 
+lagen van de verbindingloze octree. Zoals al bleek uit de resultaten van het
+geheugenverbruik per laag laag van de verbindingloze octree, fig. \ref{fig:hs-layered-mem},
+bevindt het merendeel van de knopen zich in de diepere lagen. Een samenvoeging
+van de eerdere lagen zal geen invloed hebben op de set knopen in de diepste 
+lagen. Hierdoor zal het merendeel van de constructietijd en het geheugenverbruik
+niet veranderen.
 
-\input{./img/tex/hs-exec-resolution.tex}
+De uitvoeringstijd voor grotere begindieptes is iets kleiner, wat een gevolg van
+de reductie van het aantal textuuraanspraken is. Echter deze verschillen zijn
+minimaal. Doordat de uitvoeringstijd primair afhankelijk is van het aantal 
+lichtberekeningen heeft de begindiepte dus ook weinig invloed op de 
+uitvoeringstijd.
+
+Op basis hiervan kan geconcludeerd worden dat het voordelig is om de eerste
+lagen van de verbindingloze octree samen te voegen, doordat het gebruikte 
+aantal texturen hierdoor gereduceerd wordt, zonder dat dit een negatieve 
+invloed heeft op het geheugen en de uitvoeringstijd. Door Choi et. al. 
+\cite{choi2009linkless} wordt een begindiepte van $3$ aangehouden om de overhead
+die elke textuur met zich meebrengt te reduceren. Uit deze resultaten blijkt dat 
+een begindiepte van $3$ geen vergroting van geheugenverbruik of uitvoeringstijd
+met zich meebrengt. Om deze reden zal een begindiepte van 3 gebruikt worden 
+in de vergelijking met Tiled en Clustered shading.
+
+## Vergelijking met Tiled en Clustered Shading
+
+\input{./img/tex/hs-compare-frames.tex}
+\input{./img/tex/hs-compare-frames-lc.tex}
+\input{./img/tex/hs-compare-lights.tex}
+\input{./img/tex/hs-compare-resolution.tex}
+\input{./img/tex/hs-compare-lights-res-lc.tex}
+
+In de voorgaande secties zijn de verschillende parameters van de verbindingloze
+octree ge\"evalueerd. Als laatste zal nu gekeken worden naar de performantie van
+Hashed Shading in verhouding tot Tiled en Clustered Shading. Hiervoor wordt de 
+uitvoeringstijd van Hashed Shading met die van Tiled Shading voor zowel de 
+Forward als Deferred pijplijnen. Tevens wordt het aantal lichtberekeningen van 
+Hashed Shading vergeleken met het aantal lichtberekeningen van zowel Tiled en
+Clustered Shading voor de Deferred pijplijn. Om een duidelijk zicht op de 
+performantie te verkrijgen zijn deze waardes verkregen voor gehele uitvoeringen
+als ook als functie van het aantal lichten en de resolutie. Deze zullen in 
+de volgende secties verder gepresenteerd worden.
+
+Zowel Tiled Shading als Clustered Shading data zijn verkregen met een tegelgrootte
+van $32 \times 32$ pixels. Voor Hashed Shading zijn knoopgroottes van $0.25$, 
+$0.5$ en $1$ maal de radius van de gebruikte lichten gebruikt. De verbindingloze
+octree is bij elk van deze knoopgroottes ge\"initaliseerd met een begindiepte 
+van $3$.
+
+### Frames
+
+In figuur \ref{fig:hs-compare-frames:forward} en \ref{fig:hs-compare-frames:deferred} zijn de uitvoeringstijden per frame weergegeven voor
+respectievelijk de Forward en Deferred pijplijn. In figuur \ref{fig:hs-compare-frames:lc} is het aantal
+lichtberekeningen per frame weergegeven.
+
+Voor Forward Shading ligt de uitvoeringstijd van Hashed Shading onder de 
+uitvoeringstijd van Tiled Shading. Dit verschil in uitvoeringstijd is 
+verwaarloosbaar voor de Deferred pijplijn. Dit verschil is te verklaren aan de 
+hand van de reductie van het aantal lichtberekeningen en de simpliciteit van de
+lichtberekening. In het geval van Deferred Shading zal het verschil in aantal
+lichtberekeningen tussen Tiled en Hashed Shading kleiner zijn dan in Forward
+Shading, doordat bij Deferred Shading slechts \mbox{\'e\'en} fragment per
+pixel gegenereerd wordt. De winst in uitvoeringstijd die behaald wordt door
+de reductie van het aantal lichtberekeningen wordt in het geval van Deferred
+Shading teniet gedaan door de extra complexiteit geassocieerd met het ophalen
+van de relevante lichten bij Hashed Shading. Bij een complexere shader zal
+Hashed Shading waarschijnlijk beter presteren dan Tiled Shading.
+Doordat het aantal lichtberekeningen wordt beperkt per fragment, leidt dit 
+ertoe dat de reductie in aantal lichtberekeningen wel een significante invloed
+heeft op de uitvoeringstijd bij Forward Shading.
+
+De reductie in aantal lichtberekeningen is duidelijk terug te zien in figuur
+\ref{fig:hs-compare-frames:lc}. Clustered Shading presteert slechts minimaal beter dan Hashed Shading
+met een kleine knoopgrootte. In figuur \ref{fig:hs-compare-frames:lc:alley} is tevens duidelijk waar te nemen
+dat Hashed Shading, net als Clustered Shading de slechtst mogelijke situatie van
+Tiled Shading oplost.
+
+
+### Lichten
+
+In figuur \ref{fig:hs-compare-lights:forward} en \ref{fig:hs-compare-lights:deferred} zijn de gemiddelde uitvoeringstijden per frame als 
+functie van het aantal lichten weergegeven voor respectievelijk de Forward en 
+Deferred pijplijn. In figuur \ref{fig:hs-compare-lights:lc} is het gemiddeld aantal lichtberekeningen 
+per frame als functie van het aantal lichten weergegeven.
+
+Hierin is duidelijk te zien dat Hashed Shading voor de gebruikte lichtberekening
+een vergelijkbare uitvoeringstijd heeft als Tiled Shading voor de Deferred 
+Pijplijn. Binnen Forward Shading leidt Hashed Shading tot een factor twee
+verbetering. Wanneer gekeken wordt naar het aantal lichtberekeningen als
+functie van het aantal lichten, is te zien dat Hashed Shading vergelijkbaar
+presteert als Clustered Shading.
+
+### Resolutie
+
+In figuur \ref{fig:hs-compare-resolution:forward} en \ref{fig:hs-compare-resolution:deferred} zijn de gemiddelde uitvoeringstijden per frame als 
+functie van de resolutie weergegeven voor respectievelijk de Forward en 
+Deferred pijplijn. In figuur \ref{fig:hs-compare-resolution:lc} is het gemiddeld aantal lichtberekeningen 
+per frame als functie van het resolutie weergegeven.
+
+De uitvoeringstijd en aantal lichtberekeningen als functie van de resolutie 
+tonen dezelfde trend als de uitvoeringstijd en aantal lichtberekeningen als
+functie van het aantal lichten. In het geval van Deferred Shading is de 
+uitvoeringstijd van Hashed Shading vergelijkbaar met die van Tiled Shading.
+Binnen Forward Shading stijgt de uitvoeringstijd met ongeveer een factor
+twee langzamer. Het aantal lichtberekeningen van Hashed Shading stijgt 
+vergelijkbaar met dat van Clustered Shading.
+
+Hierbij dient de opmerking geplaatst te worden dat het geheugengebruik van
+Hashed Shading onafhankelijk van de resolutie is, waar dit voor zowel Tiled
+als Clustered Shading direct gekoppeld is aan de resolutie door de keuze van
+de tegelgrootte.
 
