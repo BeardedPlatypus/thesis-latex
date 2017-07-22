@@ -1,0 +1,104 @@
+\begin{table}[tbp]
+  \centering
+  \scriptsize
+  \begin{tabularx}{\textwidth}{XXX}\toprule
+                                      &
+    Toevoegen licht op huidige diepte &
+    Toevoegen licht op een lagere diepte \\ \midrule
+    
+      \vspace*{-16pt}
+    \vspace{8pt}Lege bladknoop &
+
+      \vspace*{-16pt}
+      {\scriptsize
+      \begin{itemize}
+      \item Toevoegen nieuwe knoop: data hashfunctie 
+      \item Aapassen: octreebeschrijving
+      \end{itemize}}&
+    
+      \vspace*{-16pt}
+      {\scriptsize
+      \begin{itemize}
+      \item Toevoegen opgesplitste bladknopen: data hashfunctie volgende laag
+      \item Toevoegen nieuwe knoop: octree hashfunctie volgende laag
+      \item Aanpassen: octreebeschrijving
+      \end{itemize}}\\
+   
+      \vspace*{-16pt}
+    \vspace{8pt}Gevulde bladknoop &
+      
+      \vspace*{-16pt}
+      {\scriptsize
+      \begin{itemize}
+      \item Aanpassen knoop: data hashfunctie 
+      \end{itemize}}&
+      
+      \vspace*{-16pt}
+      \vspace*{-1.5mm}
+      {\scriptsize
+      \begin{itemize}
+      \item Verwijderen knoop: data hashfunctie
+      \item Toevoegen opgesplitste bladknopen: data hashfunctie volgende laag
+      \item Toevoegen nieuwe knoop: octree hashfunctie volgende laag
+      \item Aanpassen: octreebeschrijving
+      \end{itemize}}\\
+      
+      \vspace*{-16pt}
+    \vspace{8pt}Takknoop &
+
+      \vspace*{-16pt}
+      {\scriptsize
+      \begin{itemize}
+      \item Verdere afdaling
+      \end{itemize}} &
+
+      \vspace*{-16pt}
+      {\scriptsize
+      \begin{itemize}
+      \item Verdere afdaling
+      \end{itemize}}\\ \bottomrule
+  \end{tabularx}
+  \caption{De mogelijke situaties wanneer een lichtindex wordt toegevoegd aan een octreeknoop.}
+  \label{tbl:dl-operaties:add}\vspace{8pt}
+
+  \begin{tabularx}{\textwidth}{XXX}\toprule
+    & Verwijderen licht op huidige diepte & Verwijderen licht op een lagere diepte \\ \midrule
+    
+    \vspace*{-16pt}
+    \vspace{8pt}Bladknoop met een enkel licht &
+
+    \vspace*{-16pt}
+      {\scriptsize
+      \begin{itemize}
+      \item Aapassen: octreebeschrijving
+      \item Verwijderen knoop: data hashfunctie 
+      \end{itemize}}&
+
+    \vspace*{-16pt}
+     \vspace{8pt} - \\
+    \vspace*{-16pt}
+    \vspace{8pt} Bladknoop met twee of meer lichten &
+
+      \vspace*{-16pt}
+      {\scriptsize
+      \begin{itemize}
+      \item Aanpassen knoop: data hashfunctie 
+      \end{itemize}}&
+
+    \vspace*{-16pt}
+     \vspace{8pt} - \\\vspace*{-16pt}
+      
+    \vspace{8pt} Takknoop &
+      
+      \vspace*{-16pt}\vspace{8pt}- &
+
+      \vspace*{-16pt}
+      {\scriptsize
+      \begin{itemize}
+      \item Verdere afdaling
+      \end{itemize}}\\ \bottomrule
+  \end{tabularx}
+  \caption{De mogelijke situaties wanneer een lichtindex wordt verwijderd uit een octreeknoop.}
+  \label{tbl:dl-operaties:remove}
+
+\end{table}

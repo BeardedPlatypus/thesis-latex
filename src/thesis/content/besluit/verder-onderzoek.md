@@ -146,147 +146,174 @@ geheugenbandbreedte en berekeningstijd.
 
 ## Ondersteuning van dynamische lichten
 
-Naast het geheugenverbruik is het tweede probleem van de huidige implementatie
-van Hashed Shading, het gebrek aan ondersteuning voor dynamische lichten. Doordat
-Tiled en Clustered Shading per frame alle datastructuren opnieuw opbouwen, worden 
-veranderingen van lichten tussen frames impliciet meegenomen. Dit is niet het
-geval bij Hashed Shading, dus zullen de datastructuren expliciet aangepast moeten
-worden om dergelijke veranderingen te reflecteren. In deze sectie zal een 
-update-strategie uitgewerkt worden voor puntlichten binnen Hashed Shading.
+Het gebrek aan ondersteuning voor dynamische lichten is het tweede grote probleem
+van de huidige implementatie van Hashed Shading. Doordat binnen Tiled en Clustered
+Shading alle datastructuren per frame worden opgebouwd, worden veranderingen
+impliciet meegenomen. Dit is niet het geval bij Hashed Shading, waar de 
+datastructuren worden hergebruikt. Om deze reden is het nodig om de datastructuren
+expliciet aan te passen, zodat deze de veranderingen van de lichten reflecteren.
+In deze sectie zal een update-strategie uitgewerkt worden voor de puntlichten 
+binnen Hashed Shading.
 
-Voordat echter ingegaan zal worden op deze update-strategie zal eerst gekeken
-worden hoe dynamische lichten binnen Hashed Shading ondersteund kunnen worden door
-de datastracturen per frame opnieuw op te bouwen. Ervan uitgaande dat een 
-onderscheid gemaakt kan worden tussen dynamische en statische lichten, dan dient 
-voor elk dynamische licht opnieuw een octree voorstelling gemaakt te worden die 
-de transformatie reflecteert. Uit de octreevoorstellingen van de dynamische en statische 
-lichten kan vervolgens een lichtoctree worden opgesteld, die gebruikt kan worden
-om een nieuwe verbindingloze octree op te stellen. Als laatste stap dienen dan
-de texturen geassocieerd met de verbindingloze octree in het GPU geheugen geladen
-te worden. Dit komt neer op dezelfde stappen als bij het voor de eerste keer opbouwen 
-van de verbindingloze octree, weergegeven in figuur \ref{}.
+Voordat ingegaan wordt op deze update-strategie zal eerst herhaald worden hoe de 
+datastructuren in de huidige implementatie worden opgebouwd. Om een verbindingloze
+octree op te stellen worden de volgende stappen uitgevoerd:
 
-Uit de resultaten van de opbouw van de verbindingloze octree kan afgeleid worden 
-dat een dergelijke aanpak niet effeci\"ent genoeg gaat zijn om een acceptabele
-framerate te verkrijgen. De tijdsbepalende stap binnen dit algoritme is de 
-(her)opbouw van de verbindingloze octree. De leiddraad voor de gepresenteerde
-update-strategie is dan ook om deze heropbouw zoveel mogelijk te beperken.
-De verwachting is dat een dergelijke opbouw niet nodig is per frame, waardoor
-een update-strategie effici\"enter is. Deze aanname is gemaakt op basis van de 
-observatie dat veranderingen van lichten tussen frames voornamelijk klein en lokaal 
-zijn. Hierdoor zal een transformatie van een licht slechts invloed hebben op een klein 
-deel van de scene, en dus de datastructuren.
+1. Per licht wordt een octreevoorstelling opgesteld in de vorm van een enkele 
+   lichtboom.
+2. Alle enkele lichtbomen worden samengevoegd tot een lichtoctree.
+3. Per laag van de lichtoctree worden de relevante knopen opgehaald. Voor deze
+   knopen wordt een spatiale hashfunctie opgesteld.
+4. De texturen geassocieerd met de spatiale hashfuncties worden in het 
+   geheugen ingeladen.
+   
+Uit de resultaten van de opbouw van de verbindingloze octree, sectie \ref{},
+kan afgeleid worden dat het grofweg opnieuw uitvoeren van deze stappen per
+frame geen acceptabele framerate zal opleveren. Er is vastgesteld dat de 
+tijdsbepalende stap in dit algoritme de (her)opbouw van de spatiale 
+hashfuncties is. De leiddraad voor de de gepresenteerde update-strategie is 
+dan ook om deze opbouw zoveel mogelijk te beperken.
 
-Een spatiale hashfunctie, corresponderend met een laag, dient opnieuw opgebouwd
-te worden wanneer een knoop die toegevoegd dient te worden, botst met een reeds 
-opgeslagen knoop. Dit is het geval wanneer voor een knoop $\mathbf{p}$ geldt
-dat het element $\mathbf{e} = h_1(\mathbf{p}) + Phi[\mathbf{p}]$ binnen de 
-spatiale hashfunctie reeds in gebruik is. In alle andere gevallen kan een
-transformatie doorgevoerd worden door de textuur geassocieerd met de spatiale
-hashfunctie aan te passen. 
+De verwachting is dat een dergelijke herberekening niet nodig is voor elke frame.
+Deze aanname is gemaakt op basis van de observatie dat transformaties van lichten
+tussen frames veelal klein en lokaal van aard zijn. Hierdoor zullen de meeste 
+transformaties niet een zodanige invloed hebben dat een volledige heropbouw nodig is.
 
-Uitgaande van deze observatie kan opgesteld worden hoe elke mogelijke aanpassing
-aan de octree gemodelleerd wordt. Dit is voor het toevoegen van lichtindices
-weergegeven in tabel \ref{}, en voor het verwijderen van licht indices weergegeven
-in tabel \ref{}.
+Een spatiale hashfunctie, corresponderende met een laag, dient opnieuw opgebouwd
+te worden wanneer een knoop moet worden toegevoegd die botst met een reeds 
+opgeslagen knoop. Gegeven een reeds gedefinieerde spatiale hashfunctie $H$ en een
+knoop $\mathbf{k}$, dan is dit het geval als
 
-De volgende operaties zijn hierbij te onderscheiden:
+$$ H\left[ h_1(\mathbf{k}) + \Phi\left[ \mathbf{k} \right] \right] \neq \varnothing $$ 
 
-* Toevoegen van een knoop in de data spatiale hashfunctie
-  Eerst zal gekeken worden of het element $\mathbf{e} = h_1(\mathbf{p}) + Phi[\mathbf{p}]$
-  actief gebruikt wordt. Is dit niet het geval, dan hoeft slechts dit punt
-  aangepast te worden. Dit kan gedaan worden met behulp van een aanpassing
-  aan de textuur. Is deze wel in gebruik, dan dient de spatiale hashfunctie
-  opnieuw opgesteld te worden.
-  Tevens dienen de corresponderende lichtindices toegevoegd te worden
-  aan de lichtindexlijst. De data opgeslagen in de knoop komt overeen met deze lichtindices.
-  
-* Toevoegen van opgesplitste knopen in een lagere laag van een octree spatiale hashfunctie:
-  Opnieuw zal gekeken worden of in deze laag de corresponderende elementen in gebruik zijn.
-  Afhankelijk hiervan wordt de textuur aangepast of opnieuw berekend. De waardes in deze nieuwe
-  knopen beschrijft de nieuwe structuur van de octree.
-  
-* Aanpassing van de data spatiale hashfunctie
-  Indien een licht wordt toegevoegd aan een dataknoop zal eerst deze index toegevoegd worden
-  aan de lichtindexlijst. Vervolgens zal deze verandering beschreven moeten worden in 
-  alle dataknopen, zodat deze nog steeds de correcte set van lichten beschrijven.
-  Dit kan gedaan worden door de relevante texturen aan te passen zodat zij deze nieuwe
-  situatie beschrijven
-  
-* Aanpassing van de de octree spatiale hashfunctie.
-  Indien de octree structuur veranderd, dient deze aanpassing weergegeven te worden
-  in de verbindingloze octree. Hiervoor dienen alle relevante knopen aangepast te worden.
-  Dit kan tevens gedaan worden met behulp van een aanpassing aan de relevante texturen.
-  
-* Verwijderen van een knoop uit de data spatiale hashfunctie:
-  Gezien de dataknoop slechts wordt opgehaald als de corresponderende octreeknoop 
-  als gevuld is gedefinieerd, volstaat het om de knoop te markeren als ongebruikt,
-  zodat deze knoop kan worden hergebruikt tijdens het toevoegen van nieuwe knopen.
-  Er is geen verdere actie nodig, gezien het algoritme niet meer deze knoop zal opvragen.
+De positie $h_1(\mathbf{k}) + \Phi\left[ \mathbf{k} \right]$ is in dit geval reeds 
+gevuld. In alle andere gevallen kan de opgestelde spatiale hashfunctie gemodificeerd
+worden door de geassocieerde textuur aan te passen.
 
-Met behulp van deze operaties kan de verbindingloze octree aangepast worden.
+\input{./tbl/dl-operaties.tex}
 
-Nu vastgesteld is welke operaties opgesteld moeten worden om de octree aan te passen, 
-kunnen de transformaties van lichten gedefinieerd worden met behulp van deze operaties.
-Voor puntlichten kunnen vier verschillende transformaties ge\"identificeerd worden:
+Met behulp van deze observatie kan elk mogelijke aanpassing van de octree gemodelleerd 
+worden. Het toevoegen van elementen is weergegeven in tabel \ref{}. Het verwijderen van
+elementen is weergegeven in tabel \ref{}. In deze tabellen zijn de volgende operaties
+te onderscheiden.
 
-* Translatie van het puntlicht
-* Schaling van de radius
-* Toevoegen van een puntlicht
-* Verwijderen van een puntlicht
+Toevoegen van een knoop $\mathbf{k}$ in de data spatiale hashfunctie $H$ \mbox{\hfill}
 
-Rotatie heeft geen invloed op puntlichten en kan doorom buiten beschouwing gelaten worden.
-Elk van deze transformaties is weergegeven in figuur \ref{}. Deze figuren illustreren 
-de observatie dat transformaties van lichten, translatie en schaling, klein en lokaal
-van aard zij. Indien ervan uitgegaan wordt dat transformaties vloeiend weergegeven worden
-bij een framerate van 30 tot 60 frames per seconde, zal de verandering tussen frames
-erg klein zijn. Hierdoor zal het aantal operaties kleiner zijn dan een volledige heropbouw.
+  ~ Eerst dient gekeken te worden of geldt:
+    $$ H \left[ h_1(\mathbf{k}) + \Phi\left[ h_2(\mathbf{k}) \right] \right] = \varnothing $$
+    Indien dit het geval is kan de knoop $\mathbf{k}$ hier geplaatst, en dient
+    de textuur geassocieerd met $H$ aangepast te worden. Is dit niet het geval 
+    dan dient de data spatiale hashfunctie $H$ opnieuw opgesteld te worden.
+    Daarnaast dienen de lichtindices geassocieerd met knoop $\mathbf{k}$ 
+    toegevoegd te worden aan de lichtindexlijst.
+   
+   
+Toevoegen van opgesplitste knopen in de octree spatiale hashfunctie $H$ \hfill
 
-Om alle transformaties op te stellen kan een volgende strategie gehanteerd worden:
+  ~ Opnieuw wordt gekeken of voor elke opgesplitste knoop $\mathbf{k}$ geldt:
+    $$ H\left[ h_1(\mathbf{k}) + \Phi\left[h_2(\mathbf{k})\right] \right] $$
+    Afhankelijk hiervan wordt de spatiale hashfunctie $H$ opnieuw opgesteld of
+    aangepast. De waardes in deze nieuwe knopen beschrijven de nieuwe octreestructuur.
+    
+Aanpassingen van de data spatiale hashfunctie \hfill
 
-1. Stel de set van toevoegingen en verwijderingen op voor elke knoop die be\"invloed wordt
-2. Bepaal of knopen samengevoegd kunnen worden na transformatie
-3. Herbereken lagen die herberekend dienen te worden, voor de andere lagen bepaal de nieuwe
-   textuur zonder dat deze opnieuw berekend worden.
-4. Laad nieuwe texturen in het geheugen.
+  ~ Indien een lichtindex wordt toegevoegd aan een knoop dient deze te worden toegevoegd 
+    aan de set van indices geassocieerd met deze knoop in de lichtindexlijst. In het 
+    geval dat een lichtindex verwijderd wordt, dient deze uit de lichtindexlijst
+    verwijderd te worden. Vervolgens dient de textuur zodanig aangepast te worden dat alle 
+    clusters opnieuw wijzen naar de correcte subset van de lichtindexlijst.
+    
+Aanpassing van de octree spatiale hashfunctie \hfill
 
-De transformaties weergegeven in figuur \ref{} kunnen worden gedefinieerd aan de hand 
-van de toevoegingen, weergegeven in groen, en verwijderingen, weergegeven in rood.
-De aanpassingen aan de octree worden vervolgens uitgevoerd volgens de eerder
-opgestelde operaties, tabel \ref{}. 
+  ~ Indien de octreestructuur verandert, dienen alle relevante konpen aangepast te worden,
+    zodanig dat de nieuwe situatie wordt beschreven. Dit kan gedaan worden door de 
+    geassocieerde texturen aan te te passen
+    
+Verwijderen van knoop $\mathbf{k}$ uit de data spatiale hashfunctie $H$ \hfill
 
-Het aantal herberekeningen kan verder beperkt worden door de observatie dat extra lichtindices
-binnen knopen niet leiden tot lichtartefacten. Slechts het ontbreken van relevante lichtindices
-leidt tot lichtartefacten. Stel de situatie dat een knoop op diepte $\mathit{n}$ een bladknoop
-is. Aan de subknoop, op diepte $n + 1$, van deze bladknoop wordt vervolgens ofwel een licht
-toegevoegd, of een licht verwijderd. Dit heeft tot gevolg dat de bladknoop onderverdeeld dient
-te worden in acht subknopen, die toegevoegd moeten worden aan de laag op diepte $n + 1$.
-Dit kan een herberekening tot gevolg hebben. Deze opdeling kan voorkomen worden door 
-in het geval van het verwijderen van een licht, deze niet uit te voeren, en in 
-het geval van het toevoegen deze toe te voegen aan de bladknoop op diepte $n$.
-In beide gevallen leidt dit ertoe dat er extra lichtberekeningen uitgevoerd worden voor een
-deel van de ruimte, echter geen herberekening is nodig. Dit is voordelig indien de winst
-die behaald wordt met de reductie in lichtberekeningen niet opweegt tegen de extra kosten
-die een dergelijke herberekening met zich meebrengt. In dit geval kan er voor gekozen worden
-om deze aanpassingen uit te voeren wanneer de behaalde winst groter is, of wanneer de laag
-opnieuw herberekend dient te worden.
+  ~ Gezien knoop $\mathbf{k}$ slechts opgehaald wordt als de corresponderende octreeknoop
+    is gedefinieerd als vol, dient de dataknoop in het geheugen van de grafische kaart
+    niet expliciet verwijderd te worden. Het volstaat om knoop $\mathbf{k}$ te markeren
+    als leeg, $\varnothing$, zodat het geheugen hergebruikt kan worden tijdens het toevoegen
+    van nieuwe knopen.
+   
+\input{./img/tex/dl-transformaties.tex}
+   
+Met behulp van deze operaties kan de verbindingloze octree aangepast worden wanneer de lichten
+transformaties ondergaan. Voor puntlichten kunnen vijf transformaties ge\"identificeerd worden.
 
-Een significant nadeel van de huidige implementatie van de verbindingloze octree
-is dat de gehele ruimte globaal afhankelijk van elkaar is. Doordat elke laag de 
-gehele ruimte beschrijft, is het niet mogelijk om lokaal aanpassingen te maken zonder
-dat mogelijk de gehele ruimte dient te worden herberekend. Een oplossing hiervoor
-is reeds ge\"introduceerd in de vorige sectie. Door de ruimte onder te verdelen
-in kleinere stukken, kan gebruik gemaakt worden van het lokale gedrag van de 
-transformaties van de lichten. Hierdoor zal slechts een kleiner percentage van
-de gehele ruimte opnieuw opgebouwd worden. Daarnaast kan de grootte van de spatiale
-hashfunctie zodanig gekozen worden dat deze effici\"ent en parrallel opgebouwd 
-kunnen worden. Als laatste hoeft bij een dergelijke implementatie slechts de zichtbare stukken
-direct aangepast worden. De aanpassingen aan niet zichtbare stukken kunnen 
-worden opgeslagen totdat deze ingeladen moeten worden in het grafisch geheugen.
+* Translatie van het puntlicht.
+* Het groter schalen van de radius.
+* Het kleiner schalen van de radius. 
+* Het toevoegen van een puntlicht.
+* Het verwijderen van een puntlicht.
 
-Ondanks al deze optimalisaties zal de ondersteuning voor dynamische lichten altijd een
-extra kost met zich meebrengen binnen Hashed Shading. Het doel van de voorgestelde 
-strategie hier is om deze kosten zoveel mogelijk te beperken, zodat het lichtmanagement
-en de lichtberekening van Hashed Shading nog steeds uitgevoerd kan worden binnen real-time
-applicaties. 
+Rotatie heeft geen invloed op puntlichten en kan daarom buiten beschouwing gelaten worden.
+Elk van deze transformaties is ge\"illustreerd in figuur \ref{}. Hierbij is het toevoegen
+van de index geassocieerd met het licht aan een knoop weergegeven in groen, en het verwijderen
+van een index uit een knoop weergegeven in rood.
+
+Om vervolgens de verbindingloze octree aan te passen dienen de volgende stappen uitgevoerd worden:
+
+1. Voor alle dynamische lichten dienen de set van toevoegingen en verwijderingen opgesteld te worden.
+2. Alle verwijderingen en toevoegingen per knoop dienen samengevoegd te worden.
+3. De aanpassingen aan de verbindingloze octree dienen te worden opgesteld aan de 
+   hand van de eerder opgestelde operaties. Hierbij dient, indien nodig, ook 
+   ge\"evalueerd te worden of knopen samengevoegd kunnen worden.
+4. De aanpassingen dienen doorgevoerd te worden in het grafisch geheugen.
+
+Wanneer de transformaties vloeiend weergegeven worden bij een framerate van 30 tot 60 frames per 
+seconde, zullen de transformaties klein en lokaal van aard zijn. Hierdoor zal
+het aantal aanpassingen dat doorgevoerd dient te worden in de verbindingloze
+octree ook klein zijn. Dit leidt ertoe dat enerzijds herberekeningen van de spatiale
+octree schaars zullen zijn, en anderzijds de aanpassingen die gedaan dienen te
+worden in redelijke tijd uitgevoerd kunnen worden.
+
+Het aantal herberekeningen van de spatiale hashfuncties kan verder beperkt worden met het
+inzicht dat extra lichtindices binnen een knoop niet tot lichtartefacten zullen leiden.
+Dit houdt in dat het opsplitsen van bladknopen als gevolg van het toevoegen of verwijderen
+van een lichtindex aan een subknoop niet noodzakelijk hoeft worden uitgevoerd.
+In het geval dat een lichtindex wordt toegevoegd aan een subknoop van een bladknoop 
+kan in plaats hiervan de lichtindex direct toegevoegd worden aan de bladknoop.
+In het geval dat een lichtindex verwijderd kan worden van een subknoop van de 
+bladknoop, kan deze operatie genegeerd worden. In beide gevallen wordt de structuur
+van de octree behouden ten kosten van extra lichtberekeningen. Dit is voordelig 
+wanneer de winst behaald met het reduceren van de lichtberekeningen niet opweegt
+tegen de extra kosten die de aanpassingen aan de octree met zich meebrengen. 
+In plaats hiervan kan gekozen worden om deze pas uit te voeren wanneer de behaalde
+winst groter is, of wanneer de spatiale hashfunctie herberekend moet worden als 
+gevolg van een andere operatie.
+
+Een significant nadeel van de huidige implementatie van Hashed Shading is 
+dat de gehele ruimte per laag beschreven wordt door een enkele spatiale 
+hashfunctie. Hierdoor kunnen lokale aanpassingen leiden tot een globale 
+herberekening. Er kan dus geen gebruik gemaakt worden van de lokaliteit van
+de transformaties. Een oplossing hiervoor is reeds ge\"introduceerd in de vorige
+sectie. Door de ruimte onder te verdelen in kleinere stukken, is het mogelijk om,
+indien nodig, slechts de ruimte her te berekenen, waar de transformaties plaatsvinden.
+Hierdoor zullen de kosten van herberekeningen kleiner zijn. Daarnaast kan door de 
+keuze van de grootte van stukken, de uitvoeringstijd van een herberekening beter
+beheerst worden.  Verder kan er bij een dergelijke implementatie er voor gekozen
+worden om slechts de ingeladen stukken direct aan te passen. Voor niet zichtbare
+stukken kunnen de aanpassingen opgeslagen worden, en slechts berekend worden wanneer
+deze opnieuw ingeladen worden.
+
+Ondanks al deze optimalisaties zal de ondersteuning voor dynamische lichten 
+altijd extra kosten met zich meebrengen binnen Hashed Shading. het doel van
+de voorgestelde strategie is om deze kosten zoveel mogelijk te beperken
+waardoor lichtmanagement en de lichtberekeningen uitgevoerd kunnen worden binnen
+een real-time applicatie.
+    
+## Andere onderzoeksrichtingen 
+
+Naast oplossingen voor de twee ge\"identificeerde problemen zijn er nog andere richtingen
+waarop verder onderzoek zich kan richten. De huidige implementatie ondersteunt geen schaduwen.
+Er zou ge\"evalueerd kunnen worden hoe de datastructuur ge\"introduceerd in Hashed Shading 
+gebruikt kan worden om schaduwen effici\"ent te berekenen. Voor Clustered Shading zijn
+dergelijke algoritmes ontworpen, zie \cite{}, die mogelijk als leiddraad kunnen dienen.
+
+Daarnaast worden slechts puntlichten gebruikt binnen de huidige implementatie van 
+Hashed Shading. Moderne game-engines ondersteunen meer lichttypes dan alleen puntlichten
+\cite{}. Voor de ondersteuning van andere lichtvolumes dient de octreevoorstelling
+effici\"ent opgesteld te kunnen worden.
 
