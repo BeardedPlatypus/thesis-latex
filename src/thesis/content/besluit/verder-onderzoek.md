@@ -144,7 +144,7 @@ Deze combinatie van optimalisaties zou, vooral voor grote scenes, tot een afname
 in geheugenverbruik moeten leiden. Dit gaat echter ten koste van een toename in
 geheugenbandbreedte en berekeningstijd.
 
-## Ondersteuning van dynamische lichten
+## Ondersteuning van dynamische lichten {#sec:ondersteuning-dynamische-lichten}
 
 Het gebrek aan ondersteuning voor dynamische lichten is het tweede grote probleem
 van de huidige implementatie van Hashed Shading. Doordat binnen Tiled en Clustered

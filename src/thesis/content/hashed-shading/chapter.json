@@ -2,13 +2,8 @@
   "sections": [ "introductie.md",
                 "theorie-introductie.md",
                 "datastructures.md",
-                "octrees.md",
                 "hashing.md",
                 "algoritme-introductie.md",
-                "SingleLightTree.md",
-                "light-octree.md",
-                "spatial-hashing.md",
-                "licht-toekenning.md",
                 "resultaten.md",
                 "discussie.md"
               ]

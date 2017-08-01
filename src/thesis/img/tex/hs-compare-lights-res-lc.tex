@@ -7,18 +7,22 @@
     \definecolor{legend3}{HTML}{c44e52}
     \definecolor{legend4}{HTML}{8172b2}
     \definecolor{legend5}{HTML}{ccb974}
+    \definecolor{legend5}{HTML}{ccb974}
+    \definecolor{legend6}{HTML}{64b5cd}
     
     \begin{tikzpicture}
       \node (legend1) at (0.1\textwidth, 0)
-            [legend-point, fill={legend1}, label=right:{\tiny $0$ begindiepte}] {};
+            [legend-point, fill={legend1}, label=right:{\tiny Na\"ieve Shading}] {};
       \node (legend2) at (0.1\textwidth, -8pt)
-            [legend-point, fill={legend2}, label=right:{\tiny $1$ begindiepte}] {};
-      \node (legend3) at (0.1\textwidth, -16pt)
-            [legend-point, fill={legend3}, label=right:{\tiny $2$ begindiepte}] {};
-      \node (legend6) at (0.5925\textwidth, 0)
-            [legend-point, fill={legend4}, label=right:{\tiny $3$ begindiepte}] {};
-      \node (legend7) at (0.5925\textwidth, -8pt)
-            [legend-point, fill={legend5}, label=right:{\tiny $4$ begindiepte}] {};
+            [legend-point, fill={legend2}, label=right:{\tiny Tiled Shading}] {};
+      \node (legend2) at (0.1\textwidth, -16pt)
+            [legend-point, fill={legend3}, label=right:{\tiny Clustered Shading}] {};
+      \node (legend3) at (0.5925\textwidth, 0pt)
+            [legend-point, fill={legend4}, label=right:{\tiny Hashed Shading - 0.25}] {};
+      \node (legend6) at (0.5925\textwidth, -8pt)
+            [legend-point, fill={legend5}, label=right:{\tiny Hashed Shading - 0.5}] {};
+      \node (legend7) at (0.5925\textwidth, -16pt)
+            [legend-point, fill={legend6}, label=right:{\tiny Hashed Shading - 1}] {};
     \end{tikzpicture}
   \end{subfigure}\hfill\\
   \begin{minipage}[t]{0.5\textwidth}
@@ -27,7 +31,7 @@
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/raw/hs-compare-lights-lc/lights_spaceship-indoor.pdf_tex}
-      \caption{Spaceship indoor}
+      \caption{Spaceship Indoor}
       \vspace{4pt}
       \label{fig:hs-compare-lights:lc:indoor}
     \end{subfigure}
@@ -38,7 +42,7 @@
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/raw/hs-compare-lights-lc/lights_pipers-alley.pdf_tex}
-      \caption{Pipers Alley}
+      \caption{Piper's Alley}
       \vspace{4pt}
       \label{fig:hs-compare-lights:lc:alley}
     \end{subfigure}
@@ -49,11 +53,11 @@
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/raw/hs-compare-lights-lc/lights_ziggurat-city.pdf_tex}
-      \caption{Ziggurat stad}
+      \caption{Ziggurat City}
       \label{fig:hs-compare-lights:lc:city}
     \end{subfigure}
   \end{adjustbox}
-  \caption{\small Het aantal lichtberekeningen als functie van het aantal lichten voor Hashed Shading.}
+  \caption{\small Het aantal lichtberekeningen als functie van het aantal lichten.}
   \label{fig:hs-compare-lights:lc}
   \end{minipage}
   \begin{minipage}[t]{0.5\textwidth}
@@ -62,7 +66,7 @@
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/raw/hs-compare-resolution-lc/resolution_spaceship-indoor.pdf_tex}
-      \caption{Spaceship indoor}
+      \caption{Spaceship Indoor}
       \vspace{4pt}
       \label{fig:hs-compare-resolution:lc:indoor}
     \end{subfigure}
@@ -73,7 +77,7 @@
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/raw/hs-compare-resolution-lc/resolution_pipers-alley.pdf_tex}
-      \caption{Pipers Alley}
+      \caption{Piper's Alley}
       \vspace{4pt}
       \label{fig:hs-compare-resolution:lc:alley}
     \end{subfigure}
@@ -84,11 +88,11 @@
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/raw/hs-compare-resolution-lc/resolution_ziggurat-city.pdf_tex}
-      \caption{Ziggurat stad}
+      \caption{Ziggurat City}
       \label{fig:hs-compare-resolution:lc:city}
     \end{subfigure}
   \end{adjustbox}
-  \caption{\small Het aantal lichtberekeningen als functie van de resolutie voor Hashed Shading.}
+  \caption{\small Het aantal lichtberekeningen als functie van de resolutie.}
   \label{fig:hs-compare-resolution:lc}
   \end{minipage}
 \end{figure}

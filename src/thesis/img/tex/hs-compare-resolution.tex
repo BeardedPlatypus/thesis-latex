@@ -10,15 +10,15 @@
     
     \begin{tikzpicture}
       \node (legend1) at (0.1\textwidth, 0)
-            [legend-point, fill={legend1}, label=right:{\tiny $0$ begindiepte}] {};
+            [legend-point, fill={legend1}, label=right:{\tiny Na\"ieve Shading}] {};
       \node (legend2) at (0.1\textwidth, -8pt)
-            [legend-point, fill={legend2}, label=right:{\tiny $1$ begindiepte}] {};
+            [legend-point, fill={legend2}, label=right:{\tiny Tiled Shading}] {};
       \node (legend3) at (0.1\textwidth, -16pt)
-            [legend-point, fill={legend3}, label=right:{\tiny $2$ begindiepte}] {};
+            [legend-point, fill={legend3}, label=right:{\tiny Hashed Shading - 0.25}] {};
       \node (legend6) at (0.5925\textwidth, 0)
-            [legend-point, fill={legend4}, label=right:{\tiny $3$ begindiepte}] {};
+            [legend-point, fill={legend4}, label=right:{\tiny Hashed Shading - 0.5}] {};
       \node (legend7) at (0.5925\textwidth, -8pt)
-            [legend-point, fill={legend5}, label=right:{\tiny $4$ begindiepte}] {};
+            [legend-point, fill={legend5}, label=right:{\tiny Hashed Shading - 1}] {};
     \end{tikzpicture}
   \end{subfigure}\hfill\\
   \begin{minipage}[t]{0.5\textwidth}
@@ -27,7 +27,7 @@
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/raw/hs-compare-resolution-exec/forward/res_spaceship-indoor.pdf_tex}
-      \caption{Spaceship indoor}
+      \caption{Spaceship Indoor}
       \vspace{4pt}
       \label{fig:hs-compare-resolution:forward:indoor}
     \end{subfigure}
@@ -38,7 +38,7 @@
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/raw/hs-compare-resolution-exec/forward/res_pipers-alley.pdf_tex}
-      \caption{Pipers Alley}
+      \caption{Piper's Alley}
       \vspace{4pt}
       \label{fig:hs-compare-resolution:forward:alley}
     \end{subfigure}
@@ -49,11 +49,11 @@
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/raw/hs-compare-resolution-exec/forward/res_ziggurat-city.pdf_tex}
-      \caption{Ziggurat stad}
+      \caption{Ziggurat City}
       \label{fig:hs-compare-resolution:forward:city}
     \end{subfigure}
   \end{adjustbox}
-  \caption{\small De uitvoeringstijd per frame als functie van de resolutie voor Forward Hashed Shading.}
+  \caption{\small De uitvoeringstijd per frame als functie van de resolutie voor Forward Shading.}
   \label{fig:hs-compare-resolution:forward}
   \end{minipage}%
   %
@@ -63,7 +63,7 @@
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/raw/hs-compare-resolution-exec/deferred/res_spaceship-indoor.pdf_tex}
-      \caption{Spaceship indoor}
+      \caption{Spaceship Indoor}
       \vspace{4pt}
       \label{fig:hs-compare-resolution:deferred:indoor}
     \end{subfigure}
@@ -74,7 +74,7 @@
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/raw/hs-compare-resolution-exec/deferred/res_pipers-alley.pdf_tex}
-      \caption{Pipers Alley}
+      \caption{Piper's Alley}
       \vspace{4pt}
       \label{fig:hs-compare-resolution:deferred:alley}
     \end{subfigure}
@@ -85,11 +85,11 @@
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/raw/hs-compare-resolution-exec/deferred/res_ziggurat-city.pdf_tex}
-      \caption{Ziggurat stad}
+      \caption{Ziggurat City}
       \label{fig:hs-compare-resolution:deferred:city}
     \end{subfigure}
   \end{adjustbox}
-  \caption{\small De uitvoeringstijd per frame als functie van de resolutie voor Deferred Hashed Shading.}
+  \caption{\small De uitvoeringstijd per frame als functie van de resolutie voor Deferred Shading.}
   \label{fig:hs-compare-resolution:deferred}
   \end{minipage} 
 \end{figure}

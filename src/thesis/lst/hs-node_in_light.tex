@@ -1,4 +1,5 @@
-\begin{minted}{python}
+\begin{listing}[tb]
+\begin{minted}[frame=single,framesep=12pt]{python}
 def node_in_light(node, light) -> bool:
   closest_point =
       vec3( clamp(node.x, light.orig.x, node.x + node.size)
@@ -9,4 +10,7 @@ def node_in_light(node, light) -> bool:
   return ((p.x * p.x + p.y * p.y + p.z * p.z) >
           light.radius * light.radius )
 \end{minted}
+\caption{Functie om te evalueren of een licht overlapt met een knoop.}
+\label{lst:node-in-light}
+\end{listing}
 

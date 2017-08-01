@@ -7,18 +7,22 @@
     \definecolor{legend3}{HTML}{c44e52}
     \definecolor{legend4}{HTML}{8172b2}
     \definecolor{legend5}{HTML}{ccb974}
+    \definecolor{legend5}{HTML}{ccb974}
+    \definecolor{legend6}{HTML}{64b5cd}
     
     \begin{tikzpicture}
       \node (legend1) at (0.1\textwidth, 0)
-            [legend-point, fill={legend1}, label=right:{\tiny $0$ begindiepte}] {};
+            [legend-point, fill={legend1}, label=right:{\tiny Na\"ieve Shading}] {};
       \node (legend2) at (0.1\textwidth, -8pt)
-            [legend-point, fill={legend2}, label=right:{\tiny $1$ begindiepte}] {};
-      \node (legend3) at (0.1\textwidth, -16pt)
-            [legend-point, fill={legend3}, label=right:{\tiny $2$ begindiepte}] {};
-      \node (legend6) at (0.5925\textwidth, 0)
-            [legend-point, fill={legend4}, label=right:{\tiny $3$ begindiepte}] {};
-      \node (legend7) at (0.5925\textwidth, -8pt)
-            [legend-point, fill={legend5}, label=right:{\tiny $4$ begindiepte}] {};
+            [legend-point, fill={legend2}, label=right:{\tiny Tiled Shading}] {};
+      \node (legend2) at (0.1\textwidth, -16pt)
+            [legend-point, fill={legend3}, label=right:{\tiny Clustered Shading}] {};
+      \node (legend3) at (0.5925\textwidth, 0pt)
+            [legend-point, fill={legend4}, label=right:{\tiny Hashed Shading - 0.25}] {};
+      \node (legend6) at (0.5925\textwidth, -8pt)
+            [legend-point, fill={legend5}, label=right:{\tiny Hashed Shading - 0.5}] {};
+      \node (legend7) at (0.5925\textwidth, -16pt)
+            [legend-point, fill={legend6}, label=right:{\tiny Hashed Shading - 1}] {};
     \end{tikzpicture}
   \end{subfigure}\hfill\\
   \centering
