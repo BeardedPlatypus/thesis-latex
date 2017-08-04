@@ -1,13 +1,13 @@
-# Perspectief projectie en het visibileitsprobleem
+# Perspectiefprojectie en het visibileitsprobleem
 
-In de sectie ... zijn de twee problemen vastgesteld die opgelost dienen te 
-worden om geloofwaardige afbeeldingen te generen. In deze sectie zal de eerste 
-geadresseerd worden, wat is zichtbaar binnen een scene vanuit het huidige 
-gezichtspunt. Om te bepalen wat zichtbaar is dient zowel het perspectief 
-gesimuleerd te worden, als bepaald te worden welk van de objecten in 
-perspectief als eerste zichtbaar is.  
+In sectie \ref{sec:fysische-werkelijkheid} zijn de twee problemen vastgesteld die opgelost dienen te 
+worden om geloofwaardige afbeeldingen te generen. In deze sectie zal het eerste probleem
+geadresseerd worden: wat is zichtbaar binnen een \mbox{sc\`ene} vanuit het huidige 
+zichtspunt. Om te bepalen wat zichtbaar is dient zowel het perspectief 
+gesimuleerd te worden, als bepaald te worden welk van de objecten in dit
+perspectief als zichtbaar is.  
 
-## Perspectief projectie
+## Perspectiefprojectie
 
 \input{./img/tex/vp-perspectief.tex}
 
@@ -15,16 +15,16 @@ Zoals eerder besproken zijn de twee eigenschappen van perspectief:
 
 * Objecten worden als kleiner waargenomen naarmate ze verder van de waarnemer af
   staan.  
-* Objecten worden waargenomen met Foreshortening, i.e. de dimensies van een 
-  object parallel aan het gezichtsveld, worden als kleiner waargenomen dan 
-  dimensies van hetzelfde object loodrecht aan het gezichtsveld.  
+* Objecten worden waargenomen met *Foreshortening*, i.e.
+  de dimensies van objecten parallel aan de vizierlijn worden als kleiner waargenomen
+  dan de dimensies loodrecht op de vizier.
 
-Deze effecten kunnen gesimuleerd worden door de 3d scene te projecteren naar het
-oogpunt en af te beelden op het canvas. Zoals weergegeven in figuur 
+\noindent Deze effecten kunnen gesimuleerd worden door de drie dimensionale \mbox{sc\`ene} te projecteren naar het
+oogpunt en af te beelden op het canvas\cite{suffern2007ray}. Zoals weergegeven in figuur 
 \ref{fig:vp-perspectief}.  
 
-Zoals eerder beschreven bestaan de objecten binnen de scenes uit meshes van 
-primitieven. Omdat elk van deze driehoeken gedefinieeerd kan worden door zijn 
+Zoals eerder beschreven bestaan de objecten binnen de \mbox{sc\`enes} uit meshes van 
+primitieven. Omdat elk van deze driehoeken gedefinieerd kan worden door zijn 
 drie vertices, is het niet nodig om elke mogelijk punt binnen de driehoek af te 
 beelden op de canvas, maar is het genoeg om slechts deze drie vertices te
 projecteren.  
@@ -33,69 +33,71 @@ projecteren.
 
 In figuur \ref{fig:vp-projectie-punt} is de projectie $\mathbf{p'}$ van een 
 enkel punt $\mathbf{p}$ op een enkele dimensie van de canvas weergegeven. 
-De hoek $\angle \mathbf{a}\mathbf{b}\mathbf{c}$
-Hier is te zien dat de hoek tussen C en AB'C' gelijk is. Dit betekent 
-dat we het punt C' kunnen bereken doordat de verhouding geldt  
+De hoek $\theta$ is zowel de hoek van $\mathcal{O}\mathbf{p}\mathbf{b}$
+als $\mathcal{O}\mathbf{p^\prime}\mathbf{b^\prime}$. Dit betekent 
+dat het punt $\mathbf{p^\prime}$ berekend kan worden met behulp van
+de verhouding:
 
-$$ \frac{BC}{AB} = \frac{B'C'}{AB'} $$
+$$ \frac{\lVert\mathbf{p} - \mathbf{b}\rVert}{\lVert\mathbf{b}\rVert} = \frac{\lVert\mathbf{p^\prime} - \mathbf{b^\prime}\rVert}{\lVert\mathbf{b^\prime}\rVert} $$
 
-Verder is de afstand van het oogpunt tot de canvas, AB', bekend. Wat ertoe 
-leidt dat we het geprojecteerde punt gemakkelijk kunnen berekenen. 
+\noindent De afstand van het oogpunt tot de canvas $d$ is gelijk aan de afstand van $\mathbf{b^\prime}$
+tot de oorsprong:
 
+$$ d = \lVert \mathbf{b^\prime}\rVert $$
+
+\noindent Hiermee kan vervolgens de positie van het geprojecteerde punt gemakkelijk berekend worden:
 
 $$ \mathit{p'_{x}} = d \frac{\mathit{p_x}}{\mathit{p_z}} $$
 $$ \mathit{p'_{y}} = d \frac{\mathit{p_y}}{\mathit{p_z}} $$
 $$ \mathit{p'_{z}} = d $$
 $$ \mathit{p'_{w}} = 1 $$
 
-waar d de afstand van het oogpunt tot de canvas is. 
-Binnen computer graphics wordt deze stap de perspectief deling genoemd. 
+\noindent Binnen de computergrafieken wordt deze stap de perspectiefdeling genoemd. 
 We kunnen deze berekeningen samenvoegen tot een enkele matrix $\mathbf{P}$ 
-die een punt in een specifiek coordinaten stelsel omzet naar een punt 
-geprojecteerd op de canvas. Wat leidt tot de perspectief projectie van punten.  
+die een punt in een specifiek co\"ordinatenstelsel omzet naar een punt 
+geprojecteerd op de canvas. Hiermee wordt de perspectiefprojectie van punten mogelijk:  
 
 $$ \mathbf{P} \mathbf{p} = \mathbf{p'} $$
 
-Of deze projectie daadwerkelijk nodig is, is afhankelijk van de gekozen 
-rendering techniek. Binnen rasterisatie is het nodig om deze stap expliciet
-uit te voeren. Raytracing neemt de perspectief projectie impliciet mee.  
+\noindent Of deze projectie expliciet nodig is, is afhankelijk van de gekozen 
+renderingtechniek. Binnen rasterisatie is het nodig om deze stap expliciet
+uit te voeren. Raytracing neemt de perspectiefprojectie impliciet mee.  
 
 ## Visibiliteitsprobleem
 
 \input{./img/tex/vp-visibiliteit.tex}
 
-Er is nu vastgesteld hoe objecten in perspectief afgebeeld op de canvas kunnen 
-worden. Echter, hiermee is nog niet volledig vastgesteld wat daadwerkelijk 
-zichtbaar gaat zijn op het canvas, zoals weergegeven in figuur 
-\ref{fig:vp-visibiliteit}. Hiervoor is het tevens nodig om te bepalen
+Er is nu vastgesteld hoe objecten in perspectief afgebeeld kunnen worden op de canvas. 
+Echter, hiermee is nog niet volledig vastgesteld wat daadwerkelijk 
+zichtbaar gaat zijn op het canvas. Hiervoor is het tevens nodig om te bepalen
 welke delen van objecten zichtbaar zijn, en welke verborgen zijn achter andere 
-objecten. Dit probleem wordt onder andere het visibiliteitsprobleem genoemd, 
-en was een van de eerstegrote problemen binnen computer graphics.  
+objecten. Dit probleem is weergegeven in figuur \ref{fig:vp-visibiliteit}.
+Door alleen de objecten af te beelden kan niet worden bepaald welk van de twee
+afbeeldingen van de kubus en de bol correct is. Dit probleem wordt onder andere 
+het visibiliteitsprobleem genoemd, en was een van de eerste grote problemen binnen
+de computergrafieken\cite{Sutherland:1974:CTH:356625.356626}.  
 
-De oplossing voor dit probleem is de realisatie dat het visibiliteitsprobleem
-intrinsiek een sorteerprobleem is. Stel er bestaat een minimale oppervlakte 
-$\mathit{O}$ op het canvas, waarvoor gekeken wordt welk deel zichtbaar is. 
-Door middel van perspectief projectie is het mogelijk om te bepalen welke 
-objecten op $\mathit{O}$ worden afgebeeld. Er van uitgaande dat er een object 
-$\mathit{A}$ bestaat die afgebeeld wordt op $\mathit{O}$. Dan is dit object
-daadwerkelijk zichtbaar in $\mathit{O}$ als er geen andere objecten op
-$\mathit{O}$ worden geprojecteerd die dichterbij het oogpunt liggen dan
-object $\mathit{A}$. Wanneer alle objecten gesorteerd zijn is het per
-punt of het canvas mogelijk om het dichtstbijzijnde object te selecteren,
-en deze weer te geven op het scherm.  
+De oplossing van het visibiliteitsprobleem kan gevonden worden met behulp van de realisatie
+dat de bepaling van de zichtbare ruimte op een canvas, neerkomt op een sorteerprobleem.
+Stel voor een punt $\mathbf{p}$ dient bepaald te worden welk primitief zichtbaar is.
+Met behulp van de perspectiefprojectie kan de set $S$ van van objecten die afgebeeld
+worden op het punt $\mathbf{p}$ bepaald worden. Het object dat vervolgens zichtbaar is, 
+zal het object zijn dat het dichtst bij het punt $\mathbf{p}$ en dus het zichtpunt van
+de camera ligt. Indien de objecten in $S$ gesorteerd worden op basis van hun 
+afstand tot de camera zal het eerste object het dichtst bij de camera liggen en dus
+zichtbaar zijn. Gezien de afstand tot de camera overeenkomt met de $\mathbf{z}$-afstand
+in cameraco\"ordinaten, dient dus het object met de kleinste $\mathbf{z}$-waarde gevonden 
+worden. De algoritmes die dit probleem oplossen worden verborgen-oppervlaktebepalingsalgoritmes
+genoemd (hidden surface detection algorithms).
 
-De algoritmes om dit efficient te doen worden verborgen oppervlakte 
-bepalings (hidden surface determination) algoritmes genoemd. Deze kunnen 
-grofweg ingedeeld worden in twee categorien, raytracing en rasterisatie. 
-Hierbij zou, in theorie, geen verschil in resultaat hoeven zijn. Beide klasses 
-van algoritmes hetzelfde doel hebben, het produceren van realistische beelden 
-op basis van een 3d scene.  
+De algoritmes die zowel de perspectiefprojectie en de visibiliteit oplossen kunnen grofweg 
+worden ingedeeld in twee categorie\"en, raytracing-algoritmes en rasterisation-algoritmes.
+Het resultaat van deze algoritmes zou in theorie hetzelfde moeten zijn, gezien beide
+hetzelfde doel hebben.
 
-Raytracing werkt op basis van het trekken van zogenoemde stralen door 
-$\mathbf{p'}$ waarbij de eerste $\mathbf{p}$ wordt bepaald.
-Rasterisation daarentegen, bepaald alle mogelijke $\mathbf{p'}$ op basis van 
-alle mogelijke $\mathbf{p}$ die geprojecteerd worden op $\mathbf{p}$.
-Vervolgens wordt bepaald welke $\mathbf{p'}$ daadwerkelijk zichtbaar is.  
-
-In de volgende secties zal er kort ingegaan worden op beide technieken.
+Raytracing werkt op basis van het trekken van zogenoemde stralen uit het zichtpunt door
+de pixels in de canvas. Vervolgens wordt gekeken of deze stralen snijden met primitieven.
+Rasterisation beeldt de vertices van primitieven af op de canvas met behulp van de 
+perspectiefprojectie. Vervolgens wordt bepaald welke pixels overlappen met het primitief.
+In de volgende secties zal ingegaan worden op beide algoritmes.
 

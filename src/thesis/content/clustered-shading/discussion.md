@@ -8,12 +8,12 @@ Tevens zorgt het voor een consistenter aantal lichtberekeningen tussen frames,
 doordat lichtoverlap met respect tot de camera-$\mathbf{z}$-as geen significante
 rol meer speelt. Het aantal lichtberekeningen binnen Clustered Shading blijft 
 echter lineair afhankelijk van zowel het aantal pixels als het aantal lichten in
-de scene.
+de \mbox{sc\`ene}.
 
 Vergelijkbaar met Tiled Shading lijkt de tegelgrootte geen significante invloed
-te hebben op het aantal lichtberekeningen voor de ge\"evalueerde scenes. Dit is
-opnieuw toe te schrijven aan de grootte van de lichten binnen de scenes.
-Doordat deze veelal overlappen met een groot aantal lichten zullen naburige 
+te hebben op het aantal lichtberekeningen voor de ge\"evalueerde \mbox{sc\`enes}. Dit is
+opnieuw toe te schrijven aan de grootte van de lichten binnen de \mbox{sc\`enes}.
+Doordat de lichten overlappen met een groot aantal clusters zullen naburige 
 clusters veelal dezelfde sets van lichten bevatten.
 
 De uitvoeringstijden van een geheel frame, en om de set van clusters op te bouwen
@@ -47,7 +47,6 @@ plaatsvindt, is er geen reden meer om de clustergegevens uit het videogeheugen
 op te halen. Hierdoor dient de `glGetTexImage` functie niet meer uitgevoerd
 te worden, wat de bottleneck in de Clustered Shading implementatie binnen
 `nTiled` zou verhelpen.
-
 Wanneer deze twee aanpassingen gedaan zouden worden, zou de uitvoeringstijd
 van Clustered Shading kleiner dan de uitvoeringstijd van Tiled Shading en de
 na\"ieve implementatie moeten zijn.

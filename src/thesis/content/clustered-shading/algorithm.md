@@ -12,17 +12,17 @@ In tegenstelling tot Tiled Shading kunnen deze clusters niet berekend worden
 voor de geometriestap. Dit komt doordat de clusters afhankelijk zijn van de
 diepte van fragmenten, en dus dient een dieptebuffer opgebouwd te zijn, voordat
 de clusters bepaald kunnen worden. Binnen Deferred Shading wordt de dieptebuffer
-opgebouwd in de geometriestap. Binnen Forward Shading wordt zonder extra 
-uitbreidingen, de dieptebuffer slechts opgebouwd tijdens de renderstap. Voor
-Tiled Shading en de na\"ieve implementatie is dit geen probleem, echter
-voor Clustered Shading, dient de dieptebuffer al beschikbaar te zijn voor deze
-renderstap.
+opgebouwd in de geometriestap. Binnen Forward Shading zonder extra 
+uitbreidingen wordt de dieptebuffer slechts opgebouwd tijdens de renderstap. Voor
+Tiled Shading en de na\"ieve implementatie is dit geen probleem. 
+Echter voor Clustered Shading leidt het gebrek aan een dieptebuffer ertoe dat de clusters niet
+opgesteld kunnen worden voor de renderstap.
 
 Om de dieptebuffer toch beschikbaar te maken voordat de renderstap wordt 
 uitgevoerd, dient een extra stap toegevoegd te worden, waarin de dieptebuffer
-al wordt opgesteld. Deze stap wordt een z-prepass\cite{} genoemd. Tijdens de
-z-prepass wordt alle geometrie gerasterised, en gerenderd met een dummy fragment
-shader. De enige taak van deze dummy shader is het wegschrijven van de diepte
+al wordt opgesteld. Deze stap wordt een z-prepass\cite{Clarberg:2013:SDS:2461912.2462022} genoemd. 
+Tijdens de z-prepass wordt alle geometrie gerasteriseerd en gerenderd met een dummy fragmentshader. 
+De enige taak van deze dummy shader is het wegschrijven van de diepte
 naar de diepte buffer. Vervolgens kan de diepte gebruikt worden om de clusters
 te berekenen, als ook om niet zichtbare fragmenten weg te gooien voordat de
 lichtberekening wordt uitgevoerd. 
@@ -35,7 +35,7 @@ worden eerst de unieke clusters en hun corresponderende sleutels, berekend.
 Vervolgens wordt aan elk van deze clusters de lichten toegevoegd waarmee deze
 overlappen. 
 
-Als laatste kan de lichtberekeningsstap uitgevoerd worden. Hiervoor wordt voor 
+Als laatste wordt de lichtberekeningsstap uitgevoerd. Hiervoor wordt voor 
 elk fragment aan de hand van het cluster waartoe deze behoort, de set van 
 relevante lichten opgehaald. Vervolgens wordt de lichtberekening met elk van
 deze lichten uitgevoerd.
@@ -52,13 +52,13 @@ Shading. De integer $k$ specificeert de diepte-index. Een dergelijk tupel wordt
 een clustersleutel genoemd. In sectie \ref{sec:cs-onderverdeling} is de diepte van vlak 
 $\mathtt{near}_k$ gedefinieerd als:
 
-$$ \mathtt{near}_k = \mathtt{near}_0 \left( 1 + \frac{2 \tan\theta}{S_y} \right) $$
+$$ \mathtt{near}_k = \mathtt{near}_0 \left( 1 + \frac{2 \tan\theta}{S_y} \right)^k $$
 
-Hieruit kan de waarde voor $k$ worden afgeleid als zijnde:
+\noindent Hieruit kan de waarde voor $k$ worden afgeleid als zijnde:
 
 $$ k = \left\lfloor \frac{\log\left(\frac{-\mathit{z}}{\mathtt{near}}\right)}{\log\left( 1 + \frac{2 \tan\theta}{S_y}\right)}\right\rfloor $$
 
-Indien deze berekening wordt uitgevoerd voor elk fragment in de dieptebuffer, 
+\noindent Indien deze berekening wordt uitgevoerd voor elk fragment in de dieptebuffer, 
 wordt een $k$-buffer verkregen, die de $\mathbf{z}$-co\"ordinaat van elk 
 subfrustum beschrijft. De $k$-buffer legt de clustersleutel geassocieerd met
 elk fragment vast door de $k$ waarde en de positie binnen de buffer.
@@ -76,7 +76,7 @@ $k$-waardes per tegel.
 De unieke $k$-waardes per tegel kunnen bepaald worden door elke tegel eerst te
 sorteren, en vervolgens een compact-operatie uit te voeren. De verschillende
 stappen zijn weergegeven in figuur \ref{fig:cs-sort-and-compact}. Hierbij komt
-elk verschillende kleur tegel overeen met \mbox{\'{e}\'{e}n} $k$-waarde.
+elke verschillend gekleurde tegel overeen met \mbox{\'{e}\'{e}n} $k$-waarde.
 Na het sorteren en de compact operatie, blijft per tegel een lijst van unieke
 clusters over, waar de set van relevante lichten voor bepaald kan worden.
 
@@ -97,15 +97,15 @@ wordt de gelineariseerde index van het fragment hierbij opgeteld.
 
 $$ k^\prime = (k \ll 16) + p_x + p_y \times n_x $$
 
-waar $p_x$ en $p_y$ respectievelijk de $\mathbf{x}$-as en de $\mathbf{y}$-as 
+\noindent waar $p_x$ en $p_y$ respectievelijk de $\mathbf{x}$-as en de $\mathbf{y}$-as 
 posities van het fragment binnen de tegel zijn en $n_x$ het totaal aantal pixels
 in de $\mathbf{x}$-as van de tegel.
 
-Nadat de $k^\prime$ waardes zijn gestorteerd, wordt een compact-operatie 
+Nadat de $k^\prime$ waardes zijn gesorteerd, wordt een compact-operatie 
 uitgevoerd. Hierbij worden alle waardes samengenomen waar de 16 meest 
 significante bits gelijk zijn. De 16 minst significante bits worden vervolgens
 gebruikt om de unieke clusterindex geassocieerd met cluster $k$ weg te schrijven
-naar een clusterindex textuur op de positie geassocieerd met het fragment van
+naar een clusterindextextuur op de positie geassocieerd met het fragment van
 $k^\prime$.
 
 Nadat deze stappen zijn uitgevoerd is er per tegel een lijst van unieke $k$-waardes
@@ -115,7 +115,7 @@ voor alle fragmenten opgeslagen in de clusterindextextuur.
 ## Lichttoekenning
 
 Om de grote aantallen lichten effici\"ent aan de unieke clusters toe te kennen, 
-wordt gebruik gemaakt van een Bounding Volume Hierarchy (BVH). Deze BVH wordt
+wordt een Bounding Volume Hierarchy (BVH) gebruikt. Deze BVH wordt
 per frame opgesteld. Hiervoor worden de lichten geordend met respect tot de 
 $\mathbf{z}$-as. Vervolgens worden de lichten gegroepeerd per 32, en wordt voor
 elke groep een Axis-Aligned Bounding Box (AABB) opgesteld. Deze groepen worden
@@ -128,7 +128,7 @@ kinderen ge\"evalueerd. De uiteindelijk overlappende lichten worden toegevoegd
 aan het cluster.
 
 Binnen `nTiled` is deze optimalisatie niet ge\"implementeerd. De clusters worden
-in plaats hiervan opgesteld doormiddel van een bruteforce methode gelijkend op
+in plaats hiervan opgesteld doorm iddel van een bruteforce methode gelijkend op
 de lichttoekenningsmethode van Tiled Shading. Eerst worden de lichten afgebeeld
 op het zichtvenster en worden de tegels waarop elk licht invloed heeft bepaald, 
 zoals in Tiled Shading. Vervolgens wordt voor deze tegels nagegaan of het 
@@ -145,7 +145,7 @@ De datastructuren in Clustered Shading gelijken in grote mate op die van
 Tiled Shading, \ref{sec:ts-datastructuren}. Echter binnen Clustered Shading kan
 de clusterindex niet meer direct berekend worden uit de positie van het 
 fragment. Deze associatie dient dus expliciet bijgehouden te worden. Om deze
-reden is de clustermap textuur ge\"introduceerd. Hierin wordt per fragment 
+reden is de clustermaptextuur ge\"introduceerd. Hierin wordt per fragment 
 de index van het overeenkomstige cluster bijgehouden. De clusterlijst vervangt
 vervolgens de functie van het lichtrooster binnen Tiled Shading.
 
@@ -189,8 +189,8 @@ Clustermaptextuur:
 
 Op basis van de voorstelling van de clusters op de GPU kan de lichtberekening 
 per fragment worden opgesteld. Hiervoor dient eerst de set van lichten 
-geassocieerd met het fragment opgehaald te worden. Eerst wordt hiervoor het 
-cluster bepaald. De lokale clusterindexoffset wordt opgehaald uit de clustermap,
+geassocieerd met het fragment opgehaald te worden. Hiervoor wordt het 
+cluster behorende tot het fragment bepaald. De lokale clusterindexoffset wordt opgehaald uit de clustermap,
 en de globale clusterindexoffset uit de tegeloffset. Vervolgens wordt met de 
 verkregen clusterindex de offset en aantal lichten in de lichtindexlijst 
 opgehaald uit de clusterlijst. De lichtberekening wordt dan uitgevoerd met 

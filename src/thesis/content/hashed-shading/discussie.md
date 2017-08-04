@@ -23,7 +23,7 @@ Er is aangetoond dat het mogelijk is om de lichten in een scene met behulp van
 een dergelijke structuur voor te stellen en op deze manier het aantal 
 lichtberekeningen te beperken. Het geheugengebruik en de constructietijd is hierbij
 in de eerste plaats afhankelijk van de grootte van de kleinste knopen. Er is een
-kubisch verband waar te nemen tussen het geheugengebruik en constructietijd, en 
+kubiek verband waar te nemen tussen het geheugengebruik en constructietijd, en 
 de grootte van de ribben van de kleinste bladknopen wanneer deze kleiner is dan
 de diameter van de gebruikte lichten. 
 Het aantal lichtberekeningen en de uitvoeringstijd is lineair afhankelijk van de 
@@ -47,7 +47,7 @@ Daarnaast is het geheugenverbruik van Hashed Shading groot, en zijn dynamische l
 ## Performantie
 
 Op dit moment is het geheugenverbruik een beperkende factor voor de keuze van de 
-knoopgrootte. Door het kubisch gedrag neemt het geheugenverbruik significant toe
+knoopgrootte. Door het kubiek gedrag neemt het geheugenverbruik significant toe
 wanneer een hogere precisie wordt vereist. De verwachting is dat bij een hogere
 precisie het aantal lichtberekeningen verder zal afnemen, doordat per pixel slechts
 relevante lichten worden berekend. Om dezelfde performantie te verkrijgen als 

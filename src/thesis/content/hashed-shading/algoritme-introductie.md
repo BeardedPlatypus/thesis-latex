@@ -241,7 +241,7 @@ knoop die correspondeert met de wortel van de lichtoctree. Indien een bladknoop
 $\mathbf{k}$ wordt tegengekomen, wordt deze opgedeeld door deze te vervangen met
 een takknoop met kinderen gelijk aan bladknoop $\mathbf{k}$. Vervolgens 
 wordt de wortelknoop toegevoegd aan de corresponderende \mbox{sc\`ene-knoop}. 
-Hierbij zijn er vijf mogelijke situaties die beschreven zijn in tabel \ref{tbl:hs-licht-octree}.
+Hierbij zijn er vijf mogelijke situaties die beschreven zijn in tabel \ref{tbl:hs-lichtoctree}.
 
 \input{./tbl/hs-lichtoctree.tex}
 

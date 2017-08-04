@@ -116,7 +116,7 @@ octreevoorstellinghashfuncties van de verbindingloze octree. Dit is zichtbaar in
 de grootte en het aantal lagen van de octreestructuur weergegeven in figuur 
 \ref{fig:hs-layered-mem}.
 
-### Constructietijd
+### Constructietijd {#sec:constructie-tijd-verbindingloze-octree}
 
 Enerzijds is de constructietijd afhankelijk van het geheugengebruik doordat een
 groter aantal knopen leidt tot meer berekeningen in het opstellen van de 
@@ -129,7 +129,7 @@ constructie van de lichtoctree. Hierdoor neemt het aantal berekeningen per
 licht, en dus de gehele constructietijd toe. Doordat het aantal
 knopen in de diepste lagen kubiek toeneemt, neemt ook de constructietijd kubiek toe.
 De constructietijd is primair afhankelijk van de opbouw van de spatiale hashfuncties, 
-zoals terug te zien is in figuur \ref{hs:nodesize-construction-per-function}.
+zoals terug te zien is in figuur \ref{fig:hs-layered-exec}.
 
 
 ### Lichtberekeningen en uitvoeringstijd

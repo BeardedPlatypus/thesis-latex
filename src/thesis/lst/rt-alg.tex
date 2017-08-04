@@ -1,0 +1,18 @@
+\begin{listing}[tb]
+\begin{minted}[frame=single,framesep=12pt]{python}
+for pixel in canvas:
+    ray = construct_ray(eye, pixel)
+    
+    closest = None
+    for object in scene:
+        if (ray.hits(object) and 
+            (closest == None or
+             distance(object, eye) <
+             distance(closest, eye))):
+            closest = object
+    
+            do_shading(closest, ray)
+  \end{minted}
+  \caption{Raytracing algoritme.}
+  \label{lst:rt-alg}
+\end{listing}

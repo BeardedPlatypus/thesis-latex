@@ -9,7 +9,7 @@ in de diepte. Verdere dimensies kunnen toegevoegd worden op basis van andere
 attributen, zoals de normaalinformatie van fragmenten. Een voorbeeld van 
 een dergelijke onderverdeling is te zien in figuur \ref{fig:cs-opdeling-voorbeeld}
 Door de tegels verder op te delen worden de volumes geassocieerd met deze
-tegels kleiner, en dus homogener, waardoor de effici\"ency van de 
+tegels kleiner, en dus homogener, waardoor de effici\"entie van de 
 lichtberekening toeneemt.
 
 ## Onderverdeling in de ruimte {#sec:cs-onderverdeling}
@@ -21,8 +21,8 @@ deze zo nauwkeurig mogelijk de relevante set van lichten kunnen beschrijven.
 Tegelijkertijd moeten clusters zoveel mogelijk (homogene) fragmenten bevatten,
 zodat het geheugenverbruik laag blijft, terwijl de clusters effici\"ent 
 opgehaald kunnen worden. Tevens is het belangrijk dat de sleutel waarmee een 
-cluster ge\"identificeerd kan worden, effici\"ent berekend kan worden, en 
-tegelijkertijd weinig bits vereist.
+cluster ge\"identificeerd kan worden, effici\"ent berekend kan worden en 
+weinig bits vereist.
 
 \input{./img/tex/cs-sleutel.tex}
 
@@ -30,21 +30,21 @@ Een belangrijk inzicht is dat fragmenten van een frame altijd in het
 zichtfrustum geassocieerd met het frame zullen vallen. Wanneer de 
 lichtoekenningsdatastructuren dus per frame opgebouwd worden, zoals het geval is
 bij Tiled en Clustered Shading, is het niet nodig om de gehele wereld op te 
-delen in volumes. Alleen het zichtfrustum dient opgedeeld te worden. 
+delen in volumes, alleen het zichtfrustum dient opgedeeld te worden. 
 Tiled Shading deelt het zichtvenster op in de $\mathbf{x}$- en $\mathbf{y}$-as.
-Dit impliciet een opdeling van het zichtfrustum. Binnen Clustered Shading
+Dit is impliciet een opdeling van het zichtfrustum. Binnen Clustered Shading
 wordt de $\mathbf{z}$-as van de camera verder opgedeeld, om zo subfrustra 
 te verkrijgen, zoals weergegeven in figuur \ref{fig:cs-opdeling:frustum}. 
 Om deze subfrustra zo uniform mogelijk te houden, wordt de diepte van 
 \mbox{\'e\'en} subfrustum, $d_k$, gelijk gesteld aan de hoogte van het 
-subfrustum, $h_k$ bij bij de diepte $\mathtt{near}_k$ waar het subfrustumvolume 
+subfrustum, $h_k$ bij bij de diepte $\mathtt{near}_k$, waar het subfrustumvolume 
 begint. Dit is weergegeven in figuur \ref{fig:cs-opdeling:sleutel}. De volledige hoogte 
 van het zichtfrustum bij diepte $\mathtt{near}_k$ is
 
 $$ h_{\mathtt{frustum}} = 2 \mathtt{near}_k \tan \theta $$
 
-waar $\theta$ de helft van het gezichtsveld is. De hoogte $h_k$ van 
-\mbox{\'e\'en} subfrustum is dan gelijk aan de hoogte van het zichtfrustum, 
+\noindent waar $\theta$ de helft van het gezichtsveld is. De hoogte $h_k$ van 
+\mbox{\'e\'en} subfrustum is dan gelijk aan de hoogte van het zichtfrustum
 gedeeld door het aantal onderverdelingen in de $\mathbf{y}$-as.
 De afstand van het volgende subfrustum is dan gegeven als
 
@@ -53,11 +53,11 @@ De afstand van het volgende subfrustum is dan gegeven als
                     &= \mathtt{near}_{k} + \frac{2 \mathtt{near}_k \tan\theta}{S_y}
 \end{align*}
 
-Dit kan herschreven worden tot de volgende exponentiele functie:
+\noindent Dit kan herschreven worden tot de volgende exponentiele functie:
 
-$$ \mathtt{near}_k = \mathtt{near}_0 \left( 1 + \frac{2 \tan\theta}{S_y} \right) $$
+$$ \mathtt{near}_k = \mathtt{near}_0 \left( 1 + \frac{2 \tan\theta}{S_y} \right)^k $$
 
-waarmee de opdeling van de $\mathbf{z}$-as van de camera gespecificeerd wordt.
+\noindent waarmee de opdeling van de $\mathbf{z}$-as van de camera gespecificeerd wordt.
 Op basis hiervan is het mogelijk om elk cluster te identificeren aan de hand
 van een tupel van drie integers $\left( i, j, k \right)$, waarbij $i$ en $j$ 
 respectievelijk de $\mathbf{x}$ en $\mathbf{y}$ posities van de tegel in het
@@ -72,7 +72,6 @@ De clusters kunnen verder opgedeeld worden aan de hand van attributen waarmee
 fragmenten in discrete groepen onderverdeeld kunnen worden. Nuttige attributen
 zorgen hierbij dat de set van relevante lichten geassocieerd met elk cluster 
 afneemt. Een voorbeeld hiervan is de normaal informatie. 
-
 Wanneer de fragmenten in een cluster verder worden opgedeeld aan de hand van de
 normaalinformatie, is het mogelijk om lichten uit te sluiten die een 
 nulcontributie hebben op de fragmenten van het cluster. In het geval van 
@@ -98,7 +97,7 @@ nulcontributie aan een cluster als:
 
 $$ \omega > \frac{\pi}{2} + \alpha + \delta $$
 
-Waarbij $\omega$ de hoek tussen de lichtdirectie en de as van de normaalkegel is,
+\noindent waarbij $\omega$ de hoek tussen de lichtdirectie en de as van de normaalkegel is,
 $\alpha$ de halfhoek van de normaalkegel is, en $\delta$ de hoek die het licht 
 maakt om de gehele cluster te verlichten. Dit is ge\"illustreerd in figuur 
 \ref{fig:cs-light-discard-normal}.
@@ -137,8 +136,8 @@ Een alternatieve oplossing is om gebruik te maken van virtuele paginatabellen.
 Binnen deze paginatabellen wordt expliciet per pagina bijgehouden of deze 
 gebruikt worden. De verschillende zichtmonster zetten een bit in het pagina-adres,
 vervolgens kan deze bit gebruikt worden in de compactiestap. Omdat monsters
-die vervijzen naar hetzelfde adres allen de bit op aanzetten, zullen geen 
-duplicaten zich in de paginatabel bevinden\cite{hollemeersch2010accelerating}.
+die vervijzen naar hetzelfde adres allen de bit op aanzetten, zullen er geen 
+duplicaten in de paginatabel zijn\cite{hollemeersch2010accelerating}.
 
 Wanneer de unieke clusters opgesteld zijn, kan voor elk de set van relevante
 lichten worden bepaald.

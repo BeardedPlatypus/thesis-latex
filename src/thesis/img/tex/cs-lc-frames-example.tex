@@ -1,39 +1,27 @@
 \begin{figure}[t]
-  \begin{subfigure}[b]{0.35\textwidth}
-    \includegraphics[width=\textwidth]{./img/raw/lc-frame-example/ts/si_frame_250.png}
-    \caption{Tiled Shading frame $250$.}
-    \vspace{2pt}
-    \label{fig:cs-test-frames-example:zc:250ts}
-  \end{subfigure}\quad %
-  \begin{subfigure}[b]{0.35\textwidth}
-    \includegraphics[width=\textwidth]{./img/raw/lc-frame-example/cs/si_frame_250.png}
-    \caption{Lichtberekeningen frame $250$.}
-    \vspace{2pt}
-    \label{fig:cs-test-frames-example:sa:250cs}
-  \end{subfigure}\\
-  \begin{subfigure}[b]{0.35\textwidth}
-    \includegraphics[width=\textwidth]{./img/raw/lc-frame-example/ts/pa_frame_126.png}
-    \caption{Tiled Shading frame $126$.}
-    \vspace{2pt}
-    \label{fig:cs-test-frames-example:pa:126ts}
-  \end{subfigure}\quad %
-  \begin{subfigure}[b]{0.35\textwidth}
-    \includegraphics[width=\textwidth]{./img/raw/lc-frame-example/cs/pa_frame_126.png}
-    \caption{Lichtberekening frame $126$.}
-    \vspace{2pt}
-    \label{fig:cs-test-frames-example:pa:126cs}
-  \end{subfigure}\\
-  \begin{subfigure}[b]{0.35\textwidth}
-    \includegraphics[width=\textwidth]{./img/raw/lc-frame-example/ts/zc_frame_417.png}
-    \caption{Tiled Shading frame $417$.}
-    \label{fig:cs-test-frames-example:zc:417ts}
-  \end{subfigure}\quad %
-  \begin{subfigure}[b]{0.35\textwidth}
-    \includegraphics[width=\textwidth]{./img/raw/lc-frame-example/cs/zc_frame_417.png}
-    \caption{Lichtberekening frame $417$.}
-    \label{fig:cs-test-frames-example:zc417cs}
-  \end{subfigure}
-  \caption{ Renders en hittekaarten van de verschillende scenes voor Tiled Shading.}
-  \label{fig:cs-test-frames-example:zc}
+  \centering
+\begin{tikzpicture}
+\node (lens-text) at (0.\textwidth, 0.2\textwidth) [] {Render};
+\node (lens-text) at (0.3\textwidth, 0.2\textwidth) [] {Tiled Shading};
+\node (lens-text) at (0.6\textwidth, 0.2\textwidth) [] {Clustered Shading};
+
+\node[rotate=90] at (-0.2\textwidth, 0.0\textwidth) {Spaceship Indoor};
+\node[rotate=90] at (-0.2\textwidth, -0.3\textwidth) {Piper's Alley};
+\node[rotate=90] at (-0.2\textwidth, -0.6\textwidth) {Ziggurat City};
+
+\node[inner sep=0pt] (img1) at (0.0\textwidth,-0.\textwidth) {\includegraphics[width=0.295\textwidth]{./img/raw/lc-frame-example/render/si_frame_250.png}};
+\node[inner sep=0pt] (img1) at (0.3\textwidth,-0.\textwidth) {\includegraphics[width=0.295\textwidth]{./img/raw/lc-frame-example/ts/si_frame_250.png}};
+\node[inner sep=0pt] (img1) at (0.6\textwidth,-0.\textwidth) {\includegraphics[width=0.295\textwidth]{./img/raw/lc-frame-example/cs/si_frame_250.png}};
+
+\node[inner sep=0pt] (img1) at (0.0\textwidth,-0.3\textwidth) {\includegraphics[width=0.295\textwidth]{./img/raw/lc-frame-example/render/pa_frame_126.png}};
+\node[inner sep=0pt] (img1) at (0.3\textwidth,-0.3\textwidth) {\includegraphics[width=0.295\textwidth]{./img/raw/lc-frame-example/ts/pa_frame_126.png}};
+\node[inner sep=0pt] (img1) at (0.6\textwidth,-0.3\textwidth) {\includegraphics[width=0.295\textwidth]{./img/raw/lc-frame-example/cs/pa_frame_126.png}};
+
+\node[inner sep=0pt] (img1) at (0.0\textwidth,-0.6\textwidth) {\includegraphics[width=0.295\textwidth]{./img/raw/lc-frame-example/render/zc_frame_417.png}};
+\node[inner sep=0pt] (img1) at (0.3\textwidth,-0.6\textwidth) {\includegraphics[width=0.295\textwidth]{./img/raw/lc-frame-example/ts/zc_frame_417.png}};
+\node[inner sep=0pt] (img1) at (0.6\textwidth,-0.6\textwidth) {\includegraphics[width=0.295\textwidth]{./img/raw/lc-frame-example/cs/zc_frame_417.png}};
+\end{tikzpicture}
+  \caption{ Renders en hittekaarten van de verschillende sc\`enes voor Clustered Shading.}
+  \label{fig:cs-test-frames-example}
 \end{figure}
 

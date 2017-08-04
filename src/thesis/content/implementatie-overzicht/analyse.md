@@ -2,25 +2,34 @@
 
 \input{./img/tex/da-cubehelix.tex}
 
-Om de tijdscomplexiteit van de verschillende methodes te vergelijken is primair
-gekeken naar de volgende drie relaties.
+Voor de analyse van de performantie van de verschillende lichttoekenningsalgoritmes
+is zowel naar de uitvoeringstijd als het aantal lichtberekeningen gekeken.
+Hiervoor zijn voor de volgende relaties ge\"evalueerd:
 
-* Executietijd per frame gedurende een uitvoering.
-* Gemiddelde executietijd per uitvoering als functie van het aantal lichten.
-* Gemiddelde executietijd per uitvoering als functie van de resolutie.
+* De uitvoeringstijd en aantal lichtberekeningen per frame gedurende een volledige uitvoering.
+* Gemiddelde uitvoeringstijd en aantal lichtberekeningen per frame gemiddeld over een volledige
+  uitvoering als functie van het aantal lichten in de \mbox{sc\`ene}.
+* Gemiddelde uitvoeringstijd en aantal lichtberekeningen per frame gemiddeld over een volledige
+  uitvoering als functie van de resolutie van de gegenereerde afbeeldingen.
+ 
+Het aantal lichtberekeningen heeft een significante invloed op de uitvoeringstijd, echter
+de uitvoeringstijd wordt tevens be\"invloed door de verschillende stappen van 
+elk lichttoekenningsalgoritme. Door beide waarde te evalueren wordt een beter inzicht
+verkregen in de uitvoeringstijd en performantie van de lichttoekenningsalgoritmes.
 
-Voor elke real-time toepassing is het belangrijk dat de executietijden 
-consistent zijn. Dit kan ge\"evalueerd woorden aan de hand van de executietijd
-per frame. Het hoofddoel van lichttoekenningsalgoritmes is het mogelijk maken van grotere
-sets van lichten binnen scenes. Hierbij is de tijdscomplexiteit als functie van
-het aantal lichten dus belangrijk. Als laatste geeft de tijdscomplexiteit als functie
-van de resolutie een indicatie hoe het lichttoekenningsalgoritme zich gedraagt bij een
-toenemend aantal fragmenten. Tevens is de resolutie een attribuut dat direct invloed
-heeft op de berekeningtijd van camera-afhankelijke lichttoekenningsalgoritmes.
+Voor elke real-time toepassing is het belangrijk dat de uitvoeringstijden 
+consistent zijn. De uitvoeringstijd per frame gedurende een volledige uitvoering geeft
+hier inzicht in. 
+De performantie van de lichttoekenningsalgoritme ten opzichte van het aantal lichten is
+significant omdat een belangrijk doel van de lichttoekenningsalgoritmes is om een groter
+aantal lichten mogelijk te maken. Het is dus van belang dat de tijdscomplexiteit als functie
+van de lichten zo klein mogelijk is.  
+De resolutie is een belangrijke factor voor de hoeveelheid fragmenten die gegenereerd worden.
+Verder zal deze waarde een invloed kunnen hebben op de performantie van de camera-afhankelijke
+lichttoekenningsalgoritmes.
 
 Verder is per lichttoekenningsalgoritme gekeken naar de specifieke parameters 
-van de methode, en hoe deze van invloed zijn op de tijdscomplexiteit en het 
-geheugengedrag.
+van de methode, en hoe deze de tijdscomplexiteit en het  geheugengedrag be\"invloeden.
 
 Al de analyses zijn gedaan met behulp van SciPy[^scipy], Pandas[^pandas], en Seaborn[^seaborn]. Zowel de
 verzamelde data, als de analyses zijn beschikbaar in de data-repository. 

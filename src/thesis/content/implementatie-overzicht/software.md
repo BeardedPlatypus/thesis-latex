@@ -40,7 +40,7 @@ state
     inlezen van de configuratiebestanden en het beheren van deze ingelezen attributen.
   
 world
-  ~ De world-module is verantwoordelijk voor het inlezen en beheren van alle 
+  ~ De world-module is verantwoordelijk voor het beheren van alle 
     geometrie en lichten.
     
 Voor een compleet overzicht van de implementatie zie de documentatie[^docu] en 
@@ -82,7 +82,9 @@ repository[^repo] van `nTiled`.
 [^rapidjson]: rapidjson project pagina: \url{github.com/miloyip/rapidjson}
 [^imgui]: dear, imgui project pagina: \url{github.com/ocornut/imgui}
 
-De software is ontwikkeld en en gecompiled met behulp van `visual studio 2015`
+De software is ontwikkeld en en gecompiled met behulp van `visual studio 2015`[^vs]
+
+[^vs]: visual studio 2015 website: \url{https://www.visualstudio.com}
 
 
 ## Renderpijplijn
@@ -108,12 +110,12 @@ Clustered
 Hashed
   ~ De shader met de Hashed Shading-datastructuur.
   
-Alle shading-berekeningen vinden plaats in de fragment-shader. Binnen de 
-vertex-shaders worden slechts de relevante co\"ordinatenstelseltransformaties
-op de positie en normaal uitgevoerd. Binnen de fragment-shaders wordt eerst
+Alle belichtingsberekeningen vinden plaats in de fragmentshader. Binnen de 
+vertexshaders worden slechts de relevante co\"ordinatenstelseltransformaties
+op de positie en normaal uitgevoerd. Binnen de fragmentshaders wordt eerst
 de relevante set van lichten bepaald aan de hand van het corresponderende 
-lichttoekenningsalgoritme. Vervolgens wordt voor elk van deze lichting een
-shading-berekening uitgevoerd, waarbij de resultaten gesommeerd worden.
+lichttoekenningsalgoritme. Vervolgens wordt voor elk van deze lichten een
+belichtingsberekening uitgevoerd, waarbij de resultaten gesommeerd worden.
 
 \input{./lst/io-computeLight.tex}
 
@@ -126,13 +128,13 @@ $$
 \mathit{L}(l_{i}, \mathbf{p}) = \mathit{c}_\mathbf{p} * \mathit{I_i} * \cos\theta * \mathit{f_\mathtt{att}}
 $$
 
-waar
+\noindent waar
 
 $$
 \mathit{f_\mathtt{att}} = ( 1 - \left.\frac{\mathit{d}}{\mathit{r_i}}\right|_{{0, 1}})
 $$
 
-en $\theta$ de invalshoek is. Dit alles leidt tot het materiaal zoals 
+\noindent en $\theta$ de invalshoek is. Dit alles leidt tot het materiaal zoals 
 weergegeven in figuur \ref{fig:imp-lambert}, waar de oppervlakte verlicht is met
 twaalf lichten met verschillende tinten.
 
@@ -140,7 +142,7 @@ twaalf lichten met verschillende tinten.
 
 ## Meetmethode
 
-De executietijdmetingen zijn verzameld met de `QueryPerformanceCounter`. Deze 
+De uitvoeringstijdmetingen zijn verzameld met de `QueryPerformanceCounter`. Deze 
 functionaliteit is aangeboden in `Windows.h`. De `QueryPerformanceCounter` maakt
 het mogelijk om de executietijd tot op $\mu s$ nauwkeurig te meten. 
 Voor zowel de shaders als de lichttoekenningsalgoritme-managers zijn klassen

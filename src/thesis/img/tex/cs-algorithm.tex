@@ -41,7 +41,7 @@
     \node at ( 4,  -2) (anchor_forward_step1)  [cs-anchor] {};
  
     \node at (0.0, -2) (step1) [clustered] { Bereken de clustersleutel voor elke pixel aan de hand van de dieptebuffer. };
-    \node at (0.0, -4) (step2) [clustered] { Vind alle unieke clusters doormiddel van een sorteer en compact uit te voeren\\
+    \node at (0.0, -4) (step2) [clustered] { Vind alle unieke clusters door middel van een sorteer en compact uit te voeren\\
                                                                  op de gehele clustersleuteltextuur. };
     \node at (0.0, -6) (step3) [clustered] { Bepaal voor elke unieke cluster alle lichten die van invloed zijn op dit cluster. };
    
@@ -70,17 +70,17 @@
     \node at ( -7.5, 2.25) (line_1_l) [] {};
     \node at ( 11.5, 2.25) (line_1_r) [] {};
     \draw[gray] (line_1_l) -- (line_1_r);
-    \node at ( 11.5, 2.60) (line_1_text) [anchor=east] {Geometrie stap};
+    \node at ( 11.5, 2.60) (line_1_text) [anchor=east] {Geometriestap};
  
     \node at ( -7.5, -0.75) (line_2_l) [] {};
     \node at ( 11.5, -0.75) (line_2_r) [] {};
     \draw[gray] (line_2_l) -- (line_2_r);
-    \node at ( 11.5, -0.40) (line_2_text) [anchor=east] {Cluster initialisatie};
+    \node at ( 11.5, -0.40) (line_2_text) [anchor=east] {Clusterinitialisatie};
  
     \node at ( -7.5, -7.75) (line_3_l) [] {};
     \node at ( 11.5, -7.75) (line_3_r) [] {};
     \draw[gray] (line_3_l) -- (line_3_r);
-    \node at ( 11.5, -7.40) (line_3_text) [anchor=east] {Fragment generatie};
+    \node at ( 11.5, -7.40) (line_3_text) [anchor=east] {Fragmentgeneratie};
  
     \node at ( -7.5, -10.75) (line_4_l) [] {};
     \node at ( 11.5, -10.75) (line_4_r) [] {};
@@ -113,6 +113,6 @@
    
   \end{tikzpicture}
   \end{adjustbox}
-  \caption{Het Tiled Shading algoritme voor de Forward en Deferred pijplijn.}
+  \caption{Het Clustered Shading algoritme voor de Forward en Deferred pijplijn.}
   \label{fig:cs-algorithm}
 \end{figure}

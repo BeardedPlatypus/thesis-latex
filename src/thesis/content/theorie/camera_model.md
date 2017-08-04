@@ -1,28 +1,42 @@
-## Camera model {#sec:camera-model}
+## Camera-model {#sec:camera-model}
 
 \input{./img/tex/cm-camera.tex}
 
-Het gezichtspunt, of *camera* binnen deze thesis is het standaard camera 
-model binnen computer graphics. Zoals geillustreerd in figuur  
-\ref{fig:cm-camera}.  
+Om een afbeelding te genereren moet het zichtpunt en 
+ori\"entatie gedefinieerd worden. Hiervoor wordt gebruik gemaakt
+van een cameramodel\cite{CGF:CGF1181}. Dit cameramodel is een
+beschrijving van een virtuele camera die zich bevindt binnen
+de \mbox{sc\`ene}. Om deze camera te defini\"eren worden de 
+volgende attributen opgesteld:
 
-De volgende vectoren en punten zijn hiervoor gedefinieerd
-
-Up
-  ~ De locale y-as van de camera.
-
-Eye
-  ~ (x, y, z) positie van de camera in wereld coordinaten.
+$\mathcal{O}_mathtext{camera}$ 
+  ~ De positie van de camera in de \mbox{sc\`ene}.
   
-Centre
-  ~ (x, y, z) positie waarnaar de camera kijkt
+up
+  ~ De lokale $mathbf{y}$-as van de camera.
+  
+kijkrichting
+  ~ De lokale $mathbf{z}$-as van de camera, waarin de camera kijkt.
   
 Z-near
-  ~ de near z plane waarop het beeld wordt geprojecteerd.
+  ~ De afstand van de oorsprong tot het zichtvenster.
   
 Z-far
-  ~ Het vlak waarachter fragmenten niet meer worden weergegeven.
+  ~ De maximale afstand tot waar objecten worden weergegeven.
   
-De *Z-near* en *Z-far* in combinatie met *Eye* creeert de view frustrum. Slechts
-Primitieven binnen dit view frustum zullen worden gerenderd.
+gezichtsveld $\theta$
+  ~ De hoek die bepaald hoeveel van de wereld zichtbaar is.
+  
+aspectratio
+  ~ De ratio breedte $\mathit{w}$ tot hoogte $\mathit{h}$ van het zichtvenster.
+  
+\noindent Dit specificeert de volledige camera, zoals weergegeven in figuur \ref{fig:cm-camera:vec}.
+  
+De *Z-near*, *Z-far*, oorsprong $\mathcal{O}_\mathtt{camera}$, gezichtsveld en
+aspectratio defini\"eren het zogenoemde zichtfrustum. Dit frustum specificeert
+de ruimte waarbinnen alle zichtbare objecten in de \mbox{sc\`ene} zich bevinden.
+
+De kijkrichting kan vervangen worden met een centerpunt. Dit is dan de positie waar
+de camera naar kijkt. De kijkrichting kan vervolgens gedefinieerd worden als
+$\mathcal{O}_\mathtt{camera} - \mathbf{c}$. Dit is weergegeven in figuur \ref{fig:cm-camera:punt}.
 

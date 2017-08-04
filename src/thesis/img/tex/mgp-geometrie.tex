@@ -1,6 +1,36 @@
-\begin{figure}
+\begin{figure}[t]
   \centering
-  \includegraphics[width=0.8\textwidth]{./img/raw/placeholder.png}
-  \caption{De logische onderverdeling van geometrie stap.}
+  \definecolor{PipelineColor}{rgb}{1.0,0.901,0.805}
+\definecolor{TiledColor}{rgb}{0.7,0.9,1.0}
+                           
+\tikzstyle{ts-algorithm-base}=[rectangle, 
+                             draw=black,
+                             rounded corners,
+                             text centered,
+                             minimum height=1.0cm,
+                            ]
+\tikzstyle{pipeline}=[ts-algorithm-base,
+                                  fill={PipelineColor},
+                                  minimum width=6cm]
+
+\begin{tikzpicture}
+\node at (0cm,    1.1cm) (deferred_step0)     []                  {};
+\node at (0cm,   -0.0cm) (deferred_step1)     [pipeline]                  {Model- en zichttransformaties};
+\node at (0cm,   -1.5cm) (deferred_step2)     [pipeline]                  {Vertex shading};
+\node at (0cm,   -3.0cm) (deferred_step3)     [pipeline]                  {Projectie};
+\node at (0cm,   -4.5cm) (deferred_step4)     [pipeline]                  {Clipping};
+\node at (0cm,   -6.0cm) (deferred_step5)     [pipeline]                  {Canvas afbeelding};
+\node at (0cm,   -7.1cm) (deferred_step6)     []                  {};
+
+\node at (0cm, -3cm) (l) [rectangle, rounded corners, minimum height=7.4cm, minimum width=6.4cm, draw] {};
+
+\draw[-latex] (deferred_step0) -- (deferred_step1);
+\draw[-latex] (deferred_step1) -- (deferred_step2);
+\draw[-latex] (deferred_step2) -- (deferred_step3);
+\draw[-latex] (deferred_step3) -- (deferred_step4);
+\draw[-latex] (deferred_step4) -- (deferred_step5);
+\draw[-latex] (deferred_step5) -- (deferred_step6);
+\end{tikzpicture}
+  \caption{De logische onderverdeling van geometriestap.}
   \label{fig:mgp-geometrie}
 \end{figure}

@@ -9,5 +9,5 @@ lichttoekenningsalgoritmes.
 In dit hoofdstuk zal aan de hand van de verkregen inzichten van de voorgaande
 hoofdstukken ge\"evalueerd worden of met Hashed Shading het gestelde doel 
 bereikt is. Hierna zal ingegaan worden op enkele mogelijke oplossingen voor de
-problemen van Hashed Shading, en ander verder onderzoek.
+problemen van Hashed Shading.
 
