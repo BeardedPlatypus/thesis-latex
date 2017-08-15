@@ -1,9 +1,9 @@
 # Shading {#sec:shading}
 
 In de voorgaande secties is besproken hoe visibiliteit opgelost kan worden. 
-Echter dit is slechts de eerste stap in het genereren van beelden. Nu 
+Dit is de eerste stap in het genereren van beelden. Nu 
 vastgesteld is hoe objecten in de \mbox{sc\`ene} weergegeven worden op het zichtvenster kan 
-bepaald worden hoe deze objecten er daadwerkelijk uitzien.
+bepaald worden hoe deze objecten er daadwerkelijk uitzien, de tweede stap van het renderproces.
 Shading is het proces waarbij vergelijkingen worden
 gebruikt om te bepalen welke kleur punten dienen te hebben. Hierbij wordt verder
 gebouwd op de kennis van sectie \ref{sec:fysische-werkelijkheid} In deze sectie 
@@ -11,54 +11,30 @@ zal een mathematische beschrijving worden gegeven van shading.
 
 ## Mathematische modelering
 
-De belangrijkste vergelijking binnen de computergrafieken is de rendervergelijking (rendering equation)\cite{Kajiya:1986:RE:15922.15902}:
+De belangrijkste vergelijking binnen de computergrafieken is de rendervergelijking \cite{Kajiya:1986:RE:15922.15902}:
 
-$$ \mathit{L}(\mathbf{p}, \omega_{o}) = \mathit{L_{e}}(\mathbf{p}, \omega_{o}) + \int_{2\pi^{+}} \mathit{f_{r}}(\mathbf{p}, \omega_{i}, \omega_{o})\mathit{L_{i}}(\mathbf{p}, \omega_{i})\cos\theta_{i}d\omega_{i} $$
+$$ \mathit{L}_o(\mathbf{p}, \omega_{o}) = \mathit{L_{e}}(\mathbf{p}, \omega_{o}) + \int_{2\pi^{+}} \mathit{f_{r}}(\mathbf{p}, \omega_{i}, \omega_{o})\mathit{L_{i}}(\mathbf{p}, \omega_{i})\cos\theta_{i}d\omega_{i} $$
 
 \noindent Hier weergegeven in hemisfeervorm. Deze vergelijking toont de stabiele toestand
 van de stralingsenergiebalans binnen een \mbox{sc\`ene}. Hierbij is 
-$\mathit{L}(\mathbf{p}, \omega_{o})$ de radiantie uitgezonden vanuit punt
+$\mathit{L}_o(\mathbf{p}, \omega_{o})$ de radiantie uitgezonden vanuit punt
 $\mathbf{p}$ over $\omega_{o}$. Deze radiantie kan gedefinieerd worden aan de 
 hand van de som van gereflecteerde radiantie, en de radiantie die door het punt
 $\mathbf{p}$ zelf wordt uitgestraald. De uitgestraalde radiantie is gedefinieerd als
 $\mathit{L_{e}}(\mathbf{p}, \omega_{o})$. De reflectie van radiantie wordt 
 beschreven door het tweede deel van de rendervergelijking:
 
-$$  \mathit{L_{o}}(\mathbf{p}, \omega_{o}) = \int_{2\pi^{+}} \mathit{f_{r}}(\mathbf{p}, \omega_{i}, \omega_{o})\mathit{L_{i}}(\mathbf{p}, \omega_{i})\cos\theta_{i}d\omega_{i} $$
+$$  \mathit{L}(\mathbf{p}, \omega_{o}) = \int_{2\pi^{+}} \mathit{f_{r}}(\mathbf{p}, \omega_{i}, \omega_{o})\mathit{L_{i}}(\mathbf{p}, \omega_{i})\cos\theta_{i}d\omega_{i} $$
 
 Dit wordt de reflectievergelijking genoemd\cite{akenine2016real}. Hierbij wordt ge\"integreerd over de
 gehele hemisfeer om de volledige binnenkomende radiantie te berekenen. 
-Vervolgens specificeert een zogenoemde bidirectionele reflectie distributie functie 
-(bidirectional reflectance distribution function, BRDF)\cite{Nicodemus:65, suffern2007ray}, hoe de 
+Vervolgens specificeert een zogenoemde Bidirectionele Reflectie Distributie Functie 
+(BRDF)\cite{Nicodemus:65, suffern2007ray}, hoe de 
 radiantie over een bepaalde ruimtehoek $\omega_{i}$ bijdraagt aan de uitgaande 
 radiantie in punt $\mathbf{p}$ over ruimtehoek $\omega_{o}$. 
 Hiermee kan precies worden vastgelegd wat de uitgaande radiantie is in punt
 $\mathbf{p}$ over ruimtehoek $\omega_{o}$. 
 
-De BRDF in essentie is de wiskundige functie die beschrijft hoe een materiaal
-zich gedraagt ten opzichte van licht. Deze functies hebben een aantal 
-eigenschappen die gebruikt kunnen worden bij de berekening van de kleur van 
-een punt.  
-
-
-Helmholtz reciprociteit
-  ~ De waarde van een BRDF blijft gelijk indien $\omega_{i}$ en $\omega_{o}$ 
-    worden omgedraaid\cite{suffern2007ray}. 
-    
-$$ \mathit{f_r}(\mathbf{p}, \omega_{i}, \omega_{o}) = \mathit{f_r}(\mathbf{p}, \omega_{o}, \omega_{i}) $$  
-
-
-Lineariteit
-  ~ De totale gereflecteerde radiantie is gelijk aan de som van alle BRDFs 
-    op dit specifieke punt. Hierdoor wordt het mogelijk om een materiaal voor te
-    stellen met meerdere BRDFs in hetzelfde punt.  
-    
-Conservatie van energie
-  ~ De totaal ingevallen radiantie is gelijk aan de som van het uitgezonden 
-    licht, en het geabsorbeerde licht. Dit houdt in dat $\mathit{L_{o}}$ niet
-    groter dan 1 kan zijn over alle $\omega_{o}$.
-   
-   
 Het is nu mogelijk om een beschrijving van de kleur in elk punt te geven aan de
 hand van de radiantie die berekend kan worden met de rendervergelijking.
 Hierbij zijn de materialen van objecten beschreven met BRDFs.
@@ -66,21 +42,22 @@ Er is nog wel een groot probleem met deze voorstelling. De radiantie die uitgezo
 wordt vanuit $\mathbf{p}$ over $\omega_{o}$ is afhankelijk van alle 
 radiantie binnenkomend over de gehele hemisfeer in punt $\mathbf{p}$. 
 De binnenkomende radiantie is gelijk aan de radiantie uitgezonden vanuit
-alle punten op de hemisfeer, volgens de Helmholtz reciprociteit. Dit heeft als gevolg
-dat om de radiantie te berekenen, het nodig is om alle radiantie 
-in de \mbox{sc\`ene} al van te voren te weten. Dit is niet mogelijk, en dus zullen
+alle punten op de hemisfeer. Dit heeft als gevolg dat een recursieve integraal opgelost moet worden.
+Dit is niet mogelijk, en dus zullen
 alle shading algoritmes pogen een benadering te geven van de daadwerkelijke
 oplossing van de rendervergelijking. De kwaliteit van de benadering hangt
-af van meerdere aspecten. Een grote beperkende factor binnen real-time computergrafieken
+af van meerdere aspecten. Een grote beperkende factor binnen realtime computergrafieken
 is de beschikbare rekentijd.
 
 ## Directe lichtbenadering
 
-De meest simpele benadering van de reflectievergelijking is de directe-belichtingbenadering. 
-Hierbij wordt voor elk punt slechts de lichtbijdrage van lichten die direct op een punt
-schijnen berekend. Indirecte belichting, waarbij lichtstralen eerst andere oppervlaktes raken 
-voordat deze door het punt in de camera worden gereflecteerd, worden buiten beschouwing gelaten.
-Dit leidt tot een grote versimpeling van de reflectievergelijking. Deze kan 
+De meest simpele benadering van de reflectievergelijking is de directe belichtingbenadering. 
+Hierbij wordt voor elk punt slechts de lichtbijdrage berekend van lichten die door \mbox{\'e\'en}
+bounce op de camerasensor vallen. Deze lichten schijnen dus direct op een punt.
+Indirecte belichting, waarbij lichtstralen via meerdere bounces op de camerasensor vallen, en dus
+eerst andere oppervlaktes raken voordat het punt bereikt wordt, worden buiten beschouwing gelaten.
+Dit leidt tot een grote versimpeling van de reflectievergelijking ten koste van een kleine hoeveelheid
+energieverlies. Deze kan 
 nu opgesteld worden als een sommatie over de lichten in plaats van een integraal 
 over de hemisfeer\cite{akenine2016real}:
 
@@ -88,20 +65,21 @@ $$
 \mathit{L_{o}}(\mathbf{p}, \omega_{o}) = \sum_{\mathit{k}=1}^{\mathit{n}} \mathit{f_{r}}(\mathbf{p}, l_{\mathit{k}}, \omega_{o})\mathit{L_{i}}(\mathbf{p}, l_{\mathit{k}})\cos\theta_{i} 
 $$
 
-\noindent hierbij is licht $k$ gedefinieerd als $l_\mathit{k}$.
+\noindent hierbij is de lichtbron $k$ gedefinieerd als $l_\mathit{k}$.
 
-\noindent De directe-belichtingbenadering reduceert het aantal bewerken significant.
+\noindent De directe-belichtingbenadering reduceert het aantal bewerkingen significant.
 Om deze reden zal deze benadering verder gebruikt worden binnen deze thesis.
 
-## Lambertiaanse Bidirectionele Reflectie Distributie Functie
+## Lambertiaanse BRDF
 
 \input{./img/tex/sh-lambert.tex}
 
-Materialen kunnen gedefinieerd worden als set van BRDFs, die het gedrag van het
+Materialen kunnen gedefinieerd worden als een verzameling van BRDFs, die het gedrag van het
 licht beschrijven indien het in contact komt met een object. De simpelste BRDF 
 is de lambertiaanse BRDF\cite{suffern2007ray}. Deze BRDF beschrijft een puur diffuus oppervlakte, 
-wat inhoudt dat de richting waarin een binnenkomende lichtstraal wordt
-gereflecteerd puur willekeurig is. Dit is weergegeven in fig. \ref{fig:sh-lambert}.
+wat inhoudt dat elke richting waarin een binnenkomende lichtstraal gereflecteerd kan worden
+evenveel kans heeft om voor te komen. Hierdoor wordt het licht uniform over de hemisfeer verdeel.
+Dit is weergegeven in fig. \ref{fig:sh-lambert}.
 Deze BRDF heeft als uitkomst een constante waarde. Deze constante waarde wordt 
 veelal gedefinieerd als de de *diffuse kleur* $\mathit{c}_{\mathtt{dif}}$ van 
 dit object. Dit leidt tot de volgende functie:
@@ -117,11 +95,11 @@ deze functie.
 
 ## Schaduw
 
-Schaduw is een belangrijke visuele cue voor de plaatsing van objecten in de 
+Schaduw is een belangrijke visuele aanwijzing voor de plaatsing van objecten in de 
 \mbox{sc\`ene}. De hersenen gebruiken schaduw om de onderlinge relatie van objecten
 te bepalen. In de fysische werkelijkheid is een schaduw op een oppervlak het gevolg van
 obstructie tussen deze oppervlakte en de lichtbron. Om schaduw te simuleren binnen
-computergrafieken dient dus bepaald te worden of voor punten er objecten tussen het punt
+computergrafieken dient dus bepaald te worden of op een positie er objecten tussen het punt
 en een lichtbron liggen. Dit betekent dat er extra werk uitgevoerd dient te worden om 
 deze bepaling uit te voeren.
 
@@ -130,4 +108,8 @@ grafische pijplijn plaatsvinden per pixel. Bij deze berekening is er niet implic
 een beschrijving van de \mbox{sc\`ene} beschikbaar. Deze dient expliciet in het geheugen
 te worden bijgehouden. Dit leidt tot een toename in de complexiteit.
 Om deze reden zijn schaduwen buiten beschouwing gelaten.
+
+Voor een uitgebreidere beschrijving van rendering onderwerpen kan gerefereerd worden 
+naar de boeken: Raytracing from the ground up\cite{suffern2007ray}, en Physical Based Rendering 
+\cite{pharr2016physically}.
 

@@ -1,6 +1,8 @@
 \begin{figure}
   \centering
-  \begin{subfigure}[b]{0.5\textwidth}
+  %\begin{subfigure}[b]{0.5\textwidth}
+  \begin{adjustbox}{minipage=0.8\textwidth, scale=1.0} % 0.6 for max size
+  \centering
     \begin{tikzpicture}
       \node[inner sep=0pt] (img1) at (0.0\textwidth, -0.0\textwidth)
            {\includegraphics[width=\textwidth]{./img/raw/camera/camera_1.png}};
@@ -15,21 +17,22 @@
       \node[] (camera-origin) at (-0.36\textwidth, -.08\textwidth) {z-near};
       \node[] (camera-origin) at (-0.21\textwidth, .15\textwidth) {z-far};
     \end{tikzpicture}
-    \caption{Met kijkrichting vector.}
-    \label{fig:cm-camera:vec}
-  \end{subfigure}%
-  \begin{subfigure}[b]{0.5\textwidth}
-    \begin{tikzpicture}
-      \node[inner sep=0pt] (img1) at (0.0\textwidth, -0.0\textwidth)
-           {\includegraphics[width=\textwidth]{./img/raw/camera/camera_2.png}};
-
-      \node[] (camera-origin) at (-0.35\textwidth, 0.305\textwidth) {$\mathcal{O}_\mathtt{camera}$};
-      \node[] (camera-origin) at (0.05\textwidth, .08\textwidth) {center};
-      \node[] (camera-origin) at (0.2\textwidth, .225\textwidth) {up};
-    \end{tikzpicture}
-    \caption{Met center-punt.}
-    \label{fig:cm-camera:punt}
-  \end{subfigure}
+    %\caption{Met kijkrichting vector.}
+    %\label{fig:cm-camera:vec}
+  %\end{subfigure}%
+  %\begin{subfigure}[b]{0.5\textwidth}
+  %  \begin{tikzpicture}
+  %    \node[inner sep=0pt] (img1) at (0.0\textwidth, -0.0\textwidth)
+  %         {\includegraphics[width=\textwidth]{./img/raw/camera/camera_2.png}};
+%
+%      \node[] (camera-origin) at (-0.35\textwidth, 0.305\textwidth) {$\mathcal{O}_\mathtt{camera}$};
+%      \node[] (camera-origin) at (0.05\textwidth, .08\textwidth) {center};
+%      \node[] (camera-origin) at (0.2\textwidth, .225\textwidth) {up};
+%    \end{tikzpicture}
+%    \caption{Met center-punt.}
+%    \label{fig:cm-camera:punt}
+    %  \end{subfigure}
+  \end{adjustbox}
   \caption{Het Cameramodel.}
   \label{fig:cm-camera}
 \end{figure}

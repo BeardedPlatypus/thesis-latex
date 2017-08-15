@@ -4,13 +4,13 @@
 
 Het doel van Clustered Shading is om de lichttoekenning zoals in Tiled Shading
 te verbeteren door de twee-dimensionale tegels, verder uit te breiden, zodat
-hogere dimensie clusters ontstaan. Hiertoe worden de tegelvolumes onder verdeeld 
+hogere dimensie clusters ontstaan\cite{olsson2012clustered}. Hiertoe worden de tegelvolumes onder verdeeld 
 in de diepte. Verdere dimensies kunnen toegevoegd worden op basis van andere
 attributen, zoals de normaalinformatie van fragmenten. Een voorbeeld van 
 een dergelijke onderverdeling is te zien in figuur \ref{fig:cs-opdeling-voorbeeld}
 Door de tegels verder op te delen worden de volumes geassocieerd met deze
 tegels kleiner, en dus homogener, waardoor de effici\"entie van de 
-lichtberekening toeneemt.
+lichtberekening toeneemt\cite{olsson2012clustered}.
 
 ## Onderverdeling in de ruimte {#sec:cs-onderverdeling}
 
@@ -22,7 +22,7 @@ Tegelijkertijd moeten clusters zoveel mogelijk (homogene) fragmenten bevatten,
 zodat het geheugenverbruik laag blijft, terwijl de clusters effici\"ent 
 opgehaald kunnen worden. Tevens is het belangrijk dat de sleutel waarmee een 
 cluster ge\"identificeerd kan worden, effici\"ent berekend kan worden en 
-weinig bits vereist.
+weinig bits vereist\cite{olsson2012clustered}.
 
 \input{./img/tex/cs-sleutel.tex}
 
@@ -38,7 +38,7 @@ te verkrijgen, zoals weergegeven in figuur \ref{fig:cs-opdeling:frustum}.
 Om deze subfrustra zo uniform mogelijk te houden, wordt de diepte van 
 \mbox{\'e\'en} subfrustum, $d_k$, gelijk gesteld aan de hoogte van het 
 subfrustum, $h_k$ bij bij de diepte $\mathtt{near}_k$, waar het subfrustumvolume 
-begint. Dit is weergegeven in figuur \ref{fig:cs-opdeling:sleutel}. De volledige hoogte 
+begint\cite{olsson2012clustered}. Dit is weergegeven in figuur \ref{fig:cs-opdeling:sleutel}. De volledige hoogte 
 van het zichtfrustum bij diepte $\mathtt{near}_k$ is
 
 $$ h_{\mathtt{frustum}} = 2 \mathtt{near}_k \tan \theta $$
@@ -71,7 +71,7 @@ Dit tupel vormt de sleutel van de clusters.
 De clusters kunnen verder opgedeeld worden aan de hand van attributen waarmee
 fragmenten in discrete groepen onderverdeeld kunnen worden. Nuttige attributen
 zorgen hierbij dat de set van relevante lichten geassocieerd met elk cluster 
-afneemt. Een voorbeeld hiervan is de normaal informatie. 
+afneemt. Een voorbeeld hiervan is de normaalinformatie\cite{olsson2012clustered}. 
 Wanneer de fragmenten in een cluster verder worden opgedeeld aan de hand van de
 normaalinformatie, is het mogelijk om lichten uit te sluiten die een 
 nulcontributie hebben op de fragmenten van het cluster. In het geval van 
@@ -81,7 +81,7 @@ situatie waarin dit zich voordoet, is wanneer een licht de achterkant van een
 primitief verlicht. Het voorkomen van een dergelijke situatie wordt achtervlak 
 lichtruiming (Backface Light Culling) genoemd. 
 
-De normalen worden gegroepeerd aan de hand van een set van normaal kegels.
+De normalen worden gegroepeerd aan de hand van een set van normaal kegels\cite{olsson2012clustered}.
 Voor elk cluster wordt \mbox{\'e\'en} kegel gedefinieerd. Voor de fragmenten
 geassocieerd met een cluster geldt dat de normaal van deze fragmenten binnen
 de gedefinieerde kegel van de cluster valt. Om de kegels op te stellen wordt

@@ -23,7 +23,7 @@ dus op het geheugengebruik en de constructietijd. De uitvoeringstijd en het
 aantal lichtberekeningen worden niet be\"invloed door de grootte van de spatiale
 hashfunctie. Om deze reden is slechts gekeken naar de constructietijd en 
 het geheugenverbruik, bij verschillende seed-waardes. Hierbij zijn voor
-de drie \mbox{sc\'enes}  de kleinste en grootste sets lichten ge\"evalueerd.
+de drie \mbox{sc\'enes}  de kleinste en grootste verzamelingen lichten ge\"evalueerd.
 Dit is gedaan bij een knoopgrootte gelijk aan de helft van de lichtradius
 van de lichten gebruikt in de \mbox{sc\`ene}, en een begindiepte van nul 
 voor tien verschillende seed-waardes.
@@ -53,8 +53,8 @@ In figuur \ref{fig:hs-n-layers} is het aantal lagen dat de octree vereist om de
 gehele lichtconfiguratie te bedekken, weergegeven als functie van de minimale 
 knoopgrootte. In het rood zijn de waardes weergegeven die
 verder ge\"evalueerd zullen worden. De \mbox{sc\`enes} zijn zodanig opgesteld dat
-een groter aantal lichten niet leidt tot meer lagen.  Elke set lichten is 
-verdeeld over hetzelfde volume ongeacht de grootte van de set van lichten.
+een groter aantal lichten niet leidt tot meer lagen.  Elke verzameling lichten is 
+verdeeld over hetzelfde volume ongeacht de grootte van de verzameling van lichten.
 Een kleinere  knoopgrootte leidt tot meer lagen en meer minimale knopen. Dit heeft tot 
 gevolg dat de verbindingloze octree zowel in constructietijd als geheugengebruik
 zal toenemen wanneer de knoopgrootte wordt gereduceerd.
@@ -69,13 +69,13 @@ knoopgrootte is relatief aan de gebruikte radius voor de lichten in de \mbox{sc\
 * Ziggurat City: $10.0$
 
 In figuur \ref{fig:hs-layered-exec} zijn de constructietijden per functie weergegeven
-voor de kleinste en grootste set lichten voor elke \mbox{sc\`ene}.
+voor de kleinste en grootste verzameling lichten voor elke \mbox{sc\`ene}.
 In figuur \ref{fig:hs-ns-memory} is het geheugengebruik van de verbindingloze
 octree als functie van de knoopgrootte relatief aan de lichtradius weergegeven. 
 Hierbij is het aantal pixels in elke textuur van de verbindingloze octree gesommeerd.
 Deze waarde is als indicatie gebruikt voor het geheugengebruik.
 In figuur \ref{fig:hs-ns-light-indices} is de grootte van de lichtindexlijst als functie 
-van de knoopgrootte weergegeven. Voor elke gevulde bladknoop wordt een set van relevante
+van de knoopgrootte weergegeven. Voor elke gevulde bladknoop wordt een verzameling van relevante
 lichtindices toegevoegd aan de lichtindexlijst. Als laatste zijn de groottes van de hash- en 
 offset-tabellen voor de verschillende lagen van de verbindingloze octree
 als functie van de knoopgrootte voor de grootste lichtconfiguraties per \mbox{sc\`ene}
@@ -151,8 +151,8 @@ $2560 \times 2560$ en een groot aantal lichten. Verder zijn de visualisaties
 van het aantal lichten bij verschillende knoopgroottes weergegeven in figuur 
 \ref{fig:hs-ns-frames-render}.
 
-Zowel bij een lagere resolutie en een kleine set van lichten, als bij een hogere
-resolutie en een grotere set van lichten leidt een kleinere minimale knoopgrootte
+Zowel bij een lagere resolutie en een kleine verzameling van lichten, als bij een hogere
+resolutie en een grotere verzameling van lichten leidt een kleinere minimale knoopgrootte
 tot minder lichtberekeningen per frame. Dit is een direct gevolg van de hogere
 nauwkeurigheid waarmee de lichten in de \mbox{sc\`en} voorgesteld worden. Hierdoor 
 bevatten de bladknopen minder lichten, doordat niet relevante lichten niet meer overlappen.
@@ -182,7 +182,7 @@ Hiermee wordt de winst die verkregen wordt met de reductie van het aantal
 lichtberekeningen beperkt. 
 
 De invloed van het verschil in aantal lichtberekeningen op de uitvoeringstijd
-bij een kleine set van lichten en een lage resolutie is minimaal. Hierdoor is 
+bij een kleine verzameling van lichten en een lage resolutie is minimaal. Hierdoor is 
 dus ook de invloed van de knoopgrootte in dergelijke situaties, verwaarloosbaar.
 Deze observaties zijn tevens terug te zien in figuur \ref{fig:hs-ns-sum:exec}
 en \ref{fig:hs-ns-sum:lc}, waar de uitvoeringstijd en het gemiddeld aantal 
@@ -211,7 +211,7 @@ de verbindingloze octree, en een diepte van het aantal lagen minus
 
 Het veranderen van deze waarde heeft geen invloed op het aantal 
 lichtberekeningen dat wordt uitgevoerd, doordat ongeacht de begindiepte dezelfde
-set van lichten wordt opgehaald binnen de renderstap. Het kan echter wel van 
+verzameling van lichten wordt opgehaald binnen de renderstap. Het kan echter wel van 
 invloed zijn op de uitvoeringstijd, doordat bij een grotere begindiepte 
 minder textuuraanspraken worden uitgevoerd.
 
@@ -226,7 +226,7 @@ toegekend dient te worden binnen de corresponderende spatiale hashfunctie.
 
 Om deze aspecten te evalueren zijn de volgende figuren opgesteld. In figuur
 \ref{fig:hs-sd-construction} is de constructietijd als functie van de knoopgrootte relatief aan de lichtradius weergegeven
-bij verschillende begindieptes voor de grootste gedefinieerde set lichten
+bij verschillende begindieptes voor de grootste gedefinieerde verzameling lichten
 per \mbox{sc\`ene}. In figuur \ref{fig:hs-sd-memory} en \ref{fig:hs-sd-light-indices} zijn
 respectievelijk het aantal pixels in de datastructuren en het aantal lichtindices 
 als functie van de  knoopgrootte voor verschillende begindieptes gegeven. 
@@ -240,7 +240,7 @@ doordat een verandering van de begindiepte slechts invloed heeft op de eerste
 lagen van de verbindingloze octree. Uit de resultaten van het
 geheugenverbruik per laag laag van de verbindingloze octree, fig. \ref{fig:hs-layered-mem} bleek dat
 het merendeel van de knopen zich in de diepere lagen bevindt. Een samenvoeging
-van de eerdere lagen zal geen invloed hebben op de set knopen in de diepste 
+van de eerdere lagen zal geen invloed hebben op de verzameling knopen in de diepste 
 lagen. Hierdoor zal het merendeel van de constructietijd en het geheugenverbruik
 niet veranderen.
 
@@ -340,8 +340,8 @@ tonen dezelfde trend als de uitvoeringstijd en aantal lichtberekeningen als
 functie van het aantal lichten. In het geval van Deferred Shading is de 
 uitvoeringstijd van Hashed Shading vergelijkbaar met die van Tiled Shading.
 Binnen Forward Shading stijgt de uitvoeringstijd met ongeveer een factor
-twee langzamer. Het aantal lichtberekeningen van Hashed Shading stijgt 
-vergelijkbaar met dat van Clustered Shading.
+twee langzamer. Het aantal lichtberekeningen van Hashed Shading stijgt minimaal langzamer dan
+dat van Clustered Shading.
 
 Hierbij dient de opmerking geplaatst te worden dat het geheugengebruik van
 Hashed Shading onafhankelijk van de resolutie is, waar dit voor zowel Tiled

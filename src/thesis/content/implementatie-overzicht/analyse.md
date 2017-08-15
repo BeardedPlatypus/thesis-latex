@@ -8,7 +8,7 @@ Hiervoor zijn voor de volgende relaties ge\"evalueerd:
 
 * De uitvoeringstijd en aantal lichtberekeningen per frame gedurende een volledige uitvoering.
 * Gemiddelde uitvoeringstijd en aantal lichtberekeningen per frame gemiddeld over een volledige
-  uitvoering als functie van het aantal lichten in de \mbox{sc\`ene}.
+  uitvoering als functie van het aantal lichtbronnen in de \mbox{sc\`ene}.
 * Gemiddelde uitvoeringstijd en aantal lichtberekeningen per frame gemiddeld over een volledige
   uitvoering als functie van de resolutie van de gegenereerde afbeeldingen.
  
@@ -17,13 +17,13 @@ de uitvoeringstijd wordt tevens be\"invloed door de verschillende stappen van
 elk lichttoekenningsalgoritme. Door beide waarde te evalueren wordt een beter inzicht
 verkregen in de uitvoeringstijd en performantie van de lichttoekenningsalgoritmes.
 
-Voor elke real-time toepassing is het belangrijk dat de uitvoeringstijden 
+Voor elke realtime toepassing is het belangrijk dat de uitvoeringstijden 
 consistent zijn. De uitvoeringstijd per frame gedurende een volledige uitvoering geeft
 hier inzicht in. 
-De performantie van de lichttoekenningsalgoritme ten opzichte van het aantal lichten is
+De performantie van de lichttoekenningsalgoritme ten opzichte van het aantal lichtbronnen is
 significant omdat een belangrijk doel van de lichttoekenningsalgoritmes is om een groter
-aantal lichten mogelijk te maken. Het is dus van belang dat de tijdscomplexiteit als functie
-van de lichten zo klein mogelijk is.  
+aantal lichtbronnen mogelijk te maken. Het is dus van belang dat de tijdscomplexiteit als functie
+van de lichtbronnen zo klein mogelijk is.  
 De resolutie is een belangrijke factor voor de hoeveelheid fragmenten die gegenereerd worden.
 Verder zal deze waarde een invloed kunnen hebben op de performantie van de camera-afhankelijke
 lichttoekenningsalgoritmes.

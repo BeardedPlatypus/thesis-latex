@@ -3,10 +3,10 @@ stap om effici\"entere lichttoekenning mogelijk te maken. Het doel hierbij is
 om de effici\"entie van Deferred Shading met stencil-optimalisatie te benaderen
 zonder dat dezelfde geheugenbandbreedte wordt gebruikt. Binnen Tiled Shading
 wordt dit bereikt door een set van tegels te cre\"eren die het zichtveld 
-bedekken. Voor elk van de tegels wordt bepaald welke lichten invloed kunnen
+bedekken. Voor elk van de tegels wordt bepaald, welke lichten invloed kunnen
 hebben op de fragmenten binnen de tegel. Bij een effici\"ente implementatie
 worden hierbij slechts de lichten bijgehouden die overlappen met het volume 
-waarin waarin de fragmenten van het tegel liggen. Dit volume wordt dus beperkt
+waarin de fragmenten van het tegel liggen. Dit volume wordt dus beperkt
 door de fragmenten die het dichtst en het verst van de camera liggen.
 Wanneer alle fragmenten in een tegel dicht bij elkaar liggen levert dit een
 effici\"ente voorstelling op. Echter wanneer er zich binnen een tegel grote diepte

@@ -17,10 +17,10 @@ te evalueren bij verschillende schalen en dieptes.
 Elk van de \mbox{sc\`enes} is gecre\"erd in Blender. De verschillende objecten zijn
 ge\"exporteerd als `.obj` bestand. De lichtconfiguraties zijn gegenereerd aan
 de hand van lichtgeneratievolumes. Een lichtgeneratievolume is een rechthoekig 
-blok, dat per lokale as beschrijft hoeveel lichten er relatief in gegenereerd
-dienen te worden. Aan de hand van deze lichtgeneratievolumes worden lichten
+blok, dat per lokale as beschrijft hoeveel lichtbronnen er relatief in gegenereerd
+dienen te worden. Aan de hand van deze lichtgeneratievolumes worden lichtbronnen
 met een gespecificeerde radius en een willekeurige tint gegenereerd. Deze 
-lichten worden uniform over de ruimte verdeeld.
+lichtbronnen worden uniform over de ruimte verdeeld.
 
 Elk van de \mbox{sc\`enes} zal in de volgende secties verder worden toegelicht. Een
 volledig overzicht van de \mbox{sc\`enes} en gerelateerde data kan gevonden worden in
@@ -41,9 +41,9 @@ de panelen in de gangen.
 Het camerapad en de lichtgeneratievolumes zijn weergegeven in figuur 
 \ref{fig:test-suite-spaceship-map}. De camera, weergegeven met de blauwe pijl,
 beweegt zich door de gangen en kruist hierbij twee maal het middenstuk.
-Het pad bestaat uit $519$ frames. De lichten in het middenstuk 
-hebben een radius van $30.0$, de lichten in het gangenstelsel een radius van
-$23.0$. De lichtgeneratievolumes voor deze lichten zijn respectievelijk weergegeven
+Het pad bestaat uit $519$ frames. De lichtbronnen in het middenstuk 
+hebben een radius van $30.0$, de lichtbronnen in het gangenstelsel een radius van
+$23.0$. De lichtgeneratievolumes voor deze lichtbronnen zijn respectievelijk weergegeven
 met rode en gele blokken.
 
 [^1]: Scene url: \url{www.3drender.com/challenges/}
@@ -78,10 +78,10 @@ grote openlucht \mbox{sc\`enes}.
 Het camerapad en de lichtgeneratievolumes zijn weergegeven in figuur 
 \ref{fig:test-suite-ziggurat-map}. De camera, weergegeven met een blauwe pijl,
 beweegt zich eerst langs de trap omhoog, om vervolgens om de tempelberg heen te
-vliegen. Het camerapad is $463$ frames lang. De lichten zijn onderverdeeld in 
-twee sets. De lichten op de ziggoerat hebben een radius van $10.0$ en zijn met
-een grotere dichtheid geplaatst. De lichten in de stad hebben een radius van $50.0$, 
-en zijn verspreid over grotere volumes. De lichtgeneratievolumes voor deze lichten
+vliegen. Het camerapad is $463$ frames lang. De lichtbronnen zijn onderverdeeld in 
+twee sets. De lichtbronnen op de ziggoerat hebben een radius van $10.0$ en zijn met
+een grotere dichtheid geplaatst. De lichtbronnen in de stad hebben een radius van $50.0$, 
+en zijn verspreid over grotere volumes. De lichtgeneratievolumes voor deze lichtbronnen
 zijn respectievelijk weergegeven met gele en rode blokken.
 
 [^3]: Open film url: \url{durian.blender.org}

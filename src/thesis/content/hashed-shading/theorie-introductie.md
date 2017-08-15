@@ -1,8 +1,8 @@
 # Theorie
 
 In het algemeen kan gesteld worden dat het doel van lichttoekenning is om de 
-ruimte zo effici\"ent mogelijk op te delen, zodat voor elk punt in de \mbox{sc\`ene} 
-de set van relevante lichten opgehaald kan worden. De relevante lichten zijn alle 
+ruimte zo effici\"ent mogelijk op te delen, opdat voor elk punt in de \mbox{sc\`ene} 
+de verzameling van relevante lichtbronnen opgehaald kan worden. De relevante lichtbronnen zijn alle 
 lichten die invloed hebben op het punt in kwestie, i.e. voor al deze lichten 
 geldt dat het lichtvolume overlapt met dit punt. Een datastructuur dient deze
 bevraging mogelijk te maken. Hiervoor dient de datastructuur de volgende attributen
@@ -10,16 +10,16 @@ te bezitten:
 
 * Voor elk punt in de ruimte dient de datastructuur effici\"ent de relevante 
   lichten met zo'n groot mogelijke precisie terug te geven
-* De datastructuur dient compact van aard te zijn, zodat het geheugengebruik minimaal is.
+* De datastructuur dient compact van aard te zijn, opdat het geheugengebruik minimaal is.
 * De datastructuur moet dynamisch aan te passen zijn, indien lichten van positie
   of grootte veranderen.
-* De datastructuur dient effici\"ent te construeren zijn.
+* De datastructuur moet effici\"ent geconstrueerd kunnen worden.
 
 Als laatste dient deze datastructuur verder camera-onafhankelijk te zijn,
-zodat een verandering in het zichtvenster niet leidt tot een gehele heropbouw
+opdat een verandering in het zichtvenster niet leidt tot een gehele heropbouw
 van de datastructuren.
 
-Tijdens het renderen zal per frame voor elk fragment de set van relevante lichten 
+Tijdens het renderen zal per frame voor elk fragment de verzameling van relevante lichten 
 opgehaald worden. Deze operatie zal dus het meest uitgevoerd worden. 
 Tevens is het belangrijk dat de datastructuur compact is. Het beschikbare 
 geheugen op de grafische kaart is beperkt, en een compacte voorstelling 
@@ -27,19 +27,20 @@ verkleint de gebruikte geheugenbandbreedte.
 
 In veel moderne toepassingen zijn lichten dynamisch van aard. Denk hierbij aan
 lichten die geassocieerd zijn met objecten binnen de \mbox{sc\`enes}, zoals koplampen van
-bewegende auto's, als ook lokale lichten die veranderen in felheid door 
+bewegende auto's, alsook lokale lichten die veranderen in intensiteit door 
 veranderingen in de \mbox{sc\`ene}, zoals uitdovende vuren, of explosies. Een 
 datastructuur dient instaat te zijn om dergelijke effecten te modelleren, zonder
 dat de invloed op renderingstijd te groot wordt. Het is mogelijk om de datastructuur 
 volledig opnieuw op te bouwen per frame, echter in veel gevallen
 zijn deze veranderingen tussen frames klein en lokaal van aard, waardoor het 
-effici\"enter kan zijn om de al opgestelde datastructuur (gedeeltelijk) her te
-gebruiken.
+effici\"enter kan zijn om de al opgestelde datastructuur (gedeeltelijk) te
+hergebruiken.
 
 Indien een datastructuur effici\"ent kan worden bijgewerkt gedurende de 
 uitvoering, zal de effici\"entie van het initieel opstellen van de datastructuur 
-van minder groot belang zijn, gezien deze stap als een pre-process stap 
-uitgevoerd kan worden en vervolgens niet meer opnieuw uitgevoerd hoeft te worden. 
+van minder groot belang zijn, gezien deze stap eenmalig als een pre-processstap 
+uitgevoerd kan worden. Vervolgens is het niet meer nodig om deze stap per frame
+opnieuw uit te voeren.
 
 \input{./img/tex/hs-tiled-clustered-subd.tex}
 

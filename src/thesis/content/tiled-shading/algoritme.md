@@ -62,7 +62,7 @@ waar $\mathtt{frag}$ de pixelco\"ordinaten van het fragment zijn, en $n$ de
 grootte van \mbox{\'e\'en} tegel in pixels is. Op basis van deze indices kan de
 offset en aantal lichten opgehaald worden uit het lichtrooster. 
 Vervolgens wordt per lichtindex in de lichtindexlijst geassocieerd met deze 
-tegel, de lichtberekening uitgevoerd met het corresponderende licht. 
+tegel, de lichtberekening uitgevoerd met het corresponderende licht\cite{olsson2011tiled}. 
 De code hiervoor is gedefinieerd in listing \ref{lst:ts-lichttoekenning}
 
 

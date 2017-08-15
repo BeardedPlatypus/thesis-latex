@@ -9,9 +9,9 @@ lichttoekenningsdatastructuren opgesteld die vervolgens tijdens de
 lichtberekening worden gebruikt om het aantal te evalueren lichten te reduceren.
 
 In tegenstelling tot Tiled Shading kunnen deze clusters niet berekend worden 
-voor de geometriestap. Dit komt doordat de clusters afhankelijk zijn van de
+voor de geometriestap. Dit komt, doordat de clusters afhankelijk zijn van de
 diepte van fragmenten, en dus dient een dieptebuffer opgebouwd te zijn, voordat
-de clusters bepaald kunnen worden. Binnen Deferred Shading wordt de dieptebuffer
+de clusters bepaald kunnen worden\cite{olsson2012clustered}. Binnen Deferred Shading wordt de dieptebuffer
 opgebouwd in de geometriestap. Binnen Forward Shading zonder extra 
 uitbreidingen wordt de dieptebuffer slechts opgebouwd tijdens de renderstap. Voor
 Tiled Shading en de na\"ieve implementatie is dit geen probleem. 
@@ -46,7 +46,7 @@ deze lichten uitgevoerd.
 De eerste stap in het opstellen van de clusters is de bepaling van de relevante
 clusters. Omdat de clusters het zichtfrustum onderverdelen in een discrete set
 van subfrusta, kan elk cluster worden aangeduid met een tupel van drie of meer
-integers $\left(i, j, k, \dots \right)$, zoals weergegeven in figuur \ref{fig:cs-opdeling:sleutel}.
+integers $\left(i, j, k, \dots \right)$\cite{olsson2012clustered}, zoals weergegeven in figuur \ref{fig:cs-opdeling:sleutel}.
 Hierbij zijn $i$ en $j$ gelijk aan de co\"ordinaten voor tegels binnen Tiled
 Shading. De integer $k$ specificeert de diepte-index. Een dergelijk tupel wordt
 een clustersleutel genoemd. In sectie \ref{sec:cs-onderverdeling} is de diepte van vlak 
@@ -85,12 +85,12 @@ zoeken, wordt tijdens deze stap ook per fragment de index overeenkomend met
 de cluster geassocieerd. Dit wordt gedaan door bij de sorteerstap een referentie
 naar het fragment toe te voegen aan de $k$-waarde. Vervolgens wordt tijdens
 de compact stap deze referentie gebruikt om de index geassocieerd met de cluster
-toe te voegen aan een textuur op de positie van het fragment.
+toe te voegen aan een textuur op de positie van het fragment\cite{olsson2012clustered}.
 
 Deze stappen zijn binnen `nTiled` ge\"implementeerd in de vorm van een `openGL` 
 compute-shader. Hierbij wordt per tegel een werkgroep gestart. De compute-shader
 voert de sorteer- en compactstap uit. Hierbij wordt de sorteerstap uitgevoerd 
-met behulp van een bottom-up merge-sort-algoritme.\cite{Sedgewick:2011:ALG:2011916}
+met behulp van een bottom-up merge-sort-algoritme\cite{Sedgewick:2011:ALG:2011916}.
 Elke $k$-waarde wordt voorgesteld als een 16-bit integer. Bij de eerste stap van
 het merge-sort-algoritme wordt de $k$-waarde verschoven over 16-bits. Vervolgens
 wordt de gelineariseerde index van het fragment hierbij opgeteld.
@@ -115,7 +115,7 @@ voor alle fragmenten opgeslagen in de clusterindextextuur.
 ## Lichttoekenning
 
 Om de grote aantallen lichten effici\"ent aan de unieke clusters toe te kennen, 
-wordt een Bounding Volume Hierarchy (BVH) gebruikt. Deze BVH wordt
+wordt een Bounding Volume Hierarchy (BVH) gebruikt\cite{olsson2012clustered}. Deze BVH wordt
 per frame opgesteld. Hiervoor worden de lichten geordend met respect tot de 
 $\mathbf{z}$-as. Vervolgens worden de lichten gegroepeerd per 32, en wordt voor
 elke groep een Axis-Aligned Bounding Box (AABB) opgesteld. Deze groepen worden
@@ -128,7 +128,7 @@ kinderen ge\"evalueerd. De uiteindelijk overlappende lichten worden toegevoegd
 aan het cluster.
 
 Binnen `nTiled` is deze optimalisatie niet ge\"implementeerd. De clusters worden
-in plaats hiervan opgesteld doorm iddel van een bruteforce methode gelijkend op
+in plaats hiervan opgesteld door middel van een bruteforce methode gelijkend op
 de lichttoekenningsmethode van Tiled Shading. Eerst worden de lichten afgebeeld
 op het zichtvenster en worden de tegels waarop elk licht invloed heeft bepaald, 
 zoals in Tiled Shading. Vervolgens wordt voor deze tegels nagegaan of het 
@@ -145,7 +145,7 @@ De datastructuren in Clustered Shading gelijken in grote mate op die van
 Tiled Shading, \ref{sec:ts-datastructuren}. Echter binnen Clustered Shading kan
 de clusterindex niet meer direct berekend worden uit de positie van het 
 fragment. Deze associatie dient dus expliciet bijgehouden te worden. Om deze
-reden is de clustermaptextuur ge\"introduceerd. Hierin wordt per fragment 
+reden is de clustermaptextuur ge\"introduceerd\cite{olsson2012clustered}. Hierin wordt per fragment 
 de index van het overeenkomstige cluster bijgehouden. De clusterlijst vervangt
 vervolgens de functie van het lichtrooster binnen Tiled Shading.
 
@@ -158,8 +158,8 @@ in plaats hiervan gekozen om een tweede textuur bij te houden. Deze bevat
 voor elke tegel \mbox{\'e\'en} waarde, die de offset voor alle fragmenten binnen
 de tegel geeft. Vervolgens kan de cluster die geassocieerd is met een fragment
 opgehaald worden door de lokale offset op te tellen bij de tegeloffsetwaarde.
-Dit leidt tot de volgende datastructuren die tevens weergegeven zijn in figuur
-\ref{fig:cs-datastructuren}.
+Dit leidt tot de volgende datastructuren\cite{olsson2012clustered}, waarvan 
+de relaties zijn weergegeven in Figuur \ref{fig:cs-datastructuren}.
 
 
 Globale lichtlijst:

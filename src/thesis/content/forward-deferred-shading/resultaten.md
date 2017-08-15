@@ -23,7 +23,7 @@ Gelijk valt hierbij op dat bij een lage resolutie en een klein aantal lichten
 Forward en Deferred Shading elkaar nauwelijks ontlopen. Het verschil in 
 uitvoeringstijd is echter significant bij een hoge resolutie en een groot aantal
 lichten. Niet alleen is de uitvoeringstijd kleiner bij Deferred Shading, het is 
-tevens consistenter. Dit is belangrijk voor computerspellen en andere real-time
+tevens consistenter. Dit is belangrijk voor computerspellen en andere realtime
 toepassingen waar een consistente framerate nodig is voor een overtuigende 
 virtuele ervaring. 
 

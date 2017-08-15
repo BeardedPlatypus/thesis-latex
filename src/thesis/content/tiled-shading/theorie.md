@@ -9,14 +9,14 @@ lichtberekening ge\"evalueerd worden voor alle lichten in de scene. Beide
 aanpakken hebben dus significante nadelen.
 
 Tiled Shading is ge\"introduceerd om beide problemen te verlichten\cite{olsson2011tiled}. Binnen Tiled
-Shading wordt het zichtveld onderverdeeld in een set van tegels, zoals 
+Shading wordt het zichtveld onderverdeeld in een verzameling van tegels, zoals 
 weergegeven in figuur \ref{fig:ts-grid-intro:frame}. Hierdoor wordt het 
 zichtfrustum opgedeeld zoals weergegeven in figuur \ref{fig:ts-grid-intro:frustum}.
 Voor elk van de tegels wordt vervolgens bepaald welke lichten overlappen met de
-tegel. Deze set van lichten kan dan opgehaald worden tijdens de 
+tegel. Deze verzameling van lichten kan dan opgehaald worden tijdens de 
 belichtingsberekening, en zo het aantal te evalueren lichten beperken.
 
-Doordat het mogelijk is om per fragment direct een set van relevante lichten op
+Doordat het mogelijk is om per fragment direct een verzameling van relevante lichten op
 te halen, kan gebruik gemaakt worden van Deferred Shading zonder 
 stencil-optimalisatie. Hierdoor hoeft per fragment slechts eenmaal de GBuffer
 uitgelezen te worden. Tegelijkertijd blijft het aantal lichten dat ge\"evalueerd
@@ -26,11 +26,11 @@ Deferred Shading als Forward Shading. Op deze manier kan dus ook de uitvoeringst
 in Forward Shading beperkt worden.
 
 Deze omzetting leidt tot een verschil in lus-structuur tussen Tiled Shading en
-Deferred Shading met stencil-optimalisatie. Deferred Shading met stencil 
-optimalisatie cree\"ert per licht fragmenten, waardoor de binnenste lus
+Deferred Shading met stencil-optimalisatie\cite{olsson2011tiled}. Deferred Shading met stencil 
+optimalisatie cre\"eert per licht fragmenten, waardoor de binnenste lus
 over pixels loopt. Hierdoor zal per licht de data uit de GBuffer opgehaald 
 worden. Tiled Shading en de na\"ive implementaties van Forward en 
-Deferred Shading daarentegen cree\"ren eerst de fragmenten, en overlopen
+Deferred Shading daarentegen cre\"eren eerst de fragmenten, en overlopen
 dan de lichten. Hierdoor zal elk fragment slechts eenmalig overlopen worden.
 Dus wordt het de GBuffer ook maar \mbox{\'e\'en} keer per fragment aangesproken.
 Dit verschil lost het geheugenbandbreedte-probleem op.

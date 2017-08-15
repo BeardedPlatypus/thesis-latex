@@ -1,8 +1,8 @@
 # Algoritme
 
 In deze sectie wordt het Hashed Shading algoritme toegelicht. Hiervoor zal
-eerst ingegaan worden op het achterliggende idee, en zal een overzicht
-worden gegeven van de gebruikte datastructuren. Hiernazal ingegaan worden
+eerst ingegaan worden op het achterliggende idee en zal een overzicht
+worden gegeven van de gebruikte datastructuren. Hierna zal ingegaan worden
 op de constructie en het gebruik van Hashed Shading binnen de fragmentshader.
 
 ## Overzicht
@@ -39,15 +39,15 @@ op de grafische kaart.
 \input{./img/tex/hs-opdeling-scene.tex}
 
 Om de benodigde datastructuren op te bouwen dient de \mbox{sc\`ene} voorgesteld te worden
-als een octree. dit betekent dat eerst de opdeling van de ruimte opgesteld moet worden. 
+als een octree. Dit betekent dat eerst de opdeling van de ruimte opgesteld moet worden. 
 Daarna wordt aan deze opdeling de lichten toegekend. Voor deze opdeling wordt een
-nieuwe set co\"ordinaten ge\"introduceerd, de octree-co\"ordinaten. Hierbij zijn de 
+nieuwe verzameling co\"ordinaten ge\"introduceerd, de octree-co\"ordinaten. Hierbij zijn de 
 wereldco\"ordinaten getransleerd, zodanig dat de oorsprong van het octree-co\"ordinatenstelsel
 overeen komt met de oorsprong van de octree. Hierdoor zullen alle relevante punten positief zijn.
 
 De octree dient zodanig gekozen te worden dat alle lichten in de \mbox{sc\`ene} er binnen vallen.
 Hiervoor wordt de oorsprong van de octree genomen als het grootste punt $\mathbf{p}_\text{min}$ dat 
-kleiner is dan  alle lichtevolumes minus een offset $\mathbf{c}$. Indien $L$ de set van lichten is, 
+kleiner is dan  alle lichtevolumes minus een offset $\mathbf{c}$. Indien $L$ de verzameling van lichtbronnen is, 
 kan dit gedefinieerd worden als:
 
 $$ 
@@ -74,14 +74,14 @@ De octree wordt voorgesteld als een kubus, dus dient de lengte van deze kubus mi
 aan de grootste dimensie tussen de oorsprong $\mathbf{p}_o$ en het maximale punt $\mathbf{p}_\text{max}$ plus
 de offset-waarde $\mathbf{c}$:
 
-$$ \operatorname{max}\left(\mathbf{p}_\text{max} - \mathbf{p}_text{min} + 2 mathbf{c}\right) $$
+$$ \operatorname{max}\left(\mathbf{p}_\text{max} - \mathbf{p}_\text{min} + 2 \mathbf{c}\right) $$
 
 De gebruiker stelt de grootte van de knopen in de diepste laag in. Dit wordt de 
 minimale knoopgroote $\mathit{d}$ genoemd. De grootte van de octree kan vervolgens bepaald worden
 aan de hand van de minimale lengte en de minimale knoopgrootte. Hierbij dient de integer $\mathit{l}$
 zo klein mogelijk gekozen te worden zodanig dat geldt:
 
-$$ 2^\mathit{l} * \mathit{d} \geq \operatorname{max}\left(\mathbf{p}_\text{max} - \mathbf{p}_text{min} + 2 mathbf{c}\right) $$ 
+$$ 2^\mathit{l} * \mathit{d} \geq \operatorname{max}\left(\mathbf{p}_\text{max} - \mathbf{p}_\text{min} + 2 \mathbf{c}\right) $$ 
 
 \noindent De waarde $\mathit{l}$ komt overeen met het aantal lagen dat de octree bezit.
 
@@ -92,7 +92,7 @@ Hiermee liggen alle mogelijke opdelingen van de \mbox{sc\`ene} vast. Dit is ge\"
 \input{./img/tex/hs-light-grid.tex}
 \input{./lst/hs-node_in_light.tex}
 
-Wanneer de grootte en oorsprong van de octree berekend zijn, ligt de positie van alle mogelijke konpen vast.
+Wanneer de grootte en oorsprong van de octree berekend zijn, ligt de positie van alle mogelijke knopen vast.
 De volgende stap is om de lichten in de \mbox{sc\`ene} toe te kennen aan de opdeling. 
 Hiervoor zal eerst voor elk van de lichten bepaald worden met welke bladknopen uit de diepste laag van de 
 octree deze overlappen. Op basis van het lichtvolume kan het kleinst-mogelijke rooster van knopen van 
@@ -153,7 +153,7 @@ zijn er drie mogelijke vervolgstappen:
 * De gevulde knopen kunnen direct worden samengevoegd. Op basis van deze set
   knopen kan dan bottom-up de octree worden opgebouwd.
 * De roosters per licht kunnen worden opgeslagen. Hierna wordt de informatie in
-  deze roosters samengevoegd tot \mbox{\'e\'enzelfde} set van knopen als
+  deze roosters samengevoegd tot \mbox{\'e\'enzelfde} verzameling van knopen als
   in de eerste mogelijkheid.
 * De roosters kunnen per licht omgezet worden naar een octreestructuur, die
   vervolgens wordt opgeslagen. Deze octrees kunnen vervolgens worden samengevoegd
@@ -162,15 +162,15 @@ zijn er drie mogelijke vervolgstappen:
 \noindent Indien slechts statische lichten worden gebruikt, is er geen reden
 om lichten los bij te houden, dus zal de eerste optie in dit geval de meest
 effici\"ente keuze zijn. Indien lichten dynamisch van aard zijn, kan het 
-nodig zijn dat de knopen waarop een licht invloed heeft, veranderen. Om
-effici\"ent de verandering in knopen te berekenen kan de oude set knopen
-vergeleken worden met de set van knopen die de nieuwe situatie beschrijft.
-Om onnodig rekenwerk te voorkomen kan vervolgens de set van knopen waarop
+nodig zijn dat de knopen waarop een licht invloed heeft, te veranderen. Om
+effici\"ent de verandering in knopen te berekenen kan de oude verzameling knopen
+vergeleken worden met de verzameling van knopen die de nieuwe situatie beschrijft.
+Om onnodig rekenwerk te voorkomen kan vervolgens de verzameling van knopen waarop
 een licht invloed heeft in de huidige frame bijgehouden worden.
 Wanneer slechts het rooster per licht wordt bijgehouden, optie twee, is het
 nodig om elke knoop in het rooster met \mbox{\'e\'en} bit voor te stellen.
 Indien de knoopgrootte groot is, of de lichtvolumes klein kan dit 
-effici\"ent bijgehouden worden. Echter deze  set knopen wordt
+effici\"ent bijgehouden worden. Echter deze  verzameling knopen wordt
 kubiek groter bij kleinere knoopgroottes. Wanneer de knoopgrootte klein is
 zal een octreevoorstelling leiden tot minder geheugengebruik per licht,
 waardoor optie drie effici\"enter zal zijn.
@@ -185,10 +185,9 @@ genomen als de wortelknoop voor de octreevoorstelling van het enkele licht.
 Beginnend van deze knoop wordt bepaald of een knoop een takknoop of bladknoop is.
 In het geval dat een knoop een takknoop is, worden ook de kindknopen van deze
 knoop ge\"evalueerd. 
+Voor knoop $\mathbf{k}$ zijn er initieel drie mogelijke situaties:
 
 \input{./img/tex/hs-licht-octree-dt.tex}
-
-Voor knoop $\mathbf{k}$ zijn er initieel drie mogelijke situaties:
 
 * Het volume van knoop $\mathbf{k}$ overlapt niet met het rooster.
 * Het volume van knoop $\mathbf{k}$ overlapt gedeeltelijk met het rooster.
@@ -227,10 +226,10 @@ Hiermee kan elk licht als octree worden voorgesteld.
 
 Nadat vastgesteld is hoe elk licht individueel wordt toegekend aan de opdeling, dient de octree 
 voor de gehele \mbox{sc\`ene} opgesteld te worden. Deze \mbox{sc\`ene-octree} bevat per
-bladknoop een set referenties naar de relevante lichten.
+bladknoop een verzameling referenties naar de relevante lichten.
 
 Indien de individuele lichten met een rooster voorgesteld zijn, kunnen de roosterknopen 
-samengevoegd worden zodat een set van bladknopen ontstaat. Deze kunnen vervolgens bottom-up
+samengevoegd worden zodat een verzameling van bladknopen ontstaat. Deze kunnen vervolgens bottom-up
 samengevoegd worden, om zo tot een octree te komen.
 
 Indien de individuele lichten voorgesteld zijn met een octree, kunnen elk van deze 
@@ -249,17 +248,16 @@ Hierbij zijn er vijf mogelijke situaties die beschreven zijn in tabel \ref{tbl:h
 
 \input{./img/tex/hs-algoritme-beschrijving.tex}
 
-Nu de \mbox{sc\`ene-octree} is opgesteld kan de set van datastructuren die gebruikt wordt in
+Nu de \mbox{sc\`ene-octree} is opgesteld kan de verzameling van datastructuren die gebruikt wordt in
 de lichttoekenning geconstrueerd worden. Hiervoor dient de \mbox{sc\`ene-octree} voorgesteld
-te worden als een verbindingloze octree. Tevens moet de lichtindexlijst opgesteld worden.
+te worden als een verbindingloze octree\cite{choi2009linkless}. Tevens moet de lichtindexlijst opgesteld worden.
 
-Omdat de set van relevante lichten slechts gedefinieerd is voor de gevulde bladknopen, is er
+Omdat de verzameling van relevante lichten slechts gedefinieerd is voor de gevulde bladknopen, is er
 voor gekozen om de octreestructuur en lichtinformatie gescheiden op te slaan. Per laag $l$ 
 worden dus twee spatiale hashfuncties opgesteld, \mbox{\'e\'en} die de octreebeschrijving 
 bevat, en \mbox{\'e\'en} die de lichtinformatie voor alle gevulde knopen in laag $l$ bevat.
-
 De lichtinformatie wordt vergelijkbaar voorgesteld als in Tiled en Clustered Shading. 
-Elke gevulde bladknoop krijgt twee integers toegewezen die een subset van de lichtindexlijst
+Elke gevulde bladknoop krijgt twee integers toegewezen die een deelverzameling van de lichtindexlijst
 specificeren.
 
 Het algoritme voor het opstellen van de datastructuren is weergeven in figuur \ref{fig:hs-algoritme-beschrijving}.
@@ -270,22 +268,22 @@ in het geheugen geladen en gebruikt door de shaders worden.
 
 Het tweede component van Hashed Shading is het ophalen van de relevante lichtinformatie
 voor punt $\mathbf{p}$ binnen de fragmentshader. Dit komt neer op het doorlopen 
-van de verbindingloze octree, totdat een bladknoop wordt bereikt. In het geval
+van de verbindingloze octree, totdat een bladknoop wordt bereikt\cite{choi2009linkless}. In het geval
 dat deze niet leeg is, kan de corresponderende lichtinformatie worden opgehaald uit
 de datahashtabel. 
 
 De afdaling komt neer op per laag het berekenen van de octreeknoop beschrijving waarin 
 punt $\mathbf{p}$ valt:
 
-$$ (\mathtt{is_leaf}, \mathtt{is_filled}) = H_l\left[ \mathit{h}_0\left(\left\lfloor \frac{\mathbf{p}}{\mathit{d}_l} \right\rfloor\right) + \Phi\left[ \mathit{h}_1\left(\left\lfloor \frac{\mathbf{p}}{\mathit{d}_l} \right\rfloor\right) \right] \right] $$
+$$ (\mathtt{is\_leaf}, \mathtt{is\_filled}) = H_l\left[ \mathit{h}_0\left(\left\lfloor \frac{\mathbf{p}}{\mathit{d}_l} \right\rfloor\right) + \Phi\left[ \mathit{h}_1\left(\left\lfloor \frac{\mathbf{p}}{\mathit{d}_l} \right\rfloor\right) \right] \right] $$
 
 \noindent waarbij $\mathit{d}_l$ de knoopgrootte van de laag $l$ is.
 
-$\mathtt{is_leaf}$ en $\mathtt{is_filled}$ beschrijven alle acht kinderen van de takknoop $\mathbf{k}$ in laag $l$.
+$\mathtt{is\_leaf}$ en $\mathtt{is\_filled}$ beschrijven alle acht kinderen van de takknoop $\mathbf{k}$ in laag $l$.
 De bits die overeenkomen met de kindknoop $\mathbf{k^\prime}$ van takknoop $\mathbf{p}$ waarin punt $\mathbf{p}$ valt, 
 bevinden zich op positie:
 
-$$ \mathit{k}^prime_\mathtt{bit} = \mathit{k}_x^\prime + 2 \cdot\mathit{k}_y^\prime + 4\cdot\mathit{k}_z^\prime $$
+$$ \mathit{k}^\prime_\mathtt{bit} = \mathit{k}_x^\prime + 2 \cdot\mathit{k}_y^\prime + 4\cdot\mathit{k}_z^\prime $$
 
 \noindent Door bitverschuivingen toe te passen, kan de bit op positie $\mathit{k}^prime_\mathtt{bit}$ achterhaald
 worden.
@@ -297,8 +295,10 @@ Er zijn drie mogelijke situaties:
 * kindknoop $\mathbf{k}^\prime$ is een gevulde bladknoop, en de lichtinformatie wordt opgehaald uit de tweede spatiale hashfunctie
   geassocieerd met laag $l$.
   
-\noindent Vervolgens kan op een vergelijkbare manier als in Tiled en Clustered Shading de set van
+\noindent Vervolgens kan op een vergelijkbare manier als in Tiled en Clustered Shading de verzameling van
 relevante lichten worden overlopen om de uiteindelijke kleur van punt $\mathbf{p}$ te berekenen. 
 De `GLSL`-code voor dit algoritme is gegeven in listing \ref{lst:hs-lichttoekenning}
 
 \input{./lst/hs-lichttoekenning.tex}
+
+

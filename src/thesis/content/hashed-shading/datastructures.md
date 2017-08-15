@@ -1,6 +1,6 @@
 ## Overzicht van spatiale datastructuren
 
-### Binaire-ruimte-partitionering
+### Binaire-ruimte-partitionering (BSP)
 
 Binaire ruimte partitionering is een methode om een $d$-dimensionale ruimte onder
 te verdelen. Hiervoor wordt aan de hand van hypervlakken de ruimte recursief
@@ -8,7 +8,7 @@ opgedeeld\cite{naylor1998tutorial}. Waarbij een hypervlak een $d$-dimensionaal
 vlak is. Deze recursieve opdeling wordt opgeslagen in een 
 binaire-ruimte-partitioneringsboom. In het geval van een 1-dimensionale ruimte, 
 zoals een lijst, komt dit overeen met een binaire zoekboom, waarbij de 
-hypervlakken punten binnen de lijst zijn. In het geval van een drie dimensionale 
+hypervlakken punten binnen de lijst zijn. In het geval van een driedimensionale 
 ruimte zullen de hypervlakken standaard vlakken zijn. De volgende datastructuren 
 kunnen gedefinieerd worden als specifieke  implementaties van binaire-ruimte-partitionering.
 
@@ -29,7 +29,7 @@ Clustered Shading maakt gebruik van een vorm van een rooster over het zichtfrust
 Hierbij wordt de data compacter voorgesteld door slechts cellen die zowel licht
 als geometrie bevatten op te slaan.
 
-Een rooster kan simpelweg gedefinieerd worden als een drie dimensionale lijst. 
+Een rooster kan simpelweg gedefinieerd worden als een driedimensionale lijst. 
 Indien dit als binaire-ruimte-partitionering wordt weergegeven, wordt recursief 
 in elke dimensie steeds \mbox{\'e\'en} cel gedefinieerd.
 
@@ -38,15 +38,15 @@ in elke dimensie steeds \mbox{\'e\'en} cel gedefinieerd.
 \input{./img/tex/hs-octree.tex}
 
 De octree is een boomdatastructuur waarbij met elke knoop een kubus is geassocieerd. 
-Elke takknoop bezit precies acht kinderen De kinderen verdelen de ruimte geassocieerd 
+Elke takknoop bezit precies acht kindknopen. De kinderen verdelen de ruimte geassocieerd 
 met de takknoop op in acht equivalente nieuwe
-kubussen\cite{meagher1982geometric}. Deze structuur is ge\"illustreerd in figuur
+balken\cite{meagher1982geometric}. Deze structuur is ge\"illustreerd in figuur
 \ref{fig:hs-octree}. Data kan ofwel in elke knoop opgeslagen worden, ofwel alleen 
-in de bladknopen. Indien een knoop een ruimte volledig beschrijft is het niet nodig 
+in de bladknopen. Indien een knoop de geassocieerde ruimte volledig beschrijft is het niet nodig 
 om deze verder onder te verdelen. Deze hi\"erarchische structuur zorgt ervoor dat 
-het mogelijk is  om de ruimte in hoge resolutie te beschrijven zorder tegen dezelfde
+het mogelijk is  om de ruimte in hoge resolutie te beschrijven zonder tegen dezelfde
 geheugenproblemen als het rooster aan te lopen, doordat grote homogene ruimtes 
-met slechts \mbox{\`e\`en} enkele knoop voorgesteld kunnen worden.
+met slechts \mbox{\'e\'en} enkele knoop voorgesteld kunnen worden.
 
 De octree definieert een ruimtepartitionering door per takknoop drie hypervlakken
 op te stellen. Deze zullen altijd het middelpunt van de octreeknoop snijden.
@@ -63,13 +63,13 @@ delen.
 
 Dit is een specifiek geval van binaire-ruimte-partitionering, op elk niveau 
 wordt de ruimte in twee helften ingedeeld. Het verschil met generieke 
-binaire-ruimte-partitionering is dat de set van hypervlakken slechts een subset is 
+binaire-ruimte-partitionering is dat de set van hypervlakken slechts een deelverzameling is 
 van alle mogelijke hypervlakken.
 
 ### R-boom
 
 De R-boom is een $n$-dimensionale zelfbalancerende boom. Met elke knoop is een
-$n$-dimensionaal vierkant geassocieerd. De data opgeslagen in de R-boom bevindt
+$n$-dimensionale balk geassocieerd. De data opgeslagen in de R-boom bevindt
 zich in de bladknopen, waar de positie van elk datapunt binnen het vierkant 
 geassocieerd met de bladknoop ligt\cite{guttman1984r}. De $n$-dimensionale 
 vierkanten hebben verder de volgende eigenschappen
@@ -84,14 +84,14 @@ zorgen ervoor dat de spatiale data effici\"ent opgehaald kan worden.
 
 Aan het begin van deze sectie is het doel van de lichttoekenningsdatastructuur
 gesteld op het effici\"ent onderverdelen van de ruimte, zodanig dat voor een 
-punt $\mathbf{p}$ in deze ruimte de set van relevante lichten opgehaald kan 
+punt $\mathbf{p}$ in deze ruimte de verzameling van relevante lichtbronnen opgehaald kan 
 worden. Hiervoor dient de ruimte onderverdeeld te worden, waarna vervolgens
 de lichten toegekend moeten worden aan de volumes van deze opdeling op basis 
-van de corresponderende lichtvolumes. Nadat de datastructuur opgesteld is, dient 
+van hun corresponderende lichtvolumes. Nadat de datastructuur opgesteld is, dient 
 het volume van de opdeling waar punt $\mathbf{p}$ in valt berekend te kunnen 
 worden.
 
-De R-boom is ontwikkeld met het op op zoekproblemen zoals het dichtste-buurprobleem.
+De R-boom is ontwikkeld met het oog op zoekproblemen zoals het dichtste-buurprobleem.
 Om deze reden is het minder geschikt als lichttoekenningsdatastructuur, waar het
 doel is om een beschrijving rond het punt $\mathbf{p}$ te geven. 
 
@@ -114,7 +114,7 @@ met het dynamische karakter van de lichten.
 
 De octree-implementatie vereist deze extra complexiteit niet. Daarnaast zou de uniformiteit
 van de knopen per laag van de octree het ondersteunen van dynamische lichten moeten
-vergemakkelijken. Verder is de set van relevante lichten voor een punt $\mathbf{p}$ 
+vergemakkelijken. Verder is de verzameling van relevante lichten voor een punt $\mathbf{p}$ 
 effici\"ent op te halen door de octree te doorlopen. De hi\"erarchische structuur 
 maakt het mogelijk om de octree compact in het geheugen voor te stellen.
 Om deze redenen is de octree-datastructuur gekozen als basis voor het Hashed Shading 

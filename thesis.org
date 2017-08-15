@@ -8,7 +8,7 @@ Thesis worksheet
 [[file:src/thesis/content/conf.json][conf.json]]
 
 ** TODO [[file:src/thesis/content/abstract.md][abstract.md]]
-** TODO Inleiding
+** DRAFT Inleiding
 [[file:src/thesis/content/inleiding/chapter.json][chapter.json]]
 *** TODO [[file:src/thesis/content/inleiding/algemene_inleiding.md][algemene_inleiding.md]]
 Korte inleiding die thesis introduceert.
@@ -96,9 +96,12 @@ Definitie visibileits probleem
 ***** Images
 ****** DRAFT [[file:src/thesis/img/tex/vp-perspectief.tex][vp-perspectief.tex]]
 ****** DRAFT [[file:src/thesis/img/tex/vp-projectie-punt.tex][vp-projectie-punt.tex]]
-****** TODO [[file:src/thesis/img/tex/vp-visibiliteit.tex][vp-visibiliteit.tex]]
+****** DRAFT [[file:src/thesis/img/tex/vp-visibiliteit.tex][vp-visibiliteit.tex]]
 
 **** DRAFT [[file:src/thesis/content/theorie/raytracing.md][raytracing.md]]
+***** Images
+****** DRAFT [[file:src/thesis/img/tex/rt-forward.tex][rt-forward.tex]]
+****** DRAFT [[file:src/thesis/img/tex/rt-raytracing.tex][rt-raytracing.tex]]
 **** DRAFT [[file:src/thesis/content/theorie/rasterisation.md][rasterisation.md]]
 ***** Visibility / hidden surface probleem
 ***** Korte beschrijving raytracing vs Rasterisatie als oplossing 
@@ -106,6 +109,8 @@ verschil in focus, pixel first, or object first. Groffe voordelen
 nadelen, en waarom het gebruik wordt op die manier
 ***** In depth beschrijving rasterisation
 Illustraties hoe dit werkt.
+***** Images
+****** DRAFT [[file:src/thesis/img/tex/rs-rasterisatie.tex][rs-rasterisatie.tex]]
 **** DRAFT [[file:src/thesis/content/theorie/shading.md][shading.md]]
 Shading formula, toegepast benadering in verband met real time.
 Waar het voordeel van lichten uitkomt
@@ -177,6 +182,7 @@ korte beschrijving hoe lichten opgebouwd zijn binnen deze thesis.
 
 **** DRAFT Graphs
 ***** DRAFT [[file:src/thesis/img/tex/fds-test-frames-high.tex][fds-test-frames-high.tex]] 
+***** DRAFT [[file:src/thesis/img/tex/fds-test-frames-example.tex][fds-test-frames-example.tex]] 
 ***** DRAFT [[file:src/thesis/img/tex/fds-test-lights.tex][fds-test-lights.tex]] 
 ***** DRAFT [[file:src/thesis/img/tex/fds-test-resolution.tex][fds-test-resolution.tex]] 
 
@@ -218,7 +224,7 @@ korte beschrijving hoe lichten opgebouwd zijn binnen deze thesis.
 *** TODO Discussie / Conclusie vergelijking
 [[file:src/thesis/content/tiled-shading/discussie.md][discussie.md]]
 
-** TODO Clustered Shading
+** DRAFT Clustered Shading
 [[file:src/thesis/content/clustered-shading/chapter.json][chapter.json]]
 *** DRAFT [[file:src/thesis/content/clustered-shading/introduction.md][introduction.md]]
 *** DRAFT [[file:src/thesis/content/clustered-shading/theory.md][theory.md]]
@@ -258,17 +264,16 @@ korte beschrijving hoe lichten opgebouwd zijn binnen deze thesis.
 ******* sorteren
 ******* page tables
 
-** TODO Hashed Shading
+** DRAFT Hashed Shading
 [[file:src/thesis/content/hashed-shading/chapter.json][chapter.json]]
-*** TODO Introductie
+*** DRAFT Introductie
 [[file:src/thesis/content/hashed-shading/introductie.md][introductie.md]]
 Beschrijf tevens wat een octree samen ligt
-*** TODO Theorie
+*** DRAFT Theorie
 **** DRAFT Introductie
 [[file:src/thesis/content/hashed-shading/theorie-introductie.md][theorie-introductie.md]]
 ***** TODO Images
-****** hs-tiled-clustered-subd
-[[file:src/thesis/img/tex/hs-tiled-clustered-subd.tex][hs-tiled-clustered-subd.tex]]
+****** [[file:src/thesis/img/tex/hs-tiled-clustered-subd.tex][hs-tiled-clustered-subd.tex]]
 
 
 **** DRAFT Spatiale datastructuren
@@ -290,11 +295,36 @@ Beschrijf tevens wat een octree samen ligt
 ****** [[file:src/thesis/img/tex/hs-datastructuur-r.tex][hs-datastructuur-r.tex]]
 **** TODO Octrees
 [[file:src/thesis/content/hashed-shading/octrees.md][octrees.md]]
+
+
 **** TODO Hashing
 [[file:src/thesis/content/hashed-shading/hashing.md][hashing.md]]
 
+***** IMAGES
+****** [[file:src/thesis/img/tex/hs-hashfunctie.tex][hs-hashfunctie.tex]]
+****** [[file:src/thesis/img/tex/hs-spatiale-hashfunctie.tex][hs-spatiale-hashfunctie-r.tex]]
+****** [[file:src/thesis/img/tex/hs-spatiale-hashfunctie-update.tex][hs-spatiale-hashfunctie-update.tex]]
+****** [[file:src/thesis/img/tex/hs-octree-layers.tex][hs-octree-layers.tex]]
+****** [[file:src/thesis/img/tex/hs-linkless-octree-representation.tex][hs-linkless-octree-representation.tex]]
+
 *** TODO Algoritme
 [[file:src/thesis/content/hashed-shading/algoritme-introductie.md][algoritme-introductie.md]]
+
+**** Images
+***** DRAFT [[file:src/thesis/img/tex/hs-datastructuren-overzicht.tex][hs-datastructuren-overzicht.tex]]
+***** DRAFT [[file:src/thesis/img/tex/hs-opdeling-scene.tex][hs-opdeling-scene.tex]]
+***** DRAFT [[file:src/thesis/img/tex/hs-light-grid.tex][hs-light-grid.tex]]
+***** DRAFT [[file:src/thesis/img/tex/hs-p1.tex][hs-p1.tex]]
+***** DRAFT [[file:src/thesis/img/tex/hs-licht-octree.tex][hs-licht-octree.tex]]
+***** DRAFT [[file:src/thesis/img/tex/hs-licht-octree-dt.tex][hs-licht-octree-dt.tex]]
+***** DRAFT [[file:src/thesis/img/tex/hs-algoritme-beschrijving.tex][hs-algoritme-beschrijving.tex]]
+
+**** LST
+***** DRAFT [[file:src/thesis/lst/hs-lichttoekenning.tex][hs-lichttoekenning.tex]] 
+
+
+
+
 **** SingleLightTree
 [[file:src/thesis/content/hashed-shading/SingleLightTree.md][SingleLightTree.md]]
 ***** TODO imgs 
@@ -313,16 +343,29 @@ Beschrijf tevens wat een octree samen ligt
 [[file:src/thesis/content/hashed-shading/resultaten.md][resultaten.md]]
 
 **** TODO Graphs
-***** DRAFT Seed - combined
-[[file:src/thesis/img/tex/hs-seed-combined.tex][hs-seed-combination.tex]]
-***** DRAFT Seed - memory
-[[file:src/thesis/img/tex/hs-seed-memory.tex][hs-seed-memory.tex]]
-***** DRAFT Seed - construction time
-[[file:src/thesis/img/tex/hs-seed-construction-time.tex][hs-seed-construction-time.tex]]
-***** DRAFT NodeSize - memory
-[[file:src/thesis/img/tex/hs-nodesize-memory.tex][hs-nodesize-memory.tex]]
-***** DRAFT NodeSize - construction time
-[[file:src/thesis/img/tex/hs-nodesize-construction-time.tex][hs-nodesize-construction-time.tex]]
+***** DRAFT [[file:src/thesis/img/tex/hs-seed-combined.tex][hs-seed-combination.tex]]
+***** DRAFT [[file:src/thesis/img/tex/hs-seed-memory.tex][hs-seed-memory.tex]]
+***** DRAFT [[file:src/thesis/img/tex/hs-seed-construction-time.tex][hs-seed-construction-time.tex]]
+
+***** DRAFT [[file:src/thesis/img/tex/hs-nodesize-construction-time.tex][hs-nodesize-construction-time.tex]]
+***** DRAFT [[file:src/thesis/img/tex/hs-nodesize-memory.tex][hs-nodesize-memory.tex]]
+***** DRAFT [[file:src/thesis/img/tex/hs-ns-layered-mem.tex][hs-ns-layered-mem.tex]] 
+***** DRAFT [[file:src/thesis/img/tex/hs-nodesize-construction-per-function.tex][hs-nodesize-construction-per-function.tex]]
+
+***** DRAFT [[file:src/thesis/img/tex/hs-ns-frame-low.tex][hs-ns-frame-low.tex]] 
+***** DRAFT [[file:src/thesis/img/tex/hs-ns-frame-high.tex][hs-ns-frame-high.tex]] 
+***** DRAFT [[file:src/thesis/img/tex/hs-ns-sum.tex][hs-ns-sum.tex]] 
+
+***** DRAFT [[file:src/thesis/img/tex/hs-sd-cons-mem.tex][hs-sd-cons-mem.tex]] 
+***** DRAFT [[file:src/thesis/img/tex/hs-sd-li-exec.tex][hs-sd-li-exec.tex]] 
+***** DRAFT [[file:src/thesis/img/tex/hs-compare-frames.tex][hs-compare-frames.tex]] 
+***** DRAFT [[file:src/thesis/img/tex/hs-compare-frames-lc.tex][hs-compare-frames-lc.tex]] 
+***** DRAFT [[file:src/thesis/img/tex/hs-compare-lights.tex][hs-compare-lights.tex]] 
+***** DRAFT [[file:src/thesis/img/tex/hs-compare-resolution.tex][hs-compare-resolution.tex]] 
+***** DRAFT [[file:src/thesis/img/tex/hs-compare-lights-res-lc.tex][hs-compare-lights-res-lc.tex]] 
+
+
+
 ***** DRAFT [[file:src/thesis/img/tex/hs-exec-lights.tex][hs-exec-lights.tex]] 
 ***** DRAFT [[file:src/thesis/img/tex/hs-exec-resolution.tex][hs-exec-resolution.tex]] 
 ***** DRAFT [[file:src/thesis/img/tex/hs-exec-frames-forward.tex][hs-exec-frames-forward.tex]] 
@@ -334,7 +377,7 @@ Beschrijf tevens wat een octree samen ligt
 [[file:src/thesis/content/hashed-shading/discussie.md][discussie.md]]
 
 
-** TODO Besluit
+** DRAFT Besluit
 [[file:src/thesis/content/besluit/chapter.json][chapter.json]]
 *** TODO Introductie
 [[file:src/thesis/content/besluit/introductie.md][introductie.md]]
@@ -345,6 +388,13 @@ Beschrijf tevens wat een octree samen ligt
 *** TODO Verder onderzoek
 [[file:src/thesis/content/besluit/verder-onderzoek.md][verder-onderzoek.md]]
 
+**** Images
+***** 
+
 
 ** TODO Referenties
 [[file:src/thesis/ref/reference.bib][reference.bib]]
+
+
+
+***** DRAFT  

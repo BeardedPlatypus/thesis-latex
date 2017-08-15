@@ -1,6 +1,6 @@
 In de voorgaande hoofdstukken zijn Tiled en Clustered Shading ge\"introduceerd.
-Het doel van deze lichttoekenningsalgoritmes is om voor elk fragment een set van
-relevante lichten te bepalen, om zo het aantal lichtberekeningen terug te 
+Het doel van deze lichttoekenningsalgoritmes is om voor elk fragment een verzameling van
+relevante lichtbronnen te bepalen, om zo het aantal lichtberekeningen terug te 
 brengen. In dit hoofdstuk wordt Hashed Shading als alternatief 
 lichttoekenningsalgoritme ge\"introduceerd. 
 
@@ -12,7 +12,7 @@ nog steeds een vergelijkbare versnelling en wordt het geheugengebruik beperkt do
 gebruik te maken van een hi\"erarchische onderverdeling van de ruimte van de \mbox{sc\`ene}.
 
 In de volgende secties zal eerst de achterliggende theorie besproken worden, 
-waarbij ingegaan wordt op de keuze de spatiale datastructuur, en
+waarbij ingegaan wordt op de keuze van de spatiale datastructuur, en
 hoe deze voorgesteld kan worden op de GPU. Vervolgens zal het het algoritme 
 behandeld worden. Hierna zal de effici\"entie en het geheugengebruik aan de hand
 van de \mbox{testsc\`enes} ge\"evalueerd worden. Als laatste zullen deze resultaten

@@ -14,7 +14,7 @@ Om de opgestelde datastructuren te kunnen hergebruiken tussen frames, dient de
 ruimteopdeling camera-onafhankelijk te zijn. Tevens dienen de datastructuren
 effici\"ent voorgesteld te kunnen worden in het geheugen van de grafische kaart.
 Er is gekozen voor een verbindingloze octree datastructuur die de lichten in de 
-\mbox{sc\`ene} beschrijft. Hiermee is het mogelijk om enerzijds de set van relevante
+\mbox{sc\`ene} beschrijft. Hiermee is het mogelijk om enerzijds de verzameling van relevante
 lichten te verkrijgen in slechts enkele textuuropvragen en anderzijds
 niet elk minimale knoopvolume expliciet voor te stellen door het gebruik van een
 hi\"erarchische structuur.

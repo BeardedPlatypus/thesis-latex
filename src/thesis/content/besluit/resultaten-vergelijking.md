@@ -1,4 +1,4 @@
-# Conclusie
+# Vergelijking van de resultaten 
 
 De hypothese gesteld aan het begin van deze thesis, is dat het mogelijk moet
 zijn om een lichttoekenninngsalgoritme te ontwerpen dat berekeningen van 

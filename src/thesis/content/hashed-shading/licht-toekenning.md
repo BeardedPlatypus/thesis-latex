@@ -7,14 +7,14 @@ Voor elke stap in de afdaling dient eerste de octree beschrijving opgehaald
 te worden uit de verbindingloze octree. Deze is gedefinieerd als
 
 \begin{align*}
-(\mathtt{is\_leaf}_i, \mathtt{is\_empty}_i) =& H_i\left[ \mathbf{k}_i  + \Phi_i\left[ \mathbf{k}_i \right] \mod \mathit{m}_i  \right] \\
-\mathbf{k}_i =& \lfloor*{\mathbf{p^\prime} / \mathit{s}_i}\rfloor
+(\mathtt{is leaf}_i, \mathtt{is empty}_i) =& H_i\left[ \mathbf{k}_i  + \Phi_i\left[ \mathbf{k}_i \right] \mod \mathit{m}_i  \right] \\
+\mathbf{k}_i =& \lfloor*{\mathbf{p^{\prime}} / \mathit{s}_i}\rfloor
 \end{align*}
 
-Hierbij is $\mathbf{k}_i$ de positie in laag $i$, $\mathbf{p^\prime}$ de positie
+Hierbij is $\mathbf{k}_i$ de positie in laag $i$, $\mathbf{p^{\prime}}$ de positie
 van fragment $\mathbf{p}$ ten opzichte van de octree oorsprong 
 $\mathbf{O}_\mathtt{octree}$ en $\mathit{s}_i$ de grootte van een knoop in laag
-$i$. De waardes $\mathtt{is\_leaf}$ en $\mathtt{is\_empty}$ beschrijven de 
+$i$. De waardes $\mathtt{is leaf}$ en $\mathtt{is empty}$ beschrijven de 
 structuur van de hashcluster behorende tot fragment $\mathbf{p}$ en de 
 hashclusters die behoren tot dezelfde ouder. Om de relevante waarde voor fragment 
 $\mathbf{p}$ te vinden dient eerst vastgesteld te worden tot welk kind
@@ -34,13 +34,13 @@ $$
 Als laatste kan de relevante bit met behulp van bitverschuivingen verkregen worden:
 
 \begin{minted}{glsl}
-# bit masking of k-th bit in n
+/* bit masking of k-th bit in n */
 int mask = 1 << k
 int masked_n = n & mask
 int bit = masked_n >> k
 \end{minted}
 
-Wanneer de waardes $\mathtt{is\_leaf}$ en $\mathtt{is\_empty}$ berekend zijn,
+Wanneer de waardes $\mathtt{is leaf}$ en $\mathtt{is empty}$ berekend zijn,
 zijn er 3 mogelijkheden:
 
 * De knoop in laag $i$ is een tak knoop, en de hashcluster wordt berekend 

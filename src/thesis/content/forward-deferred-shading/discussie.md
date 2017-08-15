@@ -52,7 +52,7 @@ implementatie. Het is onrealistisch om per transparantie laag een extra
 GBuffer bij te houden, gezien elke GBuffer een vergelijkbare geheugenvoetafdruk
 bezit. Binnen veel moderne game-engines wordt dit ondersteund door een aparte 
 Forward Shading renderstap uit te voeren voor de transparante objecten, nadat
-de kleuren van de ondoorzichtige objecten berekend zijn.
+de kleuren van de ondoorzichtige objecten berekend zijn\cite{olsson2011tiled}.
 
 ## Ondersteunen anti-aliasing
 

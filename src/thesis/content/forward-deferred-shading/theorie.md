@@ -4,14 +4,14 @@ De afhankelijkheid tussen geometrische complexiteit en de complexiteit van de
 belichtingsberekening werd al in de begin jaren van computergrafieken herkend 
 als probleem. De opsplitsing van visibiliteit en belichtingsberekeningen werd toen
 al voorgesteld. Zo werd in de scan-line polygon renderer van Watkins 
-(\cite{watkins1970real}) in de jaren 70 al bepaald welke oppervlakte het dichtst
+\cite{watkins1970real} in de jaren 70 al bepaald welke oppervlakte het dichtst
 bij de camera lag en slechts hiervoor de lichtberekening uitgevoerd. Andere 
 hardware en software-implementaties zijn tevens in de jaren 80 ge\"introduceerd\cite{deering1988triangle, fuchs1989pixel, perlin1985image, glassner1988algorithms}.
 Tebbs, Neumann, Eyles, Turk and Ellsworth\cite{tebbs1989parallel} geven een
 gedetailleerd overzicht van Deferred Shading in 1990.  
 
-Moderne Deferred Shading algoritmes maken veelal gebruik van GBuffers. Een GBuffer
-is een set van texturen ter grootte van het zichtvenster. In elke textuur wordt een
+Moderne Deferred Shading algoritmes maken veelal gebruik van GBuffers\cite{lauritzen2010deferred}. Een GBuffer
+is een verzameling van texturen ter grootte van het zichtvenster. In elke textuur wordt een
 waarde geassocieerd met een pixel opgeslagen. GBuffers waren oorspronkelijk ge\"introduceerd in de context 
 van het non-fotorealistisch renderen om visuele begrijpbaarheid te verbeteren\cite{saito1990comprehensible}.
 GBuffers lenen zich tevens goed om de data tussen  de visibiliteitsstap en de lichtberekeningsstap 
@@ -61,7 +61,7 @@ $$
 $l_{\mathit{k}}$ is, zoals beschreven in de definitie van licht.  
 
 Binnen Forward Shading wordt deze lichtberekening uitgevoerd in de fragmentshader. 
-Dit betekent dat voor elk geproduceerd fragment deze berekening uitgevoerd wordt
+Dit betekent, dat voor elk geproduceerd fragment deze berekening uitgevoerd wordt
 en dat alle informatie per fragment beschikbaar is. Pas 
 nadat de lichtberekening is uitgevoerd, wordt bekeken of een fragment 
 daadwerkelijk wordt opgeslagen of niet. Om deze berekening te ontkoppelen, moet de 
@@ -101,7 +101,7 @@ om de radiantie te berekenen.
 \input{./img/tex/fds-gbuffer.tex}
 
 Om het opslaan van de attributen die nodig zijn voor de lichtberekening te faciliteren wordt een datastructuur 
-gebruik die de *GBuffer* genoemd wordt. Dit is een object bestaande uit meerdere
+gebruik die de *GBuffer* genoemd wordt\cite{saito1990comprehensible}. Dit is een object bestaande uit meerdere
 texturen, elk verantwoordelijk voor een attribuut dat opgeslagen dient te worden
 in de geometriestap zodat deze beschikbaar is in de belichtingsstap. Een 
 voorbeeld van deze texturen zoals deze gebruikt worden in het computerspel 

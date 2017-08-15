@@ -30,7 +30,7 @@ Om het geheugenverbruik op de grafische kaart te reduceren, dient dezelfde
 octree voorstelling gemaakt te worden van de geometrie zoals gedaan is voor de
 lichten. Vervolgens kunnen alle lichtoctreeknopen die niet tevens geometrie 
 bevatten buiten beschouwing gelaten worden, gezien deze nooit opgevraagd zullen
-worden. Dit is ge\"illustreerd in figuur \ref{fig:vo-geometrie} voor een simpele
+worden. Dit is ge\"illustreerd in Figuur \ref{fig:vo-geometrie} voor een simpele
 \mbox{sc\`ene} bestaande uit twee objecten en een enkel licht.
 
 Een bijkomend voordeel van een dergelijke implementatie is dat een kleinere 
@@ -42,15 +42,15 @@ tijdens het opstellen van de verbindingloze octree.
 Als laatste optimalisatie is het mogelijk om de hi\"erarchische structuur van 
 de octree uit te buiten, om zo het aantal knopen verder te reduceren.
 Gezien volumes die geen geometrie data bevatten nooit opgevraagd zullen worden,
-maakt de set lichten geassocieerd met een dergelijke knoop niet uit. Dit betekent
-dat voor de opbouw van de verbindingloze octree gesteld kan worden dat de set van
+maakt de verzameling lichten geassocieerd met een dergelijke knoop niet uit. Dit betekent
+dat voor de opbouw van de verbindingloze octree gesteld kan worden dat de verzameling van
 lichten geassocieerd met een dergelijke knoop gelijk is aan de omliggende knopen,
 zonder dat dit visuele artefacten introduceert. Op basis van dit inzicht kan de 
 eis voor het samennemen van acht bladknopen tot een enkele bladknoop in een hoger
 liggende laag versoepelt worden. In de huidige implementatie geldt dat alle acht
-knopen exact dezelfde set van lichten dienen te hebben, voordat deze samengenomen
+knopen exact dezelfde verzameling van lichten dienen te hebben, voordat deze samengenomen
 kunnen worden. In de voorgestelde implementatie kan dit worden versoepeld tot de 
-eis dat de subset van de acht knopen die geometrie bevat, de zelfde set van 
+eis dat de deelverzameling van de acht knopen die geometrie bevat, de zelfde verzamelingen van 
 lichten bevat. In dit geval zullen meer knopen samengenomen kunnen worden, dan dat
 het geval is voor de huidige implementatie. Dit leidt ertoe dat er in totaal
 minder knopen bijgehouden dienen te worden.
@@ -67,23 +67,23 @@ zou moeten benaderen.
 
 Een tweede inzicht waar Clustered Shading gebruik van maakt is dat fragmenten
 slechts gegenereerd worden binnen het zichtfrustum. Hierdoor hoeft slechts de
-beschrijving van de relevante lichten voor deze subset van de ruimte aanwezig te
+beschrijving van de relevante lichten voor deze deelverzameling van de ruimte aanwezig te
 zijn in het geheugen van de grafische kaart. Binnen Clustered Shading wordt 
 slechts een beschrijving van het zichtfrustum gemaakt. Dit introduceert echter
 de camera-afhankelijkheid die Hashed Shading verhelpt.
 
 Om toch het geheugenverbruik te reduceren kan de \mbox{sc\`ene}-ruimte in stukken worden 
-onderverdeeld, zodanig dat slechts een kleine set van stukken aanwezig hoeft te
-zijn in het geheugen. Indien deze set een kleiner volume beschrijft dan de 
+onderverdeeld, zodanig dat slechts een kleine verzameling van stukken aanwezig hoeft te
+zijn in het geheugen. Indien deze verzameling een kleiner volume beschrijft dan de 
 gehele \mbox{sc\`ene}, leidt dit tot een afname van geheugenverbruik. 
 
 In de meest simpele implementatie zijn hier $2^3$ stukken nodig, indien de lengte 
 van de stukken zodanig wordt gekozen dat de omsluitende kubus (Axis-Aligned Bounding Box) 
 van het zichtfrustum  binnen het volume van de 8 stukken valt, zoals weergegeven
-in figuur \ref{fig:vo-subsets:2}. In veel applicaties zullen rotaties van de camera
+in Figuur \ref{fig:vo-subsets:2}. In veel applicaties zullen rotaties van de camera
 veel voorkomen. Dit zal er toe leiden dat de camerarotaties verantwoordelijk zullen
-zijn voor de meeste uitwisseling van texturen. Indien een set van $3^3$ stukken
-gebruikt wordt, zoals weergegeven in figuur \ref{fig:vo-subsets:3}, zullen slechts
+zijn voor de meeste uitwisseling van texturen. Indien een verzameling van $3^3$ stukken
+gebruikt wordt, zoals weergegeven in Figuur \ref{fig:vo-subsets:3}, zullen slechts
 translaties van het camerapunt leiden tot veranderingen in de texturen. Hiermee
 kan de geheugenbandbreedte verlaagd worden ten koste van het geheugenverbruik.
 Als laatste kan de uitwisseling van texturen beperkt worden door de posities van inladen
@@ -102,7 +102,7 @@ de diepste lagen van de verbindingloze octree. Gezien alle knopen in een laag
 expliciet in dezelfde textuur worden opgeslagen, is er geen horde om slechts
 de diepste lagen onder te verdelen en apart in te laden. Hierdoor hoeft de huidige
 implementatie slechts minimaal aangepast te worden, en blijft het textuurverbruik
-kleiner. Deze oplossing is visueel weergegeven in figuur \ref{fig:vo-textures}.
+kleiner. Deze oplossing is visueel weergegeven in Figuur \ref{fig:vo-textures}.
 Om een dergelijke structuur mogelijk te maken dient voor deze diepste knopen
 een extra referentie bijgehouden te worden, zodat, wanneer de opsplitsing 
 van lagen in verschillende stukken wordt bereikt, er nagegaan kan worden, in 
@@ -189,8 +189,8 @@ worden door de geassocieerde textuur aan te passen.
 \input{./tbl/dl-operaties.tex}
 
 Met behulp van deze observatie kan elk mogelijke aanpassing van de octree gemodelleerd 
-worden. Het toevoegen van elementen is weergegeven in tabel \ref{tbl:dl-operaties:add}. Het verwijderen van
-elementen is weergegeven in tabel \ref{tbl:dl-operaties:remove}. In deze tabellen zijn de volgende operaties
+worden. Het toevoegen van elementen is weergegeven in Tabel \ref{tbl:dl-operaties:add}. Het verwijderen van
+elementen is weergegeven in Tabel \ref{tbl:dl-operaties:remove}. In deze tabellen zijn de volgende operaties
 te onderscheiden.
 
 Toevoegen van een knoop $\mathbf{k}$ in de lichtbeschrijving spatiale hashfunctie $H$ \mbox{\hfill}
@@ -214,10 +214,10 @@ Toevoegen van opgesplitste knopen in de octree spatiale hashfunctie $H$ \hfill
 Aanpassingen van de lichtbeschrijving spatiale hashfunctie \hfill
 
   ~ Indien een lichtindex wordt toegevoegd aan een knoop dient deze te worden toegevoegd 
-    aan de set van indices geassocieerd met deze knoop in de lichtindexlijst. In het 
+    aan de verzameling van indices geassocieerd met deze knoop in de lichtindexlijst. In het 
     geval dat een lichtindex verwijderd wordt, dient deze uit de lichtindexlijst
     verwijderd te worden. Vervolgens dient de textuur zodanig aangepast te worden dat alle 
-    knopen opnieuw wijzen naar de correcte subset van de lichtindexlijst.
+    knopen opnieuw wijzen naar de correcte deelverzameling van de lichtindexlijst.
     
 Aanpassing van de octreebeschrijving spatialehashfunctie \hfill
 
@@ -245,13 +245,13 @@ transformaties ondergaan. Voor puntlichten kunnen vijf transformaties ge\"identi
 * Het verwijderen van een puntlicht.
 
 Rotatie heeft geen invloed op puntlichten en kan daarom buiten beschouwing gelaten worden.
-Elk van deze transformaties is ge\"illustreerd in figuur \ref{fig:dl-transformaties}. Hierbij is het toevoegen
+Elk van deze transformaties is ge\"illustreerd in Figuur \ref{fig:dl-transformaties}. Hierbij is het toevoegen
 van de index geassocieerd met het licht aan een knoop weergegeven in groen, en het verwijderen
 van een index uit een knoop weergegeven in rood.
 
 Om vervolgens de verbindingloze octree aan te passen dienen de volgende stappen uitgevoerd worden:
 
-1. Voor alle dynamische lichten dient de set van toevoegingen en verwijderingen opgesteld te worden.
+1. Voor alle dynamische lichten dient de verzameling van toevoegingen en verwijderingen opgesteld te worden.
 2. Alle verwijderingen en toevoegingen per knoop dienen samengevoegd te worden.
 3. De aanpassingen aan de verbindingloze octree dienen te worden opgesteld aan de 
    hand van de eerder opgestelde operaties. Hierbij wordt, indien nodig, ook 
@@ -298,7 +298,16 @@ Ondanks al deze optimalisaties zal de ondersteuning voor dynamische lichten
 altijd extra kosten met zich meebrengen binnen Hashed Shading. het doel van
 de voorgestelde strategie is om deze kosten zoveel mogelijk te beperken
 waardoor lichtmanagement en de lichtberekeningen uitgevoerd kunnen worden binnen
-een real-time applicatie.
+een realtime applicatie. 
+
+In dit voorstel is de aanname gemaakt dat de herberekening van spatiale hashfuncties
+voor zal komen ten gevolge van de veranderingen van lichten binnen de \mbox{sc\`ene}.
+Verder onderzoek zal moeten uitwijzen hoe vaak een dergelijke herberekening zal voorkomen.
+Hierbij zou de invloed van de grootte van de hashtabellen geassocieerd met de lagen van de verbindingloze
+octree op het aantal herberekeningen ge\"evalueerd kunnen worden.
+Indien deze ruimte groter wordt gemaakt zal er meer lege ruimte ge\"introduceerd worden.
+Dit leidt tot een groter geheugengebruik, maar zal het aantal herberekeningen reduceren, 
+doordat nieuw ge\"introduceerde knopen relatief vaker op een lege adres zullen vallen.
     
 ## Andere onderzoeksrichtingen 
 
