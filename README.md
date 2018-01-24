@@ -19,7 +19,7 @@ Shading, is introduced.
 
 The thesis text itself is written in dutch, if you prefer an English text, or 
 just require a briefer explanation, I recommend reading the accompanying paper,
-which can be found [here](https://github.com/BeardedPlatypus/thesis-paper)
+which can be found [here](https://github.com/BeardedPlatypus/thesis-paper).
 
 The thesis is written in markdown and compiled first into LaTeX with the help
 of [Pandoc](http://pandoc.org). If you are interested in how this is done, the
